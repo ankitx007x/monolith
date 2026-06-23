@@ -68,83 +68,93 @@
         /* Main Container */
         main {
             max-width: 800px;
-            margin: 80px auto;
+            margin: 120px auto;
         }
 
-        /* Hero Section */
-        .hero {
+        /* Hero / Combined Header Section */
+        .hero-banner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 20px;
             margin-bottom: 60px;
         }
 
-        h1 {
-            font-size: 3rem;
-            font-weight: 400;
-            letter-spacing: -1px;
-            margin-bottom: 15px;
+        @media (min-width: 650px) {
+            .hero-banner {
+                flex-direction: row;
+                gap: 30px;
+            }
         }
 
-        .tagline {
+        h1.main-title {
+            font-size: 3.5rem;
+            font-weight: 400;
+            letter-spacing: -1px;
+            line-height: 1;
+        }
+
+        .dirty-job-quote {
             font-family: var(--font-mono);
             color: var(--accent-color);
             font-style: italic;
             font-size: 1rem;
-            border-left: 2px solid var(--border-color);
-            padding-left: 15px;
+            max-width: 300px;
+            text-align: center;
         }
 
-        /* Content / Dynamic Notes Grid */
-        .section-title {
-            font-family: var(--font-mono);
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-            color: var(--accent-color);
-            margin-bottom: 20px;
-        }
-
-        .notes-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-        }
-
-        @media (min-width: 600px) {
-            .notes-grid {
-                grid-template-columns: 1fr 1fr;
+        @media (min-width: 650px) {
+            .dirty-job-quote {
+                border-left: 2px solid var(--border-color);
+                padding-left: 30px;
+                text-align: left;
             }
         }
 
-        /* Interactive Note Card Layout */
-        .note-card {
-            display: block;
-            text-decoration: none;
-            color: var(--text-color);
-            border: 1px solid var(--border-color);
-            padding: 20px;
-            border-radius: 4px;
-            transition: border-color 0.2s ease;
+        /* Sub-section & CTA styling */
+        .cta-section {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 1px dashed var(--border-color);
         }
 
-        .note-card:hover {
-            border-color: var(--hover-color);
-        }
-
-        .note-card h3 {
-            font-size: 1.1rem;
-            font-weight: 500;
-            margin-bottom: 8px;
-            text-transform: capitalize; /* Clean up file name casing */
-        }
-
-        .note-card p {
+        .house-wife-quote {
+            font-family: var(--font-mono);
             color: var(--accent-color);
-            font-size: 0.9rem;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            letter-spacing: -0.5px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            font-family: var(--font-mono);
+            color: var(--bg-color);
+            background-color: var(--text-color);
+            text-decoration: none;
+            padding: 12px 24px;
+            font-size: 0.95rem;
+            font-weight: bold;
+            border-radius: 4px;
+            border: 1px solid var(--text-color);
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background-color: var(--bg-color);
+            color: var(--hover-color);
+            border-color: var(--hover-color);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
         }
 
         /* Footer */
         footer {
             max-width: 800px;
-            margin: 100px auto 40px auto;
+            margin: 120px auto 40px auto;
             text-align: center;
             font-family: var(--font-mono);
             font-size: 0.8rem;
@@ -166,84 +176,20 @@
     </nav>
 
     <main>
-        <section class="hero">
-            <h1>MONOLITH</h1>
-            <p class="tagline">"Is it possible to know too much?" — Johnny, Naked (1993)</p>
+        <section class="hero-banner">
+            <h1 class="main-title">MONOLITH</h1>
+            <p class="dirty-job-quote">"It's a dirty job, but somebody's gotta do it."</p>
         </section>
 
-        <section class="content">
-            <h2 class="section-title">Recent Entries</h2>
-            
-            <div class="notes-grid" id="recent-entries-container">
-                <p style="color: var(--accent-color); font-family: var(--font-mono);">Scanning archives...</p>
-            </div>
+        <section class="cta-section">
+            <p class="house-wife-quote">This is not my beautiful house. This is not my beautiful wife.</p>
+            <a href="#" class="cta-button">Let's blow this thing and go home!</a>
         </section>
     </main>
 
     <footer>
         <p>&copy; 2026 MONOLITH. Built to persist.</p>
     </footer>
-
-    <script>
-        const USERNAME = 'ankitx007x';
-        const REPO = 'monolith';
-        const PATH = 'archives'; // Folder containing your post files
-
-        async function fetchRecentEntries() {
-            const container = document.getElementById('recent-entries-container');
-            
-            try {
-                // Call GitHub's API to scan the contents of the /archives folder
-                const response = await fetch(`https://api.github.com/repos/${USERNAME}/${REPO}/contents/${PATH}`);
-                
-                if (!response.ok) throw new Error('API request failed');
-                
-                const files = await response.json();
-                
-                // Filter out folders and common directory files like index.html or README
-                const posts = files
-                    .filter(file => file.type === 'file' && file.name !== 'index.html' && file.name !== 'README.md')
-                    .reverse()    // Put the newest files at the beginning
-                    .slice(0, 4); // Limit front page view to the 4 newest entries
-
-                if (posts.length === 0) {
-                    container.innerHTML = '<p style="color: var(--accent-color); font-family: var(--font-mono);">No active log entries found.</p>';
-                    return;
-                }
-
-                // Empty out the 'Scanning...' text placeholder
-                container.innerHTML = '';
-
-                // Build code blocks structurally for each discovered file
-                posts.forEach((post, index) => {
-                    // Strips extensions (.html) and changes underscores/dashes to spaces for a clean title
-                    let displayTitle = post.name
-                        .replace(/\.[^/.]+$/, "") 
-                        .replace(/[-_]/g, " ");   
-                    
-                    const card = document.createElement('a');
-                    card.href = `https://${USERNAME}.github.io/${REPO}/${PATH}/${post.name}`;
-                    card.className = 'note-card';
-                    
-                    // Creates numbering sequence padding single digits with leading zeros (e.g. [01])
-                    const entryNumber = String(index + 1).padStart(2, '0');
-                    
-                    card.innerHTML = `
-                        <h3>[${entryNumber}] ${displayTitle}</h3>
-                        <p>View structural logs and archival documentation for this entry.</p>
-                    `;
-                    
-                    container.appendChild(card);
-                });
-
-            } catch (error) {
-                console.error('Error auto-generating blog feed:', error);
-                container.innerHTML = '<p style="color: var(--accent-color); font-family: var(--font-mono);">Failed to sync with structural data tree.</p>';
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', fetchRecentEntries);
-    </script>
 
 </body>
 </html>
