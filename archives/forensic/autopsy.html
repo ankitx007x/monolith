@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monolith — Autopsy Notes</title>
+    <title>Monolith — Medicolegal Autopsy & Artifacts</title>
     <style>
         :root {
             --bg-color: #0a0a0a;
@@ -28,7 +28,6 @@
             padding: 0 20px;
         }
 
-        /* Navigation */
         nav {
             display: flex;
             justify-content: space-between;
@@ -65,13 +64,11 @@
             color: var(--hover-color);
         }
 
-        /* Main Container */
         main {
             max-width: 800px;
             margin: 80px auto;
         }
 
-        /* Header */
         .page-header {
             margin-bottom: 60px;
         }
@@ -94,17 +91,16 @@
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             font-weight: 400;
             letter-spacing: -1px;
             text-transform: uppercase;
             margin-bottom: 10px;
         }
 
-        /* Typography & Layout elements */
         h2 {
             font-family: var(--font-mono);
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 400;
             text-transform: uppercase;
             color: var(--hover-color);
@@ -114,61 +110,64 @@
         }
 
         h3 {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 600;
             color: #dddddd;
             margin: 25px 0 10px 0;
+            text-transform: uppercase;
+            font-family: var(--font-mono);
+            letter-spacing: 0.5px;
         }
 
         p {
             color: #cccccc;
             margin-bottom: 15px;
-            font-size: 1rem;
+            font-size: 0.95rem;
         }
 
         ul, ol {
             margin-bottom: 20px;
             padding-left: 25px;
             color: #cccccc;
+            font-size: 0.95rem;
         }
 
         li {
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
-        /* Code/Mono block expressions */
         .highlight-box {
             background-color: #111111;
             border: 1px solid var(--border-color);
             padding: 20px;
             border-radius: 4px;
             font-family: var(--font-mono);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: #d4d4d4;
             margin: 20px 0;
+            line-height: 1.5;
         }
 
-        /* Tables styling */
         table {
             width: 100%;
             border-collapse: collapse;
             margin: 30px 0;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             text-align: left;
         }
 
         th {
             font-family: var(--font-mono);
             text-transform: uppercase;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             letter-spacing: 1px;
             color: var(--accent-color);
             border-bottom: 2px solid var(--border-color);
-            padding: 12px;
+            padding: 10px;
         }
 
         td {
-            padding: 12px;
+            padding: 10px;
             border-bottom: 1px solid var(--border-color);
             color: #cccccc;
             vertical-align: top;
@@ -184,10 +183,15 @@
             border-left: 3px solid #cc9900;
             padding: 15px;
             margin: 25px 0;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
+            color: #e5e5e5;
+        }
+        
+        .viva-note strong {
+            color: #fff;
+            font-family: var(--font-mono);
         }
 
-        /* Footer */
         footer {
             max-width: 800px;
             margin: 100px auto 40px auto;
@@ -217,140 +221,207 @@
                 <a href="https://ankitx007x.github.io/monolith/archives">Archives</a> / 
                 <a href="https://ankitx007x.github.io/monolith/archives/forensic/index.html">Forensic</a> / Autopsy
             </div>
-            <h1>Post-Mortem Protocols</h1>
+            <h1>Medicolegal Autopsy & Artifacts</h1>
+            <p style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-color); margin-top: 5px;">Fast Track Clinical Science — MBBS 3rd Year Protocol</p>
         </section>
 
         <!-- CORE CONCEPTS -->
-        <h2>01. Core Concepts & Definitions</h2>
+        <h2>01. Classifications & Core Definitions</h2>
         <div class="highlight-box">
-            AUTOPSY: A systematic post-mortem examination of a dead body to determine the cause of death, identify disease or injury, and study pathological changes.
-        </div>
-        <div class="highlight-box">
-            NEGATIVE AUTOPSY: A post-mortem examination in which no definite cause of death can be determined, even after a complete and thorough autopsy, including histopathology, toxicology, and microbiology.
+            <strong>AUTOPSY (autos = self, opis = view):</strong> To see for oneself. Investigate dissection of a dead body[span_1](start_span)[span_1](end_span).<br><br>
+            <strong>NEGATIVE AUTOPSY:</strong> When gross and microscopic examination, toxicological analysis, and laboratory investigations fail to reveal a cause of death (occurs in 2-5% of cases)[span_2](start_span)[span_2](end_span).
         </div>
 
-        <h3>Primary Objectives</h3>
-        <ul>
-            <li>Establish positive identification of the deceased.</li>
-            <li>Determine the cause, manner (natural, accidental, suicidal, homicidal), and time since death.</li>
-            <li>Demonstrate, measure, and record all external and internal structural malformations or traumatic defects.</li>
-            <li>Collect viscera and fluid samples for histological, toxicological, and microbiological screening.</li>
-            <li>In newborns: determine proof of live birth and viability.</li>
-        </ul>
-
-        <!-- AUTOPSY TYPES -->
-        <h2>02. Classification of Autopsies</h2>
         <table>
             <thead>
                 <tr>
                     <th>Feature</th>
-                    <th>Hospital (Clinical)</th>
-                    <th>Medicolegal (Forensic)</th>
-                    <th>Anatomical</th>
+                    <th>Medicolegal (Forensic) Autopsy</th>
+                    <th>Clinical (Academic) Autopsy</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td><strong>Purpose</strong></td>
-                    <td>Study disease processes, confirm clinical diagnosis.</td>
-                    <td>Legal investigation of suspicious/unnatural death.</td>
-                    <td>Medical student education and training.</td>
-                </tr>
-                <tr>
                     <td><strong>Consent</strong></td>
-                    <td>Mandatory from relatives.</td>
-                    <td><strong>Not required</strong> (Legal mandate).</td>
-                    <td>Prior legal consent (Body donation).</td>
+                    <td>No consent required[span_3](start_span)[span_3](end_span).</td>
+                    <td>Mandatory consent of relatives[span_4](start_span)[span_4](end_span).</td>
                 </tr>
                 <tr>
-                    <td><strong>Authorized By</strong></td>
-                    <td>Hospital Medical Authorities.</td>
-                    <td>Police / Magistrate / CDO.</td>
-                    <td>Anatomy Department / Institution.</td>
+                    <td><strong>Requisition</strong></td>
+                    <td>Mandatory from legal authority (Police Sub-Inspector / Magistrate)[span_5](start_span)[span_5](end_span).</td>
+                    <td>No requisition required; requested by treating physician[span_6](start_span)[span_6](end_span).</td>
                 </tr>
                 <tr>
-                    <td><strong>Setting</strong></td>
-                    <td>Hospital Pathology Lab.</td>
-                    <td>Authorized Government Mortuary.</td>
-                    <td>Medical College Dissection Hall.</td>
+                    <td><strong>Procedure</strong></td>
+                    <td>Always complete[span_7](start_span)[span_7](end_span).</td>
+                    <td>Can be complete or partial (limited by consent)[span_8](start_span)[span_8](end_span).</td>
+                </tr>
+                <tr>
+                    <td><strong>Primary Aim</strong></td>
+                    <td>Establish cause, manner, mechanism of death, time since death, and collect legal evidence[span_9](start_span)[span_9](end_span).</td>
+                    <td>Confirm clinical diagnosis, study underlying disease pathology, or research[span_10](start_span)[span_10](end_span).</td>
                 </tr>
             </tbody>
         </table>
 
-        <!-- RULES IN NEPAL -->
-        <h2>03. Legal Framework & Rules (Nepal)</h2>
+        <h3>Medicolegal Indication Criteria</h3>
+        <p>Autopsies are legally mandated under state law for sudden, suspicious, or unnatural scenarios[span_11](start_span)[span_11](end_span):</p>
         <ul>
-            <li><strong>Authorization:</strong> Conducted strictly under official written requisition from the police or Chief District Officer (CDO).</li>
-            <li><strong>Location:</strong> Performed only in authorized government institutions/mortuaries. Never in private rooms.</li>
-            <li><strong>Practitioner:</strong> Executed by a registered medical practitioner trained in forensic medicine.</li>
-            <li><strong>Daylight Rule:</strong> Examination must preferably be performed in natural daylight. If body arrives at night, conduct a preliminary surface exam (rigor, lividity) and defer internal cuts until dawn.</li>
-            <li><strong>Data Integrity:</strong> Erasures or overwriting in the protocol are illegal. Corrections must be struck through with a single line and initialed.</li>
-            <li><strong>Report Policy:</strong> The post-mortem protocol is a confidential legal document submitted straight to investigating authorities; it is <strong>never</strong> handed over directly to relatives.</li>
+            <li>Accidents (Traffic, machinery, falls, animal attacks)[span_12](start_span)[span_12](end_span).</li>
+            <li>Assaults, sexual offences, criminal abortions[span_13](start_span)[span_13](end_span).</li>
+            <li>Burns, scalds, electrical injuries, poisoning, and substance intoxication[span_14](start_span)[span_14](end_span).</li>
+            <li>Comatose patients, cases brought in terminal states, or cases brought dead (Brought Dead / BID)[span_15](start_span)[span_15](end_span).</li>
+            <li>Suicide, homicide, infanticide, or sudden unexpected deaths[span_16](start_span)[span_16](end_span).</li>
+            <li>Deaths during or under anesthesia, drug mishaps, or frankly criminal deaths[span_17](start_span)[span_17](end_span).</li>
         </ul>
 
-        <!-- SKIN INCISIONS -->
-        <h2>04. Surgical Incisions (Viva Essentials)</h2>
+        <!-- RULES IN NEPAL -->
+        <h2>02. Regulatory Rules for Autopsies in Nepal</h2>
+        <ul>
+            <li><strong>Labeling:</strong> Bodies must be labeled immediately upon arrival at the mortuary facility[span_18](start_span)[span_18](end_span).</li>
+            <li><strong>Jurisdiction:</strong> Conducted strictly under an official written order from the police or Chief District Officer (CDO in Nepal)[span_19](start_span)[span_19](end_span).</li>
+            <li><strong>Location & Practitioner:</strong> Performed only in authorized government hospitals by a registered medical practitioner trained in forensic medicine. Private room exams are strictly forbidden[span_20](start_span)[span_20](end_span).</li>
+            <li><strong>Daylight Rule:</strong> Examination must be done in natural daylight whenever possible[span_21](start_span)[span_21](end_span). If received at night, perform a preliminary exam (note external state, temperature, rigor, lividity) and defer internal dissection until morning[span_22](start_span)[span_22](end_span).</li>
+            <li><strong>Document Integrity:</strong> No text erasures or alterations are allowed on the protocol. Errors must be initialed and cleanly struck through[span_23](start_span)[span_23](end_span). Both positive and negative findings must be logged[span_24](start_span)[span_24](end_span).</li>
+            <li><strong>Report Policy:</strong> The finalized report is a confidential legal document submitted directly to investigating officers; it is never handed over to the private party or relatives[span_25](start_span)[span_25](end_span).</li>
+        </ul>
+
+        <!-- PRIMARY SKIN INCISIONS -->
+        <h2>03. Surgical Skin Incisions</h2>
         
         <h3>I-Shaped Incision</h3>
-        <p>Runs from the chin down the midline to the symphysis pubis. <strong>Crucial adjustment:</strong> Deviates to the left or right around the umbilicus to bypass its dense, fibrous structure, which compromises secure post-exam suturing. Used for standard cases.</p>
+        <p>The swiftest and most preferred type of incision[span_26](start_span)[span_26](end_span). Extends from the chin straight down the midline to just above the umbilicus, deviates laterally around the left or right side of the umbilicus, and extends down to the symphysis pubis[span_27](start_span)[span_27](end_span).</p>
+        <div class="viva-note">
+            <strong>Viva Rationale:</strong> The umbilicus is strictly bypassed because its dense fibrous tissue is exceptionally difficult to cleanly penetrate with standard surgical needles during post-exam reconstruction[span_28](start_span)[span_28](end_span).
+        </div>
 
         <h3>Y-Shaped Incision</h3>
-        <p>Begins at both acromion processes, sweeping under the breasts to meet at the xiphoid process before continuing down the midline to the pubis. Selected when chest wall cosmetic preservation is required for viewing or custom arrangements.</p>
+        <p>Begins close to both acromion processes, sweeps down symmetrically beneath the breasts to the xiphoid process, and continues down the midline to the symphysis pubis[span_29](start_span)[span_29](end_span). Chosen to preserve cosmetic appearance of the anterior chest wall for viewing or specific religious customs (e.g., coffin funerals)[span_30](start_span)[span_30](end_span).</p>
 
         <h3>Modified Y-Shaped Incision</h3>
-        <p>Commences at the suprasternal notch, runs down to the pubis, with lateral incisions extending behind both ears over the neck. <strong>Mandatory for hanging and strangulation cases</strong> to afford bloodless dissection exposure of delicate neck cartilage and vascular structures.</p>
+        <p>Begins at the suprasternal notch, runs down to the pubis, with superior extensions starting from the supraclavicular notches, passing over the center of the clavicles, and upward over the neck behind the ears[span_31](start_span)[span_31](end_span). </p>
+        <div class="viva-note">
+            <strong>Mandatory for Hanging & Strangulation Cases:</strong> Allows the neck vessels to drain empty first, creating a completely dry, bloodless field during deep neck structure dissection[span_32](start_span)[span_32](end_span). This prevents blood artifacts from masking crucial airway or ligature patterns[span_33](start_span)[span_33](end_span).
+        </div>
 
-        <!-- SYSTEMATIC DISSECTION -->
-        <h2>05. Internal Visceral Protocols</h2>
-        
-        <h3>Cardiovascular Dissection</h3>
+        <!-- CAVITY DISSECTION PROTOCOLS -->
+        <h2>04. Internal Dissection Protocols</h2>
+
+        <h3>Cranial Cavity (Skull & Brain)</h3>
         <ol>
-            <li>Assess the pericardial sac <em>in situ</em> for volumetric fluid shifts (hemopericardium/tamponade, purulent exudate).</li>
-            <li>Open chambers strictly in the direction of systemic blood flow: <strong>Right Atrium &rarr; Right Ventricle &rarr; Pulmonary Artery &rarr; Left Atrium &rarr; Left Ventricle &rarr; Aorta</strong>.</li>
-            <li>Document ventricular wall dimensions (checking for left-sided concentric hypertrophy) and map coronary artery cross-sections for atherosclerotic blocks.</li>
+            <li><strong>Positioning:</strong> Place a wooden block beneath the shoulders to extend the neck, securing the head inside a semicircular groove rest[span_34](start_span)[span_34](end_span).</li>
+            <li><strong>Scalp Incision:</strong> Run a coronal intermastoidal incision starting behind one mastoid process, continuing over the vertex to the opposite ear[span_35](start_span)[span_35](end_span). Reflect the scalp flap forward to the supraciliary ridges and backward past the occipital protuberance[span_36](start_span)[span_36](end_span).</li>
+            <li><strong>Vault Removal:</strong> Cut the skull cap with a bone saw along a slightly V-shaped track so that it cleanly locks back into position during body reconstruction[span_37](start_span)[span_37](end_span).</li>
+            <li><strong>Dura and Brain Extraction:</strong> Examine the intact dura for extra/subdural clots[span_38](start_span)[span_38](end_span). Open the superior longitudinal sinus to rule out antemortem thrombi[span_39](start_span)[span_39](end_span). Cut optic nerves, reflect tentorium cerebelli, sever the spinal cord as low as possible through the foramen magnum, and carefully support and extract the brain[span_40](start_span)[span_40](end_span).</li>
+            <li><strong>Brain Sectioning:</strong> Slice the brain into two symmetric halves through the corpus callosum and brainstem[span_41](start_span)[span_41](end_span). Cut serial transverse sections 1 cm apart from the frontal lobe back to the occiput to screen deep structures[span_42](start_span)[span_42](end_span).</li>
+        </ol>
+
+        <h3>Visceral Removal Techniques</h3>
+        <ul>
+            <li><strong>Virchow’s Technique:</strong> Organs are removed one by one (Cranial &rarr; Thoracic &rarr; Cervical &rarr; Abdominal). Anatomico-pathological structural relationships are lost[span_43](start_span)[span_43](end_span).</li>
+            <li><strong>Rokitansky’s Technique:</strong> In-situ dissection followed by en-block organ removal. Preferred for highly infectious exposures (e.g., HIV, Hepatitis B) and is the standard method for infants[span_44](start_span)[span_44](end_span).</li>
+            <li><strong>Letulle’s Technique:</strong> Cervical, thoracic, abdominal, and pelvic visceral systems are removed entirely en masse, keeping all anatomical attachments fully intact as a single block[span_45](start_span)[span_45](end_span).</li>
+            <li><strong>Ghon’s Technique:</strong> Organs are extracted as localized, specialized organ blocks (e.g., Cervico-thoraco-abdominal block vs. separate neural block)[span_46](start_span)[span_46](end_span).</li>
+        </ul>
+
+        <h3>Cardiovascular System Protocol</h3>
+        <p>Dissection requires precise assessment of three primary components: coronary patency, chamber parameters, and myocardial structural integrity[span_47](start_span)[span_47](end_span).</p>
+        <ol>
+            <li>Perform serial cross-sections 2–3 mm apart along the entire course of the major coronary vessels using a scalpel to track patency or thrombi[span_48](start_span)[span_48](end_span).</li>
+            <li>Open heart chambers using the inflow-outflow method with an enterotome[span_49](start_span)[span_49](end_span).</li>
+            <li>Cut the right atrium between the vena cavae, inspect the appendage for thrombi, pass through the tricuspid valve into the right ventricle, and extend out parallel to the interventricular septum into the pulmonary trunk[span_50](start_span)[span_50](end_span).</li>
+            <li>Open the left atrium along its lateral wall, extend through the mitral valve to the left ventricular apex, and cut upwards along the septum into the aortic valve[span_51](start_span)[span_51](end_span). Measure valve circumferences using graduated cones before making incisions[span_52](start_span)[span_52](end_span).</li>
+            <li>Log wall thickness profiles, remove all clots, weigh the heart, and slice the myocardium parallel to the epicardial surface to expose hidden infarcts or deep fibrosis[span_53](start_span)[span_53](end_span).</li>
         </ol>
 
         <div class="viva-note">
-            <strong>Viva Differentiation Point:</strong><br>
-            • <em>Antemortem Thrombus:</em> Firm, friable, dry, stuck tightly to endothelial walls (Lines of Zahn).<br>
-            • <em>Postmortem Clot:</em> Elastic, non-adherent, glistening, showing classic "chicken-fat" upper layers and heavy sedimented "currant-jelly" bases.
+            <strong>Viva Distinction: Thrombi vs. Clots</strong><br>
+            • <strong>Antemortem Thrombus:</strong> Dark red, firm, friable, and strictly attached to the vessel endothelial wall. Characterized by alternate microscopic fibrin/platelet bands (Lines of Zahn)[span_54](start_span)[span_54](end_span).<br>
+            • <strong>Postmortem Clot:</strong> Moist, smooth, shiny, rubbery, and completely unattached[span_55](start_span)[span_55](end_span). May show uniform "Red Currant Jelly" configurations or sedimented "Chicken Fat" layers (bright yellow plasma/serum layered cleanly over settled red cell bases)[span_56](start_span)[span_56](end_span).
         </div>
 
-        <h3>Cranial Cavity Protocol</h3>
-        <ol>
-            <li>Run a coronal incision from ear to ear across the vertex. Reflect the scalp anteriorly over the supraorbital ridges and posteriorly past the occipital protuberance.</li>
-            <li>Saw the skull vault along a circular track clear of the supraorbital rims. Lift the calvarium flap to scrutinize the dura mater for signs of extra/subdural hematomas.</li>
-            <li>Sever cranial nerve roots cleanly from front to back, ease the brain out gently, and slice coronally through cerebral tissue to visualize intraventricular or basal ganglia bleeds.</li>
-        </ol>
-
-        <!-- CLINICAL APPLIED FORENSICS -->
-        <h2>06. Applied Forensic Scenarios (Exam Case Studies)</h2>
-
-        <h3>Case A: Obstructed Labor (Maternal & Fetal Demise)</h3>
-        <p><strong>Clinical Scenario:</strong> A 22-year-old female presenting with full-term obstructed labor; both mother and child found dead.</p>
+        <!-- SPECIAL APPLIED CASE STUDY -->
+        <h2>05. Applied Forensic Scenario (High-Yield Case)</h2>
+        <h3>Case: Full-Term Obstructed Labor (Maternal & Fetal Demise)</h3>
         
         <div class="highlight-box">
-            <strong>MATERNAL FINDINGS (Mother)</strong><br>
-            • <strong>External:</strong> Signs of severe exhaustion/dehydration, dry mucous membranes, marked vulval and vaginal edema, bruising/lacerations of the birth canal. Bandl’s ring (pathological retraction ring) may be visible across the lower abdomen.<br>
-            • <strong>Internal:</strong> Uterine rupture (usually lower segment) with extensive intraperitoneal hemorrhage, or massive ischemic necrosis of the uterine wall. The fetal head may be wedged tightly into the pelvic brim.<br>
-            • <strong>Cause of Death:</strong> Hemorrhagic shock (secondary to uterine rupture) OR Septic shock (secondary to prolonged infection/chorioamnionitis).<br>
+            <strong>MATERNAL POST-MORTEM PROFILE (Mother)[span_57](start_span)[span_57](end_span)</strong><br>
+            • <strong>External Findings:</strong> Marked signs of profound exhaustion and systemic dehydration; dry mucous membranes; significant vulval and vaginal edema with focal birth canal lacerations or bruising. A distinct Bandl’s ring (pathological uterine retraction ring) may be visibly indented across the lower abdominal wall.<br>
+            • <strong>Internal Findings:</strong> Complete uterine rupture (most commonly localized to the thinner lower uterine segment) accompanied by massive intraperitoneal hemorrhage. Alternatively, extensive ischemic necrosis of the dense uterine muscle wall is noted. The fetal presenting part remains tightly wedged into the bony pelvic brim.<br>
+            • <strong>Cause of Death:</strong> Acute Hemorrhagic Shock (secondary to catastrophic uterine rupture) OR Septic Shock (secondary to prolonged chorioamnionitis).<br>
             • <strong>Manner of Death:</strong> Natural.<br>
-            • <strong>Mechanism of Death:</strong> Acute cardiovascular collapse / Multiorgan dysfunction syndrome (MODS).
+            • <strong>Mechanism of Death:</strong> Acute cardiovascular collapse or rapid Multiorgan Dysfunction Syndrome (MODS).
         </div>
 
         <div class="highlight-box">
-            <strong>FETAL FINDINGS (Baby)</strong><br>
-            • <strong>External:</strong> Extreme distortion and moulding of the skull bones. Massive caput succedaneum or extensive cephalhematoma. Peeling skin or maceration changes depending on time elapsed since intrauterine death.<br>
-            • <strong>Internal:</strong> Intracranial hemorrhage (subdural/subarachnoid) secondary to severe bone overriding. Asphyxial signs: widespread visceral petechiae (Tardieu spots on pleura/pericardium), thick meconium aspiration in the trachea and major bronchi.
+            <strong>FETAL POST-MORTEM PROFILE (Baby)[span_58](start_span)[span_58](end_span)</strong><br>
+            • <strong>External Findings:</strong> Severe distortion, overlapping molding of the skull bones, and prominent caput succedaneum or cephalhematoma. Focal skin peeling or maceration artifacts may present depending on the exact intrauterine post-mortem interval.<br>
+            • <strong>Internal Findings:</strong> Extensive subdural or subarachnoid intracranial hemorrhages resulting from extreme mechanical cranial bone overriding. Classic widespread systemic asphyxial markings are present: pronounced visceral petechiae (Tardieu spots over visceral pleura and pericardial membranes) with thick, tenacious meconium aspiration obstructing the trachea and primary bronchi.
         </div>
 
-        <h3>Case B: Pulmonary Findings in Drowning Autopsy</h3>
-        <p>A classic, comprehensive autopsy of a lung from a body retrieved from water reveals the following distinct forensic features:</p>
+        <!-- EVIDENCE & TOXICOLOGY -->
+        <h2>06. Viscera Collection & Toxicology Preservatives</h2>
+        <p>Viscera must be preserved if poisoning or intoxication is suspected, if the cause of death is completely obscure after basic autopsy, or in anaphylactic, burn, or decomposition cases[span_59](start_span)[span_59](end_span). Fill wide-mouthed glass jars only to two-thirds capacity to prevent burst hazards from decomposition gases[span_60](start_span)[span_60](end_span).</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Organ / Sample</th>
+                    <th>Required Target Volume</th>
+                    <th>Preservative Options & Framework[span_61](start_span)[span_61](end_span)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Stomach & Contents</strong></td>
+                    <td>Whole Organ[span_62](start_span)[span_62](end_span)</td>
+                    <td rowspan="4"><strong>Saturated Sodium Chloride Solution:</strong> Default choice. (Do NOT use for corrosives, alkalis, corrosive sublimate, or aconite)[span_63](start_span)[span_63](end_span).<br><br><strong>Rectified Spirit:</strong> Alternative choice. (Do NOT use for alcohols, chloroform, ether, phenol, phosphorus, or kerosene)[span_64](start_span)[span_64](end_span).</td>
+                </tr>
+                <tr>
+                    <td><strong>Small Intestine</strong></td>
+                    <td>30 cm section[span_65](start_span)[span_65](end_span)</td>
+                </tr>
+                <tr>
+                    <td><strong>Liver</strong></td>
+                    <td>500 gm (Must include Gallbladder)[span_66](start_span)[span_66](end_span)</td>
+                </tr>
+                <tr>
+                    <td><strong>Kidneys</strong></td>
+                    <td>Each half[span_67](start_span)[span_67](end_span)</td>
+                </tr>
+                <tr>
+                    <td><strong>Blood</strong></td>
+                    <td>10 ml to 30 ml[span_68](start_span)[span_68](end_span)</td>
+                    <td><strong>Sodium/Potassium Fluoride (10 mg/ml) + Potassium Oxalate (3 mg):</strong> Specific choice for stabilizing Alcohol, Cocaine, Cyanide, and CO[span_69](start_span)[span_69](end_span).</td>
+                </tr>
+                <tr>
+                    <td><strong>Urine / Vitreous / CSF</strong></td>
+                    <td>30 ml[span_70](start_span)[span_70](end_span)</td>
+                    <td>Fluoride stabilizers[span_71](start_span)[span_71](end_span). (Note: Always draw vitreous via outer canthus)[span_72](start_span)[span_72](end_span).</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="viva-note">
+            <strong>Critical Toxicology Rule:</strong> Never preserve visceral organs in formaldehyde[span_73](start_span)[span_73](end_span). Always collect a standalone 25 ml or 25 gm reference control sample of the pure preservative used and dispatch it alongside the locked, sealed viscera boxes directly to the Regional Forensic Science Laboratory (RFSL)[span_74](start_span)[span_74](end_span).
+        </div>
+
+        <!-- POST-MORTEM ARTIFACTS -->
+        <h2>07. Forensic Artifacts (High-Yield Viva)</h2>
+        <p>An artifact is any post-mortem modification or finding introduced into the body that risks being misinterpreted as a significant antemortem pathological lesion[span_75](start_span)[span_75](end_span).</p>
+
+        <h3>I. Pre-Autopsy Phase Artifacts</h3>
         <ul>
-            <li><strong>Emphysema Aquosum:</strong> The lungs are massively voluminous, heavy, and overdistended, meeting in the midline and completely hiding the pericardium. They retain their shape and do not collapse when lifted from the thoracic cavity.</li>
-            <li><strong>Edema Aquosum:</strong> The lungs feel boggy and doughy, pitting on pressure. Slicing through the parenchyma reveals immense fluid congestion; a profuse mix of watery fluid and fine, blood-tinged froth exudes heavily from the cut surfaces.</li>
-            <li><strong>Paltauf’s Hemorrhages:</strong> Subpleural ecchymoses (pale, irregular, faint hemorrhages) are clearly visible beneath the visceral pleura, particularly along the margins of the lower lobes, caused by the rupture of alveolar walls.</li>
-            <li><strong>Airway Intrusion:</strong> The trachea, main bronchi, and deep alveolar networks are filled with a tenacious, fine, persistent froth that doesn't disappear on wiping, often accompanied by aspirated foreign particles (silt, sand, weeds, or diatoms).</li>
+            <li><strong>Agonal Artifacts:</strong> Asphyxia can cause terminal vomiting, filling the airways with gastric contents; this can be mistaken as a primary cause of accidental choking/asphyxiation[span_76](start_span)[span_76](end_span). Oesophagogastromalacia (autodigestion via leaked gastric enzymes) can mimic corrosive ingestion[span_77](start_span)[span_77](end_span).</li>
+            <li><strong>Resuscitation Defects:</strong> Intramuscular injection tracks, linear rib fractures, or precordial contusions from cardiac massage can mimic antemortem violence; defibrillator plates leave ring-like skin contusions[span_78](start_span)[span_78](end_span).</li>
+            <li><strong>Rigor Mortis Artifacts:</strong> Intense rigor affecting the myocardium can simulate concentric left ventricular hypertrophy[span_79](start_span)[span_79](end_span). Rough body transport handling can prematurely fracture rigor bonds[span_80](start_span)[span_80](end_span).</li>
+            <li><strong>Thermal Artifacts:</strong> Intense heat ruptures on skin can closely resemble incised or lacerated wounds[span_81](start_span)[span_81](end_span). Heat hematomas inside the cranium can easily simulate classic traumatic extradural hemorrhages[span_82](start_span)[span_82](end_span).</li>
+            <li><strong>Anthropophagy (Animal/Insect Bites):</strong> Post-mortem domestic dog bites can mimic sharp stab wounds[span_83](start_span)[span_83](end_span). Dense linear ant pathways tracking across the neck skin can mimic mechanical ligature abrasions[span_84](start_span)[span_84](end_span).</li>
+        </ul>
+
+        <h3>II. Intra-Autopsy Phase Artifacts</h3>
+        <ul>
+            <li><strong>Air Embolism Simulation:</strong> Forcefully pulling the dura mater along the sagittal line can artificially draw environmental air directly into the superior longitudinal sinus, creating a false air embolism presentation[span_85](start_span)[span_85](end_span).</li>
+            <li><strong>Iatrogenic Bone Fractures:</strong> Aggressive, forceful leverage when removing the sawed skull cap can cause artificial linear skull fractures[span_86](start_span)[span_86](end_span). Hard, improper manipulation of the larynx can fracture the delicate hyoid bone[span_87](start_span)[span_87](end_span).</li>
         </ul>
     </main>
 
