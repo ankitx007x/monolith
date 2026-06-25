@@ -30,7 +30,7 @@
             min-height: 100vh;
         }
 
-        /* Fixed Background Layer: Keeps the Interstellar imagery perfectly stable on scroll */
+        /* Fixed Background Layer */
         body::before {
             content: "";
             position: fixed;
@@ -95,10 +95,10 @@
             color: var(--hover-color);
         }
 
-        /* Main Container */
+        /* Main Container — Shifted lower down the page */
         main {
             max-width: 800px;
-            margin: 120px auto;
+            margin: 220px auto 120px auto; /* Increased top margin from 120px to 220px */
         }
 
         /* Hero / Combined Header Section */
