@@ -82,21 +82,21 @@
             color: var(--hover-color);
         }
 
-        /* WIDESCREEN PATRON BACKDROP — Eyes Wide Shut Mask Image */
+        /* WIDESCREEN PATRON BACKDROP */
         .widescreen-backdrop {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 50vh; 
+            height: 58vh; /* Increased slightly to prevent heavy vertical clipping on desktop */
             background-image: url('https://image.tmdb.org/t/p/original/rA9QYI7yTV2F2AvaqBcq1vL3MOr.jpg');
             background-size: cover;
-            background-position: center 25%;
+            background-position: center 20%; /* Re-centered to optimize laptop visibility */
             z-index: 1;
             filter: brightness(65%) contrast(110%);
         }
 
-        /* Edge Bleed Fades into native dark theme variables */
+        /* Edge Bleed Fades */
         .widescreen-backdrop::after {
             content: '';
             position: absolute;
@@ -115,16 +115,29 @@
             max-width: 650px;
             width: 100%;
             margin: 0 auto;
-            padding: 38vh 0 40px 0; /* Pushes layout cleanly below backdrop threshold */
+            padding: 46vh 0 40px 0; /* Pushed down proportionately for laptop screens */
             z-index: 2;
             display: flex;
             flex-direction: column;
             gap: 2.5rem;
         }
 
-        /* Profile Header */
-        .profile-header {
+        /* Identity Stack Layout matching your home aesthetic */
+        .identity-stack {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
             margin-bottom: -0.5rem;
+        }
+
+        .avatar {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            border: 3px solid var(--bg-color);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.7);
+            object-fit: cover;
+            flex-shrink: 0;
         }
 
         h1 {
@@ -135,7 +148,7 @@
             text-shadow: 0 4px 15px rgba(0,0,0,0.9);
         }
 
-        /* Coordinates Panel — Moved up cleanly before your bio description */
+        /* Coordinates Panel */
         .coordinates-panel {
             background: var(--panel-bg);
             border: 1px solid var(--border-color);
@@ -216,7 +229,7 @@
             text-align: justify;
         }
 
-        /* Footer positioning adjustment */
+        /* Footer */
         footer {
             max-width: 650px;
             width: 100%;
@@ -237,17 +250,23 @@
             }
 
             .widescreen-backdrop {
-                height: 35vh;
+                height: 38vh;
+                background-position: center center;
             }
 
             main {
-                padding-top: 25vh;
+                padding-top: 28vh;
                 gap: 2rem;
+            }
+
+            .identity-stack {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
             }
 
             h1 {
                 font-size: 2.4rem;
-                text-align: center;
             }
 
             .social-grid {
@@ -271,9 +290,10 @@
     <div class="widescreen-backdrop"></div>
 
     <main>
-        <section class="profile-header">
+        <div class="identity-stack">
+            <img src="https://a.ltrbxd.com/resized/avatar/upload/1/6/9/6/0/4/2/0/shard/avtr-0-1000-0-1000-crop.jpg?v=a112d9f86b" alt="ankit" class="avatar">
             <h1>ankit.</h1>
-        </section>
+        </div>
 
         <section class="coordinates-panel">
             <span class="panel-label">External Feeds</span>
