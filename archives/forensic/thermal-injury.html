@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monolith — Thermal Injuries</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #e5e5e5;
+            --accent-color: #888888;
+            --border-color: #222222;
+            --hover-color: #ffffff;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-family: var(--font-mono);
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--hover-color);
+        }
+
+        main {
+            max-width: 800px;
+            margin: 80px auto;
+        }
+
+        .page-header {
+            margin-bottom: 60px;
+        }
+
+        .breadcrumb {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--hover-color);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 400;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-family: var(--font-mono);
+            font-size: 1.2rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            color: var(--hover-color);
+            margin: 50px 0 20px 0;
+            border-left: 3px solid var(--accent-color);
+            padding-left: 12px;
+        }
+
+        h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #dddddd;
+            margin: 25px 0 10px 0;
+            text-transform: uppercase;
+            font-family: var(--font-mono);
+            letter-spacing: 0.5px;
+        }
+
+        p {
+            color: #cccccc;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        ul, ol {
+            margin-bottom: 20px;
+            padding-left: 25px;
+            color: #cccccc;
+            font-size: 0.95rem;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        .highlight-box {
+            background-color: #111111;
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: #d4d4d4;
+            margin: 20px 0;
+            line-height: 1.5;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.85rem;
+            text-align: left;
+        }
+
+        th {
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--border-color);
+            padding: 10px;
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid var(--border-color);
+            color: #cccccc;
+            vertical-align: top;
+        }
+
+        tr:hover td {
+            color: var(--hover-color);
+            background-color: #111111;
+        }
+
+        .viva-note {
+            background-color: #161611;
+            border-left: 3px solid #cc9900;
+            padding: 15px;
+            margin: 25px 0;
+            font-size: 0.9rem;
+            color: #e5e5e5;
+        }
+        
+        .viva-note strong {
+            color: #fff;
+            font-family: var(--font-mono);
+        }
+
+        .flow-step {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: #cccccc;
+            background: #111111;
+            padding: 8px 15px;
+            margin: 5px 0;
+            border-radius: 4px;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .flow-arrow {
+            text-align: center;
+            color: var(--accent-color);
+            margin: 4px 0;
+            font-weight: bold;
+        }
+
+        footer {
+            max-width: 800px;
+            margin: 100px auto 40px auto;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Monolith</div>
+        <ul class="nav-links">
+            <li><a href="https://fidelioa.github.io/monolith">Home</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/archives">Archives</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/about">About</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="page-header">
+            <div class="breadcrumb">
+                <a href="https://fidelioa.github.io/monolith/archives">Archives</a> / 
+                <a href="https://fidelioa.github.io/monolith/archives/forensic/index.html">Forensic</a> / Thermal
+            </div>
+            <h1>Thermal Injuries</h1>
+            <p style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-color); margin-top: 5px;">Forensic Medicine — Fast Track Clinical Science - MBBS, 3rd Year</p>
+        </section>
+
+        <!-- PAST QUESTIONS -->
+        <h2>Past Questions Bank</h2>
+        <h3 style="color: #a5a5a5;">Electrocution & Burns</h3>
+        <ol style="margin-bottom: 20px; color: #a5a5a5; font-size: 0.9rem;">
+            <li>Discuss "Low voltage electrocution" death. Describe the possible autopsy findings in such a death. (2065/7)</li>
+            <li>Describe the typical characteristics of "joules burn". What is "paradoxical undressing"? What is "whiplash syndrome"? Explain what do you understand by "rule of nine"? (2063/8)</li>
+            <li>Clarify the differences between possible external injuries seen in low-voltage and high-voltage electrocution deaths. (2071/3)</li>
+        </ol>
+
+        <!-- GENERAL CLASSIFICATION -->
+        <h2>Classification Framework</h2>
+        <p>Thermal injuries encompass structural and systemic trauma resulting from pathologically extreme deviations in environmental or applied temperature.</p>
+        <ul>
+            <li><strong>Exposure to Cold:</strong>
+                <ul>
+                    <li><em>General effects:</em> Hypothermia.</li>
+                    <li><em>Local effects:</em> Trench foot, Frostbite, and Pernio (Chilblains).</li>
+                </ul>
+            </li>
+            <li><strong>Exposure to Heat:</strong>
+                <ul>
+                    <li><em>General effects:</em> Heat cramps, Heat exhaustion, and Heat stroke.</li>
+                    <li><em>Local effects:</em> Thermal Burns and Scalds.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <!-- COLD INJURY -->
+        <h2>Cold Injury: Systemic & Local Pathology</h2>
+        
+        <h3>1. Hypothermia ("White Death")</h3>
+        <ul>
+            <li><strong>Definition:</strong> Systemic medical condition where core body temperature drops below 35°C (95°F) due to cold exposure.</li>
+            <li><strong>Severity Staging:</strong>
+                <ul>
+                    <li>Mild: 32–35°C</li>
+                    <li>Moderate: 28–32°C</li>
+                    <li>Severe: &lt; 28°C</li>
+                </ul>
+            </li>
+            <li><strong>Risk Profile:</strong> High vulnerability in infants, individuals over 60, mountaineers, sailors, and patients with hypothyroidism, dementia, or acute intoxication (alcohol, opiates).</li>
+            <li><strong>Pathological Effects:</strong> Direct cell damage is concentrated in fatty tissues and myelinated nerve fibers. Indirect systemic injuries stem from severe tissue ischemia.</li>
+            <li><strong>Complications:</strong> Hemorrhagic pancreatitis, acute tubular necrosis, focal myocardial fiber necrosis, pneumonia, and gastrointestinal ulceration.</li>
+        </ul>
+
+        <h3>Autopsy Signatures of Hypothermia</h3>
+        <ol>
+            <li><strong>External Signatures:</strong>
+                <ul>
+                    <li><strong>Pinkish Postmortem Lividity:</strong> Caused by the high persistence of oxyhemoglobin in the superficial capillaries under low temperatures.</li>
+                    <li><strong>Pale/White Skin:</strong> Gives rise to the forensic term "white deaths". Red erythematous patches may be localized over joints and bony prominences.</li>
+                    <li><strong>Rigor Mortis:</strong> Characterized by a markedly slow onset and extended postmortem duration.</li>
+                </ul>
+            </li>
+            <li><strong>Internal Signatures:</strong>
+                <ul>
+                    <li><strong>Wischnewski Ulcers:</strong> Small, dark, mucosal hemorrhages and erosions clustering across the gastric mucosa.</li>
+                    <li><strong>Respiratory System:</strong> Highly edematous lungs with fresh intraparenchymal hemorrhages; the trachea contains fine froth indicative of terminal bronchospasm.</li>
+                </ul>
+            </li>
+        </ol>
+
+        <div class="highlight-box">
+            <strong>Key Forensic Behaviors in Hypothermia:</strong><br>
+            • <strong>Paradoxical (Reciprocal) Undressing:</strong> Occurs due to cold-induced paralysis of the hypothalamic heat-regulatory center. Smooth muscle in the cutaneous arterioles fails to maintain vasoconstriction, triggering a sudden rush of warm blood from the core to the periphery. This creates an intense, false sensation of extreme warmth, causing the confused victim to remove their clothing before death.<br>
+            • <strong>Hide and Die Syndrome:</strong> An instinctive protective "burrowing" or "cave-like" behavior driven by terminal mental confusion and hibernation reflexes. Victims crawl into cramped, strange spaces (under beds, behind wardrobes) or pull household items over themselves.
+        </div>
+
+        <h3>2. Immersion Syndrome (Trench Foot)</h3>
+        <ul>
+            <li><strong>Etiology:</strong> Prolonged, continuous exposure to severe, non-freezing cold (&lt; 10°C) combined with moisture and dampness. Historically common in trench warfare or maritime emergencies.</li>
+            <li><strong>Clinical Progression Stages:</strong>
+                <ol>
+                    <li><em>Pre-hyperemic stage:</em> Affected extremities are pale, cold, and anesthetic.</li>
+                    <li><em>Hyperemic stage:</em> Extremities turn hot, accompanied by intense burning and shooting pain.</li>
+                    <li><em>Post-hyperemic stage:</em> The area turns pale or cyanotic with diminished arterial pulsations.</li>
+                </ol>
+            </li>
+            <li><strong>Management:</strong> Air drying and gradual rewarming by exposure to ambient air at room temperature. <em>Contraindications:</em> Direct application of heat, ice, water immersion, or aggressive physical massage.</li>
+        </ul>
+
+        <h3>3. Frostbite (Congelatio)</h3>
+        <ul>
+            <li><strong>Etiology:</strong> Direct tissue injury from freezing conditions (&le; -2.5°C), resulting in the formation of ice crystals within cells and mechanical obstruction of local microcirculation.</li>
+            <li><strong>Presentation:</strong> Distinct blue-black discoloration localized to peripheral, exposed tissues (fingers, toes, nose, ears, face).</li>
+            <li><strong>Staging Depth:</strong>
+                <ul>
+                    <li><em>Mild:</em> Restricted to the epidermis and subcutaneous layers; symptoms include numbness, prickling, and localized itching.</li>
+                    <li><em>Deep:</em> Extends into deep fascial structures and muscles, producing severe paresthesia, tissue stiffness, and a yellow-white, immobile, inelastic appearance of the skin.</li>
+                </ul>
+            </li>
+            <li><strong>Microscopy:</strong> Severe endothelial cell destruction, serum leakage into the interstitial space, and intravascular sludging of red blood cells.</li>
+        </ul>
+
+        <div class="viva-note">
+            <strong>Absolute Vital Phenomenon:</strong><br>
+            Frostbite requires active, functional systemic circulation and inflammatory responses to develop its characteristic line of demarcation. Therefore, frostbite can <strong>only be produced during life</strong> and cannot develop postmortem.
+        </div>
+
+        <!-- HEAT INJURY -->
+        <h2>Heat Injury syndromes</h2>
+        <p>Systemic hyperthermia occurs when the core body temperature rises above the hypothalamic set-point due to environmental or metabolic factors.</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Heat Cramps</th>
+                    <th>Heat Exhaustion</th>
+                    <th>Heat Stroke</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Synonyms</strong></td>
+                    <td>Miner's or Stoker's cramps</td>
+                    <td>Heat prostration, Heat syncope</td>
+                    <td>Heat hyperpyrexia, Sunstroke</td>
+                </tr>
+                <tr>
+                    <td><strong>Sweating</strong></td>
+                    <td>Profuse (++)</td>
+                    <td>Profuse (++)</td>
+                    <td>Absent (Sweat mechanisms fail)</td>
+                </tr>
+                <tr>
+                    <td><strong>Core Temp</strong></td>
+                    <td>Normal (=)</td>
+                    <td>Normal or slightly elevated (=)</td>
+                    <td>Severely elevated (&ge; 104°F / 40°C)</td>
+                </tr>
+                <tr>
+                    <td><strong>Blood Pressure</strong></td>
+                    <td>Normal (=)</td>
+                    <td>Decreased (&darr;)</td>
+                    <td>Normal (=)</td>
+                </tr>
+                <tr>
+                    <td><strong>Pulse Rate</strong></td>
+                    <td>Normal (=)</td>
+                    <td>Elevated (&uarr;)</td>
+                    <td>Markedly elevated (&uarr;&uarr;)</td>
+                </tr>
+                <tr>
+                    <td><strong>Key Symptoms</strong></td>
+                    <td>Spasms in the legs and abdominal wall.</td>
+                    <td>Cramps, severe dizziness, headache.</td>
+                    <td>Convulsions, psychosis, stupor, coma.</td>
+                </tr>
+                <tr>
+                    <td><strong>Risk Factors</strong></td>
+                    <td>Heavy sweating without salt replacement.</td>
+                    <td>Exertion in high temperatures.</td>
+                    <td>Elderly (classic) or physical exertion (exertional).</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="viva-note">
+            <strong>Postmortem Appearance of Heat Stroke & Hyperthermia:</strong><br>
+            Presents with <strong>Postmortem Caloricity</strong> (the body temperature remains elevated for an extended period after death). Features include rapid onset of rigor mortis, rapid putrefaction, sinking of the eyeballs, cerebral edema, and widespread petechial hemorrhages throughout the cerebral white matter and internal viscera.
+        </div>
+
+        <!-- THERMAL BURNS -->
+        <h2>Thermal Burns: Core Pathology</h2>
+        <p>Burns are injuries caused by the application of thermal energy, radiation, or chemical substances to body surfaces, leading to tissue destruction.</p>
+
+        <h3>Etiological Types</h3>
+        <ol>
+            <li><strong>Contact Burns:</strong> Direct physical contact with a hot solid or liquid metal. Produces erythema and blistering that matches the size and shape of the object.</li>
+            <li><strong>Flame Burns:</strong> Direct contact with open fire. Characterized by blistering, singeing of hair, and blackening/charring of the skin.</li>
+            <li><strong>Radiant Heat Burns:</strong> Caused by electromagnetic heat waves without direct contact. Skin changes from erythematous to light brown and leathery.</li>
+            <li><strong>Chemical Burns:</strong> Caused by corrosives (acids/alkalis). Characterized by ulcerated patches; <em>blisters, singed hair, and red lines of demarcation are absent</em>.</li>
+        </ol>
+
+        <h3>Depth Classification Frameworks</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Dupuytren's Degrees</th>
+                    <th>Wilson's Degrees</th>
+                    <th>Modern Classification</th>
+                    <th>Anatomical Depth & Presentation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>First Degree</strong></td>
+                    <td rowspan="2"><strong>First Degree</strong> (Epidermal)</td>
+                    <td rowspan="4"><strong>Superficial Burns</strong> (Dermo-epidermal)</td>
+                    <td>Epidermis only; erythema and reddening.</td>
+                </tr>
+                <tr>
+                    <td><strong>Second Degree</strong></td>
+                    <td>Full epidermis; vesicle/blister formation, painful.</td>
+                </tr>
+                <tr>
+                    <td><strong>Third Degree</strong></td>
+                    <td rowspan="2"><strong>Second Degree</strong> (Dermo-epidermal)</td>
+                    <td>Partial dermis involved; blistered, heals with scars.</td>
+                </tr>
+                <tr>
+                    <td><strong>Fourth Degree</strong></td>
+                    <td>Full dermis involved; highly painful, dense scar formation.</td>
+                </tr>
+                <tr>
+                    <td><strong>Fifth Degree</strong></td>
+                    <td rowspan="2"><strong>Third Degree</strong> (Deep Burns)</td>
+                    <td rowspan="2"><strong>Deep Burns</strong> (Full thickness)</td>
+                    <td>Extends into subcutaneous tissue; deep scars, contractures.</td>
+                </tr>
+                <tr>
+                    <td><strong>Sixth Degree</strong></td>
+                    <td>Extends deep into underlying muscles and bone.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Surface Area Estimation: Wallace's Rule of Nine (Adults)</h3>
+        <ul>
+            <li>Head and Neck: <strong>9%</strong></li>
+            <li>Each Upper Extremity: <strong>9%</strong></li>
+            <li>Anterior Torso: <strong>18%</strong></li>
+            <li>Posterior Torso: <strong>18%</strong></li>
+            <li>Each Lower Extremity: <strong>18%</strong></li>
+            <li>Perineum/Genitals: <strong>1%</strong></li>
+            <li>The patient's palm represents <strong>1%</strong> of Total Body Surface Area (TBSA) for small burn estimations.</li>
+        </ul>
+
+        <div class="viva-note">
+            <strong>Pediatric Correction (Lund and Browder):</strong><br>
+            In infants under 1 year, the head is relatively large, representing <strong>18%</strong> of TBSA, while each leg is reduced to <strong>14%</strong>. For each year of age above 1, add 0.5% to each leg and subtract 1.0% from the head until adult ratios are reached.
+        </div>
+
+        <!-- CAUSE OF DEATH IN BURNS -->
+        <h2>Causes of Death in Burn Trauma</h2>
+        <ul>
+            <li><strong>Immediate Pathways:</strong> Primary neurogenic shock from severe pain; acute suffocation from inhaling carbon monoxide (CO), carbon dioxide (CO<sub>2</sub>), or hydrogen cyanide; or fatal respiratory/vagal cardiac arrest triggered by heat-induced laryngospasm.</li>
+            <li><strong>Delayed Pathways:</strong> Hypovolemic burn shock; acute edema of the glottis from inhaling toxic smoke; acute respiratory distress syndrome (ARDS); toxemia; or systemic <strong>sepsis</strong> (the single most common delayed cause of death).</li>
+            <li><strong>Remote Pathways:</strong> Chronic multi-organ failure from prolonged suppurative infection; severe anemia; or fatal gastrointestinal hemorrhage from <strong>Curling's ulcers</strong> (stress-induced mucosal ischemia in the gastric antrum or duodenum developing after 72 hours).</li>
+        </ul>
+
+        <!-- POSTMORTEM FINDINGS -->
+        <h2>Autopsy Findings in Charred/Burnt Bodies</h2>
+        
+        <h3>External Pathology Signatures</h3>
+        <ul>
+            <li><strong>Crow's Feet Pattern:</strong> Unburnt, pale skin creases radiating from the corners of the eyes. This is a vital reaction indicating that the victim was alive and squinting their eyes tightly to shield them from smoke irritation.</li>
+            <li><strong>Cherry-Red Staining:</strong> Postmortem lividity appears bright cherry-red due to high levels of carboxyhemoglobin (CO-Hb) in the blood, proving the victim breathed in fire gases while alive.</li>
+            <li><strong>Pugilistic Attitude (Fencing/Boxing Stance):</strong> A universal posture characterized by flexion of the hips, knees, and elbows, with the fingers curled like claws. This is an artifact caused by the thermal coagulation of muscle proteins and tissue dehydration. Because flexor muscles have larger mass than extensors, their contraction dominates, pulling the limbs into flexion. <em>This occurs regardless of whether the person was alive or dead when exposed to the fire</em>.</li>
+            <li><strong>Heat Ruptures:</strong> Large splits in the skin over fleshy, burnt areas (thighs, calves) caused by thermal tissue contraction. They mimic incised or lacerated wounds but can be identified by intact nerves and blood vessels bridging the split, an absence of tissue bruising, and a lack of clotted blood within the fissure.</li>
+            <li><strong>Hair Changes:</strong> Hair becomes fragile, curly, and clubbed at the tips because the keratin shaft melts and resolidifies. Gray hair turns a reddish-brown color, while black hair remains black.</li>
+        </ul>
+
+        <h3>Internal Artifacts & Pathognomonic Signs</h3>
+        <ul>
+            <li><strong>Heat Hematoma:</strong> A postmortem artifact that closely mimics a true extradural hematoma. It forms a large, thick (up to 1.5 cm) chocolate-colored clot of 100–120 ml over the dura. It occurs as thermal energy forces blood marrow out of the diploic veins of the calvarium into the extradural space.</li>
+            <li><strong>Soot Deposits:</strong> Inhaled carbon and soot particles trapped within the mucus of the larynx, trachea, and bronchioles provide definitive proof of antemortem exposure to fire.</li>
+        </ul>
+
+        <!-- ANTEMORTEM VS POSTMORTEM BURNS -->
+        <h2>Antemortem vs. Postmortem Burn Diagnostics</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Diagnostic Feature</th>
+                    <th>Antemortem Burns</th>
+                    <th>Postmortem Burns</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Line of Redness</strong></td>
+                    <td>Present (Active vascular hyperemia).</td>
+                    <td>Absent.</td>
+                </tr>
+                <tr>
+                    <td><strong>Vesicle (Blister) Content</strong></td>
+                    <td>Serous fluid rich in albumin, chloride, and polymorphonuclear cells.</td>
+                    <td>Contains only air; any fluid present lacks albumin and chloride.</td>
+                </tr>
+                <tr>
+                    <td><strong>Base of Blister</strong></td>
+                    <td>Bright red, raw, and inflamed.</td>
+                    <td>Dull, dry, hard, and yellow.</td>
+                </tr>
+                <tr>
+                    <td><strong>Soot in Airways</strong></td>
+                    <td>Present deep inside the tracheobronchial tree.</td>
+                    <td>Absent altogether.</td>
+                </tr>
+                <tr>
+                    <td><strong>Carboxyhemoglobin (CO-Hb)</strong></td>
+                    <td>Present within cardiac blood chambers.</td>
+                    <td>Absent.</td>
+                </tr>
+                <tr>
+                    <td><strong>Inflammatory Repair</strong></td>
+                    <td>Present (Pus, slough, granulation tissue).</td>
+                    <td>Absent (No cellular response).</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- SCALDS -->
+        <h2>Scalds & Chemical Burn Modifiers</h2>
+        <p>Scalds are injuries resulting from the application of steam or liquids heated above 60°C. Unlike dry burns, scalds do not cause charring or singeing of hair, and tissue damage rarely extends below the dermis.</p>
+
+        <h3>Differential Matrix: Dry Heat vs. Moist Heat vs. Chemical Burns</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Dry Heat (Flames/Hot Solids)</th>
+                    <th>Moist Heat (Liquids/Steam)</th>
+                    <th>Chemical Burns (Corrosives)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Anatomical Distribution</strong></td>
+                    <td>Located at or above the point of contact.</td>
+                    <td>Located at and below the contact point (runs down).</td>
+                    <td>Located at and below the contact point (drips down).</td>
+                </tr>
+                <tr>
+                    <td><strong>Skin Appearance</strong></td>
+                    <td>Dry, wrinkled, and charred.</td>
+                    <td>Sodden, bleached, and macerated.</td>
+                    <td>Corroded, devitalized, with distinct staining.</td>
+                </tr>
+                <tr>
+                    <td><strong>Blisters (Vesicles)</strong></td>
+                    <td>Clustered around the margins of the burn.</td>
+                    <td>Widespread directly over the scalded area.</td>
+                    <td>Usually absent.</td>
+                </tr>
+                <tr>
+                    <td><strong>Red Line of Demarcation</strong></td>
+                    <td>Present.</td>
+                    <td>Present.</td>
+                    <td>Absent.</td>
+                </tr>
+                <tr>
+                    <td><strong>Singeing / Charring</strong></td>
+                    <td>Present.</td>
+                    <td>Absent.</td>
+                    <td>Absent.</td>
+                </tr>
+                <tr>
+                    <td><strong>Condition of Clothing</strong></td>
+                    <td>Burnt and ash-stained.</td>
+                    <td>Wet, damp, but not scorched.</td>
+                    <td>Corroded with characteristic chemical staining.</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 MONOLITH. Built to persist.</p>
+    </footer>
+
+</body>
+</html>
