@@ -3,1085 +3,948 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>General Toxicology - Forensic Medicine</title>
+    <title>Monolith — Forensic Medicine: General & Systemic Toxicology</title>
     <style>
         :root {
-            --primary-color: #1a365d;
-            --secondary-color: #2b6cb0;
-            --accent-color: #c53030;
-            --bg-color: #f7fafc;
-            --card-bg: #ffffff;
-            --text-color: #2d3748;
-            --border-color: #e2e8f0;
+            --bg-color: #0a0a0a;
+            --text-color: #e5e5e5;
+            --accent-color: #888888;
+            --border-color: #222222;
+            --hover-color: #ffffff;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-            margin: 0;
-            padding: 20px;
+            padding: 0 20px;
         }
 
-        .container {
-            max-width: 1000px;
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 900px;
             margin: 0 auto;
-            background: var(--card-bg);
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-family: var(--font-mono);
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--hover-color);
+        }
+
+        main {
+            max-width: 900px;
+            margin: 60px auto;
+        }
+
+        .page-header {
+            margin-bottom: 50px;
+        }
+
+        .breadcrumb {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--hover-color);
         }
 
         h1 {
-            color: var(--primary-color);
-            border-bottom: 3px solid var(--primary-color);
-            padding-bottom: 10px;
-            margin-top: 0;
-            text-align: center;
+            font-size: 2.4rem;
+            font-weight: 400;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
         }
 
         h2 {
-            color: var(--secondary-color);
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 8px;
-            margin-top: 30px;
+            font-family: var(--font-mono);
+            font-size: 1.25rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            color: var(--hover-color);
+            margin: 60px 0 25px 0;
+            border-left: 3px solid var(--accent-color);
+            padding-left: 12px;
         }
 
         h3 {
-            color: var(--primary-color);
-            margin-top: 20px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #dddddd;
+            margin: 30px 0 12px 0;
+            text-transform: uppercase;
+            font-family: var(--font-mono);
+            letter-spacing: 0.5px;
         }
 
         h4 {
-            color: var(--secondary-color);
-            margin-bottom: 5px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            margin: 18px 0 8px 0;
+            text-transform: uppercase;
+            font-family: var(--font-mono);
+        }
+
+        p {
+            color: #cccccc;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        ul, ol {
+            margin-bottom: 20px;
+            padding-left: 25px;
+            color: #cccccc;
+            font-size: 0.95rem;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .highlight-box {
+            background-color: #111111;
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: #d4d4d4;
+            margin: 25px 0;
+            line-height: 1.6;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 20px 0;
-            background-color: var(--card-bg);
-        }
-
-        th, td {
-            padding: 12px;
+            margin: 30px 0;
+            font-size: 0.88rem;
             text-align: left;
-            border: 1px solid var(--border-color);
         }
 
         th {
-            background-color: #ebf8ff;
-            color: var(--primary-color);
-            font-weight: bold;
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--border-color);
+            padding: 12px 10px;
+            background-color: #0e0e0e;
         }
 
-        tr:nth-child(even) {
-            background-color: #f8fafc;
+        td {
+            padding: 12px 10px;
+            border-bottom: 1px solid var(--border-color);
+            color: #cccccc;
+            vertical-align: top;
         }
 
-        ul, ol {
-            padding-left: 25px;
+        tr:hover td {
+            color: var(--hover-color);
+            background-color: #111111;
         }
 
-        li {
-            margin-bottom: 6px;
+        .viva-note {
+            background-color: #111516;
+            border-left: 3px solid #0099cc;
+            padding: 18px;
+            margin: 25px 0;
+            font-size: 0.9rem;
+            color: #e5e5e5;
         }
-
-        .note {
-            background-color: #fffaf0;
-            border-left: 4px solid #dd6b20;
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 0 4px 4px 0;
-        }
-
-        .mnemonic {
-            background-color: #e6fffa;
-            border-left: 4px solid #319795;
-            padding: 10px 15px;
-            margin: 15px 0;
-            font-style: italic;
-            border-radius: 0 4px 4px 0;
+        
+        .viva-note strong {
+            color: #fff;
+            font-family: var(--font-mono);
         }
 
         .past-questions {
-            background-color: #edf2f7;
-            padding: 20px;
-            border-radius: 6px;
-            margin-bottom: 30px;
+            background-color: #111111;
+            border: 1px solid var(--border-color);
+            padding: 25px;
+            margin-bottom: 50px;
+            border-radius: 4px;
+        }
+
+        .past-questions h2 {
+            margin-top: 0;
+            border-left: none;
+            padding-left: 0;
+            color: var(--hover-color);
         }
 
         .past-questions ol {
             margin-bottom: 0;
+            font-size: 0.88rem;
+            color: #aaaaaa;
         }
 
-        .header-meta {
-            text-align: center;
-            font-weight: bold;
-            color: #718096;
-            margin-bottom: 30px;
-        }
-
-        .diagram-box {
-            text-align: center;
-            border: 1px dashed var(--secondary-color);
-            padding: 15px;
-            margin: 20px 0;
-            background-color: #f0f4f8;
-            border-radius: 6px;
-        }
-
-        hr {
-            border: 0;
-            height: 1px;
-            background: var(--border-color);
+        .report-box {
+            background-color: #0d0d0d;
+            border: 1px solid #333333;
+            padding: 25px;
             margin: 30px 0;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            line-height: 1.7;
+            color: #e0e0e0;
+        }
+
+        .report-box h4 {
+            color: #ffffff;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            max-width: 900px;
+            margin: 100px auto 40px auto;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <div class="header-meta">FAST TRACK CLINICAL SCIENCE MBBS - 3rd YEAR</div>
-    <h1>FORENSIC MEDICINE: GENERAL TOXICOLOGY</h1>
+    <nav>
+        <div class="logo">Monolith</div>
+        <ul class="nav-links">
+            <li><a href="https://fidelioa.github.io/monolith">Home</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/archives">Archives</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/about">About</a></li>
+        </ul>
+    </nav>
 
-    <div class="past-questions">
-        <h2>Past Questions</h2>
-        <ol>
-            <li>Write short notes on: GENERAL TOXICOLOGY 2 (2073/10)
-                <ol type="a">
-                    <li>Organophosphate poisoning</li>
-                </ol>
-            </li>
-            <li>Describe circumstances, clinical features and autopsy findings in case of CO poisoning. 4 (2072/10)</li>
-            <li>Describe poison. Enumerate the signs and symptoms of Dhatura poisoning. List the contraindications of gastric lavage. 5 (2071/11)</li>
-            <li>Write the general principles for the management of poisoning. 4 (1 page answer) (2070/11)</li>
-            <li>Describe the clinical diagnostic features in case of acute ethanol intoxication. And summarize the external and internal autopsy findings in a natural death in bed of an adult chronic alcoholic male, who bled to death. 4 (2069/11)</li>
-            <li>Describe the mechanism of action of an Organophosphate substance in a poisoning case and the cardinal clinical findings one would expect in an OP poisoning. (2068/12)</li>
-            <li>Describe the likely external and internal autopsy findings in a sudden death of a teenager engaged in a chronic abuse of a heroine. (2068/12)</li>
-            <li>Discuss 'Datura poisoning'. 4 (2065/7)</li>
-            <li>Very briefly discuss acute and chronic arsenic poisoning. 4 (2065/1)</li>
-            <li>A chronic alcoholic bled to death in his bed at night in a natural death. Describe the most likely significant external &amp; internal autopsy findings and formulate both the mechanism of death and the cause of death. 4 (2064/8)</li>
-            <li>Briefly discuss snake envenomation. Why do snake charmers not show signs of poisoning even when they are bitten by poisonous snakes? 4 (2064/8)</li>
-            <li>Discuss arsenic poisoning in the living. Describe all the possible autopsy findings in a death due to chronic arsenic poisoning. 2+2=4 (2064/1)</li>
-            <li>Describe the possible external &amp; internal autopsy findings in a sudden &amp; typical alcoholic liver disease death. Formulate the most likely mechanism of death and manner of death. (2063/8)</li>
-            <li>Describe the autopsy findings in a death from 'Aluminium phosphide' in which the decedent had ingested 10 tablets of celphos and had died before any treatment could be given. (2063/8)</li>
-            <li>Describe the possible autopsy findings of an individual who ingested a large amount of concentrated nitric acid and died before any treatment could be provided. (2062/12)</li>
-            <li>Discuss methyl alcohol poisoning. 5 (2062/1)</li>
-            <li>What are the possible modes of death in alcohol poisoning? 5 (2061)</li>
-            <li>Write short notes on: (2061)
-                <ol type="a">
-                    <li>Barbiturate intoxication 1</li>
-                    <li>Chronic lead poisoning 1</li>
-                </ol>
-            </li>
-            <li>A 70 year old father of a goldsmith allegedly ingested some nitric acid, was rushed to the hospital where he died while prolonged cardiopulmonary resuscitation was performed. The autopsy findings were consistent with the history provided. Discuss the possible findings in this case and state the cause of death. 4 (2060)</li>
-            <li>Write short notes on: (2060)
-                <ol type="a">
-                    <li>Organophosphorous poisoning</li>
-                    <li>Poisonous snakes and their venoms</li>
-                </ol>
-            </li>
-            <li>What are the possible modes of death in acute alcohol poisoning? 10 (2056)</li>
-            <li>The new autopsy report form has the following six headings for the doctor performing the autopsy: relevant details; external examination; internal examination; special examination; viscera/other samples; cause of death. Write an autopsy report of a death which was due to an overdose of morphine or heroine following this new autopsy report form. (2055)</li>
-            <li>Describe:
-                <ol type="a">
-                    <li>External appearance in CO poisoning (2054)</li>
-                </ol>
-            </li>
-            <li>Write short notes on:
-                <ol type="a">
-                    <li>Chronic lead poisoning (2053)</li>
-                </ol>
-            </li>
-            <li>Write short notes on: (2052)
-                <ol type="a">
-                    <li>Barbiturate intoxication</li>
-                    <li>Chronic lead poisoning</li>
-                    <li>Medico legal responsibility in case of poisoning</li>
-                </ol>
-            </li>
-            <li>What is the basis of certification of drunkenness? List the clinical presentation in different concentration of blood alcohol level. (2073/2)</li>
-            <li>Write short notes on: Organophosphate poisoning. (2073/10)</li>
-            <li>Define Antidote. What are the types of antidote? What are the properties of universal antidote? Give example. (2074/2)</li>
-            <li>Briefly discuss acute and chronic arsenic poisoning. (2074/10)</li>
-            <li>Define poison. Outline the general management of poisoning cases. What are the specimens collected and the preservatives used? (2076/3)</li>
-            <li>Define 'poison'. Describe the symptoms of alcohol intoxication according to the blood alcohol level. 4 (2078)</li>
-            <li>Discuss briefly about cannabis. (2079)</li>
-            <li>What is antidote. Write the composition and mechanism of universal antidote (2080)</li>
-        </ol>
-    </div>
+    <main>
+        <section class="page-header">
+            <div class="breadcrumb">
+                <a href="https://fidelioa.github.io/monolith/archives">Archives</a> / 
+                <a href="https://fidelioa.github.io/monolith/archives/forensic/index.html">Forensic</a> / Toxicology Complete
+            </div>
+            <h1>General & Systemic Toxicology</h1>
+            <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-color); margin-top: 5px;">Comprehensive High-Yield Syllabus, Past Board Questions & Autopsy Reference — MBBS Third Professional</p>
+        </section>
 
-    <section>
-        <h2>DEFINITIONS</h2>
-        
-        <h3>Toxicology</h3>
-        <p>It is the branch of the medical science that deals with poison in relation to their sources, properties, action, clinical features, fatal dose, diagnosis, treatment, autopsy findings and medico-legal aspects.</p>
-        <p>The word toxicology is derived from the Greek word 'Toxon' that refers to a bow used for shooting arrows.</p>
-        <p>Toxicology deals with all aspects of poison. The overall investigations of a medico-legal case includes three basic constituents namely the investigation of circumstance of the death including medical history, a thorough autopsy and lab investigations including toxicology. So without toxicology a forensic investigation is never complete.</p>
-
-        <h4>Classification of Toxicology</h4>
-        <ol>
-            <li>Forensic toxicology</li>
-            <li>Clinical toxicology</li>
-            <li>Environmental toxicology</li>
-            <li>Industrial toxicology</li>
-        </ol>
-
-        <h3>Forensic Toxicology</h3>
-        <p>It is the branch of toxicology that deals with establishment of evidences related to poisoning for the purpose of legal treatment and hence justice.</p>
-
-        <h3>Poison <small>(2003, 2008, 1999, 2001, 2007, 2006, 2011)</small></h3>
-        <p>It is any substance if taken in any account by any route produces harmful effect (namely disease, deformity or death) over the body.</p>
-
-        <h3>Clinical Toxicology</h3>
-        <p>It is a branch of toxicology that deals with causation, diagnosis and management of poisoning in humans during clinical practice.</p>
-
-        <h3>Toxinology</h3>
-        <p>It is the study of toxins (a toxin is a poisonous substance produced during the metabolism and growth of certain microorganisms and some higher plant and animal species, e.g., venom of snake, bee, etc.).</p>
-
-        <h3>Drug</h3>
-        <p>It is any substance or product that is used or intended to be used to modify or explore physiological systems or pathological states for the benefit of the recipient.</p>
-
-        <div class="note">
-            <h4>Note: Types of Poisoning</h4>
-            <ul>
-                <li><strong>Fulminant poisoning:</strong> Massive dose results in rapid death, e.g., Oxalic acid poisoning if dose &gt; 15g.</li>
-                <li><strong>Acute poisoning:</strong> Single episode of high dose poison intake or multiple episodes over a short period resulting in acute worsening type of clinical features, e.g., Snake bite.</li>
-                <li><strong>Subacute poisoning:</strong> Showing features of both acute and chronic poisoning when small doses of poison are taken on daily basis for months or years, e.g., Arsenic poisoning.</li>
-                <li><strong>Chronic poisoning:</strong> Showing progressive deteriorating type of clinical features when small doses of poison are taken on daily basis for months or years, e.g., Arsenic poisoning by using well water in Bangladesh; Anemia, Burtonian lines, Colic, etc. in Lead poisoning.</li>
-            </ul>
-            <p><strong>Parasuicide (attempted suicide or pseudocide):</strong> A supposed suicide attempt that was not intended to succeed. It is a conscious, often impulsive, manipulative act, undertaken to get rid of an intolerable situation. Drug ingestion is the commonest form.</p>
+        <!-- PAST QUESTIONS SECTION -->
+        <div class="past-questions">
+            <h2>Archived Examination Board Questions (2052 – 2080)</h2>
+            <ol>
+                <li>Write short notes on: GENERAL TOXICOLOGY 2 (2073/10)
+                    <ol type="a">
+                        <li>Organophosphate poisoning</li>
+                    </ol>
+                </li>
+                <li>Describe circumstances, clinical features and autopsy findings in case of CO poisoning. 4 (2072/10)</li>
+                <li>Describe poison. Enumerate the signs and symptoms of Dhatura poisoning. List the contraindications of gastric lavage. 5 (2071/11)</li>
+                <li>Write the general principles for the management of poisoning. 4 (1 page answer) (2070/11)</li>
+                <li>Describe the clinical diagnostic features in case of acute ethanol intoxication. And summarize the external and internal autopsy findings in a natural death in bed of an adult chronic alcoholic male, who bled to death. 4 (2069/11)</li>
+                <li>Describe the mechanism of action of an Organophosphate substance in a poisoning case and the cardinal clinical findings one would expect in an OP poisoning. (2068/12)</li>
+                <li>Describe the likely external and internal autopsy findings in a sudden death of a teenager engaged in a chronic abuse of a heroine. (2068/12)</li>
+                <li>Discuss 'Datura poisoning'. 4 (2065/7)</li>
+                <li>Very briefly discuss acute and chronic arsenic poisoning. 4 (2065/1)</li>
+                <li>A chronic alcoholic bled to death in his bed at night in a natural death. Describe the most likely significant external &amp; internal autopsy findings and formulate both the mechanism of death and the cause of death. 4 (2064/8)</li>
+                <li>Briefly discuss snake envenomation. Why do snake charmers not show signs of poisoning even when they are bitten by poisonous snakes? 4 (2064/8)</li>
+                <li>Discuss arsenic poisoning in the living. Describe all the possible autopsy findings in a death due to chronic arsenic poisoning. 2+2=4 (2064/1)</li>
+                <li>Describe the possible external &amp; internal autopsy findings in a sudden &amp; typical alcoholic liver disease death. Formulate the most likely mechanism of death and manner of death. (2063/8)</li>
+                <li>Describe the autopsy findings in a death from 'Aluminium phosphide' in which the decedent had ingested 10 tablets of celphos and had died before any treatment could be given. (2063/8)</li>
+                <li>Describe the possible autopsy findings of an individual who ingested a large amount of concentrated nitric acid and died before any treatment could be provided. (2062/12)</li>
+                <li>Discuss methyl alcohol poisoning. 5 (2062/1)</li>
+                <li>What are the possible modes of death in alcohol poisoning? 5 (2061)</li>
+                <li>Write short notes on: (2061)
+                    <ol type="a">
+                        <li>Barbiturate intoxication 1</li>
+                        <li>Chronic lead poisoning 1</li>
+                    </ol>
+                </li>
+                <li>A 70 year old father of a goldsmith allegedly ingested some nitric acid, was rushed to the hospital where he died while prolonged cardiopulmonary resuscitation was performed. The autopsy findings were consistent with the history provided. Discuss the possible findings in this case and state the cause of death. 4 (2060)</li>
+                <li>Write short notes on: (2060)
+                    <ol type="a">
+                        <li>Organophosphorous poisoning</li>
+                        <li>Poisonous snakes and their venoms</li>
+                    </ol>
+                </li>
+                <li>What are the possible modes of death in acute alcohol poisoning? 10 (2056)</li>
+                <li>The new autopsy report form has the following six headings for the doctor performing the autopsy: relevant details; external examination; internal examination; special examination; viscera/other samples; cause of death. Write an autopsy report of a death which was due to an overdose of morphine or heroine following this new autopsy report form. (2055)</li>
+                <li>Describe:
+                    <ol type="a">
+                        <li>External appearance in CO poisoning (2054)</li>
+                    </ol>
+                </li>
+                <li>Write short notes on:
+                    <ol type="a">
+                        <li>Chronic lead poisoning (2053)</li>
+                    </ol>
+                </li>
+                <li>Write short notes on: (2052)
+                    <ol type="a">
+                        <li>Barbiturate intoxication</li>
+                        <li>Chronic lead poisoning</li>
+                        <li>Medico legal responsibility in case of poisoning</li>
+                    </ol>
+                </li>
+                <li>What is the basis of certification of drunkenness? List the clinical presentation in different concentration of blood alcohol level. (2073/2)</li>
+                <li>Define Antidote. What are the types of antidote? What are the properties of universal antidote? Give example. (2074/2)</li>
+                <li>Briefly discuss acute and chronic arsenic poisoning. (2074/10)</li>
+                <li>Define poison. Outline the general management of poisoning cases. What are the specimens collected and the preservatives used? (2076/3)</li>
+                <li>Define 'poison'. Describe the symptoms of alcohol intoxication according to the blood alcohol level. 4 (2078)</li>
+                <li>Discuss briefly about cannabis. (2079)</li>
+                <li>What is antidote. Write the composition and mechanism of universal antidote (2080)</li>
+            </ol>
         </div>
-    </section>
 
-    <section>
-        <h2>GENERAL CONSIDERATIONS</h2>
+        <!-- CHAPTER 1: DEFINITIONS & CONCEPTUAL TAXONOMY -->
+        <h2>1. Conceptual Definitions & Taxonomy</h2>
+        <p><strong>Toxicology</strong> is the branch of medical science dealing with poisons regarding their sources, physical and chemical properties, mechanism of action, clinical features, fatal dose, fatal period, diagnosis, management, autopsy findings, and medicolegal implications. Etymologically, it originates from the Greek <em>'Toxon'</em> (bow used for shooting poisonous arrows). Comprehensive forensic investigations rely on a triad: circumstantial inquiry/medical history, thorough autopsy dissection, and laboratory toxicological analysis.</p>
 
-        <h3>Classification of Poison</h3>
+        <h3>Core Sub-Disciplines</h3>
+        <ul>
+            <li><strong>Forensic Toxicology:</strong> Application of toxicological analysis to establish legal evidence for judicial outcomes.</li>
+            <li><strong>Clinical Toxicology:</strong> Focuses on the diagnosis, etiology, and management of human poisoning in clinical practice.</li>
+            <li><strong>Environmental &amp; Industrial Toxicology:</strong> Concerns environmental pollutant impacts and workplace chemical hazards.</li>
+            <li><strong>Toxinology:</strong> The specific study of biological toxins produced by microorganisms, plants, or venomous animal species.</li>
+        </ul>
 
-        <h4>A. Based on Nature (MOA) of Poison</h4>
-        <div class="mnemonic">@CISM</div>
+        <div class="highlight-box">
+            <strong>Key Legal &amp; Clinical Definitions:</strong><br>
+            • <strong>Poison:</strong> Any substance (solid, liquid, or gas) which, when administered or introduced into the living body via any route, produces harmful physiological effects, disease, injury, or death. (Note: In law, any substance administered with intent to cause harm is treated as a poison).<br>
+            • <strong>Drug:</strong> Any chemical agent used to modify or explore physiological systems or pathological states for therapeutic benefit.<br>
+            • <strong>Parasuicide (Pseudocide):</strong> Non-fatal, often impulsive manipulative self-harm behavior without true lethal intent, commonly executed via drug ingestion to express distress or alleviate an intolerable situation.
+        </div>
+
+        <h3>Temporal Typology of Poisoning Exposures</h3>
+        <ul>
+            <li><strong>Fulminant:</strong> Massive toxicity inducing near-instantaneous collapse and death within minutes (e.g., Oxalic acid &gt; 15g, Potassium Cyanide).</li>
+            <li><strong>Acute:</strong> Rapid onset of severe clinical manifestations following a single high-dose exposure or repeated doses over a brief interval (e.g., OP poisoning, Snake envenomation).</li>
+            <li><strong>Subacute:</strong> Blended features of acute and chronic toxicities resulting from small, repeated doses over weeks to months.</li>
+            <li><strong>Chronic:</strong> Progressive organ deterioration from persistent micro-exposures over months or years (e.g., endemic Arsenicosis via contaminated groundwater; Lead poisoning with Burtonian lines, colic, and severe anemia).</li>
+        </ul>
+
+        <!-- CHAPTER 2: CLASSIFICATION & PHARMACODYNAMICS -->
+        <h2>2. Taxonomic & Pharmacodynamic Matrices</h2>
+
+        <h3>A. Pathophysiological Classification (Mechanism of Action)</h3>
         <ol>
-            <li><strong>Corrosives:</strong>
+            <li><strong>Corrosives:</strong> Produce local chemical destruction of tissues.
                 <ul>
-                    <li>Inorganic acids - like sulphuric acid</li>
-                    <li>Organic acids - like carbolic acid (phenol)</li>
-                    <li>Alkalis - e.g., Sodium hydroxide</li>
-                    <li>Metallic salts - like mercuric chloride, ferric chloride</li>
+                    <li><em>Inorganic acids:</em> Sulphuric acid (Oil of Vitriol), Nitric acid (Aqua Fortis), Hydrochloric acid (Muriatic acid).</li>
+                    <li><em>Organic acids:</em> Carbolic acid (Phenol), Oxalic acid, Acetic acid.</li>
+                    <li><em>Alkalis:</em> Caustic Soda (Sodium hydroxide), Caustic Potash (Potassium hydroxide), Carbonates, Ammonium hydroxide.</li>
+                    <li><em>Metallic Salts:</em> Mercuric chloride, Ferric chloride, Zinc chloride.</li>
                 </ul>
             </li>
-            <li><strong>Irritants:</strong>
+            <li><strong>Irritants:</strong> Produce inflammation, congestion, and ulceration of gastrointestinal or epithelial surfaces.
                 <ul>
-                    <li>Inorganic:
-                        <ul>
-                            <li>Nonmetallic (iodine, phosphorous)</li>
-                            <li>Metallic (arsenic, lead)</li>
-                        </ul>
-                    </li>
-                    <li>Organic:
-                        <ul>
-                            <li>Animal (snake, wasp)</li>
-                            <li>Plant (castor, calotropis)</li>
-                        </ul>
-                    </li>
-                    <li>Mechanical irritants - powdered glass, chopped hairs</li>
+                    <li><em>Inorganic Non-metallic:</em> Phosphorus, Iodine, Chlorine, Bromine.</li>
+                    <li><em>Inorganic Metallic:</em> Arsenic, Lead, Mercury, Antimony, Bismuth, Copper.</li>
+                    <li><em>Organic Animal:</em> Snake venom, Scorpion venom, Wasp/Bee stings, Cantharides.</li>
+                    <li><em>Organic Plant:</em> Castor (Ricin), Calotropis, Croton tiglium, Marking nut (Semicarpus anacardium), Abrus precatorius.</li>
+                    <li><em>Mechanical:</em> Powdered glass, chopped animal hairs, diamond dust.</li>
                 </ul>
             </li>
-            <li><strong>Systemic Poisons:</strong>
-                <div class="mnemonic">@Remember systems covered in 1st &amp; 2nd year: Neuro, MSK, Respi, CVS, GI-Hepat, Renal, etc.</div>
+            <li><strong>Systemic Poisons:</strong> Act primarily on specific target organ systems after absorption.
                 <ul>
-                    <li>Cerebral poisons:
-                        <ul>
-                            <li>Somniferous - opium</li>
-                            <li>Inebriant - alcohol</li>
-                            <li>Stimulants - Amphetamine</li>
-                            <li>Delirium - Dhatura</li>
-                            <li>Depressant - Barbiturate</li>
-                            <li>Psychotropic drugs / Antidepressants</li>
-                        </ul>
-                    </li>
-                    <li>Spinal - Strychnine, gelsemium</li>
-                    <li>Peripheral nerve - Curare, conium</li>
-                    <li>Myotoxic - sea snake poison, OP</li>
-                    <li>Cardiac - nicotine, aconite (also called as Bikh)</li>
-                    <li>Asphyxiants or Respiratory - Carbon monoxide, Hydrogen sulphide, OP</li>
-                    <li>Nephrotoxic - mercury</li>
-                    <li>Hepatotoxic - Phosphorous</li>
-                    <li>Gastrointestinal - Aloe barbadensis</li>
+                    <li><em>Cerebral Somniferous:</em> Opium, Morphine, Codeine, Heroin.</li>
+                    <li><em>Cerebral Inebriant:</em> Ethanol, Methanol, Ether, Chloroform.</li>
+                    <li><em>Cerebral Stimulant:</em> Amphetamines, Cocaine, Caffeine.</li>
+                    <li><em>Cerebral Deliriant:</em> Dhatura, Cannabis sativa, Hyoscyamus niger, Atropa belladonna.</li>
+                    <li><em>Cerebral Depressant:</em> Barbiturates, Benzodiazepines, Chloral hydrate.</li>
+                    <li><em>Spinal &amp; Peripheral:</em> Nux vomica (Strychnine), Curare, Conium maculatum.</li>
+                    <li><em>Cardiotoxic:</em> Aconite, Digoxin, Oleander, Nicotine, Hydrocyanic acid.</li>
+                    <li><em>Asphyxiants / Respiratory:</em> Carbon monoxide, Hydrogen sulfide, Carbon dioxide, Cyanide, Organophosphates.</li>
+                    <li><em>Organ-Specific:</em> Nephrotoxic (Mercury, Oxalates), Hepatotoxic (Phosphorus, Paracetamol, Carbon tetrachloride), Myotoxic (Sea snake venom).</li>
                 </ul>
             </li>
-            <li><strong>Miscellaneous poisons:</strong> like food poisoning, war gases, etc.</li>
+            <li><strong>Miscellaneous:</strong> Food poisoning (Botulism, Staphylococcal), War gases (Mustard gas, Phosgene, Nerve agents).</li>
         </ol>
 
-        <h4>B. Based on Manner of Use</h4>
-        <div class="mnemonic">@The following points are to be considered in each poison while writing medicolegal importance of poisons</div>
-        <ol>
-            <li><strong>Homicidal poisons:</strong> Arsenic, Thallium</li>
-            <li><strong>Suicidal poisons:</strong> OP, Aluminium phosphide</li>
-            <li><strong>Accidental poisons:</strong> Lead poisoning, Mercury poisoning, Contamination of food and drinks, Mistaken for drugs, Wrong medication</li>
-            <li><strong>Abortifacient:</strong> Castor, Croton, Lead pills</li>
-            <li><strong>Stupefying</strong> (making unconscious or causing stupor): Alcohol, with the intent to commit crime</li>
-            <li><strong>Cattle:</strong> Calotropis, killed for hide</li>
-            <li><strong>Arrow:</strong> Curare</li>
-            <li><strong>Aphrodisiac:</strong> Cocaine, cantharides (Spanish fly poison)</li>
-            <li><strong>Used to produce fabricated injury:</strong> Plumbago, Marking nut</li>
-            <li><strong>Used to cause injury:</strong> Acids</li>
-            <li><strong>Used in torture:</strong> e.g., injection of addictive drugs to produce physical dependence first and then causing withdrawal reactions later by not giving the drugs. The process is an example of pharmacological torture and other drugs like muscle relaxants and LSD are also used so as to induce pain or cause anxiety/psychological disturbances.</li>
-            <li><strong>Adulteration of food and drinks</strong></li>
-        </ol>
-
-        <h3>Characteristics of Ideal Suicidal and Homicidal Poison</h3>
+        <h3>B. Comparative Features: Ideal Suicidal vs. Homicidal Poisons</h3>
         <table>
             <thead>
                 <tr>
-                    <th>Feature</th>
-                    <th>Ideal Homicidal Poison (1999)</th>
+                    <th>Parameter</th>
+                    <th>Ideal Homicidal Poison</th>
                     <th>Ideal Suicidal Poison</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td><strong>Cost</strong></td>
-                    <td>Immaterial</td>
-                    <td>Cheap</td>
-                </tr>
-                <tr>
-                    <td><strong>Availability</strong></td>
-                    <td>Easily available</td>
-                    <td>Easily available</td>
-                </tr>
-                <tr>
-                    <td><strong>Physical characteristics</strong></td>
-                    <td>Colorless, odorless and tasteless</td>
+                    <td><strong>Physical State</strong></td>
+                    <td>Colorless, odorless, tasteless</td>
                     <td>Tasteless or pleasant taste, no repulsive smell</td>
                 </tr>
                 <tr>
-                    <td><strong>Toxicity</strong></td>
-                    <td>Highly toxic</td>
-                    <td>Highly toxic</td>
+                    <td><strong>Toxicity &amp; Antidote</strong></td>
+                    <td>Highly toxic; no known specific antidote</td>
+                    <td>Highly toxic; rapid, painless action</td>
                 </tr>
                 <tr>
-                    <td><strong>Antidote</strong></td>
-                    <td>None</td>
-                    <td>None</td>
+                    <td><strong>Administration</strong></td>
+                    <td>Soluble in food/beverages without altering color or taste</td>
+                    <td>Easy to ingest in high volume</td>
                 </tr>
                 <tr>
-                    <td><strong>Solubility in food/drink</strong></td>
-                    <td>Soluble without producing any obvious change</td>
-                    <td>Should be easily taken in food or drink</td>
+                    <td><strong>Clinical Signs</strong></td>
+                    <td>Mimics natural disease states; delayed onset</td>
+                    <td>Produces rapid, painless termination</td>
                 </tr>
                 <tr>
-                    <td><strong>Signs and symptoms</strong></td>
-                    <td>Should resemble a natural disease or delayed for the accused to escape suspicion</td>
-                    <td>Capable of producing painless death</td>
+                    <td><strong>Post-Mortem / Detection</strong></td>
+                    <td>Undetectable by routine chemical tests; no post-mortem lesions</td>
+                    <td>Detection profile irrelevant to user</td>
                 </tr>
                 <tr>
-                    <td><strong>Metabolism</strong></td>
-                    <td>Must be rapidly destroyed or undetectable in urine/blood</td>
-                    <td>Not particularly so</td>
-                </tr>
-                <tr>
-                    <td><strong>Detection</strong></td>
-                    <td>Should not be detected by chemical tests or other method</td>
-                    <td>Not particularly so</td>
-                </tr>
-                <tr>
-                    <td><strong>Postmortem changes</strong></td>
-                    <td>Should be none</td>
-                    <td>Not particularly so</td>
-                </tr>
-                <tr>
-                    <td><strong>Examples</strong></td>
-                    <td>Arsenic, aconite, thallium, oleander, insulin and other drugs</td>
-                    <td>KCN, HCN, opium, barbiturates, alphos, organophosphorus</td>
+                    <td><strong>Classic Examples</strong></td>
+                    <td>Arsenic, Aconite, Thallium, Oleander, Insulin</td>
+                    <td>Cyanide (KCN/HCN), Barbiturates, Organophosphates, Celphos</td>
                 </tr>
             </tbody>
         </table>
 
-        <div class="note">
-            <p><strong>Ideal suicidal and ideal homicidal poison:</strong></p>
-            <div class="mnemonic">@Remember how you used to choose the P-drug in pharmacology based on Efficacy, Safety, Cost and Convenience; the same way you choose the ideal poisons.</div>
-            <ul>
-                <li><strong>Efficacy:</strong> High toxicity, no availability of antidote</li>
-                <li><strong>Safety:</strong> Pleasant taste, painlessness, no tests available to detect, no specific PM findings, resemblance to other disease</li>
-                <li><strong>Cost:</strong> Cheap</li>
-                <li><strong>Convenience:</strong> Easily available, Odorless, colorless, tasteless, easy to administer in food or drinks</li>
-            </ul>
-            <p>For ideal suicidal poisons, high toxicity, lack of antidote, painlessness, pleasant taste, cheap and easy availability have much value to the suicide. For ideal homicidal poisons, high toxicity, lack of antidote, tastelessness, odorlessness, colorlessness, painlessness, lack of tests to detect, no specific PM findings, resemblance to other disease, easy availability and easy to administer in food/drinks matters so almost every aspect matters since the person committing offence should escape.</p>
-        </div>
-
-        <h4>C. Based on Source of Poison</h4>
-        <ol>
-            <li>Household poisons</li>
-            <li>Agricultural poisons</li>
-            <li>Industrial poisons</li>
-            <li>Environmental poisons</li>
-            <li>Microbial poisons (e.g., food poisoning)</li>
-            <li>Animal poisons</li>
-            <li>Plant poisons</li>
-            <li>Pharmaceutical poisons</li>
-        </ol>
-
-        <p><strong>Common household poisons are:</strong></p>
-        <ul>
-            <li><strong>Domestic poisons:</strong> e.g., cosmetics (acetone in nail polish remover), kitchen ingredients (baking soda), rat poisons (zinc phosphide), disinfectants (phenol), shoe polish (aniline)</li>
-            <li><strong>Garden poisons:</strong> e.g., Insecticides (pyrethroids, OP), Fungicides (lead arsenate), Weedicide (paraquat)</li>
-            <li><strong>Therapeutic poisons:</strong> e.g., headache tablets like aspirin and sleeping pills like barbiturate, etc.</li>
-        </ul>
-
-        <h3>Action of Poison</h3>
-        <ul>
-            <li><strong>Local action:</strong> Is at the site of application, e.g., burns due to acid on the face.</li>
-            <li><strong>Systemic action:</strong> Is at a place far from site of application through blood (or body fluids) or sometimes by reflex neurogenic shock. Aconite causes cardiac toxicity and death.</li>
-            <li><strong>Both local and systemic action:</strong> Is both at the site of application and also at a site far from the local site through means of blood (or body fluids) or by reflex neurogenic shock. E.g., Phenol corrodes skin while at the same time affects CNS causing headache, convulsions and coma.</li>
-        </ul>
-
-        <div class="note">
-            <p><strong>Note:</strong> There are no poisons that have only systemic actions. The so-called systemic poisons have major harm through the systemic action and their local action is not much significant though is always present to some extent. But the so-called local poisons are presumed to have no systemic action.</p>
-        </div>
-
-        <h3>Factors Modifying the Action of Poisons <small>(2001, 2004, 2008)</small></h3>
-        <div class="mnemonic">@Remember the components of pharmacokinetics and pharmacodynamics and enlist the factors affecting them</div>
-        <ol>
-            <li>Type of poison (some poisons like lead tend to have cumulative action)</li>
-            <li>Amount or dose or concentration of poison</li>
-            <li>Routes of application or administration</li>
-            <li>Condition of the site of absorption (diseases) e.g., GI fibrosis causes reduced absorption of alcohol and state of sleep/intoxication (e.g., action is delayed in sleep state)</li>
-            <li>Physical state of poison</li>
-            <li>Tolerance</li>
-            <li>Idiosyncrasy</li>
-            <li>Diseases of the organs that metabolize poisons e.g., Liver disease causes increased toxicity of many poisons</li>
-            <li>Route of elimination</li>
-            <li>Age</li>
-            <li>Sex</li>
-            <li>Chemical state of poison</li>
-        </ol>
-
-        <p>The first five points are related to absorption of poison. The next two are related to the action of the poison. Point no. 8 is related to metabolism of poison, 9 is related to elimination, while the last three points affect all four aspects namely absorption, action, metabolism and elimination. A systemic poison passes through the four major steps also called as fate of poison namely absorption, action, metabolism and elimination. The action part of the poison is its pharmacodynamics component while the absorption, metabolism and elimination parts are its pharmacokinetics components. Some poisons like lead escape elimination and accumulate in the organs.</p>
-
-        <h3>Routes of Administration</h3>
-        <ul>
-            <li><strong>Local:</strong> dermal</li>
-            <li><strong>Systemic:</strong> oral, sublingual, rectal, vaginal, dermal, inhalational, nasal, parenteral</li>
-        </ul>
-
-        <div class="note">
-            <p><strong>Note:</strong> The rectal, vaginal, and nasal routes are usually considered systemic routes in toxicology since significant absorption occurs through these sites and death occurs due to systemic action rather than the local action. The dermal route can be local or systemic depending upon the major effect on the skin or systemic site respectively. The fat-soluble poisons like organophosphates are systemic poisons since they cause no effect on the skin though are absorbed through the skin to exert effect on the muscles and CNS. Here the dermal route is the systemic route.</p>
-        </div>
-
-        <h3>Routes of Elimination</h3>
-        <p>A. Urine &nbsp;&nbsp; B. Feces &nbsp;&nbsp; C. Exhaled air &nbsp;&nbsp; D. Saliva &nbsp;&nbsp; E. Sweat &nbsp;&nbsp; F. Milk &nbsp;&nbsp; G. Bile</p>
-
-        <div class="note">
-            <p><strong>Note:</strong> The opposite situation of tolerance is <strong>idiosyncrasy</strong>, which is an inherent hypersensitivity towards drugs or food resulting in symptoms like dyspnea, rigors, fever, diarrhea, hemorrhage from bowel and albuminuria, e.g., penicillin, aspirin, cocaine, sulphonamides, sera, certain articles of food (mushrooms, eggs, shell-fish, fruits) and heroin.</p>
-            <p><strong>Commonest poisoning in Nepal</strong> is organophosphorus poisoning.</p>
-            <p><strong>Love philter</strong> is a drug which is supposed to increase love between the giver and taker. Examples: arsenic, alcohol, opium, cocaine, and cannabis.</p>
-        </div>
-
-        <h3>Toxicity Rating of the Poison</h3>
+        <h3>C. Toxicity Rating Standard</h3>
         <table>
             <thead>
                 <tr>
-                    <th>Fatal Dose</th>
-                    <th>Rating</th>
+                    <th>Toxicity Grade</th>
+                    <th>Fatal Dose Threshold (Adult)</th>
+                    <th>Representative Examples</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Less than 5 mg/kg</td>
-                    <td>6 - Super toxic</td>
-                </tr>
-                <tr>
-                    <td>5 to 50 mg/kg</td>
-                    <td>5 - Extremely toxic</td>
-                </tr>
-                <tr>
-                    <td>51 to 500 mg/kg</td>
-                    <td>4 - Very toxic</td>
-                </tr>
-                <tr>
-                    <td>501 mg/kg to 5 gm/kg</td>
-                    <td>3 - Moderately toxic</td>
-                </tr>
-                <tr>
-                    <td>5.1 gm/kg to 15 gm/kg</td>
-                    <td>2 - Slightly toxic</td>
-                </tr>
-                <tr>
-                    <td>More than 15 gm/kg</td>
-                    <td>1 - Practically non-toxic</td>
-                </tr>
+                <tr><td><strong>6 - Super Toxic</strong></td><td>&lt; 5 mg/kg</td><td>Strychnine, Nicotine, Botulinum toxin, Cyanide</td></tr>
+                <tr><td><strong>5 - Extremely Toxic</strong></td><td>5 to 50 mg/kg</td><td>Parathion, Phosphorus, Endrin, Arsenic trioxide</td></tr>
+                <tr><td><strong>4 - Very Toxic</strong></td><td>51 to 500 mg/kg</td><td>Phenobarbital, Copper sulfate, Dhatura seed extract</td></tr>
+                <tr><td><strong>3 - Moderately Toxic</strong></td><td>501 mg/kg to 5 g/kg</td><td>DDT, Kerosene, Aspirin, Malathion</td></tr>
+                <tr><td><strong>2 - Slightly Toxic</strong></td><td>5.1 g/kg to 15 g/kg</td><td>Ethanol, Castor oil, Isopropanol</td></tr>
+                <tr><td><strong>1 - Practically Non-Toxic</strong></td><td>&gt; 15 g/kg</td><td>Water, Glycerin</td></tr>
             </tbody>
         </table>
 
-        <div class="mnemonic">
-            <p><strong>Toxicity rating:</strong> It is the grading of a poison based on its fatality. Toxicity rating is directly proportional to the potency (if the dose required to cause death for a poison is low then it is highly potent poison and vice-versa) and is applicable for the acute exposure of a single substance. So lower the fatal dose, higher the toxicity.</p>
-            <p>@Super extra very modern slice of poison:</p>
-            <ul>
-                <li>Super: Super toxic (&lt; 5 mg/kg)</li>
-                <li>Extra: Extremely toxic</li>
-                <li>Very: Very toxic</li>
-                <li>Modern: Moderately toxic</li>
-                <li>Slice of: Slightly toxic</li>
-                <li>Poison = practically non-toxic (&gt; 15 gm/kg)</li>
-            </ul>
-            <p>Super toxic has a fatal dose below 5 mg/kg while practically non-toxic has a fatal dose above 15000 mg/kg. To remember others, multiply former by 10 and make a range. E.g., for extremely toxic, multiply super toxic limit by 10 to get 5 * 10 = 50 mg/kg. So the range for extremely toxic group's fatal dose is 5-50 mg/kg.</p>
-        </div>
-    </section>
+        <!-- CHAPTER 3: HIGH-YIELD SPECIFIC TOXICANTS -->
+        <h2>3. High-Yield Specific Toxicants (Systemic Toxicology)</h2>
 
-    <section>
-        <h2>DIAGNOSIS OF POISONING</h2>
-
-        <h3>Diagnosis in Living</h3>
-        <p>Diagnosis in living is based upon: 1. History &nbsp; 2. Symptoms &nbsp; 3. Signs &nbsp; 4. Laboratory examination</p>
-
-        <h4>History and Symptoms</h4>
+        <h3>1. Organophosphate (OP) Poisoning &amp; Carbamates</h3>
+        <p><strong>Mechanism of Action:</strong> Organophosphates bind irreversibly (via phosphorylation) to the active site of the enzyme <strong>Acetylcholinesterase (AChE)</strong>. This inhibits the hydrolysis of acetylcholine, leading to massive accumulation of acetylcholine at central, muscarinic, and nicotinic nerve terminals. Over time, "aging" of the enzyme-inhibitor complex occurs, making reactivation impossible unless oximes are given early.</p>
+        
+        <h4>Clinical Features (Symptom Triad)</h4>
         <ul>
-            <li>Sudden onset of vomiting / diarrhea / pain in abdomen</li>
-            <li>Onset of symptoms to many persons who had taken food together</li>
-            <li>History of consumption of poison or suspicious material</li>
-            <li>Symptoms are uniform in character and increase rapidly in severity</li>
+            <li><strong>Muscarinic Effects (@DUMBELS):</strong> <strong>D</strong>iarrhea/Diaphoresis, <strong>U</strong>rination, <strong>M</strong>iosis (pinpoint pupils), <strong>B</strong>ronchospasm/Bronchorrhea (excessive respiratory secretions), <strong>E</strong>mesis, <strong>L</strong>acrimation, <strong>S</strong>alivation. (Also @SLUDGE: Salivation, Lacrimation, Urination, Defecation, Gastrointestinal upset, Emesis).</li>
+            <li><strong>Nicotinic Effects:</strong> Muscle fasciculations, cramping, weakness, flaccid paralysis, hypertension, tachycardia.</li>
+            <li><strong>Central Nervous System Effects:</strong> Confusion, ataxia, convulsions, respiratory center depression, coma.</li>
         </ul>
 
-        <p><strong>Non-Specific symptoms:</strong></p>
+        <h4>Management &amp; Antidotal Therapy</h4>
         <ol>
-            <li>Persistent vomiting and/or diarrhea with or without dehydration</li>
-            <li>Pain in abdomen</li>
-            <li>Altered sensorium / drowsiness / unconsciousness / coma</li>
-            <li>Breathlessness, constriction in chest, choking sensation</li>
-            <li>Convulsions</li>
-            <li>Palpitations, arrhythmias, chest pain</li>
-            <li>Hypothermia</li>
-            <li>Paralysis</li>
+            <li>Decontamination: Remove clothes, wash skin with soap/water, gastric lavage if within 1–2 hours.</li>
+            <li><strong>Atropine Sulfate (Specific Antidote):</strong> Competitively blocks muscarinic receptors.
+                <ul>
+                    <li>Dose: 1.8 to 3 mg IV bolus, doubling every 5–10 minutes until full <em>atropinization</em> is achieved.</li>
+                    <li>Signs of Atropinization: Clear lungs on auscultation (dry secretion), pupil dilation, HR &gt; 80–100 bpm, dry skin, flushing.</li>
+                </ul>
+            </li>
+            <li><strong>Cholinesterase Reactivators (Oximes):</strong> Pralidoxime (2-PAM) 1–2 g IV slow infusion over 30 min. Effective only before enzyme "aging" occurs (within 24–48 hours).</li>
         </ol>
 
-        <h4>Clinical Examination (Signs)</h4>
-        <p><strong>General Examination:</strong> Peculiar odor, Taste, Temperature (hypothermia/hyperthermia), Ocular changes, Oral manifestations.</p>
-        
-        <p><strong>Systemic Examination:</strong></p>
+        <h3>2. Carbon Monoxide (CO) Poisoning</h3>
+        <p><strong>Circumstances &amp; Sources:</strong> Incomplete combustion of carbonaceous materials (gas heaters, charcoal braziers in unventilated rooms, exhaust gases, burning structures).</p>
+        <p><strong>Pathophysiology:</strong> CO has an affinity for hemoglobin approximately 200–250 times greater than oxygen, forming <strong>Carboxyhemoglobin (COHb)</strong>. This shifts the oxygen-hemoglobin dissociation curve to the left (Haldane effect), preventing tissue oxygen delivery and inhibiting cellular cytochrome oxidase c.</p>
+
+        <h4>Clinical Manifestations (Based on COHb Levels)</h4>
         <ul>
-            <li><strong>Central Nervous System:</strong> Grading of coma (patient may be drowsy, deliriant or in coma), Convulsions, Tremors, Neuropathy, Movement disorder, Paralysis, Headache, Paresthesia, Gait, Delirium, Encephalopathy, Tingling, Ataxia, Psychosis.</li>
-            <li><strong>Respiratory System:</strong> Dyspnea, Pulmonary edema, Respiratory distress, Cough, Laryngospasm, Bronchitis, Emphysema.</li>
-            <li><strong>Gastrointestinal System:</strong> Vomiting, Diarrhea, Constipation, Gastroenteritis, Melena, Abdominal pain, Abdominal distension, Ileus, Thirst, Dysphagia, Odynophagia, Pancreatitis.</li>
-            <li><strong>Genitourinary System:</strong> Color of urine, Albuminuria, Hemoglobinuria, Glycosuria, Hematuria, Porphyrinuria, Oliguria, Polyuria, Dysuria.</li>
-            <li><strong>Musculoskeletal System:</strong> Myopathy, Myalgia, Rhabdomyolysis, Fasciculation, Smooth muscle depressant/stimulant.</li>
-            <li><strong>Blood Manifestations:</strong> Anemia, Blood dyscrasia, Thrombocytopenia, Leukocytosis, Leukopenia, Pancytopenia, Polycythemia, Stippling, Bone marrow depression, Hemolysis, Methemoglobin formation, Sulfhemoglobinemia.</li>
-            <li><strong>Dermal Manifestations:</strong> Rashes and Ulcers.</li>
-            <li><strong>Ear Manifestations:</strong> Rhinorrhea, Deafness, Vertigo, Tinnitus.</li>
-            <li><strong>Others:</strong> Poisons causing fever.</li>
+            <li><strong>10–20% COHb:</strong> Mild frontal headache, tightness across forehead.</li>
+            <li><strong>20–30% COHb:</strong> Throbbing headache, nausea, dizziness, impaired judgment.</li>
+            <li><strong>30–50% COHb:</strong> Severe headache, weakness, confusion, visual disturbances, syncope on exertion.</li>
+            <li><strong>&gt; 50–60% COHb:</strong> Convulsions, coma, Cheyne-Stokes respiration, fatal collapse.</li>
         </ul>
-
-        <p><strong>Lab Investigations:</strong> Various lab investigations specific to the poisons are sent. For example, plasma cholinesterase level is reduced in OP poisoning, silver-impregnated paper mask test is used in Aluminium phosphide poisoning, Liver function tests are done in Paracetamol poisoning, etc. Some poisons may be excreted in the urine, e.g., Amphetamine is excreted in urine and can be detected by urine analysis.</p>
-
-        <div class="note">
-            <p><strong>Note:</strong> Most of the symptoms/signs in poisoning are non-specific. So poisoning should be kept in mind with any symptoms of acute onset. Specific lab investigations are more diagnostic, but delay in basic management should not be done while waiting for investigations.</p>
-        </div>
-
-        <h3>Diagnosis in Dead</h3>
-        <p>Diagnosis of poisoning in dead is done by: 1. Autopsy findings &nbsp; 2. Laboratory examination</p>
 
         <h4>Autopsy Findings</h4>
         <ul>
-            <li><strong>External Examination:</strong> Evidence of soiling of clothes, presence of bottle/container/label in pocket, presence of suicide note, vitriolage, trickling of poison/stigmata of poison over skin, presence of injuries, smell from body. Rigor mortis (may appear early or delayed). Postmortem lividity (poisons may impart peculiar colour). Some poisons resist decomposition or some may hasten it.</li>
+            <li><strong>External:</strong> Characteristic <strong>Cherry-Red Post-Mortem Lividity</strong> (due to carboxyhemoglobin color visible in light-skinned individuals and mucosal surfaces). Tissues and blood remain unusually fluid and bright red.</li>
+            <li><strong>Internal:</strong> Cherry-red discoloration of viscera, skeletal muscles, and brain. Bilateral symmetrical necrosis of the globus pallidus in the basal ganglia is pathognomonic in delayed deaths. Pulmonary edema with hemorrhagic frothy fluid in tracheobronchial tree.</li>
+        </ul>
+
+        <h3>3. Dhatura (Dhatura stramonium / fastuosa) Poisoning</h3>
+        <p><strong>Active Alkaloids:</strong> Hyoscyamine, Scopolamine (Hyoscine), and Atropine. Commonly known as "Roadside Poison" or "Stupefying Poison" used by criminals to rob travelers.</p>
+
+        <div class="viva-note">
+            <strong>Classic Clinical Mnemonic ("Dhatura Triad / Mnemonic"):</strong><br>
+            • <em>Dry as a bone</em> (Inhibition of sweat and salivary secretions)<br>
+            • <em>Blind as a bat</em> (Mydriasis / dilated fixed pupils with cycloplegia)<br>
+            • <em>Red as a beet</em> (Cutaneous vasodilation and flushing)<br>
+            • <em>Hot as a hare</em> (Hyperpyrexia due to lack of sweating)<br>
+            • <em>Mad as a hatter</em> (Delirium, hallucinations, picking at bedclothes - "carphologia")
+        </div>
+
+        <p><strong>Cardinal Symptoms:</strong> Dry mouth, intense thirst, dysphagia, wide fixed dilated pupils, flushed skin, tachycardia, muttering delirium, active physical agitation, carphologia (picking at imaginary objects), urinary retention.</p>
+        <p><strong>Management:</strong> Gastric lavage with 1:5000 Potassium Permanganate (KMnO4) or Tannic acid. Antidote: <strong>Physostigmine</strong> 1–2 mg IV slowly (crosses blood-brain barrier). Supportive care, catheterization, dark room.</p>
+
+        <h3>4. Ethanol &amp; Methanol Toxicity</h3>
+        
+        <h4>A. Acute Ethanol Intoxication &amp; Blood Alcohol Concentration (BAC) Stages</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>BAC Range (mg/dL)</th>
+                    <th>Clinical Stage</th>
+                    <th>Dominant Clinical Features</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>30 – 100 mg%</strong></td><td>Euphoria / Excitation</td><td>Emotional lability, loss of inhibition, talkativeness, impaired judgment.</td></tr>
+                <tr><td><strong>100 – 200 mg%</strong></td><td>Incoordination / Inebriation</td><td>Slurred speech, ataxia, staggering gait, prolonged reaction time, sensory impairment.</td></tr>
+                <tr><td><strong>200 – 300 mg%</strong></td><td>Confusion / Stupor</td><td>Marked motor helplessness, double vision, amnesia, hypothermia, vomiting.</td></tr>
+                <tr><td><strong>300 – 400 mg%</strong></td><td>Coma</td><td>Unconsciousness, stertorous breathing, loss of reflexes, hypothermia, shock.</td></tr>
+                <tr><td><strong>&gt; 400 – 500 mg%</strong></td><td>Fatal Stage</td><td>Respiratory paralysis, cardiovascular collapse, death.</td></tr>
+            </tbody>
+        </table>
+
+        <h4>Certification of Drunkenness &amp; Examination</h4>
+        <p>Based on combination of smell of breath, clinical signs (gait instability, finger-nose test failure, slurred speech, dysarthria, nystagmus, dilated pupils reacting sluggishly to light) and laboratory BAC quantification (&gt; 30 mg% is the legal threshold for driving in many jurisdictions; presence of clinical intoxication required for certification).</p>
+
+        <h4>Modes of Death in Alcohol Toxicity</h4>
+        <ul>
+            <li>Direct acute respiratory center depression.</li>
+            <li>Aspiration of gastric contents (vomitus) causing asphyxia or Mendelson's syndrome.</li>
+            <li>Fatal trauma secondary to impaired motor control (traffic accidents, falls).</li>
+            <li>Vagal inhibition / positional asphyxia while intoxicated.</li>
+            <li>Acute hemorrhagic pancreatitis.</li>
+            <li>Rupture of esophageal varices secondary to portal hypertension in chronic cirrhosis leading to massive fatal upper GI hemorrhage.</li>
+        </ul>
+
+        <h4>Autopsy Findings in Chronic Alcoholic Bleeding to Death (Natural Death in Bed)</h4>
+        <ul>
+            <li><strong>External Examination:</strong> Emaciated or bloated appearance, jaundice/icteric sclera, spider nevi on chest/neck, palmar erythema, gynecomastia, caput medusae around umbilicus, pallor of skin and mucous membranes due to exsanguination, blood pooled around mouth/nostrils and on bed bedding.</li>
             <li><strong>Internal Examination:</strong>
                 <ul>
-                    <li><em>Cranial cavity:</em> Presence of odour / cerebral edema / hemorrhages.</li>
-                    <li><em>Chest cavity:</em> Note for presence of pleural effusion, pericardial effusion, state of lungs and heart, hemorrhages, pulmonary edema.</li>
-                    <li><em>Abdominal cavity:</em> Stomach contains gastric contents of various colours. Mucosa may show erosions, ulcers, hemorrhagic gastritis, or gastric mucosa may be stained with the colour of poison. Examine the state of intestine, liver, spleen, kidneys, pancreas, bladder, esophagus, lip, and oral cavity.</li>
+                    <li><em>GI Tract:</em> Dilated, tortuous, ruptured esophageal varices at distal esophagus; large blood clots filling stomach and intestine; congestive gastropathy / Mallory-Weiss tears.</li>
+                    <li><em>Liver:</em> Micronodular cirrhosis (hobnail liver), fatty liver change (steatosis), firm yellow-brown liver tissue.</li>
+                    <li><em>Spleen:</em> Splenomegaly (congestive splenomegaly due to portal hypertension).</li>
+                    <li><em>Cardiovascular &amp; Brain:</em> Pale internal organs (exsanguination), alcoholic cardiomyopathy, cerebral atrophy with ventricular enlargement.</li>
                 </ul>
             </li>
+            <li><strong>Cause of Death:</strong> Massive upper gastrointestinal hemorrhage secondary to ruptured esophageal varices due to hepatic cirrhosis.</li>
+            <li><strong>Mechanism of Death:</strong> Hypovolemic shock / Exsanguination.</li>
+            <li><strong>Manner of Death:</strong> Natural.</li>
         </ul>
 
-        <h4>Laboratory Examination</h4>
-        <p>It consists of analysis of collected viscera, body fluids and blood for poisons. The laboratory method consists of separation of drug/poison from biological tissue followed by purification and finally analysis proper in qualitative or quantitative assays:</p>
+        <h4>B. Methanol Toxicity</h4>
+        <p><strong>Pathophysiology:</strong> Methanol is metabolized by Alcohol Dehydrogenase (ADH) into <strong>Formaldehyde</strong>, which is then rapidly converted by Aldehyde Dehydrogenase into <strong>Formic Acid</strong>. Formic acid causes severe metabolic acidosis and optic nerve toxicity (retinal ganglion cell damage causing blindness).</p>
+        <p><strong>Clinical Signs:</strong> Latent period of 12–24 hours, visual disturbances ("snowstorm vision", blurring, optic atrophy, blindness), severe high anion gap metabolic acidosis, abdominal pain, coma.</p>
+        <p><strong>Management:</strong> Ethanol infusion (competes for ADH enzyme with ~10–20x higher affinity) or <strong>Fomepizole</strong> (4-methylpyrazole, direct ADH inhibitor); Sodium Bicarbonate for severe acidosis; Hemodialysis.</p>
+
+        <h3>5. Arsenic Poisoning (Acute &amp; Chronic)</h3>
+        <p><strong>Toxico-Dynamics:</strong> Binds to sulfhydryl (-SH) groups of cellular enzymes, inhibiting pyruvate dehydrogenase and disrupting cellular ATP generation.</p>
+        
+        <h4>Acute Arsenic Poisoning</h4>
         <ul>
-            <li><strong>Qualitative assays:</strong> Type of poison is known (e.g., Thin layer chromatography is a simple and inexpensive technique).</li>
-            <li><strong>Quantitative assays:</strong> Type of poison as well as quantification can be known. Examples: Gas chromatography, High performance liquid chromatography, Mass spectrometry, Radio-immunoassay, Atomic absorption spectrophotometry, Neutron activation analysis.</li>
+            <li><strong>Clinical Presentation:</strong> Severe gastrointestinal irritation resembling cholera ("Choleraic form"): burning throat pain, severe dysphagia, violent rice-watery stools mixed with blood, projectile vomiting, dehydration, muscle cramps, oliguria, collapse.</li>
+            <li><strong>Autopsy Findings:</strong> Velvet-red inflammatory gastric mucosa ("Red velvet appearance"), submucosal petechial hemorrhages, yellow subendocardial ecchymoses on the left ventricle septum.</li>
         </ul>
-    </section>
 
-    <section>
-        <h2>COLLECTION AND PRESERVATION OF VISCERA AND BODY FLUIDS FOR CHEMICAL ANALYSIS</h2>
-        <p>For chemical analysis, it is the duty of the doctor to collect and preserve viscera and other exhibits properly.</p>
-
-        <h3>Mode of Preservation</h3>
+        <h4>Chronic Arsenic Poisoning (Arsenicosis)</h4>
         <ul>
-            <li>Viscera is submerged in preservative inside a clean glass container.</li>
-            <li>1/3rd of the container should be empty.</li>
-            <li>Container should be airtight.</li>
-            <li>In all cases, the sample of the preservative used should be preserved in a separate clean container.</li>
-            <li>Stomach and intestine: one container</li>
-            <li>Liver and kidneys: one container</li>
-            <li>Other viscera: separate container</li>
-            <li>Blood, urine and skin tissue preserved in separate glass containers.</li>
-            <li>Vomit, feces, etc. are also preserved depending upon relevance in clean glass containers.</li>
-            <li>Bone, hair, nails and clothes (after drying): in polythene packets.</li>
-            <li>Properly labeled and sealed.</li>
+            <li><strong>Skin Changes:</strong> Hyperkeratosis of palms and soles ("Raindrop pigmentation" - hyperpigmented patches intermingled with hypopigmented macules on skin).</li>
+            <li><strong>Nails:</strong> Transverse white lines across fingernails (<strong>Mees' Lines</strong>).</li>
+            <li><strong>Nervous System:</strong> Peripheral neuropathy ("Glove and stocking" paresthesia, motor weakness).</li>
+            <li><strong>Systemic/Malignancy:</strong> Garlic breath odor, liver cirrhosis, blackfoot disease (peripheral vascular gangrene), increased risk of skin, lung, and bladder carcinomas.</li>
+            <li><strong>Autopsy Findings in Chronic Death:</strong> Emaciation, hyperkeratosis, Mees' lines, liver cirrhosis, toxic hepatitis, nephritis, presence of arsenic in preserved bone, hair, and nail samples.</li>
         </ul>
 
-        <p><strong>Label requirements:</strong> Name, age, sex of the deceased; Name of the police station; Case reference; Name of the mortuary; S.No. of PM examination; Date of PM; Preservative used; Signature and designation of the autopsy surgeon.</p>
+        <h3>6. Chronic Lead Poisoning (Plumbism / Saturnism)</h3>
+        <p><strong>Sources:</strong> Lead paints, battery manufacturing, plumbing, smelting, occupational exposure.</p>
+        <p><strong>Pathophysiology:</strong> Inhibits delta-aminolevulinic acid dehydratase (ALAD) and ferrochelatase, disrupting heme synthesis.</p>
+        
+        <h4>Clinical Features (@ABCDEF)</h4>
+        <ul>
+            <li><strong>A - Anemia &amp; Abdominal Colic:</strong> Microcytic hypochromic anemia with <strong>Basophilic Stippling</strong> (punctate basophilia) of RBCs; severe spasmodic abdominal pain (Lead colic).</li>
+            <li><strong>B - Burtonian Line:</strong> Bluish-black line along the gingival margin (Burton's line) formed by lead sulfide precipitation.</li>
+            <li><strong>C - CNS / Encephalopathy:</strong> Lead encephalopathy (headache, convulsions, delirium, coma, raised ICP).</li>
+            <li><strong>D - Drop (Wrist Drop / Foot Drop):</strong> Peripheral motor neuropathy affecting extensor muscles (radial nerve palsy causing Wrist Drop).</li>
+            <li><strong>E - Facial Pallor / Emaciation:</strong> "Saturnine cachexia" and facial pallor.</li>
+        </ul>
 
-        <h3>Collection of Routine Viscera</h3>
+        <h3>7. Snake Envenomation &amp; Venomous Species</h3>
+        
+        <h4>Classification of Venomous Snakes &amp; Venoms</h4>
         <table>
             <thead>
                 <tr>
-                    <th>Specimen</th>
-                    <th>Quantity</th>
+                    <th>Family</th>
+                    <th>Representative Species</th>
+                    <th>Predominant Venom Profile</th>
+                    <th>Key Clinical Signs</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>Stomach</td>
-                    <td>Entire stomach</td>
+                    <td><strong>Elapidae</strong></td>
+                    <td>Cobra (Naja naja), Krait (Bungarus caeruleus)</td>
+                    <td><strong>Neurotoxic</strong> &amp; Cardiotoxic</td>
+                    <td>Ptosis, diplopia, dysarthria, bulbar paralysis, respiratory failure.</td>
                 </tr>
                 <tr>
-                    <td>Stomach contents</td>
-                    <td>Entire (Preferably)</td>
+                    <td><strong>Viperidae</strong></td>
+                    <td>Russell's Viper, Saw-scaled Viper</td>
+                    <td><strong>Vasculotoxic / Hemotoxic</strong></td>
+                    <td>Severe local swelling, blistering, active bleeding from bite/gums, incoagulable blood, DIC, renal failure.</td>
                 </tr>
                 <tr>
-                    <td>Small intestine (jejunum)</td>
-                    <td>30 cm in adults; Entire length in infants</td>
-                </tr>
-                <tr>
-                    <td>Small intestinal contents</td>
-                    <td>Up to 100 gm</td>
-                </tr>
-                <tr>
-                    <td>Liver (portion containing gall bladder)</td>
-                    <td>500 gm in adults; Entire in infants</td>
-                </tr>
-                <tr>
-                    <td>Kidney</td>
-                    <td>One half of each kidney in adults; Both kidneys in infant</td>
+                    <td><strong>Hydrophiidae</strong></td>
+                    <td>Sea Snakes</td>
+                    <td><strong>Myotoxic</strong></td>
+                    <td>Generalized myalgia, rhabdomyolysis, myoglobinuria (dark red urine), hyperkalemia.</td>
                 </tr>
             </tbody>
         </table>
 
-        <h3>Additional Viscera in Particular Poisons</h3>
+        <div class="viva-note">
+            <strong>Why Snake Charmers Do Not Show Signs of Poisoning:</strong><br>
+            1. <strong>Surgical Defanging:</strong> Snake charmers routinely break, extract, or cauterize the primary venom fangs of cobras/vipers, rendering them unable to inject venom effectively.<br>
+            2. <strong>Venom Duct Ligation / Gland Removal:</strong> Surgical excision or obliteration of the venom glands/ducts.<br>
+            3. <strong>Acquired Immunity ( Mithridatism ):</strong> Repeated exposure to sub-lethal bites or intentional administration of minute venom doses induces neutralizing IgG antibodies.<br>
+            4. <strong>Dry Bites:</strong> Up to 30–50% of defensive bites by venomous snakes are "dry bites" where no venom is injected.<br>
+            5. <strong>Handling Defenseless / Dehydrated Snakes:</strong> Snakes kept in captivity by charmers are often dehydrated, malnourished, or kept at lower temperatures, reducing strike velocity and venom yield.
+        </div>
+
+        <h3>8. Aluminium Phosphide (Celphos) Poisoning</h3>
+        <p><strong>Mechanism of Action:</strong> In the presence of moisture/gastric hydrochloric acid, aluminium phosphide liberates <strong>Phosphine Gas (PH3)</strong>. Phosphine gas inhibits cytochrome c oxidase in the mitochondrial respiratory chain, causing cellular hypoxia, free radical generation, and multiorgan failure.</p>
+        <p><strong>Clinical Signs:</strong> Burning retrosternal pain, intractable vomiting, severe hypotension/refractory shock, metabolic acidosis, cardiac arrhythmias, pulmonary edema, death within hours.</p>
+        <p><strong>Autopsy Findings (10 Celphos Tablets Ingested):</strong></p>
+        <ul>
+            <li>Pungent, characteristic <strong>Garlic / Decaying Fish Odor</strong> upon opening body cavities.</li>
+            <li>Massive pulmonary edema, pulmonary congestion, bloody alveolar fluid.</li>
+            <li>Gastric mucosa hyperemic, congested, desquamated, showing petechial hemorrhages.</li>
+            <li>Centrilobular necrosis of liver, acute tubular necrosis of kidneys.</li>
+            <li>Positive Silver Nitrate Test: Epigastric/gastric gas or soaked filter paper turns black when exposed to silver nitrate solution due to phosphine gas reaction.</li>
+        </ul>
+
+        <h3>9. Corrosive Acid Ingestion (Nitric Acid Ingestion)</h3>
+        <p><strong>Mechanism:</strong> Nitric acid is a powerful inorganic corrosive acid causing coagulative necrosis of tissues. Reacts with aromatic amino acids in cutaneous and mucosal proteins to form bright yellow xanthoproteic acid (<strong>Xanthoproteic Reaction</strong>).</p>
+        <p><strong>Autopsy Findings in Fatal Nitric Acid Ingestion:</strong></p>
+        <ul>
+            <li><strong>External:</strong> Characteristic <strong>Yellowish / Lemon-Yellow Staining and Corrosion</strong> around lips, mouth, chin, and hands. Corrosion lines running down chin and neck.</li>
+            <li><strong>Internal:</strong>
+                <ul>
+                    <li>Yellowish discoloration and extensive chemical sloughing of tongue, mouth, pharynx, and esophagus.</li>
+                    <li>Gastric walls hardened, friable, dark-yellow to brown/black; extensive gastric mucosal necrosis and ulceration.</li>
+                    <li>Gastric perforation with chemical peritonitis and dark amber fluid in peritoneal cavity.</li>
+                    <li>Laryngeal edema, mucosal sloughing of upper respiratory tract from acid vapors.</li>
+                </ul>
+            </li>
+            <li><strong>Cause of Death:</strong> Corrosive shock / Chemical peritonitis / Laryngeal edema with asphyxia.</li>
+        </ul>
+
+        <h3>10. Cannabis Sativa</h3>
+        <p><strong>Active Chemical Principles:</strong> Tetrahydrocannabinol (<strong>Delta-9-THC</strong>), Cannabinol, Cannabidiol.</p>
+        <p><strong>Common Preparations:</strong></p>
+        <ul>
+            <li><em>Bhang:</em> Prepared from dried leaves and flowering shoots; lowest THC concentration (1–3%).</li>
+            <li><em>Ganja:</em> Prepared from unfertilized female resinous flowering tops; moderate THC (4–8%).</li>
+            <li><em>Charas (Hashish):</em> Pure resinous exudate extracted from leaves/tops; high THC (10–20%).</li>
+            <li><em>Hashish Oil:</em> Concentrated liquid extract; maximum THC potency (20–60%).</li>
+        </ul>
+        <p><strong>Clinical Signs:</strong> Euphoria, altered time sense, distortion of space perception, conjunctival injection, tachycardia, increased appetite, panic reactions ("bad trip"), amotivational syndrome in chronic users.</p>
+
+        <!-- CHAPTER 4: AUTOPSY REPORT TEMPLATE -->
+        <h2>4. Formal Autopsy Report Protocol (Opioid / Heroin Overdose)</h2>
+        <p>Per standardized forensic format using the <strong>Six Prescribed Headings</strong>:</p>
+
+        <div class="report-box">
+            <h4>POST-MORTEM EXAMINATION REPORT</h4>
+            <p><strong>1. RELEVANT DETAILS:</strong><br>
+            • Autopsy Case No: FM/2026/089 | Date/Time: 26th July 2026, 14:00 Hrs<br>
+            • Name of Deceased: Unknown Male (Aged approx. 19 years) | Requisitioning Authority: Local Police Station<br>
+            • Alleged History: Found dead in an abandoned building with a disposable syringe lying adjacent to the body. History suggestive of chronic intravenous drug abuse.</p>
+
+            <p><strong>2. EXTERNAL EXAMINATION:</strong><br>
+            • Body of a young male, poorly nourished, emaciated. Post-mortem lividity present over posterior aspects, dark bluish-purple, fixed. Rigor mortis fully established all over the body.<br>
+            • Both pupils marked <strong>Pinpoint and Constricted</strong> bilaterally. Frothy white froth visible at nostrils and oral cavity.<br>
+            • Multiple fresh and hyperpigmented linear needle puncture tracks ("track marks") along the course of superficial veins in left cubital fossa, anterior forearms, and dorsum of feet.</p>
+
+            <p><strong>3. INTERNAL EXAMINATION:</strong><br>
+            • <em>Respiratory System:</em> Heavy, wet, severely congested lungs (Right: 750g, Left: 680g). Laryngeal and bronchial passages completely occluded by copious fine white pulmonary edema froth.<br>
+            • <em>Cardiovascular System:</em> Heart weighs 280g; right heart chambers dilated and filled with dark fluid blood.<br>
+            • <em>Central Nervous System:</em> Marked brain edema, gyri flattened, sulci narrowed, intense cerebral venous congestion.<br>
+            • <em>Gastrointestinal System:</em> Stomach contains 150 mL brownish fluid without specific odor; gastric mucosa congested.</p>
+
+            <p><strong>4. SPECIAL EXAMINATION:</strong><br>
+            • Microscopic examination of skin biopsy from needle track site demonstrates acute perivascular inflammatory infiltrate, focal necrosis, and cutaneous scarring. Histology of lungs confirms severe pulmonary edema and alveolar hemorrhage.</p>
+
+            <p><strong>5. VISCERA / OTHER SAMPLES COLLECTED:</strong><br>
+            • Viscera Jar 1: Stomach &amp; contents + 30cm Jejunum preserved in Saturated Sodium Chloride solution.<br>
+            • Viscera Jar 2: 500g Liver + Gallbladder + Half of each Kidney in Saturated NaCl.<br>
+            • Blood Sample: 50 mL subclavian venous blood preserved with Sodium Fluoride (NaF) &amp; Potassium Oxalate.<br>
+            • Urine Sample: Entire available volume (35 mL) in clean container without preservative.<br>
+            • Vitreous Humor: Collected in clean test tube.</p>
+
+            <p><strong>6. CAUSE OF DEATH:</strong><br>
+            • <strong>Cause of Death:</strong> Acute pulmonary edema and respiratory depression secondary to acute Opioid (Heroin) overdose.<br>
+            • <strong>Manner of Death:</strong> Accidental / Substance Abuse overdose.</p>
+        </div>
+
+        <!-- CHAPTER 5: VISCERA PRESERVATION -->
+        <h2>5. Collection &amp; Preservation of Viscera</h2>
+
+        <h3>Standard Viscera Sampling Matrix</h3>
         <table>
             <thead>
                 <tr>
-                    <th>Specimen</th>
-                    <th>Quantity</th>
-                    <th>Toxicant Sought</th>
+                    <th>Anatomical Specimen</th>
+                    <th>Standard Quantity Extracted</th>
+                    <th>Target Toxicants / Diagnostic Purpose</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>Adipose tissue</td>
-                    <td>200 gm</td>
-                    <td>Insecticides, thiopental</td>
+                    <td><strong>Stomach &amp; Contents</strong></td>
+                    <td>Entire organ + all intact contents</td>
+                    <td>Ingested poisons, unabsorbed residue</td>
                 </tr>
                 <tr>
-                    <td>Bile</td>
-                    <td>All available</td>
-                    <td>Opiate, paracetamol</td>
+                    <td><strong>Small Intestine</strong></td>
+                    <td>Proximal 30 cm (Jejunum)</td>
+                    <td>Orally ingested heavy metals, delayed-release drugs</td>
                 </tr>
                 <tr>
-                    <td>Brain</td>
-                    <td>500 gm<br>1-2 cm cubes</td>
-                    <td>Volatile poisons, alcohol, anesthetics, barbiturates, CO<br>For rabies</td>
+                    <td><strong>Liver</strong></td>
+                    <td>500 g including intact Gallbladder</td>
+                    <td>Primary site of drug clearance &amp; hepatic accumulation</td>
                 </tr>
                 <tr>
-                    <td>Lung</td>
-                    <td>One whole</td>
-                    <td>Methadone, gases, inhalants</td>
+                    <td><strong>Kidneys</strong></td>
+                    <td>One-half of each kidney</td>
+                    <td>Renal elimination, nephrotoxic agents</td>
                 </tr>
                 <tr>
-                    <td>Vitreous humor</td>
-                    <td>All available</td>
-                    <td>Digoxin, electrolytes, glucose</td>
+                    <td><strong>Blood</strong></td>
+                    <td>50 mL (Subclavian vein extraction)</td>
+                    <td>Quantitative systemic drug levels, CO, MetHb</td>
                 </tr>
                 <tr>
-                    <td>CSF</td>
-                    <td>10 ml</td>
-                    <td>Alcohol</td>
+                    <td><strong>Vitreous Humor</strong></td>
+                    <td>Entire available volume</td>
+                    <td>Alcohol estimation, post-mortem electrolytes, Digoxin</td>
                 </tr>
                 <tr>
-                    <td>Spinal cord</td>
-                    <td>Entire length</td>
-                    <td>Gelsemine, strychnine</td>
+                    <td><strong>Brain Tissue</strong></td>
+                    <td>500 g (1–2 cm cubes)</td>
+                    <td>Volatile hydro-carbons, Alcohol, Barbiturates, Rabies</td>
                 </tr>
                 <tr>
-                    <td>Skin (with underlying tissue)</td>
-                    <td>Affected portion</td>
-                    <td>Corrosive, injected poison, snake bite</td>
-                </tr>
-                <tr>
-                    <td>Bone (preferably femur)</td>
-                    <td>10 cm length</td>
-                    <td>Heavy metals</td>
-                </tr>
-                <tr>
-                    <td>Scalp hairs (plucked)</td>
-                    <td>15 to 20 strands</td>
-                    <td>Heavy metals</td>
-                </tr>
-                <tr>
-                    <td>Uterus</td>
-                    <td>Whole</td>
-                    <td>Abortifacient drugs</td>
-                </tr>
-                <tr>
-                    <td>Heart</td>
-                    <td>Whole</td>
-                    <td>Cardiac poisons</td>
+                    <td><strong>Long Bone / Hair / Nails</strong></td>
+                    <td>10 cm Femur shaft, 15–20 hair strands with roots</td>
+                    <td>Chronic heavy metal toxicities (Arsenic, Lead)</td>
                 </tr>
             </tbody>
         </table>
 
-        <h3>Preservation of Viscera</h3>
-        <p>After collection of viscera, it is important to preserve them properly with proper preservative.</p>
-        <p><strong>Rectified spirit / absolute alcohol</strong> is used as a preservative for viscera in all cases of poisoning EXCEPT the following poisons:</p>
-        <ul>
-            <li>Phosphorus</li>
-            <li>Alcohol</li>
-            <li>Phenol (carbolic acid)</li>
-            <li>Paraldehyde</li>
-            <li>Acetic acid</li>
-        </ul>
-        <div class="mnemonic">@Mnemonic: "PAPPA is not preserved in rectified spirit".</div>
+        <h3>Preservation Protocols &amp; Chemical Reagents</h3>
+        <p>Containers must be clean, leak-proof glass jars filled to 2/3 capacity to allow space for gas expansion. A separate sample container of the pure preservative medium must always be submitted as a control.</p>
 
-        <p>The viscera are also preserved in a <strong>saturated solution of common salt (sodium chloride)</strong>. Preserving viscera in saturated solution of common salt is routinely practiced because it is economical. Saturated solution of common salt is used to preserve viscera in all poisoning cases EXCEPT:</p>
-        <ul>
-            <li>Inorganic acid (mineral acid) poisoning</li>
-            <li>Vegetable poisoning</li>
-        </ul>
-
-        <p>In suspected cases of rabies, 1 to 2 cm cube of brain is collected and preserved in 50 percent glycerol solution for demonstration of Negri bodies.</p>
-        <p>For histology: tissues should be cut into small pieces and submerged in 10% formal saline solution.</p>
-
-        <h3>Collection of Body Fluids and Preservatives</h3>
-        <ul>
-            <li><strong>Urine:</strong> Usually 20 ml preserved in a sterile glass container without any preservative. If desired, boric acid, formaldehyde, or thymol can be used.</li>
-            <li><strong>Blood:</strong> Fluoride, oxalate, EDTA, etc. (depends on the type of test and type of poisons). Drawn from subclavian vein with a large 13 gauge bore needle with 50-60 cc syringe. 50 ml blood divided as:
-                <ul>
-                    <li>Two glass tubes each with 20 ml in NaF (doesn't allow bacterial decomposition)</li>
-                    <li>One glass tube with 10 ml in potassium oxalate (anticoagulant) and NaF</li>
-                </ul>
-            </li>
-            <li><strong>Vitreous humor:</strong> All VH should be collected (reflects drug level in blood 1-2 hr antemortem) and sent in frozen condition.</li>
-        </ul>
-
-        <h3>Failure to Detect Poison in Certain Cases</h3>
-        <ol>
-            <li>Poison may have been eliminated by vomiting and diarrhea (e.g., irritant poison).</li>
-            <li>Poison has disappeared from the lungs by evaporation or oxidation.</li>
-            <li>Poison after absorption may be detoxified, conjugated, and eliminated from the system.</li>
-            <li>Some alkaloidal poisons cannot be definitely detected by chemical methods.</li>
-            <li>Some drugs are rapidly metabolized, making extraction difficult.</li>
-            <li>Biological toxins and venoms which may be protein in nature cannot be separated from body tissues.</li>
-            <li>Some organic poisons, especially alkaloids and glucosides, may detoxify by oxidation during life or due to faulty preservation or from decomposition of the body, and cannot be detected chemically.</li>
-            <li>In a slow-acting poison, death may be delayed and by then the poison may have been completely excreted following production of irreversible changes.</li>
-            <li>Many drugs may be present in small amounts and these may require a considerable amount of viscera for their identification.</li>
-            <li>Wrong or insufficient material may have been sent for analysis.</li>
-        </ol>
-    </section>
-
-    <section>
-        <h2>MANAGEMENT OF POISONING</h2>
-        <p>The complete management of poisoning will depend on the results of investigations which may take some time, but basic management should be done while waiting for the results. The following basic principles of management are usually followed in almost every poisoning:</p>
-        
-        <ol>
-            <li>Stabilization and evaluation</li>
-            <li>Decontamination (Eye, Skin, Gut: Emesis, Gastric lavage, Catharsis, Activated charcoal, Bowel irrigation)</li>
-            <li>Poison elimination</li>
-            <li>Antidote administration</li>
-            <li>Nursing care</li>
-            <li>Psychiatric care</li>
-        </ol>
-
-        <h3>1. Stabilization and Evaluation</h3>
-        <ul>
-            <li><strong>A:</strong> Maintenance of airway</li>
-            <li><strong>B:</strong> Maintenance of breathing</li>
-            <li><strong>C:</strong> Maintenance of circulation</li>
-            <li><strong>D:</strong> Disability (neurologic status) management: assess level of consciousness</li>
-            <li><strong>E:</strong> Elimination of poison</li>
-        </ul>
-
-        <div class="mnemonic">
-            <p><strong>Levels of Consciousness (@AVPU / Gradings):</strong></p>
-            <ul>
-                <li>Level 0: Fully conscious (Alert)</li>
-                <li>Level 1: Drowsy but responding to verbal command</li>
-                <li>Level 2: Maximum response to minimal painful stimuli</li>
-                <li>Level 3: Minimal response to maximum painful stimuli</li>
-                <li>Level 4: Unresponsive to painful stimuli, loss of all reflexes including pharyngeal, laryngeal, and corneal</li>
-            </ul>
+        <div class="highlight-box">
+            <strong>Preservative Selection Rules:</strong><br>
+            1. <strong>Rectified Spirit (Absolute Alcohol):</strong> Standard preservative for routine cases.<br>
+            <em>CONTRAINDICATED IN (@PAPPA):</em> <strong>P</strong>hosphorus, <strong>A</strong>lcohol, <strong>P</strong>henol (Carbolic acid), <strong>P</strong>araldehyde, <strong>A</strong>cetic acid.<br><br>
+            2. <strong>Saturated Sodium Chloride (Common Salt) Solution:</strong> Economical alternative used in alcohol/phenol cases.<br>
+            <em>CONTRAINDICATED IN:</em> Inorganic Mineral Acid poisoning and Plant/Vegetable Alkaloid toxicity.<br><br>
+            3. <strong>Blood Preservatives:</strong> Sodium Fluoride (NaF - 10 mg/mL) serves as an enzyme inhibitor to prevent anaerobic glycolysis and ethanol degradation; Potassium Oxalate (3 mg/mL) acts as an anticoagulant.
         </div>
 
-        <h3>2. Decontamination</h3>
-        <p><strong>Eye Decontamination:</strong> If ocular exposure occurs, eye should be irrigated with copious water for 15 to 20 minutes.</p>
-        <p><strong>Skin Decontamination:</strong> Absorption of poison is possible by dermal route. Affected area should be washed thoroughly with plain water, clothes removed, and area irrigated copiously with water.</p>
-        
-        <h4>Gut Decontamination:</h4>
-
-        <p><strong>A. Emesis</strong></p>
+        <h3>Failure to Detect Poison Post-Mortem</h3>
         <ul>
-            <li><em>Agents used:</em> Syrup of ipecacuanha, Apomorphine, Stimulation of posterior pharyngeal wall.</li>
-            <li><em>Indications:</em> Conscious patient, ingestion of poison within 4 to 6 hours.</li>
-            <li><em>Contraindications (@REMEMBER BY 4Cs and V):</em> Coma / convulsion / unconscious patient, Impaired gag reflex, Corrosive / volatile poison ingestion, Pregnancy indicated by cessation of menses.</li>
-            <li><em>Complications:</em> Aspiration pneumonia, Mallory-Weiss tears, Laryngospasm.</li>
+            <li>Complete elimination via pre-mortem hyper-emesis or severe diarrhea.</li>
+            <li>Rapid pulmonary exhalation or volatile evaporation of low-boiling-point solvents.</li>
+            <li>Total hepatic biotransformation into non-detectable end-stage metabolites.</li>
+            <li>Degradation of organic alkaloids/glucosides due to post-mortem putrefaction.</li>
+            <li>Extended survival interval following single exposure, permitting total renal clearance prior to death.</li>
+            <li>Inappropriate preservative selection causing chemical destruction of the toxicant in transit.</li>
         </ul>
 
-        <p><strong>B. Gastric Lavage</strong></p>
-        <ul>
-            <li><em>Indications:</em> Conscious patient, ingestion of poison within 1 to 2 hours.</li>
-            <li><em>Contraindications (@REMEMBER BY 4Cs and V):</em> Coma / convulsion / unconscious patient, Impaired gag reflex or lack of spontaneous swallowing, Corrosive / volatile poison ingestion, Marked hypothermia or cold body, Esophageal varices, Significant electrolyte imbalance, Hydrocarbon poisoning, Cardiac arrhythmia.</li>
-            <li><em>Complications:</em> Aspiration pneumonia, Laryngospasm, Mallory-Weiss tears, Perforation of esophagus/stomach, Hypothermia, Bradycardia, Electrolyte imbalance (hyponatremia, hypochloremia).</li>
-        </ul>
+        <!-- CHAPTER 6: CLINICAL MANAGEMENT -->
+        <h2>6. Clinical Management of Acute Poisoning</h2>
 
-        <div class="diagram-box">
-            <p><strong>Gastric Lavage Setup Diagram Components:</strong></p>
-            <p>Funnel &rarr; Rubber tube &rarr; Suction bulb &rarr; Mouth gag &rarr; Ewald tube / Boas tube / Ryle's tube inserted into patient.</p>
-        </div>
-
-        <p><strong>Procedure &amp; Equipment for Gastric Lavage:</strong></p>
-        <p>Gastric lavage (stomach washout) should only be undertaken if the patient has ingested a potentially life-threatening amount of a poison and presents within 1 hour of ingestion. If performed later, the amount of poison removed is insignificant and lavage can make the situation worse by pushing unabsorbed poison into the small intestine.</p>
-        <ul>
-            <li><strong>Equipment:</strong> Stomach tube / Boas tube (14 mm diameter in adults / red rubber gastric lavage tube), Funnel, Rubber tube, Suction bulb, Mouth gag, KY jelly, Oxygen, Powerful suction equipment, Bucket, Jug (250-500 ml), Cuffed ET tube, PPE (gloves, apron, boots).</li>
-            <li><strong>Step 1 (Positioning):</strong> Place patient in left lateral decubitus position so that the mouth is lower than the larynx to aid respiratory drainage and prevent aspiration.</li>
-            <li><strong>Step 2 (Introduction of Tube):</strong> Remove artificial dentures. Lubricate tube and insert by asking patient to swallow gently or using tongue depressor. Push down till the 50 cm mark (in adults) coincides with upper incisor teeth. Fix mouth gag.</li>
-            <li><strong>Step 3 (Confirmation):</strong> Force a little air down the tube with a syringe and listen for bubbling sounds over the stomach with a stethoscope. If the tube enters the trachea, a hissing noise is heard and reflex coughing occurs in a conscious patient.</li>
-            <li><strong>Step 4 (Washing):</strong> Pour lavage fluid (&le; 250 ml) and raise funnel to allow fluid to flow in. After a few minutes, lower the funnel and apply suction to siphon contents out. Repeat until fluid is clear, odorless, and same as fluid poured.</li>
-            <li><strong>Step 5 (Antidote):</strong> Leave a small quantity of fluid containing antidote / activated charcoal in the stomach to neutralize remaining poison.</li>
-        </ul>
-
-        <p><strong>C. Activated Charcoal</strong></p>
-        <p>It is a tasteless, black, fine powder that adsorbs poisons in the stomach and decreases systemic absorption. Given as 1 gm/kg body weight mixed with water.</p>
-        <ul>
-            <li><em>Disadvantages:</em> Unpleasant taste, provokes vomiting, may cause diarrhea/constipation.</li>
-            <li><em>Contraindications:</em> Paralytic ileus, intestinal obstruction, perforation of stomach.</li>
-        </ul>
-
-        <h3>3. Antidote Administration <small>(2078)</small></h3>
-        <p><strong>Definition:</strong> Antidotes are substances used to counteract or neutralize the effects of poison.</p>
-        
-        <h4>Classification of Antidotes:</h4>
+        <h3>Systemic Resuscitation &amp; Decontamination Sequence</h3>
         <ol>
-            <li><strong>Physical or Mechanical or Non-Specific Antidotes:</strong> Retard absorption of poison by mechanical action.
+            <li><strong>Stabilization (Primary Survey):</strong> Airway security, Mechanical ventilation/Breathing support, Circulation support (IV fluids/inotropes), Disability evaluation.</li>
+            <li><strong>Ocular &amp; Dermal Decontamination:</strong> Flush eyes with isotonic saline or copious water for 15–20 minutes. Remove contaminated clothing; cleanse skin thoroughly with soap and water.</li>
+            <li><strong>Gastrointestinal Decontamination:</strong>
                 <ul>
-                    <li>Examples: Activated charcoal (adsorbs poison into its pores), demulcents such as milk, starch, egg-white / egg albumin (form protective coating on gastric mucosa).</li>
+                    <li><em>Emesis:</em> Syrup of Ipecac (largely obsolete); limited to conscious patients presenting within 1 hour.</li>
+                    <li><em>Gastric Lavage:</em> Mechanical gastric emptying via large-bore tube.</li>
+                    <li><em>Activated Charcoal:</em> Administered at 1 g/kg (aqueous slurry); adsorbs toxins within the gastrointestinal lumen.</li>
+                    <li><em>Whole Bowel Irrigation:</em> Polyethylene glycol administration for sustained-release or enteric-coated preparations.</li>
                 </ul>
             </li>
-            <li><strong>Chemical Antidote:</strong> Counteract action of poison by neutralizing it or forming harmless/insoluble compounds.
-                <ul>
-                    <li>Example: In corrosive alkali poisons, weak vegetable acids like citric acid or lemon juice may be used.</li>
-                </ul>
-            </li>
-            <li><strong>Physiological or Pharmacological Antidote:</strong> Act on the tissues of the body via:
-                <ul>
-                    <li><em>Reduces toxic conversion:</em> Ethanol in methyl alcohol poisoning (competes for alcohol dehydrogenase).</li>
-                    <li><em>Competition at receptor site:</em> Naloxone in opiate poisoning (competes at opioid receptors).</li>
-                    <li><em>Blocking the receptor site:</em> Atropine in organophosphate poisoning (blocks muscarinic receptors).</li>
-                    <li><em>Chelating action:</em> Interacts with poison to form an inert complex excreted from the body (primarily in heavy metal poisoning). Examples: BAL, Succimer, Disodium edetate, Penicillamine, Desferrioxamine, Calcium disodium edetate.</li>
-                </ul>
-            </li>
+            <li><strong>Enhanced Elimination:</strong> Hemodialysis, Hemoperfusion, Urinary alkalinization (Sodium Bicarbonate for Salicylates/Phenobarbital).</li>
+            <li><strong>Antidote Administration &amp; Supportive Care</strong>.</li>
         </ol>
 
-        <h4>Universal Antidote <small>(2080)</small></h4>
-        <p>Used when the nature of poison is unknown or when multiple poisons are taken. It is an obsolete antidote of historical importance.</p>
-        <div class="mnemonic">
-            <p>@Composition (CoMmenT):</p>
-            <ul>
-                <li><strong>Charcoal (2 parts):</strong> Adsorbs poisons (burnt bread gives charcoal)</li>
-                <li><strong>Magnesium oxide (1 part):</strong> Neutralizes acids (milk of magnesia)</li>
-                <li><strong>Tannic acid (1 part):</strong> Precipitates alkaloids, certain glycosides and metals (tea has tannic acid)</li>
-            </ul>
+        <h3>Gastric Lavage: Protocol, Contraindications &amp; Complications</h3>
+
+        <h4>Standard Procedural Steps</h4>
+        <ol>
+            <li>Position patient in <strong>Left Lateral Decubitus</strong> position with head tilted downwards (reduces risk of aspirating gastric contents into the respiratory tract).</li>
+            <li>Insert lubricated large-bore <strong>Ewald or Boas tube</strong> (14 mm diameter in adults) through mouth gag to approximately 50 cm mark.</li>
+            <li>Verify placement by insufflating air while auscultating over epigastrium or aspirating gastric fluid.</li>
+            <li>Instill aliquots of 200–300 mL warm normal saline or tepid water; siphon off via gravity drainage. Repeat until effluent is clear and free of odor.</li>
+        </ol>
+
+        <div class="viva-note">
+            <strong>Contraindications for Gastric Lavage (@4Cs &amp; V):</strong><br>
+            1. <strong>C</strong>orrosive Ingestion (Risk of Esophageal/Gastric Perforation).<br>
+            2. <strong>C</strong>onvulsions / Uncontrolled Seizures.<br>
+            3. <strong>C</strong>oma / Loss of Airway Reflexes (unless protected by Cuffed Endotracheal Tube).<br>
+            4. <strong>C</strong>ardiac Arrhythmias or Severe Ischemic Heart Disease.<br>
+            5. <strong>V</strong>olatile Hydrocarbon / Petroleum Distillates (High risk of Chemical Pneumonitis via aspiration).
         </div>
 
-        <h4>Specific Antidotes Table</h4>
+        <!-- CHAPTER 7: ANTIDOTES -->
+        <h2>7. Antidotes & Pharmacological Therapeutics</h2>
+
+        <h3>Classification of Antidotes</h3>
+        <ul>
+            <li><strong>Mechanical / Physical:</strong> Retards systemic absorption by physically coating gastric mucosa or adsorbing molecules (e.g., Activated Charcoal, Egg white/albumin, Demulcents).</li>
+            <li><strong>Chemical:</strong> Neutralizes poison via direct chemical interaction to produce an inert compound (e.g., Weak organic acids for alkali exposure).</li>
+            <li><strong>Physiological / Pharmacological:</strong> Counteracts systemic toxicity by opposing pharmacodynamic mechanisms at receptor sites or alter metabolic pathways:
+                <ul>
+                    <li><em>Receptor Antagonism:</em> Atropine (Muscarinic blocker in OP toxicity), Naloxone (Opioid receptor antagonist).</li>
+                    <li><em>Metabolic Competition:</em> Ethanol/Fomepizole (Competes for Alcohol Dehydrogenase in Methanol poisoning).</li>
+                    <li><em>Chelating Agents:</em> Direct chemical binding of heavy metals into stable ring complexes excreted in urine (e.g., BAL/Dimercaprol, Ca-Na2 EDTA, Penicillamine, Desferrioxamine).</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>Universal Antidote Matrix</h3>
+        <p>An obsolete formulation historically administered when the exact identity of an ingested toxin was unknown:</p>
         <table>
             <thead>
                 <tr>
-                    <th>Antidote</th>
-                    <th>Corresponding Poison</th>
+                    <th>Component</th>
+                    <th>Proportion</th>
+                    <th>Mechanism of Action</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>Acetylcysteine</td>
-                    <td>Paracetamol</td>
+                    <td><strong>Powdered Charcoal</strong></td>
+                    <td>2 Parts</td>
+                    <td>Adsorbs alkaloids, glucosides, and organic toxins</td>
                 </tr>
                 <tr>
-                    <td>Amyl nitrite</td>
-                    <td>Cyanide</td>
+                    <td><strong>Magnesium Oxide</strong></td>
+                    <td>1 Part</td>
+                    <td>Neutralizes acidic compounds; mild cathartic effect</td>
                 </tr>
                 <tr>
-                    <td>Atropine</td>
-                    <td>Organophosphate</td>
-                </tr>
-                <tr>
-                    <td>Desferrioxamine</td>
-                    <td>Iron</td>
-                </tr>
-                <tr>
-                    <td>Ethanol</td>
-                    <td>Methanol</td>
-                </tr>
-                <tr>
-                    <td>Flumazenil</td>
-                    <td>Benzodiazepines</td>
-                </tr>
-                <tr>
-                    <td>Naloxone</td>
-                    <td>Opiates</td>
+                    <td><strong>Tannic Acid</strong></td>
+                    <td>1 Part</td>
+                    <td>Precipitates heavy metals and certain alkaloids</td>
                 </tr>
             </tbody>
         </table>
 
-        <h3>4. Poison Elimination</h3>
-        <p><strong>Indications:</strong> Severe poisoning; Progressive deterioration despite supportive care; High risk of morbidity and mortality; Normal route of excretion impaired; Poison produces delayed but serious toxic effects.</p>
-        <p><strong>Methods of Elimination:</strong></p>
-        <ul>
-            <li>Hemodialysis</li>
-            <li>Hemoperfusion</li>
-            <li>Peritoneal dialysis</li>
-            <li>Plasma perfusion</li>
-            <li>Alkaline diuresis and Acid diuresis</li>
-            <li>Diaphoretics use (e.g., Pilocarpine, Salicylates)</li>
-        </ul>
-    </section>
+        <h3>Specific Antidote Reference Table</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Toxic Agent</th>
+                    <th>Specific Antidote / Therapeutic Agent</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>Organophosphates / Carbamates</strong></td><td>Atropine Sulfate, Pralidoxime (2-PAM)</td></tr>
+                <tr><td><strong>Opioids / Heroin / Morphine</strong></td><td>Naloxone</td></tr>
+                <tr><td><strong>Benzodiazepines</strong></td><td>Flumazenil</td></tr>
+                <tr><td><strong>Paracetamol (Acetaminophen)</strong></td><td>N-Acetylcysteine (NAC)</td></tr>
+                <tr><td><strong>Methanol / Ethylene Glycol</strong></td><td>Ethanol, Fomepizole</td></tr>
+                <tr><td><strong>Cyanide</strong></td><td>Amyl Nitrite, Sodium Nitrite, Sodium Thiosulfate, Hydroxocobalamin</td></tr>
+                <tr><td><strong>Iron Toxicity</strong></td><td>Desferrioxamine</td></tr>
+                <tr><td><strong>Heavy Metals (Arsenic, Lead, Mercury)</strong></td><td>BAL (Dimercaprol), D-Penicillamine, Succimer (DMSA)</td></tr>
+                <tr><td><strong>Beta Blockers</strong></td><td>Glucagon</td></tr>
+                <tr><td><strong>Digoxin</strong></td><td>Digoxin Immune Fab (Digibind)</td></tr>
+            </tbody>
+        </table>
 
-    <section>
-        <h2>PREVENTION OF POISONING</h2>
-        <ol>
-            <li>Education</li>
-            <li>Keeping drugs and poisons in locked cabinets</li>
-            <li>Food and poison shouldn't be kept in the same room</li>
-            <li>All poison products should be kept in their original containers</li>
-            <li>Keeping caps and tops on bottles closed</li>
-            <li>Keep poisons away from the reach of children</li>
-            <li>The label should be read before using</li>
-            <li>No drug or poison should be used in the dark</li>
-            <li>Proper disposal of expired or remaining drugs or poisons</li>
-            <li>Drugs in child-proof packages should only be purchased</li>
-            <li>Children should be taught not to eat plants or berries</li>
-            <li>Well ventilation in the kitchen</li>
-            <li>Special care to emotionally distressed people and mental patients</li>
-            <li>Prevention of air and water pollution</li>
-            <li>Occupational safety in exposure occupations like agricultural and factory workers</li>
-        </ol>
-    </section>
+        <!-- CHAPTER 8: LEGAL RESPONSIBILITIES -->
+        <h2>8. Statutory Frameworks & Medical Duties</h2>
 
-    <section>
-        <h2>LEGAL ASPECTS</h2>
+        <h3>Duties of a Medical Practitioner in Suspected Poisoning</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Clinical &amp; Therapeutic Obligations</th>
+                    <th>Legal &amp; Statutory Duties</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        • Primary obligation: Immediate resuscitation and life preservation regardless of legal circumstances.<br>
+                        • Document detailed history, neurological state, and serial vital signs.<br>
+                        • Collect and preserve all biological samples (gastric contents, vomitus, blood, urine) in clean containers for toxicological profiling.
+                    </td>
+                    <td>
+                        • <strong>Government Medical Officers:</strong> Mandatory legal duty to notify local police authorities of all poisoning cases (accidental, suicidal, or homicidal).<br>
+                        • <strong>Private Practitioners:</strong> Obligated to report confirmed or strongly suspected <em>homicidal</em> poisoning cases to police/magistrate; not legally bound to report purely accidental or suicidal cases unless requested by authorities.<br>
+                        • Record a <strong>Dying Declaration</strong> with a Magistrate if the patient's condition is deteriorating rapidly; if impossible, record it in the presence of two independent witnesses.<br>
+                        • In the event of death, withhold standard death certification and transfer the body to legal authorities for forensic autopsy.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
 
-        <h3>Laws Related to Poisoning (Enactment Order)</h3>
-        <ul>
-            <li>Protocol for the prohibition of use of asphyxiants poisonous or other gases and of bacteriological methods of warfare (1925)</li>
-            <li>Single convention on Narcotic Drug (1961)</li>
-            <li>Drug Advisory Council and Drug advisory Committee Formation rules (1970)</li>
-            <li>Amendment of the single convention on Narcotic drug (1972)</li>
-            <li>Narcotic Drug Control Act (1976)</li>
-            <li>Drug Act (1978)</li>
-            <li>Drug registration rules (1981)</li>
-            <li>Drug Category rules (1986)</li>
-            <li>UN Convention against Illicit Traffic in Narcotic Drugs and Psychotropic substances (1988)</li>
-            <li>Nepal Pharmacy Control Act (2000)</li>
-            <li>Nepal Pharmacy Council rules (2002)</li>
-            <li>Drug control strategy (2010)</li>
-        </ul>
-
-        <h3>Punishments Related to Poisoning</h3>
-        <ul>
-            <li>Intent (mens rea) to cause harm or death using poisons is important in poisoning as in other offences.</li>
-            <li>Murder by poisoning is no different legally from murder by other means.</li>
-            <li>Any act of omission or commission done using poisonous substance as to endanger human life shall be punished with imprisonment up to 6 months or with fine.</li>
-            <li>Whoever administers poison to another person or causes poison to be taken by another person with intent to hurt the other person shall be imprisoned up to 10 years and fined.</li>
-            <li>Adulteration of drugs is punishable with imprisonment up to 6 months.</li>
-        </ul>
-
-        <h3>Ways Poisoning is Used in Criminal Offences</h3>
-        <p>Murder, Injury, Stupefying to facilitate crimes like robbery (e.g., Dhatura, called railroad poison, used in robbery), Criminal abortion, Torture, Careless use.</p>
-
-        <h3>Duties of a Doctor in Case of Poisoning</h3>
-        <ul>
-            <li><strong>Medical Duty:</strong> Care and treatment to save the life of the patient irrespective of the manner of poisoning.</li>
-            <li><strong>Legal Duty:</strong> Assist police to determine the manner of poisoning:
-                <ol>
-                    <li>Note preliminary particulars: name, age, sex, occupation, address, date and time, brought by whom, identification marks, and history.</li>
-                    <li>In suspected homicidal poisoning, confirm suspicion before expressing an opinion:
-                        <ul>
-                            <li>Collect and preserve evidences suggestive of poisoning (empty bottles/containers, soiled clothes, remaining food, vomitus, feces, gastric lavage). Deliberate omission to collect or preserve evidence is punishable. Hand over collected exhibits to the Investigating Officer in properly sealed conditions.</li>
-                            <li>Observe and record symptoms in relation to food, changes in color, taste, or smell, and other persons affected at the same time.</li>
-                            <li>Consult in strict confidence a senior practitioner.</li>
-                            <li>Engage trusted nurses to administer medicine/food and allow no one to be alone with the patient. Seek consent for removal of the patient if adult.</li>
-                        </ul>
-                    </li>
-                    <li>If a private practitioner is convinced of homicidal poisoning, he is bound to inform the police or Magistrate.</li>
-                    <li>If sure it is suicidal/accidental poisoning, a private practitioner is not bound to inform police.</li>
-                    <li>If summoned by the investigating officer (I.O.), the doctor is bound to give all information regarding the case.</li>
-                    <li>A government medical officer is required to report all cases of suspected poisoning (accidental, suicidal, or homicidal) to the police.</li>
-                    <li>If condition is serious, arrange to record a dying declaration.</li>
-                    <li>If patient dies and exact diagnosis/cause of death cannot be made out, or if brought dead, inform police and do not issue a death certificate.</li>
-                    <li>Opinions about the nature of poison should only be given after receiving the report from the forensic science laboratory.</li>
-                    <li>Notify Public Health Authorities in cases of food poisoning.</li>
-                    <li>Preserve indoor patient records up to 3 years; provide within 72 hours if requested by relatives.</li>
-                </ol>
-            </li>
-        </ul>
-
-        <div class="note">
-            <p><strong>Note on Drug Automatism:</strong> According to this hypothesis, the patient develops a state of toxic delirium after ingestion of one or several doses of a drug (usually depressant drugs, like alcohol), after which he takes additional doses of the drug without realizing it.</p>
-        </div>
-    </section>
-
-    <section>
-        <h2>MEMORY BOOSTER SUMMARY</h2>
-        
-        <h3>Based on Nature of Poison:</h3>
-        <ul>
-            <li><strong>I. Corrosive:</strong>
-                <ul>
-                    <li>Strong acids: Mineral/inorganic (H2SO4, HCl), Organic (carbolic, acetic, oxalic acid)</li>
-                    <li>Strong alkalis: e.g., sodium hydroxide</li>
-                    <li>Metals: e.g., mercuric chloride, ferric chloride</li>
-                </ul>
-            </li>
-            <li><strong>II. Irritants:</strong>
-                <ul>
-                    <li>Inorganic: Non-metal (phosphorus, iodine), Metal (arsenic, lead)</li>
-                    <li>Organic: Animal (snake, scorpion), Plant (castor, calotropis)</li>
-                    <li>Mechanical: chopped hair, metal pieces</li>
-                </ul>
-            </li>
-            <li><strong>III. Systemic:</strong>
-                <ul>
-                    <li>Cerebral poisons (Somniferous, Inebriants, Stimulants, Deliriant, Depressant, Psychotropics)</li>
-                    <li>Spinal poisons (e.g., strychnine)</li>
-                    <li>Peripheral nerve poison (e.g., curare)</li>
-                    <li>Cardiac poison / cardio-toxic (e.g., aconite)</li>
-                    <li>Asphyxiants (e.g., carbon monoxide)</li>
-                    <li>Nephrotoxic (e.g., mercury)</li>
-                    <li>Hepatotoxic (e.g., phosphorus)</li>
-                </ul>
-            </li>
-            <li><strong>IV. Miscellaneous:</strong> e.g., food poisoning</li>
-        </ul>
-
-        <h3>Diagnosis:</h3>
-        <ul>
-            <li><strong>In Living:</strong> 1. History &nbsp; 2. Symptoms &nbsp; 3. Signs &nbsp; 4. Laboratory examination</li>
-            <li><strong>In Dead:</strong> 1. Autopsy findings &nbsp; 2. Laboratory examination</li>
-        </ul>
-
-        <h3>Principles of Management:</h3>
-        <ol>
-            <li>Stabilization and evaluation</li>
-            <li>Decontamination (Eye, Skin, Gut: Emesis, Gastric lavage, Catharsis, Activated charcoal, Bowel irrigation)</li>
-            <li>Poison elimination</li>
-            <li>Antidote administration</li>
-            <li>Nursing care</li>
-            <li>Psychiatric care</li>
-        </ol>
-    </section>
-
-</div>
+    <footer>
+        <p>&copy; 2026 MONOLITH. Built to persist.</p>
+    </footer>
 
 </body>
 </html>
