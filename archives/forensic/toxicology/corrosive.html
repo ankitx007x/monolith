@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monolith — Forensic Medicine: Corrosive Poisons</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #e5e5e5;
+            --accent-color: #888888;
+            --border-color: #222222;
+            --hover-color: #ffffff;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-family: var(--font-mono);
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--hover-color);
+        }
+
+        main {
+            max-width: 900px;
+            margin: 60px auto;
+        }
+
+        .page-header {
+            margin-bottom: 50px;
+        }
+
+        .breadcrumb {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--hover-color);
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 400;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-family: var(--font-mono);
+            font-size: 1.25rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            color: var(--hover-color);
+            margin: 60px 0 25px 0;
+            border-left: 3px solid var(--accent-color);
+            padding-left: 12px;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #dddddd;
+            margin: 30px 0 12px 0;
+            text-transform: uppercase;
+            font-family: var(--font-mono);
+            letter-spacing: 0.5px;
+        }
+
+        h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            margin: 18px 0 8px 0;
+            text-transform: uppercase;
+            font-family: var(--font-mono);
+        }
+
+        p {
+            color: #cccccc;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        ul, ol {
+            margin-bottom: 20px;
+            padding-left: 25px;
+            color: #cccccc;
+            font-size: 0.95rem;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .highlight-box {
+            background-color: #111111;
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: #d4d4d4;
+            margin: 25px 0;
+            line-height: 1.6;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.88rem;
+            text-align: left;
+        }
+
+        th {
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--border-color);
+            padding: 12px 10px;
+            background-color: #0e0e0e;
+        }
+
+        td {
+            padding: 12px 10px;
+            border-bottom: 1px solid var(--border-color);
+            color: #cccccc;
+            vertical-align: top;
+        }
+
+        tr:hover td {
+            color: var(--hover-color);
+            background-color: #111111;
+        }
+
+        .viva-note {
+            background-color: #111516;
+            border-left: 3px solid #0099cc;
+            padding: 18px;
+            margin: 25px 0;
+            font-size: 0.9rem;
+            color: #e5e5e5;
+        }
+        
+        .viva-note strong {
+            color: #fff;
+            font-family: var(--font-mono);
+        }
+
+        .legal-box {
+            background-color: #141210;
+            border-left: 3px solid #cc8800;
+            padding: 18px;
+            margin: 25px 0;
+            font-size: 0.9rem;
+            color: #e5e5e5;
+            font-style: italic;
+        }
+
+        .memory-booster {
+            background-color: #111111;
+            border: 1px solid var(--border-color);
+            padding: 25px;
+            margin: 40px 0;
+            border-radius: 4px;
+        }
+
+        .memory-booster h3 {
+            margin-top: 0;
+            color: var(--hover-color);
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        footer {
+            max-width: 900px;
+            margin: 100px auto 40px auto;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Monolith</div>
+        <ul class="nav-links">
+            <li><a href="https://fidelioa.github.io/monolith">Home</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/archives">Archives</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/about">About</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="page-header">
+            <div class="breadcrumb">
+                <a href="https://fidelioa.github.io/monolith/archives">Archives</a> / 
+                <a href="https://fidelioa.github.io/monolith/archives/forensic/index.html">Forensic</a> / Corrosive Poisons
+            </div>
+            <h1>Forensic Medicine: Corrosive Poisons</h1>
+            <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-color); margin-top: 5px;">FAST TRACK CLINICAL SCIENCE MBBS - 3rd YEAR (pp. 531–537)</p>
+        </section>
+
+        <!-- INTRODUCTION & DEFINITION -->
+        <h2>1. Definition & Classification</h2>
+        <p><strong>Corrosive Poisons:</strong> They cause corrosion (superficial burns to charring) of skin or mucosal tissues usually. Some are also systemically absorbed and cause systemic changes eg. organic acids like oxalic, acetic or carbolic.</p>
+        <p>The concentrated form of all corrosives causes corrosion and the dilute form causes irritation. But phenol even in dilute form has more penetrating power.</p>
+
+        <h3>Major Classes of Corrosives</h3>
+        <ol>
+            <li><strong>Inorganic acids:</strong> eg. HCl, H<sub>2</sub>SO<sub>4</sub>, HNO<sub>3</sub></li>
+            <li><strong>Organic acids:</strong> eg. Carbolic acid, Oxalic Acid, Acetic Acid</li>
+            <li><strong>Alkalis:</strong> eg. NaOH, KOH, Caustic Potash, Carbonates</li>
+            <li><strong>Metallic corrosives:</strong> eg. Ferric chloride, Zinc chloride, etc.</li>
+            <li><strong>Non-metallic corrosives:</strong> eg. Iodine, KMnO<sub>4</sub>, H<sub>2</sub>O<sub>2</sub>, etc.</li>
+        </ol>
+
+        <h3>Stages of Local Corrosion</h3>
+        <p>Following phases have been identified after ingestion of corrosive agent:</p>
+        <ul>
+            <li><strong>1. Inflammatory stage:</strong> It occurs during the first 4 days. Edema and erythema develops first followed by thrombosis of vessels and tissue necrosis.</li>
+            <li><strong>2. Granulation stage:</strong> It starts at about day 4 and ends approximately 7 days after ingestion. Fibroplasia results in the formation of granulation tissue with the laying down of collagen over the denuded areas of mucosal sloughing.</li>
+            <li><strong>3. Perforation stage:</strong> Most often occur between day 7 and 21. During this period the tissues are weak and the risk of perforation is high.</li>
+            <li><strong>4. Cicatrization stage:</strong> Starts at 3 weeks and may persist for years. Dense fibrous tissue formation occurs at variable rates. Overproduction of scar tissue results in stricture formation and obstruction.</li>
+        </ul>
+
+        <div class="viva-note">
+            <strong>Important Clinical Notes:</strong><br>
+            • <strong>Never perform gastric lavage</strong> in corrosive poisoning <em>except</em> in carbolic acid (phenol).<br>
+            • <strong>Never allow water to come in contact with acid</strong> on tissue surfaces, as it produces more heat and hence more corrosion.<br>
+            • Acid confines to outer surface of the body whereas alkalis penetrate deep into tissues.<br>
+            • Oesophagus is less severely injured than stomach due to stratified squamous epithelium in esophagus, which is usually resistant to acids.
+        </div>
+
+        <!-- ACIDS & ORGANIC ACIDS -->
+        <h2>2. Acids & Organic Acids</h2>
+
+        <h3>Acids Properties</h3>
+        <ul>
+            <li>They are hydrogen containing substances.</li>
+            <li>The lower the pH the higher its corrosive effect.</li>
+            <li>It produces <strong>coagulation necrosis</strong> of tissue in contact (<em>Except for hydrofluoric acid</em> which produces liquefactive necrosis).</li>
+            <li>Ingestion of an acid causes more damage to stomach than oesophagus because squamous epithelium is more resistant to acid.</li>
+        </ul>
+
+        <h3>Organic Acids Properties</h3>
+        <ul>
+            <li>They are weaker in action locally.</li>
+            <li>Are better absorbed into circulatory system that has powerful remote action.</li>
+            <li><strong>Examples:</strong> 1. Carbolic acid; 2. Oxalic acid; 3. Formic acid.</li>
+        </ul>
+
+        <!-- CARBOLIC ACID -->
+        <h2>3. Carbolic Acid (Phenol)</h2>
+        <p><strong>Also known as:</strong> Phenol, phenyl alcohol, phenic acid, hydroxyl benzene.</p>
+
+        <h3>Properties</h3>
+        <ul>
+            <li><strong>Appearance:</strong> Colourless, needle-like crystals, which turn pink and liquefy when exposed to air. Household phenol contains 5% phenol in water. Characteristic carbolic odour.</li>
+            <li><strong>Solubility:</strong> Insoluble in liquid paraffin and slightly soluble in water but freely soluble in boiling water, alcohol, ether, chloroform, glycerine and volatile oils.</li>
+        </ul>
+
+        <h3>Uses</h3>
+        <ul>
+            <li>Antiseptic and disinfectant (dettol, cresol, Lysol)</li>
+            <li>Preservative</li>
+            <li>Manufacture of plastics</li>
+            <li>Disinfectant (carbolic soap)</li>
+        </ul>
+
+        <div class="highlight-box">
+            <strong>Key Toxicological Data:</strong><br>
+            • Poisoning by carbolic acid is called <strong>Carbolism</strong>.<br>
+            • <strong>Fatal Dose:</strong> 10–30 gms; 25–50 ml of household phenol.<br>
+            • <strong>Toxicokinetics:</strong> Absorbed rapidly through GI mucosa, lungs, and intact skin. Dilution increases absorption and its toxicity.<br>
+            • <strong>Mode of Action:</strong> Mild corrosive but profound systemic effect after absorption. It causes CNS depression, metabolic acidosis, and renal damage.
+        </div>
+
+        <h3>Clinical Features</h3>
+        <ul>
+            <li><strong>Local:</strong> On contact results in mild corrosion with hardening of the skin – discolored to white.</li>
+            <li><strong>Systemic:</strong>
+                <ul>
+                    <li><em>GIT:</em> Burning pain, vomiting, and strong odour of carbolic acid.</li>
+                    <li><em>CNS:</em> Vertigo, convulsion, coma, pupils are constricted.</li>
+                    <li><em>RS:</em> Slow, laboured breathing, progressing to respiratory failure.</li>
+                    <li><em>Blood:</em> Haemolysis, methaemoglobinemia.</li>
+                    <li><em>Metabolism:</em> Hypothermia, with cold &amp; clammy skin, metabolic acidosis.</li>
+                    <li><em>Hepatorenal:</em> Oliguria, which turns greenish on exposure to air (carboluria).</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>Causes of Death</h3>
+        <ul>
+            <li>Failure of respiratory centre</li>
+            <li>Shock and circulatory collapse</li>
+            <li>Renal failure</li>
+        </ul>
+
+        <h3>Chronic Poisoning (Phenol Marasmus)</h3>
+        <p>Characterized by:</p>
+        <ol>
+            <li>Anorexia</li>
+            <li>Weight loss</li>
+            <li>Headache</li>
+            <li>Vertigo</li>
+            <li>Dark urine</li>
+            <li>Pigmentation of skin</li>
+            <li>The hydroquinone and pyrocatechol may cause pigmentation in the cornea and various cartilages, a condition called <strong>ochronosis (or oochronosis)</strong>.</li>
+        </ol>
+
+        <div class="viva-note">
+            <strong>Viva Notes on Phenol:</strong><br>
+            1. <strong>Carboluria:</strong> Colour of urine turns greenish on exposure to air due to presence of: (a) Hydroquinone; (b) Pyrocatechol.<br>
+            2. Phenol is a CNS depressant and causes pupillary <strong>constriction</strong> (not pupillary dilatation).
+        </div>
+
+        <h3>Diagnosis</h3>
+        <ul>
+            <li>Typical odour in vicinity.</li>
+            <li>Urine — colour change to greenish.</li>
+            <li>1 ml of 10% ferric chloride + 10 ml urine = blue colour which persists even on heating.</li>
+        </ul>
+
+        <h3>Treatment</h3>
+        <ul>
+            <li>PEG (Polyethylene glycol) (antidote)</li>
+            <li>Lidocaine for cardiac arrhythmia</li>
+            <li>Benzodiazepines for seizures</li>
+            <li>Methylene blue for exchange transfusion</li>
+            <li>Decontamination of skin: copious water</li>
+            <li>Gastric lavage: sodium/magnesium sulfate</li>
+            <li>Activated charcoal in usual manner</li>
+            <li>Supportive measures</li>
+        </ul>
+
+        <h3>Autopsy Features</h3>
+        <ul>
+            <li>Odour of phenol — mouth &amp; stomach.</li>
+            <li>Corroded area — white, later brownish.</li>
+            <li>Gastric mucosa swollen, becomes grey or brown, thickened and looks leathery.</li>
+            <li>Urine — greenish/brownish.</li>
+            <li>Splashing may be noted.</li>
+            <li>Tongue white and swollen.</li>
+            <li>Mucous membrane of mouth, throat, lips are sodden, whitened or ash gray.</li>
+            <li>Putrefaction is retarded.</li>
+        </ul>
+
+        <h3>Medicolegal Importance</h3>
+        <ul>
+            <li>Accidental in nature (occupational exposure).</li>
+            <li>Suicidal cases have been reported.</li>
+        </ul>
+
+        <!-- OXALIC ACID -->
+        <h2>4. Oxalic Acid</h2>
+        <p><strong>Also known as:</strong> Salt of sorrel or acid of sugar (C<sub>2</sub>H<sub>2</sub>O<sub>4</sub>).</p>
+
+        <h3>Physical Appearance &amp; Uses</h3>
+        <p><strong>Physical Appearance:</strong> Colourless, odourless, transparent, prismatic crystals with sour, slightly bitter taste.</p>
+        <p><strong>Uses:</strong></p>
+        <ol>
+            <li>Bleaching &amp; cleaning agent</li>
+            <li>Ink remover</li>
+            <li>Rust remover</li>
+            <li>Metal polishing</li>
+            <li>Removing writing and signature illegally (forgery)</li>
+        </ol>
+
+        <h3>Mode of Action &amp; Clinical Features</h3>
+        <ul>
+            <li><strong>Mode of Action:</strong> Liquid oxalic acid has moderate corrosive action on skin and mucosa. Systemic absorption leads to hypocalcaemia: oxalic acid reacts with calcium in plasma to form insoluble calcium oxalate. Calcium oxalate is deposited in liver, kidney, heart, lungs, and blood, which is excreted in urine.</li>
+            <li><strong>Local Features:</strong> They do not lose their poisonous properties when diluted. They produce whitish/yellowish corrosion or discolouration, may be black due to haematin.</li>
+            <li><strong>Systemic Features:</strong>
+                <ol>
+                    <li>Vomiting &amp; diarrhoea</li>
+                    <li>Followed by signs of hypocalcaemia (tetany)</li>
+                </ol>
+            </li>
+        </ul>
+
+        <h3>Diagnosis &amp; Treatment</h3>
+        <ul>
+            <li><strong>Diagnosis:</strong> Estimation of serum calcium and oxalate. Demonstration of urinary oxalate crystals: monohydrous (needle-shaped crystal), dihydrous (envelope-shaped crystal).</li>
+            <li><strong>Treatment:</strong>
+                <ul>
+                    <li>Calcium gluconate in IV infusion</li>
+                    <li>Dialysis for renal failure</li>
+                    <li>Affected skin/eyes — wash with water</li>
+                    <li>Castor oil as purgative</li>
+                    <li>Renal blood flow maintained by I.V. infusion of glucose</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>Autopsy Features &amp; Medicolegal Importance</h3>
+        <ul>
+            <li><strong>Autopsy Features:</strong> Scalded mucosa of GI tract — colour may be brown/black because of haematin. Crystals of calcium oxalate may be demonstrated in scraping of mucosa. Whitish/yellowish discolouration of corroded area on skin. Evidence of renal damage. Mucous membrane of mouth, tongue, pharynx, esophagus may be bleached and has scalded appearance. Kidneys show edema, congestion with oxalate crystals in renal tubules with necrosis of proximal convoluted tubule.</li>
+            <li><strong>Medicolegal Importance:</strong> Usually consumed accidentally; mistaken for magnesium sulphate or sodium bicarbonate. Suicidal or homicidal cases are rare due to its bitter or sour taste. Used as an abortifacient to induce criminal abortion. Used to erase writing in attempts at forgery.</li>
+        </ul>
+
+        <h3>Differential Table: Oxalic Acid vs. Magnesium Sulphate vs. Zinc Sulphate</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Features</th>
+                    <th>Oxalic Acid</th>
+                    <th>Magnesium Sulphate</th>
+                    <th>Zinc Sulphate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Taste</strong></td>
+                    <td>Sour and acid</td>
+                    <td>Bitter</td>
+                    <td>Metallic</td>
+                </tr>
+                <tr>
+                    <td><strong>Reaction</strong></td>
+                    <td>Strongly acid</td>
+                    <td>Neutral</td>
+                    <td>Slightly acid</td>
+                </tr>
+                <tr>
+                    <td><strong>Heat</strong></td>
+                    <td>Sublimes</td>
+                    <td>Fixed</td>
+                    <td>Fixed</td>
+                </tr>
+                <tr>
+                    <td><strong>Sodium Carbonate</strong></td>
+                    <td>Effervescence and no precipitate</td>
+                    <td>No effervescence and white precipitate</td>
+                    <td>No effervescence and white precipitate</td>
+                </tr>
+                <tr>
+                    <td><strong>Stains (Ink)</strong></td>
+                    <td>Disappears</td>
+                    <td>No action</td>
+                    <td>No action</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- INORGANIC ACIDS -->
+        <h2>5. Inorganic Acids</h2>
+        <p>Inorganic acids include: (a) Sulphuric acid, (b) Nitric acid, (c) Hydrochloric acid.</p>
+
+        <h3>A. Sulphuric Acid</h3>
+        <p><strong>Also known as:</strong> Oil of vitriol.</p>
+        <ul>
+            <li><strong>Appearance:</strong> Heavy, oily, colourless, odourless, non-fuming liquid (as it is non-fuming, it does not cause abdominal distention). Has great affinity for water (H<sub>2</sub>O) (hygroscopic), reacts with it to produce intense heat.</li>
+            <li><strong>Uses:</strong> Industrial chemical, storage batteries, drain cleaner.</li>
+            <li><strong>Fatal Dose:</strong> 5–10 ml in concentrated form; death has been reported with 3.5 ml.</li>
+            <li><strong>Fatal Period:</strong> Average 12–24 hours.</li>
+            <li><strong>Toxicokinetics:</strong> Systemic absorption is negligible.</li>
+            <li><strong>Mode of Action:</strong> Produces coagulation necrosis of tissues on contact.</li>
+            <li><strong>Clinical Features:</strong> Burning pain from mouth to stomach; intense thirst; vomiting: colour – brownish/blackish (due to altered blood); damage to larynx: dysphagia, dyspnoea; tongue – swollen, blackish/brownish in colour; teeth – chalky white; features of generalised shock; perforation of stomach – chemical peritonitis; contact with eyes causes conjunctivitis, corneal oedema, necrotising keratitis.</li>
+            <li><strong>Causes of Death:</strong> (a) Suffocation: if acid gets into larynx; (b) Shock and circulatory failure; (c) Peritonitis.</li>
+            <li><strong>Autopsy Features:</strong> Corroded area of skin &amp; mucous membrane appears brownish/blackish. Teeth appear chalky white. Stomach mucosa shows consistency of wet blotting paper. There may be inflammation, necrosis, or perforation. Duodenum and small intestine may be unremarkable because of pyloric spasm. Corrosion of chin, angle of mouth, lips, oral mucosa, tongue, throat.</li>
+            <li><strong>Medicolegal Importance:</strong> Accidental mostly because it may be mistaken for glycerine or syrup. Vitriolage.</li>
+        </ul>
+
+        <!-- VITRIOLAGE LEGAL BOX -->
+        <div class="legal-box">
+            <strong>Note on Vitriolage [2015]:</strong><br>
+            • <strong>Vitriolage:</strong> Vitriol/acid throwing to disfigure the face or ruin the clothes of a person they hate.<br>
+            • <strong>Local effects:</strong> Burning pain, corrosions of tissues and formation of brownish scars which leave a permanent marks.<br>
+            • <strong>Complication:</strong> Conjunctival edema, corneal destruction and blindness, death.<br><br>
+            <strong>Punishment for Vitriolage:</strong><br>
+            <em>As per chapter 14, section 193 of National Criminal Code, 2074 (2017), the following provisions have been made for vitriolage:</em><br>
+            • <strong>Subsection 1:</strong> It is against the law to cause painful injury or disfigurement of any part of the body by throwing, applying, pressing or by any such act with the use of acids, chemical or any poisonous substances.<br>
+            • <strong>Subsection 2:</strong> He/She acting against subsection (1) is liable to be punished as:<br>
+            &nbsp;&nbsp;– <em>5-8 years of imprisonment and a fine of Rs. 1,00,000 to 5,00,000</em> for disfigurement of face.<br>
+            &nbsp;&nbsp;– <em>3-5 years of imprisonment and a fine of Rs. 50,000 to 3,00,000</em> for painful injury or disfigurement to body part other than face.<br>
+            • <strong>Subsection 3:</strong> The whole money recovered as fine mentioned in subsection (2) is to be handed over to victim as compensation.
+        </div>
+
+        <h3>B. Nitric Acid</h3>
+        <p><strong>Also known as:</strong> Aqua fortis, red spirit of nitre.</p>
+        <ul>
+            <li><strong>Appearance:</strong> Colourless or yellowish, fuming liquid with penetrating odour.</li>
+            <li><strong>Uses:</strong> Electroplating; manufacture of fertilizers; metal refinery.</li>
+            <li><strong>Clinical Features:</strong> Same as sulfuric acid except the colour. Corroded area appears yellowish; stains on cloth and teeth also yellowish due to trinitrophenol/picric acid (nitric acid is an oxidising agent). It is formed when nitric acid combines with organic matter. This reaction is known as <strong>"xanthoproteic reaction"</strong>. Distension of abdomen due to formation of nitrogen monoxide. Mucous membrane of stomach may appear brown or brown-black due to production of acid haematin. Perforation of GIT is less common. Inhalation of fumes – cough, lacrimation and dyspnoea. Rest is same as sulfuric acid.</li>
+            <li><strong>Autopsy Features:</strong> Corrosion of skin, angle of mouth, lips, mucosa with yellowish discolouration. Stomach wall is soft and friable, ulcerated. Perforation is less common.</li>
+        </ul>
+
+        <h3>C. Hydrochloric Acid</h3>
+        <p><strong>Also known as:</strong> Spirit of salts, muriatic acid.</p>
+        <ul>
+            <li><strong>Appearance:</strong> Colourless, fuming liquid.</li>
+            <li><strong>Uses:</strong> Bleaching agent; metal refinery; metal cleaner, drain cleaner; dyeing industry. The rest is same as sulfuric acid and nitric acid; except, it is absorbed by body so shows systemic effects as hypocalcemia and hypomagnesemia.</li>
+        </ul>
+
+        <div class="viva-note">
+            <strong>Note on Boric Acid:</strong> Boric acid causes <strong>boiled lobster appearance</strong> of skin similar to toxic epidermal necrolysis or Staphylococcal scalded syndrome.
+        </div>
+
+        <ul>
+            <li><strong>Autopsy Features:</strong> The skin or mucous membrane shows corrosion. However, corrosion is less severe. The skin may be brownish discolored and parchment-like. Coagulation of the surface of the tongue and the mucosa of pharynx and esophagus is seen. Stomach is soft, edematous, congested, and desquamated or may be ulcerated. Perforations are less common. Stomach contents – mixed altered blood with mucus. Inflammation and edema of respiratory passage.</li>
+        </ul>
+
+        <!-- ALKALIES -->
+        <h2>6. Alkalies</h2>
+        <ul>
+            <li>Are hydroxides of sodium/potassium/calcium, or carbonate of sodium/potassium and ammonia.</li>
+            <li>Alkalies in concentrated form act as corrosive poison and in dilute form act as irritant poisons.</li>
+            <li>Concentrated alkalies are <strong>more dangerous than conc. Acid</strong> because alkalies produce esophageal burns and esophageal strictures.</li>
+            <li><strong>Examples:</strong> Ammonia, Potassium hydroxide, Sodium hydroxide, Ammonium carbonate, Sodium carbonate, Calcium hydroxide.</li>
+            <li><strong>Physical Appearance:</strong> Most of them – white powder or colourless liquid; Ammonia – a colourless gas with pungent odour.</li>
+            <li><strong>Fatal Dose:</strong> 10–15 gm of most alkalis; 15–20 ml of ammonia.</li>
+            <li><strong>Mode of Action:</strong> Alkali produces <strong>liquefactive necrosis</strong>; extensive penetrating due to saponification of fat and solubilisation of protein; oesophagus is more severely affected (squamous epithelium is the lining of oesophagus).</li>
+            <li><strong>Clinical Features:</strong> Corrosion of stomach – formation of pseudomembrane; damage to oesophagus – dysphagia, vomiting, drooling, &amp; haematemesis; alkali-induced oesophagitis, if perforation – pericarditis, mediastinitis; abdominal pain, diarrhoea; skin – greyish, soapy, necrotic area without charring; if ammonia fumes are inhaled – respiratory symptoms are more pronounced.</li>
+            <li><strong>Treatment:</strong> Dilution with milk/water; gastric lavage &amp; other method of emesis is <em>absolutely contraindicated</em>; symptomatic management (ABC); withhold oral feeding; maintain electrolyte balance; follow up – early diagnosis of stricture formation.</li>
+            <li><strong>Autopsy Findings:</strong> Characteristics odour; brownish/greyish staining of skin; inflammatory oedema with corrosion of oesophagus &amp; stomach, mucosa may be brownish due to alkaline haematin; congestion of respiratory tract and pulmonary oedema – inhalation of ammonia; mucosa of mouth, tongue, esophagus and stomach is bleached and sodden with areas of necrosis; skin shows corrosive burns; laryngeal edema on inhalation.</li>
+            <li><strong>Medicolegal Importance:</strong> Accidental poisoning – common; suicidal poisoning – uncommon.</li>
+        </ul>
+
+        <!-- MEMORY BOOSTER SECTION -->
+        <div class="memory-booster">
+            <h2>7. Memory Booster & Summary Tables</h2>
+
+            <h3>A. Fatal Dose and Fatal Periods Table</h3>
+            <div class="highlight-box" style="margin-bottom:15px; border-left: 3px solid #00cc88;">
+                <strong>Mnemonic for Acid Fatal Doses (@SNHOCA):</strong><br>
+                Sulphuric acid (5 ml), Nitric acid (10 ml), Hydrochloric acid (15 ml), Oxalic acid (20 ml), Carbolic acid (40 ml), Acetic acid (60 ml) &rarr; (5, 10, 15, 20, 40, 60) ml.
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Acids</th>
+                        <th>Fatal Dose in ml</th>
+                        <th>Fatal Period in hrs</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Sulphuric Acid</td><td>5</td><td>12–24 hrs</td></tr>
+                    <tr><td>Nitric Acid</td><td>10</td><td>12–24 hrs</td></tr>
+                    <tr><td>Hydrochloric Acid</td><td>15</td><td>18–30 hrs</td></tr>
+                    <tr><td>Oxalic Acid</td><td>20</td><td>1–2 hrs</td></tr>
+                    <tr><td>Carbolic Acid</td><td>40</td><td>3–4 hrs</td></tr>
+                    <tr><td>Acetic Acid</td><td>60</td><td>48 hrs</td></tr>
+                </tbody>
+            </table>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Alkalis</th>
+                        <th>Fatal Dose in grams or ml</th>
+                        <th>Fatal Periods in hrs</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>NaOH</td><td>5 g</td><td>24 hrs</td></tr>
+                    <tr><td>KOH</td><td>5 g</td><td>24 hrs</td></tr>
+                    <tr><td>K<sub>2</sub>CO<sub>3</sub></td><td>15 g</td><td>24 hrs</td></tr>
+                    <tr><td>Na<sub>2</sub>CO<sub>3</sub></td><td>30 g</td><td>24 hrs</td></tr>
+                    <tr><td>(NH<sub>4</sub>)<sub>2</sub>CO<sub>3</sub></td><td>30 ml</td><td>24 hrs</td></tr>
+                </tbody>
+            </table>
+
+            <h3>B. Post-Mortem Findings in Acid &amp; Alkali Corrosion: Remember by 4 Triads</h3>
+            <ol>
+                <li><strong>Burn Triad:</strong> Burns; Ulcer and Bleeding; Perforation</li>
+                <li><strong>Mucosal Triad:</strong> Mucosa/Skin/Teeth finding: Congestion and inflammation of mucosa; fibrosis of mucosa and resultant emaciation</li>
+                <li><strong>Senses Triad:</strong> Taste, Smell, Color (pigmentation)</li>
+                <li><strong>Organ Triad:</strong> Respiratory tract changes if fuming/corrosive (HCl); Kidney changes; Liver Changes</li>
+            </ol>
+
+            <h3>Inorganic Acid vs. Corrosive Alkalis Summary</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Inorganic Acid</th>
+                        <th>Corrosive Alkalis</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Action &amp; Necrosis</strong></td>
+                        <td>Only local action. Dessication, coagulation necrosis, fixation, destruction and erosion of tissues. Eschar formation and less penetration than alkalis.</td>
+                        <td>Liquefactive necrosis, saponification and deeper penetration. Ulcers in esophagus/skin common.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Organ Predilection</strong></td>
+                        <td>Stomach (pylorus) more damaged than esophagus in ingestion cases (GOO possible).</td>
+                        <td>Esophagus &gt; stomach.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>MLI</strong></td>
+                        <td>Commonly ingested accidentally, sometimes for vitriolage and rarely suicidal ingestion. No homicidal.</td>
+                        <td>Commonly ingested as medicines accidentally, rarely suicidal and no homicide or vitriolage.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Examples</strong></td>
+                        <td>H<sub>2</sub>SO<sub>4</sub>, HNO<sub>3</sub>, HCl</td>
+                        <td>Caustic soda, caustic potash, calcium hydroxide, ammonium hydroxide, Na<sub>2</sub>CO<sub>3</sub>, K<sub>2</sub>CO<sub>3</sub>, (NH<sub>4</sub>)<sub>2</sub>CO<sub>3</sub></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Clinical Features &amp; Autopsy Findings of Specific Corrosives</h3>
+            <ul>
+                <li><strong>On Skin:</strong>
+                    <ul>
+                        <li><em>H<sub>2</sub>SO<sub>4</sub>:</em> Corroded area brownish/blackish, charred.</li>
+                        <li><em>HNO<sub>3</sub>:</em> Yellow = xanthoproteic reaction.</li>
+                        <li><em>HCl:</em> Brown, parchment-like.</li>
+                        <li><em>Carbolic acid:</em> White eschar over brown area, sodden mucosa.</li>
+                        <li><em>Oxalic acid:</em> Scalded with underlying congestion.</li>
+                        <li><em>Alkalis:</em> Gray, soapy, necrotic without charring.</li>
+                    </ul>
+                </li>
+                <li><strong>If Ingested:</strong>
+                    <ul>
+                        <li><em>H<sub>2</sub>SO<sub>4</sub>, HNO<sub>3</sub>, phenol, oxalic, acetic:</em> Corrosion of chin, mouth, lips, mucosa, tongue, throat with characteristic color.</li>
+                        <li><em>HCl:</em> Corrosion less severe, so in tongue and throat coagulation of surface is seen but no corrosion.</li>
+                        <li><em>Alkali ingestion:</em> Lips, oral cavity, tongue swollen, bleached and soggy.</li>
+                        <li><em>In ingestion of all corrosives (5 DV symptoms):</em> Dysphagia, odynophagia, dysarthria, dysphonia, and dyspnea; Vomiting, retching, belching, hematemesis, and dribbling of saliva; Abdominal pain, burning pain in gut, diarrhea, tenesmus etc.</li>
+                    </ul>
+                </li>
+                <li><strong>Complicated Cases (Cause of Death):</strong>
+                    <ul>
+                        <li><em>Inorganic acid:</em> Acute: Massive gastric hemorrhage, perforation of stomach, peritonitis, laryngeal edema (inhalation), bronchopneumonia, sepsis, shock, renal failure. Delayed: GOO (Gastric Outlet Obstruction), malnutrition.</li>
+                        <li><em>Organic acid:</em> Acetic: hemolysis and sequence of hemoglobinuria, renal failure, acidosis, DIC, shock and liver dysfunction. Carbolic: slow labored respiration, headache, unconsciousness, convulsions, coma, oliguria and hepatic failure, carboluria (green) and ochronosis, CNS depression, methemoglobinemia, antipyresis, acidosis. Oxalic acid: hypocalcemia (tetany) and related muscle changes like Chvostek's sign, Trousseau's sign/Accoucher's hand (CP spasm) and also convulsions. Other like renal failure, acidosis and uremia.</li>
+                        <li><em>Alkali:</em> Acute: esophagus (&gt; stomach) perforation, laryngeal edema due to inhalation. Chronic: Esophageal stricture.</li>
+                    </ul>
+                </li>
+                <li><strong>Autopsy Findings Summary:</strong>
+                    <ul>
+                        <li><em>H<sub>2</sub>SO<sub>4</sub>:</em> Teeth chalky white, stomach perforation.</li>
+                        <li><em>HNO<sub>3</sub> &amp; HCl:</em> Stomach soft, friable, ulcerated (in HCl congested and desquamated), less common perforation.</li>
+                        <li><em>In HCl, HNO<sub>3</sub> &amp; alkalis (fuming ones):</em> Inflammation and edema of respiratory tract and eye changes common.</li>
+                        <li><em>Stomach contents:</em> Altered blood and mucus usually in inorganic acids.</li>
+                        <li><em>Acetic:</em> Massive geographic liver necrosis, degeneration and swelling of renal tubular epithelium.</li>
+                        <li><em>Carbolic:</em> Phenol smell, splashing, white swollen tongue, white leathery stomach mucosa.</li>
+                        <li><em>Oxalic:</em> Bleached, scalded mucosa, PCT necrosis and edematous congested kidney with oxalate crystals in tubules.</li>
+                        <li><em>Alkali:</em> Soft, swollen, gray/bleached mucosa that sloughs (necrosis) easily, esophageal perforation, ammonia odour, caustic taste, in film or edema of the respiratory tract.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>Basic Management Steps</h3>
+            <ul>
+                <li><strong>Stabilization and evaluation:</strong> A, B, C, D.</li>
+                <li><strong>Decontamination and antidotes:</strong> Irrigate skin with copious amount of water in inorganic acids, oxalic acids or alkalis; with undiluted polyethylene glycol in phenol case (antidote).</li>
+                <li><strong>Dilute gut:</strong> With milk or water (inorganic acid case or alkali case).</li>
+                <li><strong>Demulcents:</strong> (Starch, egg white, milk = physical antidote) in inorganic acid case with c/i of lavage, emesis, alkali neutralization or carbonated alkali neutralization.</li>
+                <li><strong>Phenol treatment:</strong> IV vasopressors and fluids, caustic stomach wash with sodium/magnesium sulfate; lidocaine for ventricular arrhythmias, BZP for seizures, methylene blue/exchange transfusion for methhb.</li>
+                <li><strong>Oxalic acid treatment:</strong> Gastric lavage with calcium gluconate/lactate, IV calcium gluconate, symptomatic.</li>
+                <li><strong>Alkali treatment:</strong> No gastric lavage, emesis or acid neutralization, symptomatic, vegetable acids like citric acid (antidote).</li>
+                <li><strong>Poison elimination:</strong> Hemodialysis, hemoperfusion, peritoneal dialysis, plasma perfusion in case of systemic corrosives.</li>
+                <li><strong>Antidotes:</strong> Universal (bread, milk and tea 2:1:1) may be used according to case type.</li>
+                <li><strong>Nursing care and psychiatric care</strong> (if suicidal).</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 MONOLITH. Built to persist.</p>
+    </footer>
+
+</body>
+</html>
