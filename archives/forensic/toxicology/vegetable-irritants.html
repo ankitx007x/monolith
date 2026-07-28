@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monolith — Forensic Medicine: Vegetable Irritants</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #e5e5e5;
+            --accent-color: #888888;
+            --border-color: #222222;
+            --hover-color: #ffffff;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-family: var(--font-mono);
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--hover-color);
+        }
+
+        main {
+            max-width: 900px;
+            margin: 60px auto;
+        }
+
+        .page-header {
+            margin-bottom: 50px;
+        }
+
+        .breadcrumb {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--hover-color);
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 400;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-family: var(--font-mono);
+            font-size: 1.25rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            color: var(--hover-color);
+            margin: 60px 0 25px 0;
+            border-left: 3px solid var(--accent-color);
+            padding-left: 12px;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #dddddd;
+            margin: 30px 0 12px 0;
+            text-transform: uppercase;
+            font-family: var(--font-mono);
+            letter-spacing: 0.5px;
+        }
+
+        h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            margin: 18px 0 8px 0;
+            text-transform: uppercase;
+            font-family: var(--font-mono);
+        }
+
+        p {
+            color: #cccccc;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        ul, ol {
+            margin-bottom: 20px;
+            padding-left: 25px;
+            color: #cccccc;
+            font-size: 0.95rem;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .highlight-box {
+            background-color: #111111;
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: #d4d4d4;
+            margin: 25px 0;
+            line-height: 1.6;
+        }
+
+        .mnemonic-box {
+            background-color: #161411;
+            border-left: 3px solid #cc8800;
+            padding: 18px;
+            margin: 25px 0;
+            font-size: 0.9rem;
+            color: #e5e5e5;
+            font-family: var(--font-mono);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.88rem;
+            text-align: left;
+        }
+
+        th {
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--border-color);
+            padding: 12px 10px;
+            background-color: #0e0e0e;
+        }
+
+        td {
+            padding: 12px 10px;
+            border-bottom: 1px solid var(--border-color);
+            color: #cccccc;
+            vertical-align: top;
+        }
+
+        tr:hover td {
+            color: var(--hover-color);
+            background-color: #111111;
+        }
+
+        .viva-note {
+            background-color: #111516;
+            border-left: 3px solid #0099cc;
+            padding: 18px;
+            margin: 25px 0;
+            font-size: 0.9rem;
+            color: #e5e5e5;
+        }
+        
+        .viva-note strong {
+            color: #fff;
+            font-family: var(--font-mono);
+        }
+
+        footer {
+            max-width: 900px;
+            margin: 100px auto 40px auto;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Monolith</div>
+        <ul class="nav-links">
+            <li><a href="https://fidelioa.github.io/monolith">Home</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/archives">Archives</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/about">About</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="page-header">
+            <div class="breadcrumb">
+                <a href="https://fidelioa.github.io/monolith/archives">Archives</a> / 
+                <a href="https://fidelioa.github.io/monolith/archives/forensic/index.html">Forensic</a> / 
+                <a href="https://fidelioa.github.io/monolith/archives/forensic/toxicology/index.html">Toxicology</a> / Vegetable Irritants
+            </div>
+            <h1>Vegetable Irritant Poisons</h1>
+            <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-color); margin-top: 5px;">FAST TRACK CLINICAL SCIENCE MBBS - 3rd YEAR (pp. 559–565)</p>
+        </section>
+
+        <!-- RICINUS COMMUNIS -->
+        <h2>RICINUS COMMUNIS (CASTOR)</h2>
+        
+        <h3>Active Principle</h3>
+        <ul>
+            <li>The entire plant is poisonous, containing toxalbumin <strong>ricin</strong> (a water-soluble glycoprotein) and a powerful allergen (CBA)[cite: 3].</li>
+            <li>Seeds contain the highest level of toxalbumin[cite: 3].</li>
+            <li>Seeds are rich in purgative oil[cite: 3].</li>
+            <li>Unbroken seeds are non-poisonous when swallowed or cooked[cite: 3].</li>
+            <li>Toxicity occurs when castor beans are thoroughly chewed or blenderized, even though the amount of ricin produced is small and poorly absorbed from the GIT[cite: 3].</li>
+        </ul>
+
+        <h3>Mechanism of Action</h3>
+        <p>Ricin blocks protein synthesis through inhibition of RNA polymerase (belongs to a group of poisons known as A-B toxins)[cite: 3]. Ricin has a special binding protein that gains access to the endoplasmic reticulum in GIT mucosal cells, causing severe diarrhea[cite: 3].</p>
+
+        <h3>Absorption and Excretion</h3>
+        <ul>
+            <li><strong>Absorption:</strong> Through inhalation, ingestion, injection, and skin contact[cite: 3].</li>
+            <li><strong>Excretion:</strong> By intestinal epithelium[cite: 3].</li>
+        </ul>
+
+        <h3>Clinical Features</h3>
+        
+        <h4>Dust of Seeds May Cause</h4>
+        <ul>
+            <li>Watering of eyes and conjunctivitis[cite: 3]</li>
+            <li>Sneezing and acute nasal inflammation[cite: 3]</li>
+            <li>Headache and pharyngitis[cite: 3]</li>
+            <li>Asthmatic bronchitis and dermatitis[cite: 3]</li>
+            <li>Gastric upset[cite: 3]</li>
+        </ul>
+
+        <h4>On Ingestion (Seen within 10 h of Ingestion)</h4>
+        <ul>
+            <li><strong>GIT:</strong> Burning pain in mouth, throat, and stomach; oral mucosa burning resembles alkali burn; salivation, severe abdominal pain, nausea, thirst, vomiting, bloody diarrhea[cite: 3].</li>
+            <li><strong>CNS:</strong> Vertigo, drowsiness, delirium, convulsions[cite: 3].</li>
+            <li><strong>Systemic:</strong> Cramps in calves and abdominal muscles; uremia, jaundice, rapid feeble pulse, cold clammy skin, dehydration[cite: 3].</li>
+            <li><strong>Consciousness:</strong> Retained till death in some cases[cite: 3].</li>
+        </ul>
+
+        <h3>Fatal Dose &amp; Fatal Period</h3>
+        <ul>
+            <li><strong>Fatal Dose:</strong> 1–10 µg/kg body weight (by inhalation or injection)[cite: 3]. Oral exposure is far less toxic; lethal dose is about 2 mg/kg (10–20 seeds)[cite: 3].</li>
+            <li><strong>Fatal Period:</strong> 3–5 days[cite: 3].</li>
+        </ul>
+
+        <h3>Treatment</h3>
+        <ol>
+            <li>Gastric lavage[cite: 3]</li>
+            <li>Activated charcoal[cite: 3]</li>
+            <li>Demulcents[cite: 3]</li>
+            <li>Administration of glucose and saline for dehydration[cite: 3]</li>
+            <li>2–5 g of sodium bicarbonate given 8 hourly by mouth to alkalinize urine[cite: 3]</li>
+        </ol>
+
+        <h3>Post-Mortem Findings</h3>
+        <ul>
+            <li>GIT mucosa congested, softened, and inflamed with occasional erosions and submucous hemorrhages (also produced on inhalation)[cite: 3].</li>
+            <li>Dilation of heart, petechial hemorrhages in pleura, edema, and congestion of liver, kidneys, spleen, and lungs[cite: 3].</li>
+            <li>Fragments of seeds may be found in stomach and intestines[cite: 3].</li>
+            <li>Hemorrhage in internal organs[cite: 3].</li>
+        </ul>
+
+        <h3>Medico-Legal Importance</h3>
+        <ol>
+            <li><strong>Accidental:</strong> Common in children eating seeds[cite: 3].</li>
+            <li><strong>Homicidal:</strong> Rare (powdered seeds used)[cite: 3].</li>
+            <li>Powder of seeds causes conjunctivitis when applied to the eye[cite: 3].</li>
+        </ol>
+
+        <!-- ABRUS PRECATORIUS -->
+        <h2>ABRUS PRECATORIUS</h2>
+        
+        <h3>Active Principles</h3>
+        <p>All parts of the plant are poisonous[cite: 3]. Seed contains:</p>
+        <ul>
+            <li><strong>Abrin:</strong> A toxalbumin (similar to viperine snake poison)[cite: 3].</li>
+            <li><strong>Abrine:</strong> N-methyltryptophan (amino acid) and hemagglutinin in cotyledons[cite: 3].</li>
+            <li>A lipolytic enzyme[cite: 3].</li>
+            <li><strong>Abralin:</strong> A glycoside[cite: 3].</li>
+        </ul>
+
+        <h3>Clinical Features</h3>
+        
+        <h4>On Ingestion</h4>
+        <ul>
+            <li>Symptoms delayed from a few hours up to 2–3 days[cite: 3].</li>
+            <li>Irritation of upper GIT, abdominal pain, nausea, vomiting, bloody diarrhea, rectal bleeding[cite: 3].</li>
+            <li>Weakness, cold perspiration, trembling of hands, weak rapid pulse, miosis[cite: 3].</li>
+            <li>Delayed cytotoxic effect in CNS, liver, kidney, and adrenal glands 2–5 days post-exposure[cite: 3].</li>
+        </ul>
+
+        <h4>On Injection under Animal Skin</h4>
+        <ul>
+            <li>Inflammation, edema, oozing of hemorrhagic fluid from site of puncture and necrosis[cite: 3].</li>
+            <li>Animal drops down, refuses feed, and dies in 3–4 days[cite: 3].</li>
+            <li>Tetanic convulsions occur or animal becomes cold, drowsy/comatose and dies[cite: 3].</li>
+            <li>Symptoms resemble viperine snakebite[cite: 3].</li>
+        </ul>
+
+        <h4>On Injection in Humans</h4>
+        <ul>
+            <li>Painful swelling and ecchymosis[cite: 3].</li>
+            <li>Inflammation and necrosis of muscle and regional lymph nodes[cite: 3].</li>
+            <li>Faintness, vertigo, vomiting, anorexia, fever, headache, dyspnea, prostration[cite: 3].</li>
+            <li>Convulsions before death from cardiac failure[cite: 3].</li>
+        </ul>
+
+        <h3>Fatal Dose &amp; Fatal Period</h3>
+        <ul>
+            <li><strong>Fatal Dose:</strong> 90–120 mg of abrin injected, or 1–2 crushed seeds orally (0.1–1 µg/kg body weight)[cite: 3]. Subcutaneous abrin is 100 times as toxic as oral route[cite: 3].</li>
+            <li><strong>Fatal Period:</strong> 3–5 days[cite: 3].</li>
+        </ul>
+
+        <h3>Treatment</h3>
+        <ol>
+            <li>Gastric lavage &amp; activated charcoal[cite: 3]</li>
+            <li>Purgatives[cite: 3]</li>
+            <li>Injection of anti-abrin[cite: 3]</li>
+            <li>Dissection and removal of the needle (Sui)[cite: 3]</li>
+            <li>Sodium bicarbonate 10 g orally/day to maintain urinary alkalinity and prevent hemoglobinuria-induced renal blocking[cite: 3].</li>
+        </ol>
+
+        <h3>Post-Mortem Findings</h3>
+        <ul>
+            <li>Fragments of needle (Sui) may be found; edema at injection site[cite: 3].</li>
+            <li>Petechial hemorrhages under skin, pleura, pericardium, and peritoneum[cite: 3].</li>
+            <li>GIT hemorrhages, edema, and congestion[cite: 3].</li>
+            <li>Cerebral edema; congested liver, spleen, and kidneys[cite: 3].</li>
+        </ul>
+
+        <h3>Medico-Legal Importance</h3>
+        <ol>
+            <li><strong>Cattle Poisoning (SUIS):</strong> Leather workers use needles ("suis") made of <em>Abrus precatorius</em> decoted paste mixed with dhatura, opium, and onion to kill cattle for cheap hides or revenge[cite: 3]. Spikes are 15 mm long weighing 90–120 mg[cite: 3]. Driven into cattle flesh using a wooden handle or slapped between fingers for homicide[cite: 3].</li>
+            <li>Malingerers use seed powder to produce conjunctivitis[cite: 3].</li>
+            <li>Disturbs uterine function, used as abortifacient and arrow poison[cite: 3].</li>
+        </ol>
+
+        <!-- CALOTROPIS -->
+        <h2>CALOTROPIS</h2>
+        <p>Two main varieties: <em>Calotropis gigantea</em> (purple flowers) and <em>Calotropis procera</em> (white flowers)[cite: 3].</p>
+
+        <h3>Active Principles</h3>
+        <ul>
+            <li>Uscharin[cite: 3]</li>
+            <li>Calotoxin[cite: 3]</li>
+            <li>Galactin[cite: 3]</li>
+            <li>Calotropin (glycoside)[cite: 3]</li>
+            <li>Trypsin (in milky juice of leaves and stem)[cite: 3]</li>
+        </ul>
+
+        <h3>Clinical Features</h3>
+        <ul>
+            <li><strong>Local Application:</strong> Redness, formation of blisters which excoriate later[cite: 3].</li>
+            <li><strong>Ingestion:</strong> Acrid bitter taste, burning pain in mouth/throat/abdomen, nausea, vomiting, diarrhea, dilated pupils, tetanic convulsions, circulatory collapse, death[cite: 3].</li>
+        </ul>
+
+        <h3>Fatal Dose &amp; Fatal Period</h3>
+        <ul>
+            <li><strong>Fatal Dose:</strong> Uncertain[cite: 3].</li>
+            <li><strong>Fatal Period:</strong> 6–12 hours[cite: 3].</li>
+        </ul>
+
+        <h3>Post-Mortem Findings &amp; Medico-Legal Importance</h3>
+        <ul>
+            <li>Dilated pupils, froth at nostrils, stomatitis, acute GI inflammation, organ congestion[cite: 3].</li>
+            <li><strong>Medicolegal:</strong> Used as abortifacient (applied via abortion stick), infanticide, cattle poison, and to produce artificial bruises[cite: 3]. Root of <em>C. procera</em> is toxic to cobras/snakes[cite: 3].</li>
+        </ul>
+
+        <!-- SEMECARPUS ANACARDIUM -->
+        <h2>SEMECARPUS ANACARDIUM (MARKING NUT / BHILLAWA)</h2>
+        <p>Black, heart-shaped nut with rough projections[cite: 3]. Pericarp contains brownish, oily, acrid juice that turns black on exposure to air[cite: 3].</p>
+
+        <h3>Active Principles &amp; Features</h3>
+        <ul>
+            <li><strong>Active Principles:</strong> Semecarpol (0.1%), Bhilawanol (15–17%)[cite: 3].</li>
+            <li><strong>Local Application:</strong> Irritation, painful blisters containing acrid serum, eczematous eruptions, itching; lesion resembles a bruise; later forms ulcer with sloughing[cite: 3].</li>
+            <li><strong>Ingestion:</strong> Severe GIT irritation, blisters on throat, dyspnea, tachycardia, hypotension, cyanosis, loss of reflexes, delirium, coma, death[cite: 3].</li>
+            <li><strong>Fatal Dose:</strong> 5–10 g (5–8 seeds)[cite: 3]. <strong>Fatal Period:</strong> 12–24 hours[cite: 3].</li>
+        </ul>
+
+        <h3>Distinction: Contusion vs Marking Nut Lesion</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Features</th>
+                    <th>Contusion</th>
+                    <th>Marking Nut Lesion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Shape</strong></td>
+                    <td>Regular[cite: 3]</td>
+                    <td>Irregular[cite: 3]</td>
+                </tr>
+                <tr>
+                    <td><strong>Margin</strong></td>
+                    <td>Diffused[cite: 3]</td>
+                    <td>Sharp and clear[cite: 3]</td>
+                </tr>
+                <tr>
+                    <td><strong>Color Changes</strong></td>
+                    <td>Occurs over time[cite: 3]</td>
+                    <td>Does not occur[cite: 3]</td>
+                </tr>
+                <tr>
+                    <td><strong>Itching</strong></td>
+                    <td>Absent[cite: 3]</td>
+                    <td>Present[cite: 3]</td>
+                </tr>
+                <tr>
+                    <td><strong>Extravasation of Blood</strong></td>
+                    <td>Present[cite: 3]</td>
+                    <td>Absent[cite: 3]</td>
+                </tr>
+                <tr>
+                    <td><strong>Blisters</strong></td>
+                    <td>Absent[cite: 3]</td>
+                    <td>Present[cite: 3]</td>
+                </tr>
+                <tr>
+                    <td><strong>Nail Beds</strong></td>
+                    <td>Not significant[cite: 3]</td>
+                    <td>Similar lesions due to itching[cite: 3]</td>
+                </tr>
+                <tr>
+                    <td><strong>Caused By</strong></td>
+                    <td>Rupture of capillaries[cite: 3]</td>
+                    <td>Chemical damage to skin[cite: 3]</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- PLUMBAGO, COLOCYNTH & ERGOT -->
+        <h2>PLUMBAGO, COLOCYNTH &amp; ERGOT</h2>
+
+        <h3>Plumbago (P. rosea, P. zeylanica)</h3>
+        <ul>
+            <li><strong>Active Principle:</strong> Plumbagin (found in root)[cite: 3].</li>
+            <li><strong>Features:</strong> Dermal application causes vesication/irritation; ingestion causes abdominal pain, vomiting, diarrhea, shock, CNS depression[cite: 3].</li>
+            <li><strong>Medicolegal:</strong> Root paste applied to cervical os for abortion; used to fabricate false bruises[cite: 3].</li>
+        </ul>
+
+        <h3>Colocynth (Citrullus colocynthis)</h3>
+        <ul>
+            <li><strong>Active Principle:</strong> Colocynthin (glycoside in fruit, root, leaves)[cite: 3].</li>
+            <li><strong>Features:</strong> Cholera-like clinical symptoms (watery diarrhea, abdominal pain, vomiting, shock)[cite: 3].</li>
+            <li><strong>Fatal Dose:</strong> 1–3 g[cite: 3]. <strong>Fatal Period:</strong> 24 hours[cite: 3].</li>
+        </ul>
+
+        <h3>Ergot (Claviceps purpurea)</h3>
+        <ul>
+            <li>Fungus infesting rye/barley grains[cite: 3]. Contains Ergotamine, Ergotoxin, Ergometrine, Dihydroergotamine[cite: 3].</li>
+            <li><strong>Acute Features:</strong> Nausea, vomiting, diarrhea, paresthesia, muscle cramps, peripheral ischemia leading to gangrene of fingers/toes[cite: 3].</li>
+            <li><strong>Chronic (Ergotism):</strong> Burning extremities, hemorrhagic vesication, pruritus, formication[cite: 3].</li>
+            <li><strong>Fatal Dose:</strong> 1 to 3 g[cite: 3]. <strong>Fatal Period:</strong> 24 hours[cite: 3].</li>
+        </ul>
+
+        <!-- CARDIAC POISONS -->
+        <h2>CARDIAC &amp; NERVE POISONS</h2>
+
+        <h3>Aconite (Bikh / Monk's Hood)</h3>
+        <ul>
+            <li>Derived from <em>Aconitum ferox</em> root[cite: 3]. Active principle: <strong>Aconitine</strong>[cite: 3].</li>
+            <li><strong>Mechanism:</strong> Inhibits repolarization causing repetitive firing of cardiac myocytes, opens Na+ channels, stimulates vagal medullary center[cite: 3].</li>
+            <li><strong>Clinical Triad:</strong> Hypotension, Convulsions, Visual disturbances (hippus = alternate pupil constriction/dilatation)[cite: 3].</li>
+            <li><strong>Fatal Dose:</strong> 1–2 g[cite: 3]. <strong>Fatal Period:</strong> 2–6 hours[cite: 3].</li>
+            <li><strong>Medicolegal:</strong> Resembles horseradish root (Aconite cut section is pink with scars of rootlets; horseradish is white, cylindrical, and pungent)[cite: 3].</li>
+        </ul>
+
+        <h3>Hydrocyanic Acid (HCN / Cyanide)</h3>
+        <ul>
+            <li>Source: Bitter almond seeds, fruit seeds, burning plastic/cigarettes[cite: 3].</li>
+            <li><strong>Fatal Dose:</strong> 200–300 mg KCN/NaCN; 50–100 mg HCN[cite: 3]. <strong>Fatal Period:</strong> 2–10 minutes[cite: 3].</li>
+            <li><strong>Acute Triad:</strong> Cyanosis, convulsions, and tachycardia[cite: 3].</li>
+            <li><strong>Antidotes:</strong> Amyl nitrite, sodium nitrite, sodium thiosulfate[cite: 3].</li>
+            <li><strong>PM Finding:</strong> Cherry-red postmortem lividity, black stomach[cite: 3].</li>
+        </ul>
+
+        <!-- SEED COMPARISONS -->
+        <h2>Seed Comparisons</h2>
+
+        <h3>Castor vs Croton Seed</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Castor Seed</th>
+                    <th>Croton Seed</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Appearance</strong></td>
+                    <td>Grayish brown, mottled, glossy[cite: 3]</td>
+                    <td>Dark brown, non-glossy, not mottled[cite: 3]</td>
+                </tr>
+                <tr>
+                    <td><strong>Shape</strong></td>
+                    <td>Flattened-oval[cite: 3]</td>
+                    <td>Oval[cite: 3]</td>
+                </tr>
+                <tr>
+                    <td><strong>Cross Section at Tip</strong></td>
+                    <td>Lumen almost circular[cite: 3]</td>
+                    <td>Lumen slit-like with radiating creases[cite: 3]</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Datura vs Chilli Seed</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Datura Seed</th>
+                    <th>Chilli Seed</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Color</strong></td>
+                    <td>Brownish[cite: 3]</td>
+                    <td>Yellowish[cite: 3]</td>
+                </tr>
+                <tr>
+                    <td><strong>Size</strong></td>
+                    <td>Bigger[cite: 3]</td>
+                    <td>Smaller[cite: 3]</td>
+                </tr>
+                <tr>
+                    <td><strong>Shape</strong></td>
+                    <td>Kidney shaped[cite: 3]</td>
+                    <td>Round[cite: 3]</td>
+                </tr>
+                <tr>
+                    <td><strong>Surface</strong></td>
+                    <td>Pitted[cite: 3]</td>
+                    <td>Smooth[cite: 3]</td>
+                </tr>
+                <tr>
+                    <td><strong>Taste / Smell</strong></td>
+                    <td>Bitter / Odorless[cite: 3]</td>
+                    <td>Pungent / Pungent[cite: 3]</td>
+                </tr>
+                <tr>
+                    <td><strong>Embryo Section</strong></td>
+                    <td>Curves outward[cite: 3]</td>
+                    <td>Curves inward towards hilum[cite: 3]</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- MEMORY BOOSTER -->
+        <h2>Memory Booster (High-Yield Triads)</h2>
+
+        <div class="highlight-box">
+            <ul>
+                <li><strong>Abrus precatorius:</strong> Hemorrhagic gastroenteritis + Viper bite-like injection signs + Demyelinating encephalitis[cite: 3].</li>
+                <li><strong>Castor:</strong> Hemorrhage in organs/gastroenteritis + Dilated cardiomyopathy + Hemolysis with acute renal failure[cite: 3].</li>
+                <li><strong>Croton:</strong> Increased bodily secretions + Vertigo + Circulatory shock[cite: 3].</li>
+                <li><strong>Marking Nut:</strong> Blister formation + Hypotension + Delirium[cite: 3].</li>
+                <li><strong>Plumbago:</strong> Vesication + Circulatory shock + CNS depression[cite: 3].</li>
+                <li><strong>Cyanide:</strong> Cyanosis + Convulsions + Tachycardia[cite: 3].</li>
+            </ul>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 MONOLITH. Built to persist.</p>
+    </footer>
+
+</body>
+</html>
