@@ -1,0 +1,1877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monolith — Forensic Medicine: Inebriant &amp; Depressant Poisons</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #e5e5e5;
+            --accent-color: #888888;
+            --border-color: #222222;
+            --hover-color: #ffffff;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-family: var(--font-mono);
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--hover-color);
+        }
+
+        main {
+            max-width: 900px;
+            margin: 60px auto;
+        }
+
+        .page-header {
+            margin-bottom: 50px;
+        }
+
+        .breadcrumb {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--hover-color);
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 400;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-family: var(--font-mono);
+            font-size: 1.25rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            color: var(--hover-color);
+            margin: 60px 0 25px 0;
+            border-left: 3px solid var(--accent-color);
+            padding-left: 12px;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #dddddd;
+            margin: 30px 0 12px 0;
+            text-transform: uppercase;
+            font-family: var(--font-mono);
+            letter-spacing: 0.5px;
+        }
+
+        h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            margin: 18px 0 8px 0;
+            text-transform: uppercase;
+            font-family: var(--font-mono);
+        }
+
+        p {
+            color: #cccccc;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        ul, ol {
+            margin-bottom: 20px;
+            padding-left: 25px;
+            color: #cccccc;
+            font-size: 0.95rem;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .highlight-box {
+            background-color: #111111;
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: #d4d4d4;
+            margin: 25px 0;
+            line-height: 1.6;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.88rem;
+            text-align: left;
+        }
+
+        th {
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--border-color);
+            padding: 12px 10px;
+            background-color: #0e0e0e;
+        }
+
+        td {
+            padding: 12px 10px;
+            border-bottom: 1px solid var(--border-color);
+            color: #cccccc;
+            vertical-align: top;
+        }
+
+        tr:hover td {
+            color: var(--hover-color);
+            background-color: #111111;
+        }
+
+        .viva-note {
+            background-color: #111516;
+            border-left: 3px solid #0099cc;
+            padding: 18px;
+            margin: 25px 0;
+            font-size: 0.9rem;
+            color: #e5e5e5;
+        }
+        
+        .viva-note strong {
+            color: #fff;
+            font-family: var(--font-mono);
+        }
+
+        footer {
+            max-width: 900px;
+            margin: 100px auto 40px auto;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Monolith</div>
+        <ul class="nav-links">
+            <li><a href="https://fidelioa.github.io/monolith">Home</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/archives">Archives</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/about">About</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="page-header">
+            <div class="breadcrumb">
+                <a href="https://fidelioa.github.io/monolith/archives">Archives</a> / 
+                <a href="https://fidelioa.github.io/monolith/archives/forensic/index.html">Forensic</a> / Inebriants &amp; Depressants
+            </div>
+            <h1>Toxicology: Inebriant &amp; Depressant Poisons</h1>
+            <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-color); margin-top: 5px;">FAST TRACK CLINICAL SCIENCE MBBS - 3rd YEAR (pp. 574–582)</p>
+        </section>
+
+        <!-- ================================= -->
+<!-- ETHYL ALCOHOL -->
+<!-- ================================= -->
+
+<h2>1. Ethyl Alcohol (Ethanol)</h2>
+
+<div class="note">
+<h3>Definition</h3>
+
+<ul>
+<li>Hydroxyl derivative of an aliphatic hydrocarbon.</li>
+<li>Alcohols are classified into:
+    <ul>
+        <li>Monohydroxy alcohols</li>
+        <li>Dihydroxy alcohols</li>
+        <li>Trihydroxy alcohols</li>
+    </ul>
+</li>
+
+<li><strong>Ethanol (Grain alcohol)</strong> is a:
+    <ul>
+        <li>Colorless</li>
+        <li>Transparent</li>
+        <li>Volatile liquid</li>
+        <li>Spirituous odor</li>
+        <li>Burning taste</li>
+    </ul>
+</li>
+
+<li>Produced by <strong>fermentation of sugars by yeast.</strong></li>
+
+</ul>
+
+</div>
+
+
+
+<!-- ================================= -->
+<!-- HIGH-YIELD FACTS -->
+<!-- ================================= -->
+
+<div class="highlight-box">
+
+<h3>High-Yield Definitions</h3>
+
+<ul>
+
+<li><strong>Absolute alcohol</strong> → <strong>99.95%</strong> ethanol.</li>
+
+<li><strong>Rectified spirit</strong> → <strong>90%</strong> ethanol.</li>
+
+<li><strong>Proof spirit</strong>
+    <ul>
+        <li>At <strong>10.5°C</strong>, weighs exactly <strong>12/13</strong> the weight of an equal volume of distilled water.</li>
+        <li><strong>Proof = 2 × % alcohol by volume.</strong></li>
+    </ul>
+</li>
+
+<li><strong>1 Unit of alcohol</strong> = <strong>8 g</strong> ethanol.</li>
+
+<li><strong>Arrack</strong>
+    <ul>
+        <li>Prepared from palm, rice, sugar or jaggery.</li>
+        <li>Alcohol content: <strong>40–50%</strong>.</li>
+    </ul>
+</li>
+
+</ul>
+
+</div>
+
+
+
+<!-- ================================= -->
+<!-- PHARMACOKINETICS -->
+<!-- ================================= -->
+
+<h3>Pharmacokinetics</h3>
+
+<h4>1. Absorption</h4>
+
+<ul>
+
+<li>Absorbed by simple diffusion from:
+    <ul>
+        <li>Mouth</li>
+        <li>Esophagus</li>
+        <li>Stomach</li>
+        <li>Small intestine</li>
+    </ul>
+</li>
+
+<li>Carbonated drinks → <strong>Increase absorption.</strong></li>
+
+<li>Food → <strong>Delays absorption.</strong></li>
+
+<li>Peak blood concentration occurs in <strong>45–90 minutes.</strong></li>
+
+</ul>
+
+
+
+<h4>2. Distribution</h4>
+
+<ul>
+
+<li>Distributed to almost all tissues.</li>
+
+<li>Not distributed significantly to:
+    <ul>
+        <li>Bone</li>
+        <li>Adipose tissue</li>
+    </ul>
+</li>
+
+<li><strong>Important Ratios</strong>
+    <ul>
+        <li>Blood : Urine = <strong>1 : 1.3</strong></li>
+        <li>Blood : Breath = <strong>1 : 2100</strong></li>
+        <li>Blood : Saliva = <strong>1 : 1.2</strong></li>
+    </ul>
+</li>
+
+</ul>
+
+
+
+<h4>3. Metabolism</h4>
+
+<ul>
+
+<li><strong>90%</strong> metabolized in the liver.</li>
+
+<li><strong>10%</strong> excreted unchanged through lungs, kidneys and sweat.</li>
+
+<li>Main metabolic pathways:
+    <ul>
+        <li>Alcohol dehydrogenase (Major pathway)</li>
+        <li>MEOS (Microsomal Ethanol Oxidizing System)</li>
+        <li>Catalase-peroxidase pathway</li>
+    </ul>
+</li>
+
+</ul>
+
+<div class="viva-note">
+
+<strong>Metabolic Pathway</strong>
+
+<p>
+Alcohol
+→ Acetaldehyde
+→ Acetic Acid / Acetyl-CoA
+→ Krebs Cycle
+→ CO₂ + H₂O
+</p>
+
+</div>
+
+
+
+<!-- ================================= -->
+<!-- MECHANISM -->
+<!-- ================================= -->
+
+<h3>Mechanism of Action</h3>
+
+<ul>
+
+<li>Enhances <strong>GABA</strong>-mediated inhibitory neurotransmission.</li>
+
+<li>Acts on <strong>NMDA (glutamate)</strong> receptors.</li>
+
+<li>Produces CNS depression by increasing inhibitory neurotransmission.</li>
+
+</ul>
+
+
+
+<!-- ================================= -->
+<!-- SYSTEMIC EFFECTS -->
+<!-- ================================= -->
+
+<h3>Systemic Effects</h3>
+
+<h4>Central Nervous System (CNS)</h4>
+
+<ul>
+
+<li>Low dose → Apparent stimulation (due to depression of inhibitory centers).</li>
+
+<li>High dose → General CNS depression.</li>
+
+<li>Large doses depress:
+    <ul>
+        <li>Respiratory center</li>
+        <li>Vasomotor center</li>
+    </ul>
+</li>
+
+</ul>
+
+
+
+<h4>Cardiovascular System</h4>
+
+<ul>
+
+<li>Small dose
+    <ul>
+        <li>Cutaneous vasodilation</li>
+        <li>Gastric vasodilation</li>
+    </ul>
+</li>
+
+<li>Moderate dose
+    <ul>
+        <li>Tachycardia</li>
+        <li>Mild rise in blood pressure</li>
+    </ul>
+</li>
+
+<li>Large dose
+    <ul>
+        <li>Myocardial depression</li>
+        <li>Vasomotor depression</li>
+    </ul>
+</li>
+
+<li>Chronic alcoholism causes:
+    <ul>
+        <li>Hypertension</li>
+        <li>Cardiomyopathy</li>
+        <li>Atrial fibrillation</li>
+        <li>QT prolongation</li>
+    </ul>
+</li>
+
+</ul>
+
+
+
+<h4>Blood</h4>
+
+<ul>
+
+<li>Small amounts:
+    <ul>
+        <li>↑ HDL</li>
+        <li>↓ LDL</li>
+    </ul>
+</li>
+
+<li>>3 drinks/day → Increased CAD risk.</li>
+
+<li>Causes <strong>megaloblastic anemia</strong> by interfering with folate metabolism.</li>
+
+</ul>
+
+
+
+<h4>Other Effects</h4>
+
+<ul>
+
+<li>Produces false sensation of warmth.</li>
+
+<li>High doses impair temperature regulation.</li>
+
+<li>Causes diuresis by inhibiting <strong>ADH.</strong></li>
+
+<li>High concentrations cause <strong>erosive gastritis.</strong></li>
+
+</ul>
+
+
+
+<!-- ================================= -->
+<!-- ALCOHOL CONTENT -->
+<!-- ================================= -->
+
+<h3>Alcohol Content of Common Beverages</h3>
+
+<table>
+
+<thead>
+
+<tr>
+<th>Beverage</th>
+<th>Alcohol (%)</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+<td>Beer</td>
+<td><strong>4–8%</strong></td>
+</tr>
+
+<tr>
+<td>Wine</td>
+<td><strong>10–20%</strong></td>
+</tr>
+
+<tr>
+<td>Whisky / Gin / Brandy</td>
+<td><strong>40–45%</strong></td>
+</tr>
+
+<tr>
+<td>Rum</td>
+<td><strong>50%</strong></td>
+</tr>
+
+</tbody>
+
+</table>
+
+
+
+<!-- ================================= -->
+<!-- BAC -->
+<!-- ================================= -->
+
+<h3>Blood Alcohol Concentration (BAC) & Clinical Effects</h3>
+
+<table>
+
+<thead>
+
+<tr>
+<th>BAC (mg%)</th>
+<th>Stage</th>
+<th>Important Features</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+<td><strong>0–50</strong></td>
+<td>Sober</td>
+<td>
+<ul>
+<li>No significant effects</li>
+<li>Mild euphoria</li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td><strong>50–100</strong></td>
+<td>Excitement</td>
+<td>
+<ul>
+<li>Disinhibition</li>
+<li>↑ Self-confidence</li>
+<li>Impaired judgment</li>
+<li>Slurred speech</li>
+<li>Nystagmus</li>
+<li>Mild incoordination</li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td><strong>100–150</strong></td>
+<td>Incoordination</td>
+<td>
+<ul>
+<li>Mental confusion</li>
+<li>Loss of memory</li>
+<li>Slow reaction time</li>
+<li>Poor judgment</li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td><strong>150–300</strong></td>
+<td>Intoxication / Early Stupor</td>
+<td>
+<ul>
+<li>Ataxia</li>
+<li>Staggering gait</li>
+<li>Marked confusion</li>
+<li>Drowsiness</li>
+<li>Thick speech</li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td><strong>300–400</strong></td>
+<td>Stupor</td>
+<td>
+<ul>
+<li>Marked depression</li>
+<li>Poor response to stimuli</li>
+<li>Possible coma</li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td><strong>&gt;400</strong></td>
+<td>Coma & Death</td>
+<td>
+<ul>
+<li>Deep coma</li>
+<li>Respiratory failure</li>
+<li>Loss of reflexes</li>
+<li>Death</li>
+</ul>
+</td>
+</tr>
+
+</tbody>
+
+</table>
+
+
+
+<div class="highlight-box">
+
+<h3>Last-Minute Viva Pearls</h3>
+
+<ul>
+
+<li><strong>Absolute alcohol = 99.95%</strong></li>
+
+<li><strong>Rectified spirit = 90%</strong></li>
+
+<li><strong>1 unit alcohol = 8 g</strong></li>
+
+<li><strong>Peak absorption = 45–90 min</strong></li>
+
+<li><strong>90% metabolized in liver</strong></li>
+
+<li><strong>Blood : Breath = 1 : 2100</strong> ⭐</li>
+
+<li><strong>ADH inhibition → Diuresis</strong></li>
+
+<li><strong>Low dose → Apparent CNS stimulation</strong></li>
+
+<li><strong>High dose → CNS depression</strong></li>
+
+<li><strong>&gt;400 mg% BAC → Coma & Death</strong></li>
+
+</ul>
+
+</div>
+
+<!-- ================================= -->
+<!-- IMPORTANT CLINICAL SIGNS -->
+<!-- ================================= -->
+
+<div class="viva-note">
+
+<h3>Important Clinical Signs of Alcohol Intoxication</h3>
+
+<ul>
+
+<li><strong>Alcohol Gaze Nystagmus (AGN)</strong>
+    <ul>
+        <li>Jerky eye movement in the direction of gaze.</li>
+        <li>Independent of head position.</li>
+        <li>Appears at <strong>BAC 40–100 mg%</strong> (average <strong>80 mg%</strong>).</li>
+    </ul>
+</li>
+
+<li><strong>McEwan Sign</strong>
+    <ul>
+        <li>Pupils are constricted.</li>
+        <li>Painful stimulus causes:
+            <ul>
+                <li>Slow dilatation</li>
+                <li>Followed by slow constriction</li>
+            </ul>
+        </li>
+        <li>Seen when <strong>BAC ≥300 mg%</strong>.</li>
+    </ul>
+</li>
+
+<li><strong>Romberg Sign</strong>
+    <ul>
+        <li>Unable to stand steadily with:
+            <ul>
+                <li>Feet together</li>
+                <li>Eyes closed</li>
+            </ul>
+        </li>
+    </ul>
+</li>
+
+</ul>
+
+</div>
+
+
+
+<!-- ================================= -->
+<!-- 4 M's -->
+<!-- ================================= -->
+
+<h3>The 4 "M's" of Alcoholism</h3>
+
+<ul>
+
+<li><strong>Micturition Syncope</strong>
+    <ul>
+        <li>Transient loss of consciousness while passing urine.</li>
+        <li>Usually after heavy beer intake.</li>
+    </ul>
+</li>
+
+<li><strong>Munich Beer Heart</strong>
+    <ul>
+        <li>Cardiac dilatation and hypertrophy.</li>
+        <li>Occurs in chronic heavy beer drinkers.</li>
+    </ul>
+</li>
+
+<li><strong>Morbid Jealousy (Othello Syndrome)</strong>
+    <ul>
+        <li>Delusion that spouse/partner is unfaithful.</li>
+    </ul>
+</li>
+
+<li><strong>Mickey Finn</strong>
+    <ul>
+        <li>Alcohol + Chloral hydrate.</li>
+        <li>Used as "knock-out drops."</li>
+    </ul>
+</li>
+
+</ul>
+
+
+
+<!-- ================================= -->
+<!-- ACUTE ALCOHOL POISONING -->
+<!-- ================================= -->
+
+<h3>Acute Alcohol Poisoning</h3>
+
+<ul>
+
+<li><strong>Fatal Dose</strong>
+    <ul>
+        <li><strong>150–250 mL</strong> absolute alcohol within 1 hour.</li>
+    </ul>
+</li>
+
+<li><strong>Fatal Period</strong>
+    <ul>
+        <li><strong>12–24 hours.</strong></li>
+    </ul>
+</li>
+
+</ul>
+
+
+
+<h4>Treatment</h4>
+
+<ol>
+
+<li>Gastric lavage with alkaline solution.</li>
+
+<li>Keep the patient warm.</li>
+
+<li>IV fluids:
+    <ul>
+        <li>1 L Normal Saline</li>
+        <li>10% Glucose</li>
+        <li>Thiamine <strong>100 mg</strong></li>
+        <li>Insulin <strong>15 units</strong></li>
+    </ul>
+</li>
+
+<li>Oxygen therapy.</li>
+
+<li>Artificial ventilation if required.</li>
+
+<li>Hemodialysis / Peritoneal dialysis in deep coma.</li>
+
+</ol>
+
+
+
+<!-- ================================= -->
+<!-- CHRONIC ALCOHOLISM -->
+<!-- ================================= -->
+
+<h4>Treatment of Chronic Alcoholism</h4>
+
+<ul>
+
+<li><strong>Disulfiram</strong>
+    <ul>
+        <li><strong>250 mg/day</strong></li>
+        <li>Inhibits <strong>Aldehyde Dehydrogenase (ALDH)</strong>.</li>
+    </ul>
+</li>
+
+<li><strong>Calcium Carbimide</strong>
+    <ul>
+        <li><strong>50 mg/day</strong></li>
+    </ul>
+</li>
+
+<li>Supportive therapy:
+    <ul>
+        <li>Chlorpromazine</li>
+        <li>Clonidine</li>
+        <li>Chlormethiazole</li>
+        <li>Psychotherapy</li>
+        <li>Alcoholics Anonymous (AA)</li>
+    </ul>
+</li>
+
+</ul>
+
+
+
+<!-- ================================= -->
+<!-- AUTOPSY -->
+<!-- ================================= -->
+
+<h4>Autopsy Findings</h4>
+
+<h5>Acute Alcohol Poisoning</h5>
+
+<ul>
+
+<li>Alcoholic odor on opening body cavities.</li>
+
+<li>Acute gastritis with thick mucus.</li>
+
+<li>Congestion of:
+    <ul>
+        <li>Brain</li>
+        <li>Lungs</li>
+        <li>Liver</li>
+    </ul>
+</li>
+
+<li>Dark fluid blood.</li>
+
+<li>Decomposition delayed.</li>
+
+</ul>
+
+
+
+<h5>Chronic Alcoholism</h5>
+
+<ul>
+
+<li>Malnutrition.</li>
+
+<li>Reddish-brown gastric mucosa.</li>
+
+<li>Fatty liver / Cirrhosis.</li>
+
+<li>Dilated heart with fatty degeneration.</li>
+
+<li>Testicular atrophy.</li>
+
+<li>Cerebellar degeneration.</li>
+
+</ul>
+
+
+
+<!-- ================================= -->
+<!-- DRUNKENNESS -->
+<!-- ================================= -->
+
+<h2>2. Clinical Examination of Drunkenness</h2>
+
+<div class="note">
+
+<strong>Definition</strong>
+
+<p>
+Drunkenness is a condition in which alcohol has impaired a person's physical or mental faculties sufficiently that they are unable to safely perform the activity or occupation they were engaged in.
+</p>
+
+</div>
+
+
+
+<h3>Clinical Examination</h3>
+
+<ol>
+
+<li>Record exact <strong>date and time</strong> of examination.</li>
+
+<li>Exclude medical conditions that mimic intoxication
+    <ul>
+        <li>Hypoglycemia</li>
+        <li>Stroke</li>
+        <li>Epilepsy</li>
+        <li>Neurological disease</li>
+    </ul>
+</li>
+
+<li>Assess:
+    <ul>
+        <li>Appearance & dress</li>
+        <li>Behavior</li>
+        <li>Speech</li>
+        <li>Memory</li>
+        <li>Judgment</li>
+        <li>Self-control</li>
+        <li>Handwriting</li>
+        <li>Reaction time</li>
+    </ul>
+</li>
+
+<li>Physical signs:
+    <ul>
+        <li>Alcoholic breath</li>
+        <li>Bounding pulse</li>
+        <li>Dry/furred tongue</li>
+        <li>Congested eyelids</li>
+        <li>Nystagmus</li>
+        <li>Negative convergence test</li>
+    </ul>
+</li>
+
+<li>Coordination tests:
+    <ul>
+        <li>Finger–nose test</li>
+        <li>Heel–shin test</li>
+        <li>Pick up small objects</li>
+        <li>Light a match</li>
+        <li>Button/unbutton shirt or coat</li>
+    </ul>
+</li>
+
+</ol>
+
+
+
+<!-- ================================= -->
+<!-- WIDMARK -->
+<!-- ================================= -->
+
+<h3>Widmark Formula</h3>
+
+<div class="formula-box">
+
+<p><strong>a = p × r × c</strong></p>
+
+<ul>
+
+<li><strong>a</strong> = Total alcohol in body (g)</li>
+
+<li><strong>p</strong> = Body weight (kg)</li>
+
+<li><strong>r</strong> = Distribution factor
+    <ul>
+        <li>Male = <strong>0.68</strong></li>
+        <li>Female = <strong>0.55</strong></li>
+    </ul>
+</li>
+
+<li><strong>c</strong> = Blood alcohol concentration</li>
+
+</ul>
+
+</div>
+
+<h4>Urine Formula</h4>
+
+<p><strong>a = ¾ × p × r × q</strong></p>
+
+
+
+<h3>Henry's Law (Breath Analysis)</h3>
+
+<ul>
+
+<li>At <strong>34°C</strong>, alcohol concentration in alveolar air and blood remains constant.</li>
+
+<li><strong>2100–2300 mL alveolar air ≈ 1 mL blood.</strong></li>
+
+<li>Basis of <strong>Breathalyzer</strong> testing.</li>
+
+</ul>
+
+
+
+<!-- ================================= -->
+<!-- COMPLICATIONS -->
+<!-- ================================= -->
+
+<h2>3. Complications of Chronic Alcoholism</h2>
+
+<ul>
+
+<li><strong>Delirium Tremens (DT)</strong>
+    <ul>
+        <li>Occurs <strong>72–96 hours</strong> after the last drink.</li>
+        <li>Features:
+            <ul>
+                <li>Coarse tremors</li>
+                <li>Insomnia</li>
+                <li>Agitation</li>
+                <li>Visual & auditory hallucinations</li>
+                <li>Seeing crawling insects/snakes (formication)</li>
+                <li>Autonomic overactivity</li>
+            </ul>
+        </li>
+        <li>Mortality: <strong>5–15%</strong></li>
+    </ul>
+</li>
+
+<li><strong>Wernicke Encephalopathy</strong>
+    <ul>
+        <li>Due to <strong>Vitamin B₁ (Thiamine) deficiency.</strong></li>
+        <li><strong>Classic Triad (GOA)</strong>
+            <ul>
+                <li><strong>G</strong> → Global confusion</li>
+                <li><strong>O</strong> → Ophthalmoplegia</li>
+                <li><strong>A</strong> → Ataxia</li>
+            </ul>
+        </li>
+    </ul>
+</li>
+
+<li><strong>Korsakoff Psychosis</strong>
+    <ul>
+        <li>Chronic thiamine deficiency.</li>
+        <li>Features:
+            <ul>
+                <li>Severe amnesia</li>
+                <li>Confabulation</li>
+            </ul>
+        </li>
+    </ul>
+</li>
+
+<li><strong>Marchiafava-Bignami Syndrome</strong>
+    <ul>
+        <li>Degeneration of the corpus callosum.</li>
+    </ul>
+</li>
+
+<li><strong>Mallory-Weiss Syndrome</strong>
+    <ul>
+        <li>Mucosal tear at the gastroesophageal junction.</li>
+        <li>Occurs after repeated severe vomiting/retching.</li>
+    </ul>
+</li>
+
+</ul>
+
+
+
+<div class="highlight-box">
+
+<h3>Last-Minute Viva Pearls</h3>
+
+<ul>
+
+<li><strong>AGN → BAC 40–100 mg%</strong></li>
+
+<li><strong>McEwan Sign → BAC ≥300 mg%</strong></li>
+
+<li><strong>Romberg → Unable to stand with eyes closed</strong></li>
+
+<li><strong>Fatal dose = 150–250 mL absolute alcohol</strong></li>
+
+<li><strong>Fatal period = 12–24 hrs</strong></li>
+
+<li><strong>Disulfiram inhibits Aldehyde Dehydrogenase</strong></li>
+
+<li><strong>Widmark constant:</strong> Male 0.68 • Female 0.55</li>
+
+<li><strong>Henry's Law → Breath : Blood = 2100–2300 : 1</strong></li>
+
+<li><strong>DT → 72–96 hrs after last drink</strong></li>
+
+<li><strong>Wernicke Triad = GOA (Global confusion • Ophthalmoplegia • Ataxia)</strong></li>
+
+<li><strong>Korsakoff = Amnesia + Confabulation</strong></li>
+
+</ul>
+
+</div>
+
+        <!-- ================================= -->
+<!-- METHYL ALCOHOL -->
+<!-- ================================= -->
+
+<h2>4. Methyl Alcohol (Methanol)</h2>
+
+<div class="note">
+
+<h3>Definition</h3>
+
+<ul>
+
+<li>Also called:
+    <ul>
+        <li><strong>Wood alcohol</strong></li>
+        <li><strong>Carbinol</strong></li>
+    </ul>
+</li>
+
+<li>Colorless, volatile liquid.</li>
+
+<li>Odor resembles ethanol.</li>
+
+<li>Toxicity is mainly due to its metabolites:
+    <ul>
+        <li><strong>Formaldehyde</strong></li>
+        <li><strong>Formic acid</strong></li>
+    </ul>
+</li>
+
+</ul>
+
+</div>
+
+
+
+<!-- ================================= -->
+<!-- HIGH-YIELD -->
+<!-- ================================= -->
+
+<div class="viva-note">
+
+<h3>High-Yield Facts</h3>
+
+<ul>
+
+<li><strong>Fatal Dose:</strong> <strong>60–200 mL</strong></li>
+
+<li><strong>Fatal Period:</strong> <strong>24–36 hours</strong> (may be delayed up to 2–4 days)</li>
+
+<li><strong>Target Organ:</strong> <strong>Optic nerve</strong></li>
+
+<li><strong>Toxic metabolite:</strong> <strong>Formic acid</strong></li>
+
+<li><strong>Classical complication:</strong> Permanent blindness</li>
+
+</ul>
+
+</div>
+
+
+
+<!-- ================================= -->
+<!-- CLINICAL FEATURES -->
+<!-- ================================= -->
+
+<h3>Clinical Features</h3>
+
+<ul>
+
+<li>Nausea</li>
+
+<li>Vomiting</li>
+
+<li>Severe abdominal cramps</li>
+
+<li>Headache with neck stiffness</li>
+
+<li>Vertigo</li>
+
+<li>Metabolic acidosis</li>
+
+<li>Hypothermia</li>
+
+<li>Convulsions</li>
+
+<li>Coma</li>
+
+</ul>
+
+
+
+<h4>Ophthalmic Features</h4>
+
+<ul>
+
+<li>Blurred vision ("looking through a snow field")</li>
+
+<li>Fixed dilated pupils</li>
+
+<li>Optic neuritis</li>
+
+<li>Optic disc hyperemia</li>
+
+<li>Permanent blindness</li>
+
+</ul>
+
+
+
+<h4>Laboratory Findings</h4>
+
+<ul>
+
+<li>High anion gap metabolic acidosis</li>
+
+<li>Hypophosphatemia</li>
+
+<li>Raised CPK</li>
+
+<li>Raised amylase</li>
+
+<li><strong>Blood methanol &gt;50 mg/100 mL</strong> → Severe poisoning</li>
+
+</ul>
+
+
+
+<!-- ================================= -->
+<!-- MANAGEMENT -->
+<!-- ================================= -->
+
+<h3>Treatment</h3>
+
+<ol>
+
+<li>Gastric lavage with <strong>5% Sodium bicarbonate</strong>.</li>
+
+<li>Activated charcoal.</li>
+
+<li><strong>Antidote: Ethanol</strong>
+    <ul>
+        <li>10% Ethanol IV</li>
+        <li><strong>10 mL/kg</strong> over 30 minutes</li>
+        <li>Maintenance: <strong>1.5 mL/kg/hour</strong></li>
+        <li>Acts by competitive inhibition of Alcohol Dehydrogenase.</li>
+    </ul>
+</li>
+
+<li><strong>Antidote: Fomepizole (4-MP)</strong>
+    <ul>
+        <li><strong>20 mg/kg</strong></li>
+        <li>Given over 5 days (as per protocol).</li>
+    </ul>
+</li>
+
+<li>Correct metabolic acidosis with <strong>IV Sodium bicarbonate</strong>.</li>
+
+<li>Give <strong>Folinic acid</strong> to enhance formic acid metabolism.</li>
+
+<li><strong>Hemodialysis</strong> is the treatment of choice in severe poisoning.</li>
+
+</ol>
+
+
+
+<div class="highlight-box">
+
+<h3>Last-Minute Viva Pearls</h3>
+
+<ul>
+
+<li><strong>Methanol → Formic acid → Optic nerve toxicity</strong></li>
+
+<li><strong>Most characteristic feature = Blindness</strong></li>
+
+<li><strong>High anion gap metabolic acidosis</strong></li>
+
+<li><strong>Antidotes = Ethanol or Fomepizole</strong></li>
+
+<li><strong>Severe poisoning → Hemodialysis</strong></li>
+
+</ul>
+
+</div>
+
+
+
+<!-- ================================= -->
+<!-- ETHYLENE GLYCOL -->
+<!-- ================================= -->
+
+<h2>5. Ethylene Glycol</h2>
+
+<div class="note">
+
+<h3>Definition</h3>
+
+<ul>
+
+<li>Colorless, odorless, non-volatile liquid.</li>
+
+<li>Bitter-sweet taste.</li>
+
+<li>Found in:
+    <ul>
+        <li>Antifreeze</li>
+        <li>Radiator coolants</li>
+        <li>Brake fluids</li>
+    </ul>
+</li>
+
+<li>Metabolized to:
+    <ul>
+        <li>Glycoaldehyde</li>
+        <li>Glycolic acid</li>
+        <li><strong>Oxalic acid</strong></li>
+    </ul>
+</li>
+
+</ul>
+
+</div>
+
+
+
+<div class="viva-note">
+
+<h3>High-Yield Facts</h3>
+
+<ul>
+
+<li><strong>Fatal Dose:</strong> <strong>100–200 mL</strong></li>
+
+<li><strong>Fatal Period:</strong> <strong>~3 days</strong></li>
+
+<li><strong>Main target organ:</strong> Kidney</li>
+
+<li><strong>Toxic metabolite:</strong> Oxalic acid</li>
+
+</ul>
+
+</div>
+
+
+
+<!-- ================================= -->
+<!-- CLINICAL PHASES -->
+<!-- ================================= -->
+
+<h3>Clinical Phases</h3>
+
+<h4>Phase 1 (0–12 hours) — CNS Phase</h4>
+
+<ul>
+
+<li>Vomiting</li>
+
+<li>Lethargy</li>
+
+<li>Ataxia</li>
+
+<li>Convulsions</li>
+
+<li>Coma</li>
+
+</ul>
+
+
+
+<h4>Phase 2 (12–24 hours) — Cardiopulmonary Phase</h4>
+
+<ul>
+
+<li>Tachycardia</li>
+
+<li>Tachypnea</li>
+
+<li>Circulatory failure</li>
+
+</ul>
+
+
+
+<h4>Phase 3 (24–72 hours) — Renal Phase</h4>
+
+<ul>
+
+<li>Flank pain</li>
+
+<li>Acute tubular necrosis</li>
+
+<li>Acute renal failure</li>
+
+<li>Calcium oxalate crystalluria</li>
+
+</ul>
+
+
+
+<!-- ================================= -->
+<!-- DIAGNOSIS -->
+<!-- ================================= -->
+
+<h3>Diagnosis</h3>
+
+<ul>
+
+<li>Urine shows <strong>calcium oxalate crystals</strong>.</li>
+
+<li>Urine fluoresces under a <strong>Wood's lamp</strong> if fluorescent antifreeze was ingested.</li>
+
+<li>High anion gap metabolic acidosis.</li>
+
+</ul>
+
+
+
+<!-- ================================= -->
+<!-- TREATMENT -->
+<!-- ================================= -->
+
+<h3>Treatment</h3>
+
+<ul>
+
+<li><strong>Antidote:</strong>
+    <ul>
+        <li>Ethanol</li>
+        <li>Fomepizole</li>
+    </ul>
+</li>
+
+<li>Correct acidosis with IV sodium bicarbonate.</li>
+
+<li><strong>Hemodialysis</strong> for severe poisoning.</li>
+
+<li>Supportive management.</li>
+
+</ul>
+
+
+
+<div class="highlight-box">
+
+<h3>Last-Minute Viva Pearls</h3>
+
+<ul>
+
+<li><strong>Methanol → Formic acid → Blindness</strong></li>
+
+<li><strong>Ethylene glycol → Oxalic acid → Kidney failure</strong></li>
+
+<li><strong>Methanol target = Optic nerve</strong></li>
+
+<li><strong>Ethylene glycol target = Kidney</strong></li>
+
+<li><strong>Ethylene glycol urine → Calcium oxalate crystals</strong></li>
+
+<li><strong>Antidotes for BOTH = Ethanol or Fomepizole</strong></li>
+
+<li><strong>Severe poisoning → Hemodialysis</strong></li>
+
+</ul>
+
+</div>
+
+        <!-- ================================= -->
+<!-- VOLATILE SUBSTANCE ABUSE -->
+<!-- ================================= -->
+
+<h2>6. Volatile Substance Abuse (Inhalants)</h2>
+
+<div class="note">
+
+<h3>Definition</h3>
+
+<ul>
+
+<li>Deliberate inhalation of volatile chemicals for their psychoactive effects.</li>
+
+<li>Common inhalants include:
+    <ul>
+        <li>Toluene</li>
+        <li>Gasoline (Petrol)</li>
+        <li>Xylene</li>
+        <li>Benzene</li>
+        <li>Fluorocarbons</li>
+    </ul>
+</li>
+
+</ul>
+
+</div>
+
+
+
+<!-- ================================= -->
+<!-- METHODS -->
+<!-- ================================= -->
+
+<h3>Methods of Inhalation</h3>
+
+<ul>
+
+<li><strong>Huffing</strong>
+    <ul>
+        <li>Inhaling vapors from a solvent-soaked cloth held over the nose and mouth.</li>
+    </ul>
+</li>
+
+<li><strong>Bagging</strong>
+    <ul>
+        <li>Breathing in and out from a plastic or paper bag containing volatile substances.</li>
+    </ul>
+</li>
+
+<li><strong>Sniffing</strong>
+    <ul>
+        <li>Direct inhalation from the container or nozzle.</li>
+    </ul>
+</li>
+
+</ul>
+
+
+
+<!-- ================================= -->
+<!-- CAUSES OF DEATH -->
+<!-- ================================= -->
+
+<h3>Causes of Death</h3>
+
+<ul>
+
+<li>Sudden cardiac death (fatal arrhythmias)</li>
+
+<li>Hypoxia</li>
+
+<li>Plastic bag asphyxia</li>
+
+<li>Reflex cardiac arrest</li>
+
+</ul>
+
+
+
+<!-- ================================= -->
+<!-- AUTOPSY -->
+<!-- ================================= -->
+
+<h3>Autopsy Findings</h3>
+
+<ul>
+
+<li>Excoriation around the nose and mouth.</li>
+
+<li>Congestion and damage of visceral organs.</li>
+
+<li>Characteristic solvent odor may be present.</li>
+
+</ul>
+
+
+
+<h3>Specimens for Chemical Analysis</h3>
+
+<ul>
+
+<li>Clothing</li>
+
+<li>Blood</li>
+
+<li>Fat</li>
+
+<li>Brain</li>
+
+<li>Lungs</li>
+
+</ul>
+
+
+
+<div class="highlight-box">
+
+<h3>Last-Minute Viva Pearls</h3>
+
+<ul>
+
+<li><strong>Huffing → Cloth</strong></li>
+
+<li><strong>Bagging → Plastic bag</strong></li>
+
+<li><strong>Sniffing → Direct container</strong></li>
+
+<li><strong>Commonest cause of death → Fatal arrhythmia (Sudden sniffing death)</strong></li>
+
+</ul>
+
+</div>
+
+
+
+<!-- ================================= -->
+<!-- BARBITURATES -->
+<!-- ================================= -->
+
+<h2>7. Barbiturate Poisoning</h2>
+
+<div class="note">
+
+<h3>Definition</h3>
+
+<ul>
+
+<li>Derivatives of <strong>barbituric acid.</strong></li>
+
+<li>Produce CNS depression by:
+    <ul>
+        <li>Enhancing <strong>GABA-A</strong> receptor activity.</li>
+        <li>Increasing chloride (Cl⁻) influx.</li>
+        <li>Depressing neuronal activity and central sympathetic outflow.</li>
+    </ul>
+</li>
+
+</ul>
+
+</div>
+
+
+
+<!-- ================================= -->
+<!-- CLASSIFICATION -->
+<!-- ================================= -->
+
+<h3>Classification</h3>
+
+<table>
+
+<thead>
+
+<tr>
+<th>Type</th>
+<th>Examples</th>
+<th>Fatal Dose</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+<td><strong>Ultra-short acting</strong></td>
+<td>Thiopental, Methohexital</td>
+<td>—</td>
+</tr>
+
+<tr>
+<td><strong>Short acting</strong></td>
+<td>Pentobarbital, Secobarbital</td>
+<td><strong>1–2 g</strong></td>
+</tr>
+
+<tr>
+<td><strong>Intermediate acting</strong></td>
+<td>Amobarbital, Aprobarbital</td>
+<td><strong>2–3 g</strong></td>
+</tr>
+
+<tr>
+<td><strong>Long acting</strong></td>
+<td>Phenobarbital, Mephobarbital</td>
+<td><strong>3–5 g</strong></td>
+</tr>
+
+</tbody>
+
+</table>
+
+
+
+<!-- ================================= -->
+<!-- CLINICAL FEATURES -->
+<!-- ================================= -->
+
+<h3>Clinical Features</h3>
+
+<div class="viva-note">
+
+<h4>Barbiturate Triad</h4>
+
+<ul>
+
+<li><strong>Apnea</strong></li>
+
+<li><strong>Cold skin</strong></li>
+
+<li><strong>Hypotension</strong></li>
+
+</ul>
+
+</div>
+
+
+
+<h4>Other Features</h4>
+
+<ul>
+
+<li>Slurred speech</li>
+
+<li>Ataxia</li>
+
+<li>Nystagmus</li>
+
+<li>Constricted pupils</li>
+
+<li><strong>Barbiturate blisters</strong> (bullous lesions over pressure points)</li>
+
+<li><strong>Oliguria ("Liquid Gold Urine")</strong></li>
+
+<li>Respiratory depression</li>
+
+<li>Coma</li>
+
+</ul>
+
+
+
+<!-- ================================= -->
+<!-- TREATMENT -->
+<!-- ================================= -->
+
+<h3>Treatment</h3>
+
+<ul>
+
+<li>Supportive care (Airway, Breathing, Circulation).</li>
+
+<li><strong>Coma Cocktail</strong>
+    <ul>
+        <li>50% Dextrose — <strong>100 mL</strong></li>
+        <li>Thiamine — <strong>100 mg</strong></li>
+        <li>Naloxone — <strong>2 mg</strong></li>
+    </ul>
+</li>
+
+<li><strong>Forced alkaline diuresis</strong>
+    <ul>
+        <li>Useful mainly for <strong>Phenobarbital</strong>.</li>
+    </ul>
+</li>
+
+<li>Charcoal hemoperfusion in severe poisoning.</li>
+
+<li><strong>No specific antidote.</strong></li>
+
+</ul>
+
+
+
+<!-- ================================= -->
+<!-- AUTOPSY -->
+<!-- ================================= -->
+
+<h3>Autopsy Findings</h3>
+
+<ul>
+
+<li>Tablets/capsules/powder in stomach and intestine.</li>
+
+<li>Frothy secretions from nose and mouth.</li>
+
+<li>Barbiturate blisters.</li>
+
+<li>Congestion of internal organs.</li>
+
+<li>Peripheral cyanosis.</li>
+
+</ul>
+
+
+
+<!-- ================================= -->
+<!-- BARBITURATE AUTOMATISM -->
+<!-- ================================= -->
+
+<div class="viva-note">
+
+<h3>Barbiturate Automatism</h3>
+
+<ul>
+
+<li>Patient takes one dose of barbiturate.</li>
+
+<li>Develops toxic delirium or amnesia.</li>
+
+<li>Forgets that the medicine was already taken.</li>
+
+<li>Repeatedly consumes additional doses.</li>
+
+<li>Results in accidental fatal overdose.</li>
+
+</ul>
+
+</div>
+
+
+
+<div class="highlight-box">
+
+<h3>Last-Minute Viva Pearls</h3>
+
+<ul>
+
+<li><strong>Mechanism → ↑ GABA-A → ↑ Cl⁻ influx</strong></li>
+
+<li><strong>Triad = Apnea • Cold Skin • Hypotension</strong></li>
+
+<li><strong>Barbiturate Blisters</strong> ⭐</li>
+
+<li><strong>"Liquid Gold Urine" = Oliguria</strong></li>
+
+<li><strong>Forced alkaline diuresis → Phenobarbital</strong></li>
+
+<li><strong>No specific antidote</strong></li>
+
+<li><strong>Coma cocktail = Dextrose + Thiamine + Naloxone</strong></li>
+
+<li><strong>Barbiturate automatism = Repeated dosing due to amnesia</strong></li>
+
+</ul>
+
+</div>
+</main>
+
+    <footer>
+        <p>&copy; 2026 MONOLITH. Built to persist.</p>
+    </footer>
+
+</body>
+</html>
