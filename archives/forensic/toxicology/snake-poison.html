@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monolith — Forensic Medicine: Animal Irritants (Snakes)</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #e5e5e5;
+            --accent-color: #888888;
+            --border-color: #222222;
+            --hover-color: #ffffff;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-family: var(--font-mono);
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--hover-color);
+        }
+
+        main {
+            max-width: 900px;
+            margin: 60px auto;
+        }
+
+        .page-header {
+            margin-bottom: 50px;
+        }
+
+        .breadcrumb {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--hover-color);
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 400;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-family: var(--font-mono);
+            font-size: 1.25rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            color: var(--hover-color);
+            margin: 60px 0 25px 0;
+            border-left: 3px solid var(--accent-color);
+            padding-left: 12px;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #dddddd;
+            margin: 30px 0 12px 0;
+            text-transform: uppercase;
+            font-family: var(--font-mono);
+            letter-spacing: 0.5px;
+        }
+
+        h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            margin: 18px 0 8px 0;
+            text-transform: uppercase;
+            font-family: var(--font-mono);
+        }
+
+        p {
+            color: #cccccc;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        ul, ol {
+            margin-bottom: 20px;
+            padding-left: 25px;
+            color: #cccccc;
+            font-size: 0.95rem;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .highlight-box {
+            background-color: #111111;
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: #d4d4d4;
+            margin: 25px 0;
+            line-height: 1.6;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.88rem;
+            text-align: left;
+        }
+
+        th {
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--border-color);
+            padding: 12px 10px;
+            background-color: #0e0e0e;
+        }
+
+        td {
+            padding: 12px 10px;
+            border-bottom: 1px solid var(--border-color);
+            color: #cccccc;
+            vertical-align: top;
+        }
+
+        tr:hover td {
+            color: var(--hover-color);
+            background-color: #111111;
+        }
+
+        .viva-note {
+            background-color: #111516;
+            border-left: 3px solid #0099cc;
+            padding: 18px;
+            margin: 25px 0;
+            font-size: 0.9rem;
+            color: #e5e5e5;
+        }
+        
+        .viva-note strong {
+            color: #fff;
+            font-family: var(--font-mono);
+        }
+
+        footer {
+            max-width: 900px;
+            margin: 100px auto 40px auto;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Monolith</div>
+        <ul class="nav-links">
+            <li><a href="https://fidelioa.github.io/monolith">Home</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/archives">Archives</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/about">About</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="page-header">
+            <div class="breadcrumb">
+                <a href="https://fidelioa.github.io/monolith/archives">Archives</a> / 
+                <a href="https://fidelioa.github.io/monolith/archives/forensic/index.html">Forensic</a> / Animal Irritants
+            </div>
+            <h1>Toxicology: Snakes &amp; Animal Irritants</h1>
+            <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-color); margin-top: 5px;">FAST TRACK CLINICAL SCIENCE MBBS - 3rd YEAR (pp. 566–569)</p>
+        </section>
+
+        <!-- GENERAL OVERVIEW -->
+        <h2>1. Overview &amp; Taxonomy</h2>
+        <p><strong>Animal Irritants:</strong> Includes snakes, scorpions, and cantharides.</p>
+        <p><strong>Snakes:</strong> Ecto-thermic limbless vertebrates of the Class <em>Reptilia</em>. There are over 3,500 species of snakes, but only around 250 are venomous. According to WHO, there are more than 2.5 million venomous snake bites worldwide each year, accounting for over 125,000 deaths.</p>
+
+        <h3>Morphological Differences: Venomous vs. Non-Venomous Snakes</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Trait</th>
+                    <th>Venomous Snakes</th>
+                    <th>Non-Venomous Snakes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Head Scales</strong></td>
+                    <td>Usually small (vipers). If large scales are present, special features occur:
+                        <br>a. Pit between eye and nostril (pit viper)
+                        <br>b. 3rd labial touches eye and nasal shields (cobra/coral)
+                        <br>c. Undersurface of mouth has 4 infralabials, 4th being largest</td>
+                    <td>Large, with few exceptions.</td>
+                </tr>
+                <tr>
+                    <td><strong>Ventral Scales</strong></td>
+                    <td>Broad and always extend across the entire width of the belly.</td>
+                    <td>Small (like back scales) or moderately large, but never extend across the entire belly width.</td>
+                </tr>
+                <tr>
+                    <td><strong>Vertebral Scales</strong></td>
+                    <td>Enlarged (e.g., Krait).</td>
+                    <td>Not enlarged.</td>
+                </tr>
+                <tr>
+                    <td><strong>Tail</strong></td>
+                    <td>Compressed.</td>
+                    <td>Round / non-compressed.</td>
+                </tr>
+                <tr>
+                    <td><strong>Fangs &amp; Teeth</strong></td>
+                    <td>Upper jaw has a pair of hollow teeth modified into fangs (like hypodermic needles).</td>
+                    <td>All teeth are uniform and small; no fangs. Usually 4 rows in upper jaw, 2 in lower.</td>
+                </tr>
+                <tr>
+                    <td><strong>Bite Marks</strong></td>
+                    <td>Usually 2 (fang marks).</td>
+                    <td>More than two (semicircular rows).</td>
+                </tr>
+                <tr>
+                    <td><strong>Habit</strong></td>
+                    <td>Nocturnal.</td>
+                    <td>Not nocturnal.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Families of Venomous Snakes</h3>
+        <ul>
+            <li><strong>Colubridae:</strong> Boomslangs, bird snakes of the African continent.</li>
+            <li><strong>Elapidae:</strong> Cobras, kraits, mambas, tiger snakes, taipans, death adders, copperheads, coral snakes.</li>
+            <li><strong>Viperidae &amp; Crotalidae:</strong> Viperidae (Russell's viper, gaboon viper, saw-scaled viper, puff adder); Crotalidae (rattlesnakes, pigmy rattlesnakes, pit vipers).</li>
+            <li><strong>Hydrophidae:</strong> Sea snakes (closely related to cobras, with similar fang structure).</li>
+            <li><strong>Atractaspidae:</strong> Burrowing asps, stiletto snakes.</li>
+        </ul>
+
+        <!-- COBRA VS VIPER -->
+        <h2>2. Morphological Traits: Cobra vs. Viper</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Traits</th>
+                    <th>Cobra</th>
+                    <th>Viper</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Body</strong></td>
+                    <td>Usually long and cylindrical with narrow neck.</td>
+                    <td>Usually short and stout.</td>
+                </tr>
+                <tr>
+                    <td><strong>Head</strong></td>
+                    <td>Small, broader than body, usually same width as neck; covered with large scales.</td>
+                    <td>Larger and broader than body, wider than neck; covered with small scales.</td>
+                </tr>
+                <tr>
+                    <td><strong>Maxillary Teeth</strong></td>
+                    <td>Carries other teeth beside the poison fangs.</td>
+                    <td>Carries only the poison fangs.</td>
+                </tr>
+                <tr>
+                    <td><strong>Eye</strong></td>
+                    <td>Round pupil.</td>
+                    <td>Vertical pupil.</td>
+                </tr>
+                <tr>
+                    <td><strong>Fangs</strong></td>
+                    <td>Placed anteriorly, grooved, short, fine, and fixed.</td>
+                    <td>Canalised, long, movable, and strong.</td>
+                </tr>
+                <tr>
+                    <td><strong>Reproduction</strong></td>
+                    <td>Oviparous.</td>
+                    <td>Viviparous.</td>
+                </tr>
+                <tr>
+                    <td><strong>Tail</strong></td>
+                    <td>Round.</td>
+                    <td>Tapering.</td>
+                </tr>
+                <tr>
+                    <td><strong>Venom Type</strong></td>
+                    <td>Mainly Neurotoxic.</td>
+                    <td>Usually Haemotoxic.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- SNAKE VENOM BIOCHEMISTRY -->
+        <h2>3. Snake Venom Composition &amp; Types</h2>
+        <p>Snake venom is the poisonous secretion (saliva) ejected from the poison apparatus (modified parotid gland). Freshly ejected venom is clear and amber-colored, turning slightly turbid on sun exposure. Upon drying, potency remains identical to the liquid state.</p>
+        <p><em>Note: Venom is poisonous only when injected or absorbed through a bite, not when taken orally, as it is digested by intestinal enzymes and absorbed as amino acids. It is excreted by the kidneys, milk, and likely salivary/mucous membranes.</em></p>
+
+        <h3>Toxic Components &amp; Principles</h3>
+        <ul>
+            <li><strong>Toxins (Low molecular weight peptides/proteins):</strong> Neurotoxins (&alpha;-bungarotoxin: post-synaptic [cobra]; &beta;-bungarotoxin: pre-synaptic [krait]), Cardiotoxins, Haemolysins, Cytolysins, Agglutinins.</li>
+            <li><strong>Enzymes:</strong> Protease, Cholinesterase, Anticholinesterase, Hyaluronidase, Lecithinase, Phosphatidases, Phospholipase-A, Proteinases, Ribonuclease/Deoxyribonuclease, Ophioxidase, ATPase, Transaminase.</li>
+            <li><strong>Toxalbumins:</strong> Haemorrhagin, Haemolysin, Fibrinolysin, Proteolysin, Thromboplastin.</li>
+        </ul>
+
+        <h3>Types of Venom Effects</h3>
+        
+        <h4>A. Neurotoxic Venom</h4>
+        <p><strong>Origin:</strong> Common in <em>Elapidae</em> (krait, cobra).</p>
+        <p><strong>Action:</strong> Acts like curare, mainly on motor nerve cells, leading to muscular paralysis progressing in order: <em>muscles of mouth &rarr; muscles of throat &rarr; muscles of respiration</em>.</p>
+        <ul>
+            <li><em>Local Action:</em> Severe burning at bite site, rapid edema, inflammatory changes, serum oozing.</li>
+            <li><em>Systemic Action (15 min to 2 hours):</em> Giddiness, weakness, lethargy, muscle weakness progressing to rapid paralytic syndrome, bulbar paralysis, respiratory failure, coma, death. Convulsions seen with cobra venom.</li>
+        </ul>
+
+        <h4>B. Haemotoxic Venom</h4>
+        <p><strong>Origin:</strong> Common in <em>Viperidae</em> (Pit vipers, Russell's viper, Saw-scaled viper, Bamboo snake).</p>
+        <p><strong>Action:</strong> Cytolysis of vascular endothelium, lysis of RBCs/tissue cells, severe coagulation disorders.</p>
+        <ul>
+            <li><em>Local Action:</em> Severe pain, swelling, ecchymosis, spreading cellulitis, severe hemorrhage.</li>
+            <li><em>Systemic Action:</em> Hemolytic cardiovascular collapse, mucosal hemorrhage (rectum/orifices), tissue gangrene, renal tubular necrosis, intracerebral hemorrhage leading to convulsions.</li>
+        </ul>
+
+        <h4>C. Myotoxic Venom</h4>
+        <p><strong>Origin:</strong> Common in <em>Hydrophidae</em> (sea snakes).</p>
+        <ul>
+            <li><em>Local Action:</em> Swelling and pain at bite site.</li>
+            <li><em>Systemic Action:</em> Generalized muscle pain/stiffness, myoglobinuria, renal tubular necrosis.</li>
+        </ul>
+
+        <div class="viva-note">
+            <strong>Fatal Dose &amp; Yield Metrics:</strong><br>
+            • <strong>Fatal Dose (Dried Venom):</strong> Cobra (12 mg), Russell's Viper (15 mg), Echis (8 mg), Krait (6 mg).<br>
+            • <strong>Average Yield per Bite:</strong> Cobra (170–325 mg), Russell's Viper (130–250 mg), Krait (20 mg), Echis (20–35 mg).
+        </div>
+
+        <!-- DIAGNOSIS -->
+        <h2>4. Diagnostic Methods</h2>
+        <ol>
+            <li>Detection of snake-specific venom antigens in wound swabs, aspirates, biopsies, serum, CSF, urine, and body fluids.</li>
+            <li><strong>Radioimmunoassay (RIA):</strong> Most sensitive and specific method (detects levels down to $0.4\ \mu\text{g/L}$).</li>
+            <li><strong>Enzyme Immunoassay (EIA / ELISA):</strong> Simple, routine diagnostic tool (detects levels $\ge 0.4\ \mu\text{g/L}$).</li>
+            <li>Cholinesterase and thromboplastin activity detection in bared skin tissue.</li>
+            <li>Bioassay: Injecting skin extract/swab into a frog for toxicity validation.</li>
+        </ol>
+
+        <!-- MANAGEMENT -->
+        <h2>5. Clinical Management of Snake Bite</h2>
+
+        <div class="highlight-box">
+            <strong>First Aid Principle (RIGHT):</strong><br>
+            • <strong>R:</strong> Reassure the patient.<br>
+            • <strong>I:</strong> Immobilise the affected limb.<br>
+            • <strong>G H:</strong> Go to Hospital immediately.<br>
+            • <strong>T:</strong> Tell of any systemic symptoms.
+        </div>
+
+        <h3>A. Immediate First Aid &amp; Spread Prevention</h3>
+        <ul>
+            <li><strong>Allaying Anxiety:</strong> Reassure patient that not all bites are venomous or fully charged. Bring dead snake for ID only if safe.</li>
+            <li><strong>Pressure Immobilization:</strong> Recommended for <em>Elapid</em> and <em>Sea-snake</em> bites. Apply broad, firm bandage over the limb (50–70 mmHg pressure). <em>Do not apply tight arterial tourniquets.</em></li>
+            <li><strong>Immobilization:</strong> Keep limb stationary; do not elevate (prevents rapid systemic uptake).</li>
+            <li><strong>Contraindicated Procedures:</strong> Local incision, excision, suction, cauterization, or cryotherapy (causes tissue necrosis, nerve damage, and seals venom).</li>
+            <li><strong>Wound Care &amp; Position:</strong> Clean gently with soap/water or iodine; place patient in left lateral recovery position to preserve airway.</li>
+            <li><strong>Observation:</strong> Patients presenting late (&gt;4–6 hrs) with mild swelling and no systemic symptoms require 24-hour monitoring (vitals, $SpO_2$, ECG) and Tetanus Toxoid before discharge.</li>
+        </ul>
+
+        <h3>B. Antivenom Therapeutics</h3>
+        <p><strong>Types:</strong> Monospecific (ideal when species is known) vs. Polyvalent Antisnake Venom (PAV - prepared from horse serum against Cobra, Krait, Russell's Viper, Echis carinata).</p>
+        <p><strong>Efficacy Window:</strong> Optimal within 4 hours; limited value after 8 hours; doubtful utility after 24 hours. Each vial neutralizes 6–8 mg of venom (Half-life: ~90 hours).</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Severity Grade</th>
+                    <th>Clinical Presentation</th>
+                    <th>PAV Dose Requirement</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Minimal</strong></td>
+                    <td>Local swelling, no systemic symptoms</td>
+                    <td>5 Vials</td>
+                </tr>
+                <tr>
+                    <td><strong>Moderate</strong></td>
+                    <td>Progressive swelling beyond bite site + systemic symptoms</td>
+                    <td>10 Vials</td>
+                </tr>
+                <tr>
+                    <td><strong>Severe</strong></td>
+                    <td>Marked local reaction + severe systemic toxicity</td>
+                    <td>15 Vials</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4>Administration Protocols</h4>
+        <ul>
+            <li><strong>Infusion Preparation:</strong> Reconstitute lyophilized powder in 500 mL normal saline and infuse IV over 30–60 minutes. Alternatively, give slow direct IV push (&lt;2 mL/min).</li>
+            <li><strong>Repeat Dosing (Neurotoxic):</strong> Give a 2nd dose of 10 vials after 1 hour if symptoms persist.</li>
+            <li><strong>Repeat Dosing (Haemotoxic):</strong> Wait at least 6 hours before repeating PAV (allows liver time to restore clotting factors). Give more if incoagulability persists past 6 hours or active bleeding past 1–2 hours.</li>
+            <li><em>Standard Regional Dose:</em> In Indian/Nepali protocols, an initial dose of 100 mL (10 vials) polyvalent antiserum is standard.</li>
+        </ul>
+
+        <h3>C. Managing Adverse Antivenom Reactions &amp; Supportive Care</h3>
+        <ul>
+            <li><strong>Adverse Reaction Management:</strong> At first sign of anaphylaxis (urticaria, chills, hypotension, bronchospasm):
+                <ol>
+                    <li>Stop PAV infusion immediately.</li>
+                    <li>Administer <strong>Epinephrine (Adrenaline) 0.5 mg 1:1000 IM</strong> for adults ($0.01\ \text{mg/kg}$ in children).</li>
+                    <li>Administer IV Hydrocortisone and Antihistamines.</li>
+                    <li>Repeat Adrenaline in 10–15 minutes if uncorrected. Resume PAV once stable.</li>
+                </ol>
+            </li>
+            <li><strong>Neuroparalysis Reversal:</strong> Give <strong>Neostigmine 1.5 mg IM</strong> with <strong>Atropine 0.6 mg</strong>. Repeat twice at 10-minute intervals.</li>
+            <li><strong>Coagulation &amp; Other Support:</strong> Heparin (1000–5000 IU) for clotting defects, sedatives for pain/anxiety in vipers, broad-spectrum antibiotics, mechanical ventilation for respiratory failure, blood transfusions or hemodialysis as indicated.</li>
+        </ul>
+
+        <!-- AUTOPSY & MEDICO-LEGAL -->
+        <h2>6. Autopsy Findings &amp; Medico-Legal Aspects</h2>
+
+        <h3>Post-Mortem Appearances</h3>
+        <ul>
+            <li><strong>External Findings:</strong> Poisonous snakes leave 1 or 2 puncture marks (1.5 cm deep in colubrine, 2.5 cm deep in viperine). Non-poisonous snakes leave a semicircular array of tooth marks. Colubrine bites show fluid and hemolysed blood with vascular staining; viperine bites exhibit marked discoloration, swelling, and spreading cellulitis.</li>
+            <li><strong>Internal Findings (Colubrine):</strong> Features characteristic of asphyxia (pulmonary edema, dark fluid blood, venous engorgement).</li>
+            <li><strong>Internal Findings (Viperine):</strong> Hemorrhages in lungs, pleura, pericardium; acute renal tubular necrosis, desquamation, and cloudy swelling of renal epithelium.</li>
+        </ul>
+
+        <div class="highlight-box">
+            <strong>Medico-Legal Significance:</strong><br>
+            1. Accidental: Most common presentation.<br>
+            2. Homicidal / Suicidal: Rare (e.g., historical suicide of Queen Cleopatra).<br>
+            3. Cattle Poisoning: Practiced by hide traders using snake venom.<br>
+            4. Tissue Analysis: Venom type at bite site verified via enzyme markers: Cholinesterase activity (Colubrine) or Thromboplastin activity (Viperine).
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 MONOLITH. Built to persist.</p>
+    </footer>
+
+</body>
+</html>
