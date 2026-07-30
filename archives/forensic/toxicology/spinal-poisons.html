@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monolith — Forensic Medicine: Spinal Poisons</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #e5e5e5;
+            --accent-color: #888888;
+            --border-color: #222222;
+            --hover-color: #ffffff;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-family: var(--font-mono);
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--hover-color);
+        }
+
+        main {
+            max-width: 900px;
+            margin: 60px auto;
+        }
+
+        .page-header {
+            margin-bottom: 50px;
+        }
+
+        .breadcrumb {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--hover-color);
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 400;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-family: var(--font-mono);
+            font-size: 1.25rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            color: var(--hover-color);
+            margin: 60px 0 25px 0;
+            border-left: 3px solid var(--accent-color);
+            padding-left: 12px;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #dddddd;
+            margin: 30px 0 12px 0;
+            text-transform: uppercase;
+            font-family: var(--font-mono);
+            letter-spacing: 0.5px;
+        }
+
+        h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            margin: 18px 0 8px 0;
+            text-transform: uppercase;
+            font-family: var(--font-mono);
+        }
+
+        p {
+            color: #cccccc;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        ul, ol {
+            margin-bottom: 20px;
+            padding-left: 25px;
+            color: #cccccc;
+            font-size: 0.95rem;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .highlight-box {
+            background-color: #111111;
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: #d4d4d4;
+            margin: 25px 0;
+            line-height: 1.6;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.88rem;
+            text-align: left;
+        }
+
+        th {
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--border-color);
+            padding: 12px 10px;
+            background-color: #0e0e0e;
+        }
+
+        td {
+            padding: 12px 10px;
+            border-bottom: 1px solid var(--border-color);
+            color: #cccccc;
+            vertical-align: top;
+        }
+
+        tr:hover td {
+            color: var(--hover-color);
+            background-color: #111111;
+        }
+
+        .viva-note {
+            background-color: #111516;
+            border-left: 3px solid #0099cc;
+            padding: 18px;
+            margin: 25px 0;
+            font-size: 0.9rem;
+            color: #e5e5e5;
+        }
+        
+        .viva-note strong {
+            color: #fff;
+            font-family: var(--font-mono);
+        }
+
+        footer {
+            max-width: 900px;
+            margin: 100px auto 40px auto;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Monolith</div>
+        <ul class="nav-links">
+            <li><a href="https://fidelioa.github.io/monolith">Home</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/archives">Archives</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/about">About</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="page-header">
+            <div class="breadcrumb">
+                <a href="https://fidelioa.github.io/monolith/archives">Archives</a> / 
+                <a href="https://fidelioa.github.io/monolith/archives/forensic/index.html">Forensic</a> / Toxicology: Spinal
+            </div>
+            <h1>Forensic Medicine: Spinal Poisons</h1>
+            <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-color); margin-top: 5px;">FAST TRACK CLINICAL SCIENCE MBBS - 3rd YEAR (pp. 599–600)</p>
+        </section>
+
+        <!-- STRYCHNOS NUX VOMICA OVERVIEW -->
+        <h2>1. Strychnos Nux Vomica</h2>
+        <p><strong>Classification:</strong> Neurotoxic (Spinal) Poison.</p>
+        <p>Derived from the plant <em>Strychnos nux-vomica</em>. The active principle is a powerful alkaloid present in the plant's seeds. It is extremely bitter in taste.</p>
+
+        <h3>Active Principles</h3>
+        <ul>
+            <li><strong>Strychnine:</strong> Present in the seeds. Powerful spinal convulsant.</li>
+            <li><strong>Brucine:</strong> Present in the bark.</li>
+            <li><strong>Loganine</strong></li>
+        </ul>
+
+        <h3>Commercial / Domestic Uses</h3>
+        <p>Used as a rodenticide and occasionally employed to kill stray dogs (known as "dog buttons").</p>
+
+        <h3>Mechanism of Action</h3>
+        <ul>
+            <li>Competitively blocks postganglionic motor neuron receptor sites in the ventral horn of the spinal cord and brainstem.</li>
+            <li>Prevents the action of <strong>glycine</strong> (the primary inhibitory neurotransmitter in the spinal cord), leading to uninhibited reflex muscular contractions and spastic muscle paralysis.</li>
+            <li>GABA activity is unaffected.</li>
+        </ul>
+
+        <div class="highlight-box">
+            <strong>Lethal Parameters:</strong><br>
+            • <strong>Fatal Dose:</strong> 50 to 100 mg (or 1 to 2 crushed seeds).<br>
+            • <strong>Fatal Period:</strong> 1 to 2 hours.
+        </div>
+
+        <!-- CLINICAL PRESENTATION -->
+        <h2>2. Clinical Features & Management</h2>
+
+        <h3>Signs & Symptoms</h3>
+        <p>Initial features include anxiety, nausea, mydriasis (dilated pupils), and muscle twitching. This rapidly progresses to violent, generalized tonic convulsions.</p>
+
+        <div class="viva-note">
+            <strong>Classic Triad & Spasm Postures (@ROPE):</strong><br>
+            • Whole-body muscle convulsions with characteristic relaxation gaps between fits.<br>
+            • <strong>R</strong>isus sardonicus: Spasm of facial muscles producing a characteristic grinning grimace.<br>
+            • <strong>O</strong>pisthotonus: Spasmodic hyperextension of the spine (arching backward).<br>
+            • <strong>P</strong>leurothotonus: Spasmodic lateral bending of the body.<br>
+            • <strong>E</strong>mprosthotonus: Spasmodic forward bending of the body.<br>
+            • Trismus (lock jaw) and mydriasis are also prominent.<br><br>
+            <em>Crucial Note: Consciousness remains completely intact until the very end, making the death agonizingly painful.</em>
+        </div>
+
+        <h3>Systemic Complications</h3>
+        <ul>
+            <li>Hyperthermia</li>
+            <li>Rhabdomyolysis</li>
+            <li>Myoglobinuria</li>
+            <li>Acute renal failure</li>
+            <li>Respiratory failure (primary cause of death)</li>
+        </ul>
+
+        <h3>Treatment Protocol</h3>
+        <ol>
+            <li><strong>Control Convulsions:</strong> Administer Diazepam IV initially, followed by Phenobarbital. If unmanaged, consider general anesthesia or neuromuscular blockers (Succinylcholine, Curare, Gallamine, or Pancuronium bromide).</li>
+            <li><strong>Environment:</strong> Keep the patient in a dark, quiet room completely free from noise, light, or tactile disturbances (any sensory stimulus can trigger severe spasms).</li>
+            <li><strong>Specific Antidote:</strong> Short-acting barbiturates (Phenobarbital or Sodium Amytal).</li>
+            <li><strong>Decontamination & Elimination:</strong> Gastric lavage with warm water and dilute solution of Potassium Permanganate (KMnO<sub>4</sub>); administer Activated Charcoal to adsorb remaining alkaloid. <strong>Acidify the urine</strong> to promote renal elimination of Strychnine.</li>
+        </ol>
+
+        <!-- DIFFERENTIAL DIAGNOSIS -->
+        <h2>3. Differential Diagnosis: Strychnine vs. Tetanus</h2>
+        <p>Primary clinical differentials include Tetanus, Rabies, and Meningitis. Below is the detailed comparative analysis between Strychnine Poisoning and Tetanus:</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Strychnine Poisoning</th>
+                    <th>Tetanus</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>History</strong></td>
+                    <td>No history of injury; potential history of poison ingestion.</td>
+                    <td>History of trauma or dirty wound present.</td>
+                </tr>
+                <tr>
+                    <td><strong>Onset</strong></td>
+                    <td>Sudden.</td>
+                    <td>Gradual.</td>
+                </tr>
+                <tr>
+                    <td><strong>Fever</strong></td>
+                    <td>Not usual initially (hyperthermia may develop late).</td>
+                    <td>Usual.</td>
+                </tr>
+                <tr>
+                    <td><strong>Convulsions</strong></td>
+                    <td>All muscles of the body are affected simultaneously.</td>
+                    <td>Muscles affected sequentially; does not involve all muscles at once.</td>
+                </tr>
+                <tr>
+                    <td><strong>Lower Jaw (Lock Jaw)</strong></td>
+                    <td>Does not start in jaw; jaw affected along with body.</td>
+                    <td>Usually starts in and specifically affects lower jaw (trismus).</td>
+                </tr>
+                <tr>
+                    <td><strong>Muscular State Between Fits</strong></td>
+                    <td>Muscles are <strong>completely relaxed</strong> between convulsions.</td>
+                    <td>Muscles remain continuously stiff and rigid between fits.</td>
+                </tr>
+                <tr>
+                    <td><strong>Fatal Period</strong></td>
+                    <td>1 to 2 hours.</td>
+                    <td>More than 24 hours.</td>
+                </tr>
+                <tr>
+                    <td><strong>Laboratory Findings</strong></td>
+                    <td>Chemical test positive for Strychnine.</td>
+                    <td>Microbiological isolation of <em>Clostridium tetani</em>.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- AUTOPSY & MEDICO-LEGAL -->
+        <h2>4. Postmortem Findings & Medico-Legal Aspects</h2>
+
+        <h3>Postmortem Findings</h3>
+        <ul>
+            <li><strong>Postmortem Caloricity:</strong> Early postmortem temperature rise instead of the usual cooling process.</li>
+            <li><strong>Rigor Mortis:</strong> Early onset and rapid disappearance of rigor mortis due to intense muscle spasm prior to death.</li>
+            <li><strong>Asphyxial Signs:</strong> Generalized organ congestion, cyanosis, and froth at mouth and nostrils.</li>
+            <li><strong>Gastrointestinal & Muscular Changes:</strong> Congestion of the GI tract; serosal hemorrhages; occasional muscle tearing/hemorrhages.</li>
+            <li><strong>Spinal Cord Pathology:</strong> Congested spinal cord. Histology shows multiple capillary ring hemorrhages in anterior and posterior horns, along with neuronal chromatolysis.</li>
+        </ul>
+
+        <div class="viva-note">
+            <strong>Viscera Preservation Requirement:</strong><br>
+            In addition to standard viscera (stomach, liver, kidney), the <strong>entire spinal cord, one half of the brain, and the whole heart</strong> must be preserved and submitted for chemical analysis.
+        </div>
+
+        <h3>Medico-Legal Importance</h3>
+        <ul>
+            <li><strong>Homicide:</strong> Administered as pure alkaloid or crushed <em>Nux vomica</em> seeds, despite its intensely bitter taste.</li>
+            <li><strong>Suicide:</strong> Rare due to the agonizing, extremely painful nature of death.</li>
+            <li><strong>Accident:</strong> Common due to medicinal overdose, accidental substitution, or children ingesting plant seeds.</li>
+            <li><strong>Other Uses:</strong> Employed as arrow poison, cattle poison, and occasionally taken illicitly as an aphrodisiac.</li>
+        </ul>
+
+        <!-- MEMORY BOOSTER -->
+        <h2>5. Memory Booster (Quick Summary)</h2>
+        <div class="highlight-box">
+            <strong>Strychnine Summary:</strong><br>
+            • <strong>Source:</strong> <em>Strychnos nux-vomica</em> seeds.<br>
+            • <strong>MOA:</strong> Blocks glycine receptors in spinal cord ventral horn.<br>
+            • <strong>Triad / Features (@ROPE):</strong> Risus sardonicus, Opisthotonus, Pleurothotonus, Emprosthotonus + relaxation between spasms + retained consciousness.<br>
+            • <strong>Key Differential:</strong> Tetanus (continuous muscle rigidity vs. complete relaxation in strychnine).<br>
+            • <strong>PM Key Signs:</strong> Postmortem caloricity, rapid onset/disappearance of rigor mortis, anterior/posterior horn spinal hemorrhages.<br>
+            • <strong>Treatment:</strong> Diazepam/Barbiturates + quiet dark room + urinary acidification.
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 MONOLITH. Built to persist.</p>
+    </footer>
+
+</body>
+</html>
