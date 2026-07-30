@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monolith — Forensic Medicine: Deliriant Poisons</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #e5e5e5;
+            --accent-color: #888888;
+            --border-color: #222222;
+            --hover-color: #ffffff;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-family: var(--font-mono);
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--hover-color);
+        }
+
+        main {
+            max-width: 900px;
+            margin: 60px auto;
+        }
+
+        .page-header {
+            margin-bottom: 50px;
+        }
+
+        .breadcrumb {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--hover-color);
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 400;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-family: var(--font-mono);
+            font-size: 1.25rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            color: var(--hover-color);
+            margin: 60px 0 25px 0;
+            border-left: 3px solid var(--accent-color);
+            padding-left: 12px;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #dddddd;
+            margin: 30px 0 12px 0;
+            text-transform: uppercase;
+            font-family: var(--font-mono);
+            letter-spacing: 0.5px;
+        }
+
+        h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            margin: 18px 0 8px 0;
+            text-transform: uppercase;
+            font-family: var(--font-mono);
+        }
+
+        p {
+            color: #cccccc;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        ul, ol {
+            margin-bottom: 20px;
+            padding-left: 25px;
+            color: #cccccc;
+            font-size: 0.95rem;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .highlight-box {
+            background-color: #111111;
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: #d4d4d4;
+            margin: 25px 0;
+            line-height: 1.6;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.88rem;
+            text-align: left;
+        }
+
+        th {
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--border-color);
+            padding: 12px 10px;
+            background-color: #0e0e0e;
+        }
+
+        td {
+            padding: 12px 10px;
+            border-bottom: 1px solid var(--border-color);
+            color: #cccccc;
+            vertical-align: top;
+        }
+
+        tr:hover td {
+            color: var(--hover-color);
+            background-color: #111111;
+        }
+
+        .viva-note {
+            background-color: #111516;
+            border-left: 3px solid #0099cc;
+            padding: 18px;
+            margin: 25px 0;
+            font-size: 0.9rem;
+            color: #e5e5e5;
+        }
+        
+        .viva-note strong {
+            color: #fff;
+            font-family: var(--font-mono);
+        }
+
+        footer {
+            max-width: 900px;
+            margin: 100px auto 40px auto;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Monolith</div>
+        <ul class="nav-links">
+            <li><a href="https://fidelioa.github.io/monolith">Home</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/archives">Archives</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/about">About</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="page-header">
+            <div class="breadcrumb">
+                <a href="https://fidelioa.github.io/monolith/archives">Archives</a> / 
+                <a href="https://fidelioa.github.io/monolith/archives/forensic/index.html">Forensic</a> / Toxicology: Deliriants
+            </div>
+            <h1>Forensic Medicine: Deliriant Poisons</h1>
+            <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-color); margin-top: 5px;">FAST TRACK CLINICAL SCIENCE MBBS - 3rd YEAR (pp. 594–598)</p>
+        </section>
+
+        <!-- DHATURA FASTUOSA -->
+        <h2>1. Dhatura Fastuosa</h2>
+        <p><strong>Classification:</strong> Neurotoxic (Cerebral) — Deliriant Poison. Deliriants act on the brain to induce altered consciousness with confusion, delusions, hallucinations, and agitation.</p>
+        <p>Two main varieties exist: <em>Dhatura alba</em> and <em>Dhatura niger</em>. All parts of the plant, including nectar, are poisonous.</p>
+
+        <h3>Active Principles & Mechanism of Action</h3>
+        <ul>
+            <li><strong>Active Principles:</strong> Hyoscine (scopolamine), Hyoscyamine, and traces of Atropine.</li>
+            <li><strong>Mechanism:</strong> Competitively inhibits the muscarinic effects of acetylcholine at postganglionic parasympathetic sites and postganglionic sympathetic innervation of sweat glands and smooth muscle.</li>
+            <li><strong>CNS Action:</strong> Initial stimulation of higher cerebral centers followed by depression and paralysis of vital medullary centers. Respiration is initially stimulated, then depressed. High doses (>10 mg) induce profound delirium.</li>
+        </ul>
+
+        <div class="highlight-box">
+            <strong>Dose-Related Atropinic Progression:</strong><br>
+            • 0.5 mg: Dryness of mouth.<br>
+            • 1.0 mg: Blurring of vision.<br>
+            • 2.0 mg: CVS effects (tachycardia, elevated RR, hypertension).<br>
+            • 5.0 mg: Hyperpyrexia, urinary retention.<br>
+            • 10.0 mg: Delirium.<br><br>
+            <strong>Lethal Parameters:</strong> Fatal Dose: 0.6 to 1 gram (or ~100–125 seeds) | Fatal Period: 24 hours.
+        </div>
+
+        <h3>Clinical Presentation (The 10 D's of Dhatura)</h3>
+        <p>Presentation ranges from delirium to coma:</p>
+        <ol>
+            <li><strong>D</strong>ryness of mouth &amp; throat</li>
+            <li><strong>D</strong>ifficulty in talking</li>
+            <li><strong>D</strong>ysphagia</li>
+            <li><strong>D</strong>ilatation of cutaneous blood vessels</li>
+            <li><strong>D</strong>ilatation of pupils (Mydriasis)</li>
+            <li><strong>D</strong>ry hot skin</li>
+            <li><strong>D</strong>ysuria &amp; urine retention</li>
+            <li><strong>D</strong>runken gait (Ataxia)</li>
+            <li><strong>D</strong>elirium</li>
+            <li><strong>D</strong>rowsiness leading to coma</li>
+        </ol>
+
+        <div class="viva-note">
+            <strong>Classical Diagnostic Rhyme:</strong><br>
+            • <em>Dry as a bone</em> (Inhibition of salivary &amp; sweat secretions)<br>
+            • <em>Red as a beet</em> (Flushing/dilatation of cutaneous vessels)<br>
+            • <em>Blind as a bat</em> (Cycloplegia &amp; severe pupillary dilatation)<br>
+            • <em>Hot as a hare</em> (Hyperpyrexia due to lack of sweating)<br>
+            • <em>Mad as a wet hen</em> (Agitation, delirium, amnesia, hallucinations)<br><br>
+            <strong>Note:</strong> Pollen contact can cause unilateral mydriasis known as <strong>"cornpicker's pupil"</strong>.
+        </div>
+
+        <h3>Differential Diagnosis: Dhatura vs. Capsicum Seeds</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Dhatura Seeds</th>
+                    <th>Capsicum Seeds</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Size &amp; Thickness</strong></td>
+                    <td>Large and thick</td>
+                    <td>Small and thin</td>
+                </tr>
+                <tr>
+                    <td><strong>Shape</strong></td>
+                    <td>Kidney-shaped</td>
+                    <td>Rounded</td>
+                </tr>
+                <tr>
+                    <td><strong>Color</strong></td>
+                    <td>Dark or yellowish-brown</td>
+                    <td>Pale-yellow</td>
+                </tr>
+                <tr>
+                    <td><strong>Margin</strong></td>
+                    <td>Laterally compressed, double-edged at convex border</td>
+                    <td>Convex border is simple and sharp</td>
+                </tr>
+                <tr>
+                    <td><strong>Surface</strong></td>
+                    <td>Numerous small depressions</td>
+                    <td>Smooth</td>
+                </tr>
+                <tr>
+                    <td><strong>Smell &amp; Taste</strong></td>
+                    <td>Odourless; Bitter taste</td>
+                    <td>Pungent smell; Pungent taste</td>
+                </tr>
+                <tr>
+                    <td><strong>Embryo (Longitudinal Section)</strong></td>
+                    <td>Curved outward at the hilum</td>
+                    <td>Curved inward</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Management &amp; Autopsy Findings</h3>
+        <ul>
+            <li><strong>Management:</strong> Emetics or gastric lavage using a weak solution of tannic acid; administer activated charcoal and cathartics; wash lower bowel frequently.</li>
+            <li><strong>Specific Antidote:</strong> <strong>Physostigmine</strong> (1 mg IV or IM hourly). Pilocarpine nitrate (5 mg SC) helps peripheral symptoms but does not cross the blood-brain barrier.</li>
+            <li><strong>Contraindications:</strong> Avoid Morphine due to added risk of respiratory center depression. Control delirium with short-acting barbiturates or bromides.</li>
+            <li><strong>Autopsy Findings:</strong> Non-specific; seeds resist putrefaction for long periods and may be identified in stomach contents. Mild gastric mucosal inflammation, pulmonary edema, and general asphyxial signs.</li>
+            <li><strong>Medico-Legal Aspects:</strong> Commonly used as a <strong>"Railroad Poison"</strong>. Powdered seeds or extracts are mixed with food/drinks offered to travelers to stupefy them prior to robbery, rape, or kidnapping. Accidental poisoning occurs in children eating fruit. A person acting under Dhatura delirium is not criminally responsible.</li>
+        </ul>
+
+        <!-- CANNABIS SATIVA -->
+        <h2>2. Cannabis Sativa / Indica (Hemp)</h2>
+        <p><strong>Active Principle:</strong> Cannabinoids, primarily &Delta;<sup>9</sup>-tetrahydrocannabinol (&Delta;<sup>9</sup>-THC). Acts on CB<sub>1</sub> receptors (brain — deliriant effects) and CB<sub>2</sub> receptors (reticuloendothelial system).</p>
+
+        <h3>Common Preparations</h3>
+        <ul>
+            <li><strong>Bhang:</strong> Dried leaves and stems made into a decoction (oral). Least potent.</li>
+            <li><strong>Ganja:</strong> Resinous extract of leaves and flowering/fruiting tops of the female plant (smoked).</li>
+            <li><strong>Charas / Hashish:</strong> Pure dried resin collected from flowering tops (smoked). Most potent.</li>
+            <li><strong>Marijuana:</strong> Crushed dried flowering tops smoked in cigarettes or pipes.</li>
+            <li><strong>Majun:</strong> Sweetmeat prepared with plant extracts.</li>
+        </ul>
+
+        <div class="highlight-box">
+            <strong>Lethal Dose Parameters (@BCG):</strong><br>
+            • <strong>Bhang:</strong> 10 g/kg<br>
+            • <strong>Charas:</strong> 2 g/kg<br>
+            • <strong>Ganja:</strong> 8 g/kg<br>
+            • <strong>Pure THC:</strong> 30 mg/kg<br>
+            • <strong>Fatal Period:</strong> Several days / ~12 hours.
+        </div>
+
+        <h3>Clinical Presentation &amp; Complications</h3>
+        <ul>
+            <li><strong>Psychiatric Symptoms (@6DAS):</strong> Detachment, disinhibition, depersonalization, euphoria, feeling of cleverness, dreaminess, paranoia, altered sense of time/space, vivid hallucinations, speech fragmentation, chest tightness, fear of death.</li>
+            <li><strong>Physical Symptoms:</strong> Increased appetite/thirst, dry mouth, dizziness, ataxia, tremors, tachycardia, urinary frequency, somnolence progressing to deep sleep. Patient wakes after ~6 hours with exhaustion and impaired cognition.</li>
+            <li><strong>Chronic Toxicity:</strong>
+                <ul>
+                    <li><strong>Amotivational Syndrome:</strong> Anorexia, weight loss, apathy, disinclination to work, moral deterioration.</li>
+                    <li><strong>Running Amok (Hashish Insanity):</strong> Psychic disturbance characterized by a depression phase followed by a violent, frenzied homicidal spree against anyone in the path, ending in suicide or surrender.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>Treatment &amp; Medico-Legal Importance</h3>
+        <ul>
+            <li><strong>Treatment:</strong> Gastric lavage, activated charcoal, cathartics. Support with IV 50% glucose (100 mL), thiamine (100 mg), and naloxone (2 mg). Control severe agitation with Diazepam (5–10 mg IV) or Haloperidol. Reassurance and psychotherapy.</li>
+            <li><strong>Medico-Legal Aspects:</strong> Commonly abused drug. Majun and Charas are used by road poisoners to stupefy victims. Sometimes taken by criminals to strengthen nerves before executing crimes. Used by ascetics/fakirs to overcome hunger, thirst, and worldly attachments. Nabilone is a synthetic cannabinoid used as an antiemetic in cancer chemotherapy.</li>
+        </ul>
+
+        <!-- COCAINE -->
+        <h2>3. Cocaine</h2>
+        <p>Obtained from leaves of <em>Erythroxylum coca</em>. Forms include Cocaine Hydrochloride (white soluble powder) and Freebase / Crack (transparent crystalline base that crackles when heated).</p>
+
+        <h3>Pharmacodynamics &amp; Active Principles</h3>
+        <ul>
+            <li><strong>Active Alkaloids:</strong> Ecgonine, hygrine, cinnamyl cocaine. Final metabolite is ecgonine.</li>
+            <li><strong>Mechanism:</strong> Blocks reuptake of catecholamines (dopamine, norepinephrine, epinephrine). Increased dopamine causes intense CNS stimulation/delirium; increased NE/Epi causes sympathomimetic effects (tachycardia, severe hypertension, sweating) resembling pheochromocytoma.</li>
+            <li><strong>Local Action:</strong> Potent local anesthetic (desensitizes nerve endings) and local vasoconstrictor.</li>
+        </ul>
+
+        <div class="highlight-box">
+            <strong>Lethal Dose Parameters:</strong><br>
+            • <strong>Fatal Dose:</strong> 1 gram orally (or 50 mg pure alkaloid).<br>
+            • <strong>Fatal Period:</strong> Few minutes to a few hours.<br>
+            • <strong>Speedball:</strong> Combination of Cocaine adulterated with Heroin.
+        </div>
+
+        <h3>Clinical Stages &amp; Chronic Effects</h3>
+        <ul>
+            <li><strong>Stage of Euphoria:</strong> Hypervigilance, grandiosity, talkativeness, tachycardia, arrhythmias, dilated pupils (mydriasis), sweating, chills, tactile hallucinations.</li>
+            <li><strong>Stage of Depression:</strong> Loss of reflexes, coma, paralysis, circulatory and respiratory collapse, sudden cardiac death.</li>
+            <li><strong>Chronic Abuse (Cocainism / Cocainomania):</strong> Anorexia, dark/black tongue and teeth, shifty gaze, sunken eyes, emaciation, loss of libido, gynecomastia.
+                <ul>
+                    <li><strong>Magnan's Symptom (Formication / Cocaine Bugs):</strong> Hallucination where the patient feels tiny insects or snakes crawling under or over the skin.</li>
+                    <li><strong>Complications:</strong> Nasal septum ulceration/perforation from chronic snorting, persistent rhinitis, cocaine psychosis, mesenteric ischemia, excited delirium, and acute myocardial infarction.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>Management &amp; Postmortem Findings</h3>
+        <ul>
+            <li><strong>Treatment:</strong> Decontaminate site (gastric lavage if oral; rinse nasal mucosa with water if snorted; apply tourniquet/ligature if injected). Control seizures with short-acting barbiturates or chloroform. Support vitals, administer IV Thiamine and Naloxone. Specific antidote: <strong>Amyl Nitrite</strong>.</li>
+            <li><strong>Autopsy Findings:</strong> Severe asphyxial signs, pulmonary congestion and edema, cerebral hemorrhage, focal myocardial scarring, infective endocarditis (due to unsterile IV injection), hepatic necrosis (in coca paste smokers), and nasal septum perforation.</li>
+        </ul>
+
+        <div class="viva-note">
+            <strong>Important Board / Viva Notes:</strong><br>
+            1. <strong>Liquid Gold:</strong> Slang for urine of amphetamine addicts, sold on the street because ~40% of amphetamine is excreted unchanged.<br>
+            2. <strong>Urine pH Manipulation:</strong> Urine is <em>alkalinized</em> in Barbiturate and Salicylate poisoning; urine is <em>acidified</em> in Morphine, Strychnine, and Amphetamine poisoning.<br>
+            3. <strong>Body Packer vs. Stuffer:</strong> Cocaine is frequently involved in both Body Packer (smuggling via sealed packets) and Body Stuffer (emergency swallowing to destroy evidence) syndromes.
+        </div>
+
+        <!-- MEMORY BOOSTER -->
+        <h2>4. Memory Booster (Quick Summary)</h2>
+        <div class="highlight-box">
+            <strong>Deliriant Poisons Summary (@ABCD):</strong><br>
+            • <strong>A</strong>tropa belladonna / <strong>A</strong>mph-Cocaine<br>
+            • <strong>B</strong>hang (Cannabis sativa)<br>
+            • <strong>C</strong>ocaine<br>
+            • <strong>D</strong>atura fastuosa<br><br>
+            <strong>Key Features:</strong><br>
+            • <strong>Dhatura:</strong> Anticholinergic toxidrome (10 D's); Antidote: Physostigmine; Classic railroad poison.<br>
+            • <strong>Cannabis:</strong> Act on CB<sub>1</sub>/CB<sub>2</sub>; Amotivational syndrome &amp; Running Amok; Active constituent: &Delta;<sup>9</sup>-THC.<br>
+            • <strong>Cocaine:</strong> Blocks dopamine/NE reuptake; 3 M's (Mydriasis, Magnan's bugs, Mesenteric ischemia); Antidote: Amyl nitrite.
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 MONOLITH. Built to persist.</p>
+    </footer>
+
+</body>
+</html>
