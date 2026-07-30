@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monolith — Forensic Medicine: Somniferous Poisons</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #e5e5e5;
+            --accent-color: #888888;
+            --border-color: #222222;
+            --hover-color: #ffffff;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-family: var(--font-mono);
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--hover-color);
+        }
+
+        main {
+            max-width: 900px;
+            margin: 60px auto;
+        }
+
+        .page-header {
+            margin-bottom: 50px;
+        }
+
+        .breadcrumb {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--hover-color);
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 400;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-family: var(--font-mono);
+            font-size: 1.25rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            color: var(--hover-color);
+            margin: 60px 0 25px 0;
+            border-left: 3px solid var(--accent-color);
+            padding-left: 12px;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #dddddd;
+            margin: 30px 0 12px 0;
+            text-transform: uppercase;
+            font-family: var(--font-mono);
+            letter-spacing: 0.5px;
+        }
+
+        h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            margin: 18px 0 8px 0;
+            text-transform: uppercase;
+            font-family: var(--font-mono);
+        }
+
+        p {
+            color: #cccccc;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        ul, ol {
+            margin-bottom: 20px;
+            padding-left: 25px;
+            color: #cccccc;
+            font-size: 0.95rem;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .highlight-box {
+            background-color: #111111;
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: #d4d4d4;
+            margin: 25px 0;
+            line-height: 1.6;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.88rem;
+            text-align: left;
+        }
+
+        th {
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--border-color);
+            padding: 12px 10px;
+            background-color: #0e0e0e;
+        }
+
+        td {
+            padding: 12px 10px;
+            border-bottom: 1px solid var(--border-color);
+            color: #cccccc;
+            vertical-align: top;
+        }
+
+        tr:hover td {
+            color: var(--hover-color);
+            background-color: #111111;
+        }
+
+        .viva-note {
+            background-color: #111516;
+            border-left: 3px solid #0099cc;
+            padding: 18px;
+            margin: 25px 0;
+            font-size: 0.9rem;
+            color: #e5e5e5;
+        }
+        
+        .viva-note strong {
+            color: #fff;
+            font-family: var(--font-mono);
+        }
+
+        footer {
+            max-width: 900px;
+            margin: 100px auto 40px auto;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Monolith</div>
+        <ul class="nav-links">
+            <li><a href="https://fidelioa.github.io/monolith">Home</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/archives">Archives</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/about">About</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="page-header">
+            <div class="breadcrumb">
+                <a href="https://fidelioa.github.io/monolith/archives">Archives</a> / 
+                <a href="https://fidelioa.github.io/monolith/archives/forensic/index.html">Forensic</a> / Toxicology: Somniferous
+            </div>
+            <h1>Forensic Medicine: Somniferous Poisons</h1>
+            <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-color); margin-top: 5px;">FAST TRACK CLINICAL SCIENCE MBBS - 3rd YEAR (pp. 590–593)</p>
+        </section>
+
+        <!-- OPIUM OVERVIEW -->
+        <h2>1. Opium & Opiate Derivatives</h2>
+        <p><strong>Classification:</strong> Neurotoxic (Cerebral) — Somniferous Poison[cite: 2].</p>
+        <p>Opium is the dried juice obtained from the unripe poppy plant capsule (<em>Papaver somniferum</em>)[cite: 2].</p>
+
+        <h3>Derivatives of Opium</h3>
+        <ul>
+            <li><strong>Crude Opium (natural):</strong> Morphine, Codeine[cite: 2].</li>
+            <li><strong>Semi-synthetic Opium:</strong> Heroin, Hydromorphone, Oxymorphone, Oxycodone[cite: 2].</li>
+            <li><strong>Synthetic Opium:</strong> Methadone, Meperidine, Fentanyl[cite: 2].</li>
+        </ul>
+
+        <h3>Chemical Groups / Active Principles</h3>
+        <ul>
+            <li><strong>Phenanthrene Group (Narcotic):</strong> Morphine, Codeine, Thebaine[cite: 2].</li>
+            <li><strong>Isoquinoline Group (Analgesic, non-narcotic):</strong> Papaverine, Noscapine[cite: 2].</li>
+        </ul>
+
+        <h3>Mechanism of Action & Receptors</h3>
+        <p>Three major classes of opiate receptors are present[cite: 2]:</p>
+        <ul>
+            <li><strong>Mu (&mu;) Receptor:</strong>
+                <ul>
+                    <li><strong>&mu;<sub>1</sub>:</strong> Supraspinal analgesia, peripheral analgesia, euphoria[cite: 2].</li>
+                    <li><strong>&mu;<sub>2</sub>:</strong> Spinal analgesia, respiratory depression, physical dependence, GI dysmotility, miosis[cite: 2].</li>
+                    <li><em>Most clinically used opiates are selective for the &mu; receptor[cite: 2].</em></li>
+                </ul>
+            </li>
+            <li><strong>Kappa (&kappa;) Receptor:</strong> Subtypes &kappa;<sub>1</sub>, &kappa;<sub>2</sub>, &kappa;<sub>3</sub> (Analgesia at the spinal cord level)[cite: 2].</li>
+            <li><strong>Delta (&delta;) Receptor</strong>[cite: 2]</li>
+        </ul>
+
+        <div class="highlight-box">
+            <strong>Pharmacokinetics & Lethal Parameters:</strong><br>
+            • <strong>Metabolism:</strong> Conjugation with glucuronic acid to form morphine-6-glucuronide; excreted in urine as morphine-3-glucuronide[cite: 2].<br>
+            • <strong>Duration of Action:</strong> Pethidine (2 hours) | Morphine, Codeine, Heroin (4 hours) | Methadone (8 hours)[cite: 2].<br>
+            • <strong>Fatal Dose:</strong> Opium: 2 g | Morphine: 0.2 g | Codeine: 0.5 g | Methadone: 100 mg[cite: 2].<br>
+            • <strong>Fatal Period:</strong> 6 to 12 hours[cite: 2].
+        </div>
+
+        <!-- CLINICAL PRESENTATION -->
+        <h2>2. Clinical Features & Management of Opium Poisoning</h2>
+
+        <h3>Stages of Acute Poisoning</h3>
+        <ol>
+            <li><strong>Stage of Excitement:</strong> Increased sense of well-being, increased mental activity, freedom from anxiety, talkativeness, restlessness, hallucinations, flushing of face, mania[cite: 2].</li>
+            <li><strong>Stage of Stupor:</strong> Headache, nausea, vomiting, incapacity for exertion, sense of weight in limbs, giddiness, drowsiness progressing to stupor and coma; contracted pupils, cyanosed face/lips, generalized itching sensation; normal pulse and respiration initially[cite: 2].</li>
+            <li><strong>Stage of Coma (Narcosis):</strong> Flaccid muscles, abolished reflexes, pale face, congested conjunctiva, pinpoint pupils, suspended secretions (except sweat), cold skin, subnormal temperature, slow full pulse, low BP, Cheyne-Stokes respiration[cite: 2]. Death occurs in deep coma[cite: 2].</li>
+        </ol>
+
+        <div class="viva-note">
+            <strong>Pathognomonic Triad in Acute Opioid Poisoning (@CPR)[cite: 2]:</strong><br>
+            1. <strong>C</strong>oma[cite: 2]<br>
+            2. <strong>P</strong>inpoint pupils (dilated if severe terminal hypoxia)[cite: 2]<br>
+            3. <strong>R</strong>espiratory depression (bradypnea, cyanosis, pulmonary edema)[cite: 2]<br><br>
+            <strong>Diagnostic Test: Marquis Test:</strong> 3 mL conc. H<sub>2</sub>SO<sub>4</sub> + 3 drops formalin added to suspected residue &rarr; Purple-red color changing to violet and then blue[cite: 2].
+        </div>
+
+        <h3>Treatment of Acute Opioid Poisoning</h3>
+        <ul>
+            <li>Maintenance of airway; intubation if required[cite: 2].</li>
+            <li>Gastric lavage (indicated even if route was IV, IM, SC, or rectal)[cite: 2].</li>
+            <li>Suspension of activated charcoal introduced into stomach[cite: 2].</li>
+            <li>Enema twice daily for two days[cite: 2].</li>
+            <li><strong>Specific Antidote — Naloxone:</strong> Adult: 1.2 mg/kg; Child: 0.4 mg/kg repeated doses (competitively blocks opioid receptors)[cite: 2].</li>
+            <li>Manage convulsions with benzodiazepines; general symptomatic support[cite: 2].</li>
+        </ul>
+
+        <div class="highlight-box">
+            <strong>Intoxication vs. Withdrawal Differential:</strong><br>
+            • <strong>Constricted Pupils:</strong> Indicates active Opium Intoxication[cite: 2].<br>
+            • <strong>Dilated Pupils:</strong> Indicates Opium Withdrawal[cite: 2].<br>
+            • <strong>Other Withdrawal Features:</strong> Yawning, dysphoric mood, increased water loss from all orifices (lacrimation, vomiting, rhinorrhea, sweating, diarrhea), and elevated vitals[cite: 2].
+        </div>
+
+        <h3>Chronic Poisoning (Morphinism / Morphinomania)</h3>
+        <p>Addicts can tolerate 3 to 6 g per day[cite: 2]. Features include emaciation, dry skin, injection scars/abscesses, GI disturbances (anorexia, constipation, furred tongue), irritability, fatigue, impotence/frigidity, moral degradation, and mental depression[cite: 2].</p>
+        <p><strong>Treatment:</strong> Methadone 30–40 mg daily (tapered off), Dihydrocodeine/Codeine, Propranolol 80 mg (for anxiety/craving), tranquilizers at bedtime, and psychiatric counseling[cite: 2].</p>
+
+        <!-- SPECIFIC DRUGS -->
+        <h2>3. Heroin, Codeine & Body Packer Syndromes</h2>
+
+        <h3>Heroin (Diacetylmorphine)</h3>
+        <ul>
+            <li>Forms: White, Brown, Black tar[cite: 2]. Speedballs = Heroin + Cocaine[cite: 2].</li>
+            <li>Most dangerous drug of addiction; fatal dose is 50 mg[cite: 2].</li>
+            <li>Metabolized to 6-monoacetylmorphine (6-MAM) or acetylmorphine[cite: 2].</li>
+            <li>Produces intense euphoria for several minutes followed by ~1 hour sedation; total effect lost in 3–6 hours[cite: 2].</li>
+            <li><strong>Treatment:</strong> Methadone (40 mg daily prevents withdrawal), detoxification, and antagonists (Naltrexone, Naloxone, Haloperidol, Clonidine, Cyclazocine)[cite: 2].</li>
+        </ul>
+
+        <h3>Codeine (Methylmorphine)</h3>
+        <ul>
+            <li>Effective orally due to lower first-pass hepatic metabolism[cite: 2].</li>
+            <li>Analgesic action relies on conversion to morphine[cite: 2]. Lethal level: 0.5 mg/100 mL[cite: 2].</li>
+            <li>Illicitly used to synthesize morphine/heroin via demethylation[cite: 2].</li>
+        </ul>
+
+        <h3>Body Packer vs. Body Stuffer Syndrome</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Body Packer (Surgical Mule) Syndrome</th>
+                    <th>Body Stuffer Syndrome</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Definition</strong></td>
+                    <td>Smuggling illicit drugs compressed into packages (approx. 25 &times; 12 mm) wrapped in latex/condoms/foil[cite: 2].</td>
+                    <td>Hastily swallowing/inserting illegal drugs to conceal evidence from authorities[cite: 2].</td>
+                </tr>
+                <tr>
+                    <td><strong>Purpose</strong></td>
+                    <td>Organized trafficking / transport across borders[cite: 2].</td>
+                    <td>Emergency concealment during police interception[cite: 2].</td>
+                </tr>
+                <tr>
+                    <td><strong>Complication</strong></td>
+                    <td>Lethal toxicity if package ruptures; intestinal obstruction[cite: 2].</td>
+                    <td>Acute toxicity due to poorly sealed, rapid absorption[cite: 2].</td>
+                </tr>
+                <tr>
+                    <td><strong>Diagnosis &amp; Management</strong></td>
+                    <td>X-ray, USG, CT scan; laxatives or surgical removal[cite: 2].</td>
+                    <td>Diazepam 10 mg IV (repeated for sedation), fluids, IV glucose/thiamine, oxygen[cite: 2].</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- AUTOPSY & MEDICO-LEGAL -->
+        <h2>4. Postmortem Findings & Medico-Legal Aspects</h2>
+
+        <h3>Autopsy Findings in Opioid Poisoning</h3>
+        <ul>
+            <li><strong>External Findings:</strong> Skin ulcers, pseudoaneurysms, needle track marks (antecubital fossa, forearms, hands, neck, groin, ankles), tattooing hiding needle marks, "skin popping" scars, emaciation[cite: 2]. Cyanotic face and nails, white/pinkish froth at mouth and nostrils[cite: 2]. Characteristic smell of opium[cite: 2].</li>
+            <li><strong>Internal Findings:</strong> Opium lumps in stomach, congested trachea/bronchi covered with froth, severely edematous and congested lungs, cerebral/meningeal congestion, pulmonary hemorrhage, SABE[cite: 2]. Deep tissue myositis, thrombophlebitis, lymphangitis, osteomyelitis[cite: 2].</li>
+            <li><strong>Viscera Collection:</strong> Liver, brain, stomach + contents, lymph nodes, blood (test for HIV, HBsAg, 6-MAM), urine, and bile[cite: 2].</li>
+        </ul>
+
+        <h3>Medico-Legal Importance</h3>
+        <ul>
+            <li>Among the most commonly abused illicit substances worldwide[cite: 2].</li>
+            <li>Morphine and pethidine are frequently abused by medical personnel[cite: 2].</li>
+            <li>Accidental death ("death on the needle") is extremely common among IV drug users[cite: 2].</li>
+            <li>Suicidal use occurs due to painless death; homicidal use is rare due to bitter taste and strong odor[cite: 2].</li>
+            <li>Rarely used as cattle poison, for horse doping, or to steady nerves prior to committing crimes[cite: 2].</li>
+        </ul>
+
+        <div class="viva-note">
+            <strong>Barbiturate Poisoning Features (Quick Differential)[cite: 2]:</strong><br>
+            • CNS depression: Drowsiness &rarr; Stupor &rarr; Coma, loss of reflexes, positive Babinski sign[cite: 2].<br>
+            • Skin: Formation of characteristic bullae and blisters[cite: 2].<br>
+            • CVS Collapse: Cyanosis, cold clammy skin, deep yellow concentrated urine, hypotension[cite: 2].<br>
+            • Pupils: Constricted initially (reacting to light), dilating during terminal asphyxia[cite: 2].
+        </div>
+
+        <!-- MEMORY BOOSTER -->
+        <h2>5. Memory Booster (Quick Summary)</h2>
+        <div class="highlight-box">
+            <strong>Key Principles:</strong><br>
+            • <strong>Source:</strong> Dried latex of <em>Papaver somniferum</em>[cite: 2]. Seeds are non-poisonous (used as condiments)[cite: 2].<br>
+            • <strong>Active Principles:</strong> Phenanthrenes (Morphine, Codeine) = Narcotic; Isoquinolines (Papaverine) = Non-narcotic[cite: 2].<br>
+            • <strong>Classic Triad:</strong> Coma + Pinpoint Pupils + Respiratory Depression[cite: 2].<br>
+            • <strong>Fatal Dose:</strong> Morphine (200 mg) | Pethidine (1 g) | Heroin (50 mg)[cite: 2].<br>
+            • <strong>Antidote of Choice:</strong> Naloxone / Nalmefene[cite: 2].
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 MONOLITH. Built to persist.</p>
+    </footer>
+
+</body>
+</html>
