@@ -1,0 +1,2859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monolith — Identification (Forensic Medicine)</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #e5e5e5;
+            --accent-color: #888888;
+            --border-color: #222222;
+            --hover-color: #ffffff;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-family: var(--font-mono);
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--hover-color);
+        }
+
+        main {
+            max-width: 800px;
+            margin: 80px auto;
+        }
+
+        .page-header {
+            margin-bottom: 60px;
+        }
+
+        .breadcrumb {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--hover-color);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 400;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-family: var(--font-mono);
+            font-size: 1.2rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            color: var(--hover-color);
+            margin: 50px 0 20px 0;
+            border-left: 3px solid var(--accent-color);
+            padding-left: 12px;
+        }
+
+        h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #dddddd;
+            margin: 25px 0 10px 0;
+            text-transform: uppercase;
+            font-family: var(--font-mono);
+            letter-spacing: 0.5px;
+        }
+
+        p {
+            color: #cccccc;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        ul, ol {
+            margin-bottom: 20px;
+            padding-left: 25px;
+            color: #cccccc;
+            font-size: 0.95rem;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        .highlight-box {
+            background-color: #111111;
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: #d4d4d4;
+            margin: 20px 0;
+            line-height: 1.5;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.85rem;
+            text-align: left;
+        }
+
+        th {
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--border-color);
+            padding: 10px;
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid var(--border-color);
+            color: #cccccc;
+            vertical-align: top;
+        }
+
+        tr:hover td {
+            color: var(--hover-color);
+            background-color: #111111;
+        }
+
+        .viva-note {
+            background-color: #161611;
+            border-left: 3px solid #cc9900;
+            padding: 15px;
+            margin: 25px 0;
+            font-size: 0.9rem;
+            color: #e5e5e5;
+        }
+        
+        .viva-note strong {
+            color: #fff;
+            font-family: var(--font-mono);
+        }
+
+        .question-list {
+            list-style-type: decimal;
+            padding-left: 20px;
+        }
+
+        .question-list li {
+            margin-bottom: 12px;
+            color: #cccccc;
+        }
+
+        .year-tag {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-left: 8px;
+        }
+
+        .diagram-container {
+            background: #111111;
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            margin: 25px 0;
+            text-align: center;
+            border-radius: 4px;
+        }
+
+        .diagram-container svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .diagram-title {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            margin-top: 10px;
+            text-transform: uppercase;
+        }
+
+        footer {
+            max-width: 800px;
+            margin: 100px auto 40px auto;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Monolith</div>
+        <ul class="nav-links">
+            <li><a href="https://fidelioa.github.io/monolith">Home</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/archives">Archives</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/about">About</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="page-header">
+            <div class="breadcrumb">
+                <a href="https://fidelioa.github.io/monolith/archives">Archives</a> / 
+                <a href="https://fidelioa.github.io/monolith/archives/forensic/index.html">Forensic</a> / Identification
+            </div>
+            <h1>Forensic Identification</h1>
+            <p style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-color); margin-top: 5px;">Forensic Medicine — Fast Track Clinical Science - MBBS, 3rd Year</p>
+        </section>
+
+        <!-- CHAPTER 1: PAST QUESTIONS -->
+        <h2>Past Questions</h2>
+        <ol class="question-list">
+            <li>Define identification and methods of positive identification in living person. <span class="year-tag">(2074)</span></li>
+            <li>Define identification of an individuality. Write and describe one scientific method to identify unidentified dead body. <span class="year-tag">(2072)</span></li>
+            <li>What is identification and tabulate the differences between male and female pelvis. <span class="year-tag">(2071)</span></li>
+            <li>Define identification. Write the features for the positive identification in recently dead person. <span class="year-tag">(2070)</span></li>
+            <li>A skull with mandible and a photograph of a person reported missing since two years is sent to you for examination. Describe how you will proceed to establish the positive identification of the skull. <span class="year-tag">(2069)</span></li>
+            <li>Differentiate Presumptive Identification and Positive Identification. <span class="year-tag">(2064, 2060)</span></li>
+            <li>Write short note on: Identification of a subject paternity by blood tests. <span class="year-tag">(2061)</span></li>
+            <li>Solving the problem of disputed paternity by blood tests. <span class="year-tag">(2053)</span></li>
+            <li>Fingerprints- its application in Nepal. <span class="year-tag">(2053)</span></li>
+            <li>Primary dentition. <span class="year-tag">(2053)</span></li>
+            <li>How presumptive identification differs from positive identification? List three scientific methods of identification and explain one of those three. <span class="year-tag">(2073/2)</span></li>
+            <li>Enumerate the methods of positive identification. Differentiate between male and female pelvic bone. <span class="year-tag">(2073/10)</span></li>
+            <li>Describe the process of age estimation in an accused of 15 years. <span class="year-tag">(2074/2)</span></li>
+            <li>Define identification. Enumerate the methods that can be used to help in positive identification. Describe the role of hair and blood in identification. <span class="year-tag">(2074/2)</span></li>
+            <li>Define identification. How will you establish positive identification in a living person? <span class="year-tag">(2074/10)</span></li>
+            <li>Write short note on dactylography. <span class="year-tag">(2075/11)</span></li>
+            <li>Differentiate between male and female skull. <span class="year-tag">(2076/3)</span></li>
+            <li>What is 'the identification of an individual'? What are the principles that need to be followed in the identification of a person? <span class="year-tag">(2078)</span></li>
+            <li>Write short notes on Definitive Identification. <span class="year-tag">(2080)</span></li>
+        </ol>
+
+        <!-- CHAPTER 2: GENERAL PRINCIPLES & CORPUS DELICTI -->
+        <h2>General Principles of Identification</h2>
+        <h3>Definition</h3>
+        <p><strong>Identification</strong> is the determination of the individuality of a person based on certain physical characteristics, i.e., exact fixation of personality.</p>
+        
+        <h3>Types of Identification</h3>
+
+<ul>
+    <li>
+        <strong>Complete / Positive / Absolute Identification</strong>
+        <ul>
+            <li>Establishes the identity of one unique individual.</li>
+            <li>The person cannot be mistaken for anyone else.</li>
+            <li>Based on scientific methods such as fingerprints or DNA.</li>
+        </ul>
+    </li>
+
+    <li>
+        <strong>Partial / Incomplete / Presumptive Identification</strong>
+        <ul>
+            <li>Suggests identity but does not prove it conclusively.</li>
+            <li>Based on matching physical characteristics or circumstantial evidence.</li>
+            <li>Requires confirmation by definitive methods.</li>
+        </ul>
+    </li>
+</ul>
+
+
+<h3>When is Identification Required?</h3>
+
+<ol>
+    <li>Living persons</li>
+    <li>Recently dead bodies</li>
+    <li>Decomposed bodies</li>
+    <li>Mutilated bodies</li>
+    <li>Skeletal remains</li>
+</ol>
+
+
+<div class="highlight-box">
+<strong>Corpus Delicti ("Body of the Crime")</strong>
+
+<ul>
+    <li>Means the <strong>essential facts proving that a crime has occurred.</strong></li>
+    <li>It is <strong>not simply the dead body</strong>; it refers to proof that a crime was committed.</li>
+    <li>Identification of the victim is often an important part of establishing corpus delicti.</li>
+</ul>
+
+<strong>Example</strong>
+
+If X murders Y, corpus delicti requires proving:
+
+<ul>
+    <li>The victim is dead.</li>
+    <li>The death resulted from a criminal act.</li>
+    <li>The victim has been correctly identified.</li>
+    <li>The accused caused the death.</li>
+</ul>
+</div>
+
+
+<div class="viva-note">
+<strong>High-Yield Viva Points</strong>
+
+<ul>
+    <li>Record at least <strong>two identification marks</strong> in every medicolegal case.</li>
+
+    <li>Before identifying an accused in court, verify the same identification marks recorded previously.</li>
+
+    <li>Visual identification becomes unreliable in:
+        <ul>
+            <li>Advanced decomposition</li>
+            <li>Burnt bodies</li>
+            <li>Explosions</li>
+            <li>Mutilation</li>
+            <li>Aircraft crashes</li>
+            <li>Natural disasters</li>
+        </ul>
+    </li>
+</ul>
+</div>
+
+
+<h3>Medicolegal Importance of Identification</h3>
+
+<h4>1. Living Persons</h4>
+
+<p><strong>Civil Cases (Mnemonic: 5 P's)</strong></p>
+
+<ul>
+    <li><strong>Paisa</strong> → Pension, Property, Insurance claims</li>
+    <li><strong>Psychiatric</strong> → Memory loss, Missing persons</li>
+    <li><strong>Passport</strong> → Immigration and travel documents</li>
+    <li><strong>Poll</strong> → Voter identification</li>
+    <li><strong>People</strong> → Divorce, Disputed sex, Marriage issues</li>
+</ul>
+
+<p><strong>Criminal Cases (Mnemonic: A<sub>4</sub>I<sub>2</sub>)</strong></p>
+
+<ul>
+    <li>Accused of assault, murder or rape</li>
+    <li>Army absconders</li>
+    <li>Criminal abortion</li>
+    <li>Age determination (criminal responsibility, majority)</li>
+    <li>Interchange of babies</li>
+    <li>Impersonation</li>
+</ul>
+
+
+<h4>2. Dead Bodies</h4>
+
+<p><strong>Mnemonic: ABCDEF</strong></p>
+
+<ul>
+    <li><strong>A</strong> – Air crashes</li>
+    <li><strong>B</strong> – Bomb blasts / Explosions</li>
+    <li><strong>C</strong> – Calamities (natural disasters)</li>
+    <li><strong>D</strong> – Decomposed bodies / Skeletal remains</li>
+    <li><strong>E</strong> – Exhumation</li>
+    <li><strong>F</strong> – Fire victims</li>
+</ul>
+
+
+<h2>Details of Identification Data</h2>
+
+
+<h3>A. Presumptive (Partial) Identification</h3>
+
+<p>Suggests identity but does <strong>not conclusively prove</strong> it.</p>
+
+<ul>
+    <li><strong>Visual recognition</strong></li>
+
+    <li><strong>Travel records</strong>
+        <ul>
+            <li>Flight manifest</li>
+            <li>Passenger lists</li>
+            <li>Tickets</li>
+        </ul>
+    </li>
+
+    <li><strong>Anthropometry</strong> (Bertillon's criteria)</li>
+
+    <li><strong>Personal information</strong>
+        <ul>
+            <li>Age</li>
+            <li>Sex</li>
+            <li>Marital status</li>
+            <li>Occupation</li>
+            <li>Religion</li>
+            <li>Ethnicity</li>
+            <li>Address</li>
+            <li>Date missing</li>
+        </ul>
+    </li>
+
+    <li><strong>Physical examination</strong>
+        <ul>
+            <li>Height</li>
+            <li>Weight</li>
+            <li>Skin colour</li>
+        </ul>
+    </li>
+
+    <li><strong>Personal belongings</strong>
+        <ul>
+            <li>Mobile phone</li>
+            <li>Jewellery</li>
+            <li>Wallet</li>
+            <li>ID card</li>
+            <li>Driving licence</li>
+            <li>Photographs</li>
+        </ul>
+    </li>
+
+    <li>Exclusion of other possible persons</li>
+</ul>
+
+
+<h3>B. Positive (Definitive) Identification</h3>
+
+<p>Scientifically proves identity beyond doubt.</p>
+
+<ul>
+    <li>Fingerprints (Dactylography)</li>
+    <li>Palm prints</li>
+    <li>Footprints</li>
+    <li>Dental records (Dentition)</li>
+    <li>Comparison of ante-mortem and post-mortem radiographs</li>
+    <li>DNA profiling (Gold standard)</li>
+</ul>
+
+
+<div class="viva-note">
+
+<strong>Exam Pearls</strong>
+
+<ul>
+    <li>Voice, handwriting, gait, speech, memory and mannerisms are used only for <strong>presumptive identification</strong>.</li>
+
+    <li>Comparison of ante-mortem and post-mortem X-rays is possible <strong>only in dead bodies</strong>.</li>
+
+    <li><strong>Primary characteristics of identification:</strong>
+        <ul>
+            <li>Age</li>
+            <li>Sex</li>
+            <li>Stature</li>
+            <li>Race/Ancestry</li>
+        </ul>
+    </li>
+</ul>
+
+</div>
+
+
+<h3>Bertillon's Criteria (Anthropometry)</h3>
+
+<p><strong>Principles</strong></p>
+
+<ul>
+    <li>After <strong>21 years</strong>, measurements of adult body parts remain relatively constant.</li>
+    <li>The proportion of body parts differs from person to person.</li>
+</ul>
+
+<p><strong>Components</strong></p>
+
+<ol>
+
+<li>
+<strong>Descriptive Features</strong>
+
+<ul>
+    <li>Iris colour</li>
+    <li>Hair colour</li>
+    <li>Complexion</li>
+    <li>Shape of nose</li>
+    <li>Chin</li>
+    <li>Ears</li>
+</ul>
+
+</li>
+
+<li>
+
+<strong>Identification Marks</strong>
+
+<ul>
+    <li>Scars</li>
+    <li>Birthmarks</li>
+    <li>Moles</li>
+    <li>Tattoos</li>
+</ul>
+
+</li>
+
+<li>
+
+<strong>Body Measurements</strong>
+
+<ul>
+    <li>Standing height</li>
+    <li>Sitting height</li>
+    <li>Head length & width</li>
+    <li>Right ear length & width</li>
+    <li>Arm span</li>
+    <li>Length of left middle finger</li>
+    <li>Length of left little finger</li>
+    <li>Left forearm length</li>
+    <li>Left hand length</li>
+    <li>Left foot length</li>
+</ul>
+
+</li>
+
+</ol>
+
+
+<h2>Racial Characteristics</h2>
+
+<div class="viva-note">
+<strong>Exam Note:</strong> Many older forensic textbooks classify skulls into "Caucasian, Mongolian and Negro." These terms are outdated in modern anthropology but may still appear in MBBS examinations.
+</div>
+
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Caucasian</th>
+<th>Mongolian</th>
+<th>African (Older texts: "Negro")</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td><strong>General</strong></td>
+<td>Fair complexion</td>
+<td>Yellowish complexion</td>
+<td>Dark complexion</td>
+</tr>
+
+<tr>
+<td><strong>Face</strong></td>
+<td>Small face, prominent forehead</td>
+<td>Broad face, prominent cheek bones</td>
+<td>Projecting jaws, compressed forehead</td>
+</tr>
+
+<tr>
+<td><strong>Orbit</strong></td>
+<td>Triangular</td>
+<td>Small</td>
+<td>Square</td>
+</tr>
+
+<tr>
+<td><strong>Extremities</strong></td>
+<td>Average</td>
+<td>Short</td>
+<td>Long</td>
+</tr>
+
+<tr>
+<td><strong>Cephalic Index</strong></td>
+<td><strong>75–80%</strong><br>Mesocephalic</td>
+<td><strong>80–85%</strong><br>Brachycephalic</td>
+<td><strong>70–75%</strong><br>Dolichocephalic</td>
+</tr>
+
+</tbody>
+</table>
+
+        <h2>Determination of Sex</h2>
+
+<h3>Medicolegal Importance</h3>
+
+<ul>
+    <li>Identification of living persons</li>
+    <li>Identification of unknown dead bodies</li>
+    <li>Civil cases
+        <ul>
+            <li>Inheritance</li>
+            <li>Paternity disputes</li>
+            <li>Marriage and divorce</li>
+            <li>Property rights</li>
+        </ul>
+    </li>
+    <li>Sports eligibility</li>
+    <li>Investigation of criminal offences</li>
+</ul>
+
+
+<h3>Evidence Used for Sex Determination</h3>
+
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Evidence</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td><strong>Presumptive</strong></td>
+<td>
+<ul>
+<li>External appearance</li>
+<li>Clothing</li>
+<li>General body habitus</li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td><strong>Probable</strong></td>
+<td>
+<ul>
+<li>Secondary sexual characteristics</li>
+<li>Breasts</li>
+<li>Distribution of body hair</li>
+<li>Voice</li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td><strong>Positive</strong></td>
+<td>
+<ul>
+<li>Ovaries or testes</li>
+<li>Barr bodies</li>
+<li>Davidson bodies</li>
+<li>DNA profiling</li>
+<li>Karyotyping</li>
+</ul>
+</td>
+</tr>
+
+</tbody>
+</table>
+
+
+<h3>Sexual Characteristics</h3>
+
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Male</th>
+<th>Female</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td><strong>Body Build</strong></td>
+<td>Larger, heavier, more muscular</td>
+<td>Smaller, lighter</td>
+</tr>
+
+<tr>
+<td><strong>Shoulders & Hips</strong></td>
+<td>Shoulders broader than hips</td>
+<td>Hips broader than shoulders</td>
+</tr>
+
+<tr>
+<td><strong>Thorax</strong></td>
+<td>Long and narrow</td>
+<td>Short and broad</td>
+</tr>
+
+<tr>
+<td><strong>Pubic Hair</strong></td>
+<td>Diamond-shaped; extends towards the umbilicus</td>
+<td>Triangular; upper border remains horizontal</td>
+</tr>
+
+<tr>
+<td><strong>Larynx</strong></td>
+<td>Prominent Adam's apple</td>
+<td>Usually not prominent</td>
+</tr>
+
+<tr>
+<td><strong>Thyroid Cartilage Angle</strong></td>
+<td>≈ 90°</td>
+<td>≈ 120°</td>
+</tr>
+
+<tr>
+<td><strong>Voice</strong></td>
+<td>Low-pitched</td>
+<td>High-pitched</td>
+</tr>
+
+<tr>
+<td><strong>Long Bones</strong></td>
+<td>Large, heavy, rough muscle markings</td>
+<td>Smoother, lighter, less prominent muscle markings</td>
+</tr>
+
+</tbody>
+</table>
+
+
+<h3>Microscopic Sex Determination</h3>
+
+<h4>1. Barr Body (Sex Chromatin)</h4>
+
+<ul>
+    <li>Condensed inactive X chromosome.</li>
+    <li>Seen as a dark basophilic body attached to the inner nuclear membrane.</li>
+    <li>Present in <strong>females</strong>.</li>
+    <li>Usually absent in normal males.</li>
+    <li><strong>Common specimen:</strong> Buccal mucosal smear.</li>
+</ul>
+
+
+<h4>2. Davidson Body (Drumstick Body)</h4>
+
+<ul>
+    <li>Small drumstick-shaped nuclear projection on neutrophils.</li>
+    <li>Seen in females.</li>
+    <li>Measures approximately <strong>1.5 μm</strong>.</li>
+    <li>Diagnosis requires drumsticks in approximately <strong>6% of neutrophils</strong>.</li>
+    <li><strong>Specimen:</strong> Peripheral blood smear.</li>
+</ul>
+
+
+<h4>3. Definitive Laboratory Methods</h4>
+
+<ul>
+    <li>Karyotyping</li>
+    <li>Y-chromosome demonstration</li>
+    <li>DNA analysis (most accurate)</li>
+</ul>
+
+
+<div class="viva-note">
+
+<strong>High-Yield Viva Points</strong>
+
+<ul>
+    <li>Barr body = inactive X chromosome.</li>
+    <li>Best sample for Barr body → Buccal smear.</li>
+    <li>Davidson body is found in neutrophils.</li>
+    <li>DNA profiling is the most accurate method for sex determination.</li>
+</ul>
+
+</div>
+
+
+<h3>Intersex Conditions</h3>
+
+<table>
+<thead>
+<tr>
+<th>Condition</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td><strong>Gonadal Agenesis</strong></td>
+<td>Testes or ovaries fail to develop; nuclear sex is negative.</td>
+</tr>
+
+<tr>
+<td><strong>Gonadal Dysgenesis</strong></td>
+<td>External genitalia are present, but gonads fail to develop properly at puberty.</td>
+</tr>
+
+<tr>
+<td><strong>True Hermaphroditism</strong></td>
+<td>Presence of both ovarian and testicular tissue in the same individual.</td>
+</tr>
+
+<tr>
+<td><strong>Pseudo-hermaphroditism</strong></td>
+<td>Gonads belong to one sex, while external genitalia resemble the opposite sex.</td>
+</tr>
+
+</tbody>
+</table>
+
+
+<h2>Sex Determination from Skeleton</h2>
+
+<div class="highlight-box">
+
+<strong>Most Reliable Bones</strong>
+
+<ol>
+<li><strong>Pelvis (Most accurate)</strong></li>
+<li>Skull</li>
+<li>Long bones</li>
+</ol>
+
+</div>
+
+
+<h3>Skull & Mandible Comparison</h3>
+
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Male</th>
+<th>Female</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td><strong>General Appearance</strong></td>
+<td>Heavy, rugged, approximately 10% larger cranial capacity</td>
+<td>Smaller, lighter, smoother, rounder</td>
+</tr>
+
+<tr>
+<td><strong>Forehead</strong></td>
+<td>Sloping</td>
+<td>More vertical and rounded</td>
+</tr>
+
+<tr>
+<td><strong>Supraorbital Ridge</strong></td>
+<td>Prominent</td>
+<td>Poorly developed</td>
+</tr>
+
+<tr>
+<td><strong>Glabella</strong></td>
+<td>Prominent</td>
+<td>Less prominent</td>
+</tr>
+
+<tr>
+<td><strong>Mastoid Process</strong></td>
+<td>Large</td>
+<td>Small</td>
+</tr>
+
+<tr>
+<td><strong>Orbits</strong></td>
+<td>Square, lower on the face, blunt margins</td>
+<td>Rounded, higher on the face, sharp margins</td>
+</tr>
+
+<tr>
+<td><strong>Palate</strong></td>
+<td>Large and U-shaped</td>
+<td>Small and parabolic</td>
+</tr>
+
+<tr>
+<td><strong>Mandible</strong></td>
+<td>Large, heavy and robust</td>
+<td>Smaller and gracile</td>
+</tr>
+
+<tr>
+<td><strong>Chin (Mental Eminence)</strong></td>
+<td>Square with greater vertical height</td>
+<td>Rounded with lesser vertical height</td>
+</tr>
+
+<tr>
+<td><strong>Mandibular Angle</strong></td>
+<td>Acute (≈110–120°)</td>
+<td>Obtuse (≈120–130°)</td>
+</tr>
+
+</tbody>
+</table>
+
+
+<div class="viva-note">
+
+<strong>Remember</strong>
+
+<ul>
+    <li><strong>Pelvis > Skull > Long bones</strong> for skeletal sex determination.</li>
+    <li>Male skull = <strong>Heavy, Rough, Square</strong>.</li>
+    <li>Female skull = <strong>Light, Smooth, Rounded</strong>.</li>
+    <li>Square chin → Male.</li>
+    <li>Rounded chin → Female.</li>
+    <li>Acute mandibular angle → Male.</li>
+    <li>Obtuse mandibular angle → Female.</li>
+</ul>
+
+</div>
+        <h3>2. Pelvis Comparison (Most Reliable Bone for Sex Determination)</h3>
+
+<div class="highlight-box">
+<strong>Exam Pearl</strong>
+
+<ul>
+    <li><strong>Pelvis is the single most reliable bone</strong> for determining sex from a skeleton.</li>
+    <li>Accuracy: approximately <strong>95%</strong> when examined alone.</li>
+</ul>
+</div>
+
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Male Pelvis</th>
+<th>Female Pelvis</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td><strong>General Structure</strong></td>
+<td>Small, deep, heavy</td>
+<td>Wide, shallow, light</td>
+</tr>
+
+<tr>
+<td><strong>Subpubic Angle</strong></td>
+<td>Narrow, inverted V (<strong>~70°</strong>)</td>
+<td>Broad, inverted U (<strong>>90–95°</strong>)</td>
+</tr>
+
+<tr>
+<td><strong>Pubic Bone</strong></td>
+<td>Narrow, triangular</td>
+<td>Broad, rectangular</td>
+</tr>
+
+<tr>
+<td><strong>Greater Sciatic Notch</strong></td>
+<td>Deep and narrow</td>
+<td>Wide and shallow</td>
+</tr>
+
+<tr>
+<td><strong>Preauricular Sulcus</strong></td>
+<td>Absent or poorly developed</td>
+<td>Broad and deep</td>
+</tr>
+
+<tr>
+<td><strong>Acetabulum</strong></td>
+<td>Larger (~52 mm)</td>
+<td>Smaller (~46 mm)</td>
+</tr>
+
+<tr>
+<td><strong>Sacrum</strong></td>
+<td>Long, narrow, less curved</td>
+<td>Short, broad, more curved anteriorly</td>
+</tr>
+
+<tr>
+<td><strong>Pelvic Inlet</strong></td>
+<td>Heart-shaped / Triangular</td>
+<td>Oval or circular; spacious</td>
+</tr>
+
+</tbody>
+</table>
+
+
+<div class="viva-note">
+
+<strong>Most Frequently Asked Differences</strong>
+
+<ul>
+    <li>Subpubic angle:
+        <ul>
+            <li>Male → ~70° (V-shaped)</li>
+            <li>Female → >90° (U-shaped)</li>
+        </ul>
+    </li>
+
+    <li>Greater sciatic notch:
+        <ul>
+            <li>Male → Narrow</li>
+            <li>Female → Wide</li>
+        </ul>
+    </li>
+
+    <li>Pelvic inlet:
+        <ul>
+            <li>Male → Heart-shaped</li>
+            <li>Female → Oval / Round</li>
+        </ul>
+    </li>
+
+</ul>
+
+</div>
+
+
+<h3>3. Accuracy of Sex Determination from Skeleton</h3>
+
+<table>
+<thead>
+<tr>
+<th>Specimen</th>
+<th>Accuracy</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td>Entire skeleton</td>
+<td><strong>100%</strong></td>
+</tr>
+
+<tr>
+<td>Pelvis + Skull</td>
+<td><strong>98%</strong></td>
+</tr>
+
+<tr>
+<td>Pelvis alone</td>
+<td><strong>95%</strong></td>
+</tr>
+
+<tr>
+<td>Skull alone</td>
+<td><strong>90%</strong></td>
+</tr>
+
+<tr>
+<td>Long bones alone</td>
+<td><strong>80%</strong></td>
+</tr>
+
+</tbody>
+</table>
+
+
+<div class="highlight-box">
+
+<strong>Easy to Remember</strong>
+
+<ul>
+<li>Entire skeleton → <strong>100%</strong></li>
+<li>Pelvis + Skull → <strong>98%</strong></li>
+<li>Pelvis → <strong>95%</strong></li>
+<li>Skull → <strong>90%</strong></li>
+<li>Long bones → <strong>80%</strong></li>
+</ul>
+
+</div>
+
+
+
+<h2>Age Estimation — Dentition</h2>
+
+<h3>Dentition</h3>
+
+<ul>
+    <li>Humans develop <strong>two sets of teeth</strong> during life.</li>
+
+    <li><strong>Temporary (Deciduous / Milk)</strong>
+        <ul>
+            <li>Total teeth = <strong>20</strong></li>
+            <li>No premolars</li>
+        </ul>
+    </li>
+
+    <li><strong>Permanent</strong>
+        <ul>
+            <li>Total teeth = <strong>32</strong></li>
+            <li>Includes premolars and third molars</li>
+        </ul>
+    </li>
+</ul>
+
+
+<h3>Dental Formula</h3>
+
+<table>
+<thead>
+<tr>
+<th>Dentition</th>
+<th>Dental Formula (Per Quadrant)</th>
+<th>Total Teeth</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td><strong>Temporary</strong></td>
+<td>2 Incisors : 1 Canine : 0 Premolars : 2 Molars</td>
+<td><strong>20</strong></td>
+</tr>
+
+<tr>
+<td><strong>Permanent</strong></td>
+<td>2 Incisors : 1 Canine : 2 Premolars : 3 Molars</td>
+<td><strong>32</strong></td>
+</tr>
+
+</tbody>
+</table>
+
+
+<div class="viva-note">
+
+<strong>Remember</strong>
+
+<ul>
+<li>Milk teeth have <strong>no premolars</strong>.</li>
+<li>Permanent teeth have <strong>2 premolars and 3 molars</strong> per quadrant.</li>
+</ul>
+
+</div>
+
+
+<h3>Eruption Timeline</h3>
+
+<table>
+<thead>
+<tr>
+<th>Tooth</th>
+<th>Temporary Dentition</th>
+<th>Permanent Dentition</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td><strong>Central Incisor</strong></td>
+<td>6–8 months</td>
+<td>7 years</td>
+</tr>
+
+<tr>
+<td><strong>Lateral Incisor</strong></td>
+<td>7–10 months</td>
+<td>8 years</td>
+</tr>
+
+<tr>
+<td><strong>1st Molar</strong></td>
+<td>12–14 months</td>
+<td>6 years</td>
+</tr>
+
+<tr>
+<td><strong>Canine</strong></td>
+<td>17–18 months</td>
+<td>11 years</td>
+</tr>
+
+<tr>
+<td><strong>2nd Molar</strong></td>
+<td>20–30 months</td>
+<td>12 years</td>
+</tr>
+
+<tr>
+<td><strong>1st Premolar</strong></td>
+<td>—</td>
+<td>9 years</td>
+</tr>
+
+<tr>
+<td><strong>2nd Premolar</strong></td>
+<td>—</td>
+<td>10 years</td>
+</tr>
+
+<tr>
+<td><strong>3rd Molar (Wisdom Tooth)</strong></td>
+<td>—</td>
+<td>17–25 years</td>
+</tr>
+
+</tbody>
+</table>
+
+
+<div class="highlight-box">
+
+<strong>Permanent Tooth Eruption Sequence</strong>
+
+<p><strong>Mnemonic:</strong> <span style="color: var(--hover-color);">Mother Is In Bed Baby Cries Milk Milk</span></p>
+
+<ul>
+    <li>M<sub>1</sub> → <strong>6 years</strong></li>
+    <li>I<sub>1</sub> → <strong>7 years</strong></li>
+    <li>I<sub>2</sub> → <strong>8 years</strong></li>
+    <li>P<sub>1</sub> → <strong>9 years</strong></li>
+    <li>P<sub>2</sub> → <strong>10 years</strong></li>
+    <li>C → <strong>11 years</strong></li>
+    <li>M<sub>2</sub> → <strong>12 years</strong></li>
+    <li>M<sub>3</sub> → <strong>17–25 years</strong></li>
+</ul>
+
+</div>
+
+
+<div class="viva-note">
+
+<strong>High-Yield Viva Questions</strong>
+
+<ul>
+<li>Most reliable bone for sex determination → <strong>Pelvis</strong>.</li>
+<li>Most reliable tooth for age estimation in late adolescence → <strong>Third molar (17–25 years)</strong>.</li>
+<li>Milk teeth total → <strong>20</strong>.</li>
+<li>Permanent teeth total → <strong>32</strong>.</li>
+<li>Permanent dentition begins with the <strong>1st molar (6 years)</strong>.</li>
+</ul>
+
+</div>
+
+        <h3>Mixed Dentition (6–11 Years)</h3>
+
+<ul>
+    <li><strong>Mixed dentition</strong> is the period when both temporary and permanent teeth are present.</li>
+    <li>Occurs between <strong>6 and 11 years</strong> of age.</li>
+    <li>Age can be estimated by counting the erupted permanent teeth.</li>
+</ul>
+
+<div class="highlight-box" style="text-align:center;">
+
+<strong>Age Estimation Formula</strong>
+
+<h3 style="margin:10px 0;">
+Age (years) = (Number of Permanent Teeth ÷ 4) + 5
+</h3>
+
+</div>
+
+
+<h3>Gustafson's Method (Adult Dentition)</h3>
+
+<ul>
+    <li>Used for individuals <strong>older than 21 years</strong>.</li>
+    <li>Based on age-related changes in a single tooth.</li>
+    <li>Each feature is scored from <strong>0 to 3</strong>.</li>
+    <li>Average error: <strong>± 3.6 years</strong>.</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th>Criterion</th>
+<th>Finding</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td><strong>A — Attrition</strong></td>
+<td>Wear of the occlusal surface</td>
+</tr>
+
+<tr>
+<td><strong>P — Periodontosis</strong></td>
+<td>Gingival recession with root exposure</td>
+</tr>
+
+<tr>
+<td><strong>S — Secondary Dentine</strong></td>
+<td>Deposition of dentine in the pulp cavity</td>
+</tr>
+
+<tr>
+<td><strong>C — Cementum Apposition</strong></td>
+<td>Additional cementum at the root apex</td>
+</tr>
+
+<tr>
+<td><strong>R — Root Resorption</strong></td>
+<td>Resorption at the root apex</td>
+</tr>
+
+<tr>
+<td><strong>T — Root Translucency</strong></td>
+<td>Apical translucency (Most reliable after 30 years)</td>
+</tr>
+
+</tbody>
+</table>
+
+
+<div class="viva-note">
+
+<strong>High-Yield Viva Points</strong>
+
+<ul>
+    <li>Used after <strong>21 years</strong>.</li>
+    <li>Each parameter is scored <strong>0–3</strong>.</li>
+    <li><strong>Most reliable criterion:</strong> Root translucency.</li>
+    <li>Root translucency becomes especially useful after <strong>30 years</strong>.</li>
+</ul>
+
+</div>
+
+
+
+<h2>Age Estimation — Bone Ossification</h2>
+
+<div class="highlight-box">
+
+<strong>General Principles</strong>
+
+<ul>
+    <li>Ossification occurs approximately <strong>1 year earlier in females</strong>.</li>
+    <li><strong>Appearance of ossification centres</strong> is more reliable than epiphyseal fusion for age estimation.</li>
+</ul>
+
+</div>
+
+
+<!-- Keep your SVG diagram unchanged here -->
+
+
+<h3>Quick Revision: Epiphyseal Fusion Around Major Joints</h3>
+
+<table>
+<thead>
+<tr>
+<th>Age</th>
+<th>Joint</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td><strong>16 years</strong></td>
+<td>Elbow</td>
+</tr>
+
+<tr>
+<td><strong>17 years</strong></td>
+<td>Hip & Ankle</td>
+</tr>
+
+<tr>
+<td><strong>18 years</strong></td>
+<td>Shoulder & Knee</td>
+</tr>
+
+<tr>
+<td><strong>19 years</strong></td>
+<td>Wrist</td>
+</tr>
+
+</tbody>
+</table>
+
+
+<div class="highlight-box">
+
+<strong>Easy Mnemonic</strong>
+
+<ul>
+<li><strong>16</strong> → Elbow</li>
+<li><strong>17</strong> → Hip + Ankle</li>
+<li><strong>18</strong> → Shoulder + Knee</li>
+<li><strong>19</strong> → Wrist</li>
+</ul>
+
+</div>
+
+
+
+<h3>Detailed Ossification Table</h3>
+
+<table>
+<thead>
+<tr>
+<th>Joint</th>
+<th>Ossification Centre</th>
+<th>Appears</th>
+<th>Fuses</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td rowspan="3"><strong>Shoulder</strong></td>
+<td>Head of humerus</td>
+<td>1 year</td>
+<td rowspan="3">
+Tubercles fuse together at <strong>5–6 years</strong>, then unite with the shaft at <strong>18–19 years</strong>.
+</td>
+</tr>
+
+<tr>
+<td>Greater tubercle</td>
+<td>3 years</td>
+</tr>
+
+<tr>
+<td>Lesser tubercle</td>
+<td>5 years</td>
+</tr>
+
+
+<tr>
+<td rowspan="4"><strong>Elbow</strong></td>
+<td>Capitulum</td>
+<td>1 year</td>
+<td>16–17 years</td>
+</tr>
+
+<tr>
+<td>Trochlea</td>
+<td>9–11 years</td>
+<td>16–17 years</td>
+</tr>
+
+<tr>
+<td>Head of radius</td>
+<td>3 years</td>
+<td>16–17 years</td>
+</tr>
+
+<tr>
+<td>Olecranon</td>
+<td>9 years</td>
+<td>16–17 years</td>
+</tr>
+
+
+<tr>
+<td><strong>Wrist</strong></td>
+<td>Lower end of Radius & Ulna</td>
+<td>Radius: 2 years<br>Ulna: 6 years</td>
+<td><strong>17–18 years</strong></td>
+</tr>
+
+
+<tr>
+<td><strong>Hip</strong></td>
+<td>Head of femur</td>
+<td>6–12 months</td>
+<td><strong>17–18 years</strong></td>
+</tr>
+
+
+<tr>
+<td rowspan="2"><strong>Knee</strong></td>
+<td>Lower end of femur</td>
+<td>9 months IUL</td>
+<td><strong>18–19 years</strong></td>
+</tr>
+
+<tr>
+<td>Upper end of tibia</td>
+<td>10 months IUL</td>
+<td><strong>18–19 years</strong></td>
+</tr>
+
+
+<tr>
+<td><strong>Ankle</strong></td>
+<td>Lower end of Tibia & Fibula</td>
+<td>1 year</td>
+<td><strong>16–17 years</strong></td>
+</tr>
+
+</tbody>
+</table>
+
+
+<div class="viva-note">
+
+<strong>Frequently Asked Viva Questions</strong>
+
+<ul>
+<li>Ossification occurs earlier in <strong>females</strong> (about 1 year).</li>
+
+<li><strong>Most reliable:</strong> Appearance of ossification centres.</li>
+
+<li><strong>Elbow</strong> fuses first (16 years).</li>
+
+<li><strong>Wrist</strong> fuses last (19 years).</li>
+
+<li>Lower end of femur appears at <strong>9 months intrauterine life (IUL)</strong>.</li>
+
+<li>Upper end of tibia appears at <strong>10 months IUL</strong>.</li>
+
+<li>Lower end of radius fuses at <strong>17–18 years</strong>.</li>
+
+</ul>
+
+</div>
+
+        <h3>Ossification of Skull & Mandible</h3>
+
+<h4>Fontanelle Closure</h4>
+
+<table>
+<thead>
+<tr>
+<th>Fontanelle</th>
+<th>Closure</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td>Lateral (Sphenoidal)</td>
+<td>Within 2 months</td>
+</tr>
+
+<tr>
+<td>Occipital (Mastoid)</td>
+<td>Within 2 months</td>
+</tr>
+
+<tr>
+<td>Posterior</td>
+<td>6–8 months</td>
+</tr>
+
+<tr>
+<td><strong>Anterior</strong></td>
+<td><strong>18–24 months (1½–2 years)</strong></td>
+</tr>
+
+</tbody>
+</table>
+
+
+<h4>Important Skull Ossification Events</h4>
+
+<ul>
+
+<li>
+<strong>Basioccipital + Basisphenoid</strong>
+<ul>
+<li>Fuse at <strong>18–21 years</strong>.</li>
+</ul>
+</li>
+
+<li>
+<strong>Cranial Sutures</strong>
+<ul>
+<li>Begin closing internally at approximately <strong>25 years</strong>.</li>
+<li>Sagittal, coronal and lambdoid sutures gradually close between <strong>30–60 years</strong>.</li>
+</ul>
+</li>
+
+<li>
+<strong>Mandible</strong>
+<ul>
+<li>Right and left halves unite during the <strong>1st year of life</strong>.</li>
+<li>Complete ossification of the mandibular head occurs by the <strong>3rd decade (21–30 years)</strong>.</li>
+</ul>
+</li>
+
+</ul>
+
+
+<div class="viva-note">
+
+<strong>High-Yield Viva Points</strong>
+
+<ul>
+
+<li>Anterior fontanelle closes at <strong>18–24 months</strong>.</li>
+
+<li>Posterior fontanelle closes at <strong>6–8 months</strong>.</li>
+
+<li>Mandibular halves unite during the <strong>1st year</strong>.</li>
+
+<li>Sutural closure starts internally at approximately <strong>25 years</strong>.</li>
+
+</ul>
+
+</div>
+
+
+
+<h2>Age Determination & Legal Considerations</h2>
+
+<h3>Secondary Sexual Characters</h3>
+
+<p>Secondary sexual characters provide <strong>supportive evidence</strong> for age estimation and pubertal development.</p>
+
+<table>
+
+<thead>
+<tr>
+<th>Character</th>
+<th>Male</th>
+<th>Female</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td><strong>Pubic Hair</strong></td>
+<td>14 years</td>
+<td>13 years</td>
+</tr>
+
+<tr>
+<td><strong>Axillary Hair</strong></td>
+<td>15 years</td>
+<td>14 years</td>
+</tr>
+
+<tr>
+<td><strong>Facial Hair</strong></td>
+<td>16 years</td>
+<td>—</td>
+</tr>
+
+<tr>
+<td><strong>Breast Development</strong></td>
+<td>—</td>
+<td>13 years</td>
+</tr>
+
+<tr>
+<td><strong>Adult Genitalia</strong></td>
+<td>16½ years</td>
+<td>14 years</td>
+</tr>
+
+</tbody>
+
+</table>
+
+
+<div class="highlight-box">
+
+<strong>Sequence of Hair Development</strong>
+
+<ol>
+<li>Pubic hair</li>
+<li>Axillary hair</li>
+<li>Facial hair (males)</li>
+</ol>
+
+</div>
+
+
+
+<h3>Medicolegal Importance of Age</h3>
+
+<ul>
+
+<li>Determination of criminal responsibility.</li>
+
+<li>Award of judicial punishment.</li>
+
+<li>Rape and kidnapping cases.</li>
+
+<li>Employment and child labour laws.</li>
+
+<li>Determination of majority and legal capacity.</li>
+
+<li>Marriage, consent and evidence.</li>
+
+</ul>
+
+
+
+<h3>Important Legal Age Milestones</h3>
+
+<div class="viva-note">
+
+<strong>⚠ Verify According to Your Country's Laws</strong>
+
+<p>The following ages vary between countries and are frequently amended. Always follow the latest law prescribed for your university examination.</p>
+
+</div>
+
+<table>
+
+<thead>
+<tr>
+<th>Age</th>
+<th>Medicolegal Importance</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td><strong>7 months (IUL)</strong></td>
+<td>Viability</td>
+</tr>
+
+<tr>
+<td><strong>9 months (IUL)</strong></td>
+<td>Full-term fetus</td>
+</tr>
+
+<tr>
+<td><strong>3 years</strong></td>
+<td>Half-fare entitlement (where applicable)</td>
+</tr>
+
+<tr>
+<td><strong>5 years</strong></td>
+<td>Custody generally with the mother</td>
+</tr>
+
+<tr>
+<td><strong>7 years</strong></td>
+<td>Absolute criminal immunity</td>
+</tr>
+
+<tr>
+<td><strong>10 years</strong></td>
+<td>Special provisions under kidnapping laws*</td>
+</tr>
+
+<tr>
+<td><strong>12 years</strong></td>
+<td>Qualified criminal immunity (7–12 years); incapable of valid legal consent*</td>
+</tr>
+
+<tr>
+<td><strong>14 years</strong></td>
+<td>Child labour restrictions</td>
+</tr>
+
+<tr>
+<td><strong>15 years</strong></td>
+<td>Special employment and marriage provisions*</td>
+</tr>
+
+<tr>
+<td><strong>16 years</strong></td>
+<td>Juxtaposed juvenile/criminal law provisions*</td>
+</tr>
+
+<tr>
+<td><strong>18 years</strong></td>
+<td>Legal majority, voting, driving licence and other adult legal rights*</td>
+</tr>
+
+<tr>
+<td><strong>21 years</strong></td>
+<td>Marriage provisions*</td>
+</tr>
+
+<tr>
+<td><strong>25 years</strong></td>
+<td>Eligibility for certain public offices*</td>
+</tr>
+
+<tr>
+<td><strong>35 years</strong></td>
+<td>Certain prenatal diagnostic provisions*</td>
+</tr>
+
+<tr>
+<td><strong>55–60 years</strong></td>
+<td>Retirement (varies by service and jurisdiction)</td>
+</tr>
+
+</tbody>
+
+</table>
+
+
+<div class="viva-note">
+
+<strong>Last Minute Revision</strong>
+
+<ul>
+
+<li>Anterior fontanelle → <strong>18–24 months</strong>.</li>
+
+<li>Posterior fontanelle → <strong>6–8 months</strong>.</li>
+
+<li>Basioccipital + Basisphenoid fuse → <strong>18–21 years</strong>.</li>
+
+<li>Mandibular halves unite → <strong>1st year</strong>.</li>
+
+<li>Suture closure starts internally → <strong>25 years</strong>.</li>
+
+<li>Hair development → <strong>Pubic → Axillary → Facial</strong>.</li>
+
+</ul>
+
+</div>
+
+        <h2>II. Fetal Age & Ossification</h2>
+
+<h3>Fetal Growth Milestones (Lunar Months)</h3>
+
+<table>
+<thead>
+<tr>
+<th>Age</th>
+<th>Crown-Heel Length</th>
+<th>Weight</th>
+<th>High-Yield Features</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td><strong>1 Month (4 weeks)</strong></td>
+<td>1 cm</td>
+<td>2.5 g</td>
+<td>
+<ul>
+<li>Eyes appear as dark spots</li>
+<li>Mouth seen as a cleft</li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td><strong>2 Months (8 weeks)</strong></td>
+<td>4 cm</td>
+<td>10 g</td>
+<td>
+<ul>
+<li>Hands and feet webbed</li>
+<li>Anus visible</li>
+<li>First ossification centre → <strong>Clavicle</strong></li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td><strong>3 Months (12 weeks)</strong></td>
+<td>9 cm</td>
+<td>30 g</td>
+<td>
+<ul>
+<li>Eyes closed</li>
+<li>Rounded head</li>
+<li>Fingers and toes differentiated</li>
+<li>Intestines within abdomen</li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td><strong>4 Months (16 weeks)</strong></td>
+<td>16 cm</td>
+<td>110 g</td>
+<td>
+<ul>
+<li>Sex distinguishable</li>
+<li>Neck well formed</li>
+<li>Lower limbs differentiated</li>
+<li>Meconium present</li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td><strong>5 Months (20 weeks)</strong></td>
+<td>25 cm</td>
+<td>320 g</td>
+<td>
+<ul>
+<li>Vernix caseosa appears</li>
+<li>Scalp hair develops</li>
+<li>Early toenails</li>
+<li>Ossification → <strong>Calcaneum</strong></li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td><strong>6 Months (24 weeks)</strong></td>
+<td>30 cm</td>
+<td>630 g</td>
+<td>
+<ul>
+<li>Lanugo hair present</li>
+<li>Eyebrows and eyelashes appear</li>
+<li>Ossification → <strong>Sternum</strong></li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td><strong>7 Months (28 weeks)</strong></td>
+<td>35 cm</td>
+<td>1000 g</td>
+<td>
+<ul>
+<li>Pupillary membrane disappears</li>
+<li>Fingernails present</li>
+<li>Ossification → <strong>Talus</strong></li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td><strong>8 Months (32 weeks)</strong></td>
+<td>40 cm</td>
+<td>1700 g</td>
+<td>
+<ul>
+<li>Eyes open</li>
+<li>Toenails present</li>
+<li>Ossification → <strong>Last sacral vertebra</strong></li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td><strong>9 Months (36 weeks)</strong></td>
+<td>45 cm</td>
+<td>2300 g</td>
+<td>
+<ul>
+<li>Fingernails reach fingertips</li>
+<li>Skin becomes smooth</li>
+<li>Ossification → <strong>Lower end of femur</strong></li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td><strong>10 Months (40 weeks)</strong></td>
+<td>50 cm</td>
+<td>3100 g</td>
+<td>
+<ul>
+<li>Testes descend into scrotum</li>
+<li>Lanugo disappears</li>
+<li>Ossification → <strong>Cuboid</strong></li>
+<li>Umbilical cord: 50–55 cm</li>
+</ul>
+</td>
+</tr>
+
+</tbody>
+</table>
+
+
+<div class="highlight-box">
+
+<strong>Fetal Age Estimation Rules</strong>
+
+<ul>
+
+<li>
+<strong>Haase's Rule (≤5 lunar months)</strong>
+
+<p><strong>Length (cm) = (Age in lunar months)<sup>2</sup></strong></p>
+
+</li>
+
+<li>
+
+<strong>Morrison's Rule (>5 lunar months)</strong>
+
+<p><strong>Length (cm) = Age × 5</strong></p>
+
+</li>
+
+</ul>
+
+<hr>
+
+<strong>Viability</strong>
+
+<ul>
+
+<li>Crown-heel length <strong>>37.5 cm</strong></li>
+
+<li>Age <strong>>7 lunar months</strong></li>
+
+<li>Presence of <strong>Talus ossification centre</strong></li>
+
+</ul>
+
+</div>
+
+
+<div class="viva-note">
+
+<strong>Last Minute Revision</strong>
+
+<ul>
+
+<li>2 months → Clavicle</li>
+
+<li>5 months → Calcaneum</li>
+
+<li>6 months → Sternum</li>
+
+<li>7 months → Talus (Viability)</li>
+
+<li>8 months → Sacrum</li>
+
+<li>9 months → Lower end of femur</li>
+
+<li>10 months → Cuboid</li>
+
+</ul>
+
+</div>
+
+
+
+<h2>III. Stature Estimation & Trichology</h2>
+
+<h3>Stature Estimation Formulae</h3>
+
+<table>
+
+<thead>
+<tr>
+<th>Measurement</th>
+<th>Relationship to Height</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td><strong>Arm span</strong></td>
+<td>Approximately equal to stature</td>
+</tr>
+
+<tr>
+<td><strong>One arm length</strong></td>
+<td>(2 × Arm length) + 30 cm (clavicles) + 4 cm (sternum)</td>
+</tr>
+
+<tr>
+<td><strong>Forearm (Olecranon → Middle finger)</strong></td>
+<td>5/19 of stature</td>
+</tr>
+
+<tr>
+<td><strong>Vertex → Symphysis pubis</strong></td>
+<td>½ of stature (after 14 years)</td>
+</tr>
+
+<tr>
+<td><strong>Head height</strong></td>
+<td>1/7 of stature</td>
+</tr>
+
+<tr>
+<td><strong>Skull length</strong></td>
+<td>1/8 of stature</td>
+</tr>
+
+<tr>
+<td><strong>Sternal index</strong></td>
+<td>(Sternal notch → Symphysis pubis) × 3.3</td>
+</tr>
+
+<tr>
+<td><strong>Foot length</strong></td>
+<td>Foot length ÷ 0.15</td>
+</tr>
+
+<tr>
+<td><strong>Vertebral column</strong></td>
+<td>35% of stature</td>
+</tr>
+
+</tbody>
+
+</table>
+
+
+<div class="highlight-box">
+
+<strong>Most Important Formulae</strong>
+
+<ul>
+
+<li>Arm span ≈ Height</li>
+
+<li>Foot length ÷ 0.15 = Height</li>
+
+<li>Forearm = 5/19 of Height</li>
+
+<li>Head = 1/7 of Height</li>
+
+</ul>
+
+</div>
+
+
+
+<h3>Trichology (Study of Hair)</h3>
+
+<p><strong>Average growth rate:</strong> 0.4 mm/day</p>
+
+<h4>Structure of Hair</h4>
+
+<ol>
+
+<li>
+<strong>Cuticle</strong>
+<ul>
+<li>Outermost layer</li>
+<li>Thin, transparent, non-pigmented scales</li>
+</ul>
+</li>
+
+<li>
+<strong>Cortex</strong>
+<ul>
+<li>Middle layer</li>
+<li>Contains pigment granules</li>
+<li>Made of elongated, non-nucleated cells</li>
+</ul>
+</li>
+
+<li>
+<strong>Medulla</strong>
+<ul>
+<li>Innermost core</li>
+<li>Contains keratinized cell remnants</li>
+</ul>
+</li>
+
+</ol>
+
+
+<div class="viva-note">
+
+<strong>Medicolegal Importance of Hair</strong>
+
+<ul>
+
+<li>Highly resistant to decomposition.</li>
+
+<li>Links suspect, victim and weapon (Locard's exchange principle).</li>
+
+<li>Useful in chronic heavy metal poisoning (e.g. arsenic).</li>
+
+<li>Singeing indicates burns or close-range firearm injury.</li>
+
+<li>Helps determine:
+<ul>
+<li>Species</li>
+<li>Body site of origin</li>
+<li>Sex (Barr bodies in root cells)</li>
+<li>Nature of assault</li>
+</ul>
+</li>
+
+</ul>
+
+</div>
+
+       <h2>IV. Scars, Tattoos & Occupational Marks</h2>
+
+<h3>Scars (Cicatrix)</h3>
+
+<p>A <strong>scar (cicatrix)</strong> is fibrous tissue formed after healing of a wound that extends into the <strong>dermis</strong>.</p>
+
+<h4>Characteristics</h4>
+
+<ul>
+
+<li>Covered by epithelium.</li>
+
+<li>Lacks:
+<ul>
+<li>Hair follicles</li>
+<li>Elastic fibres</li>
+<li>Pigment cells</li>
+<li>Sweat glands</li>
+<li>Sebaceous glands</li>
+</ul>
+</li>
+
+</ul>
+
+
+<h3>Age of a Scar</h3>
+
+<table>
+
+<thead>
+<tr>
+<th>Age</th>
+<th>Appearance</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td><strong>1 week</strong></td>
+<td>Strong, reddish ("angry"), vascular</td>
+</tr>
+
+<tr>
+<td><strong>2 weeks</strong></td>
+<td>Paler; remains sensitive for about 2 months</td>
+</tr>
+
+<tr>
+<td><strong>2–6 months</strong></td>
+<td>White, glistening, tough and permanently fixed</td>
+</tr>
+
+</tbody>
+
+</table>
+
+
+<div class="viva-note">
+
+<strong>Remember</strong>
+
+<ul>
+
+<li>Scar forms only when the wound reaches the <strong>dermis</strong>.</li>
+
+<li>Mature scar → <strong>White, glistening and fixed</strong>.</li>
+
+</ul>
+
+</div>
+
+
+
+<h3>Other Identification Marks</h3>
+
+<table>
+
+<thead>
+<tr>
+<th>Mark</th>
+<th>Medicolegal Importance</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td><strong>Moles (Nevi)</strong></td>
+<td>Congenital or acquired pigmented lesions; useful for positive identification.</td>
+</tr>
+
+<tr>
+<td><strong>Birth Marks</strong></td>
+<td>Usually capillary haemangiomas involving skin or mucous membrane.</td>
+</tr>
+
+<tr>
+<td><strong>Tattoos</strong></td>
+<td>Permanent pigment deposited in the dermis; helps identify occupation, religion, culture, gang affiliation or drug abuse.</td>
+</tr>
+
+<tr>
+<td><strong>Occupational Marks</strong></td>
+<td>Characteristic marks produced by long-term occupational habits.</td>
+</tr>
+
+</tbody>
+
+</table>
+
+
+<h4>Common Occupational Stigmata</h4>
+
+<ul>
+
+<li>Pen callosity → Writers / Clerks</li>
+
+<li>Sternal depression → Shoemakers</li>
+
+<li>Multiple needle pricks → Tailors</li>
+
+<li>Blue-black skin staining → Coal miners</li>
+
+<li>Green hair discoloration → Copper workers</li>
+
+</ul>
+
+
+
+<h2>V. Dactylography & Biometric Identification</h2>
+
+<h3>Dactylography (Fingerprints)</h3>
+
+<ul>
+
+<li>Study of epidermal ridge patterns of the fingertips.</li>
+
+<li>Develop during the <strong>5th month of intrauterine life</strong>.</li>
+
+<li>Remain <strong>permanent throughout life</strong>.</li>
+
+<li>No two individuals have identical fingerprints, including identical twins.</li>
+
+</ul>
+
+
+<div class="highlight-box">
+
+<strong>Why Fingerprints are Ideal for Identification</strong>
+
+<ul>
+
+<li>Unique</li>
+
+<li>Permanent</li>
+
+<li>Easy to record</li>
+
+<li>Remain unchanged throughout life</li>
+
+</ul>
+
+</div>
+
+
+<h3>Fingerprint Patterns</h3>
+
+<table>
+
+<thead>
+<tr>
+<th>Pattern</th>
+<th>Frequency</th>
+<th>Types</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td><strong>Loops</strong></td>
+<td>60–70%</td>
+<td>Radial, Ulnar</td>
+</tr>
+
+<tr>
+<td><strong>Whorls</strong></td>
+<td>25–35%</td>
+<td>Concentric, Spiral, Double spiral, Almond</td>
+</tr>
+
+<tr>
+<td><strong>Arches</strong></td>
+<td>6–7%</td>
+<td>Plain, Tented, Exceptional</td>
+</tr>
+
+<tr>
+<td><strong>Composites</strong></td>
+<td>1–2%</td>
+<td>Central pocket, Lateral pocket, Twinned, Accidental</td>
+</tr>
+
+</tbody>
+
+</table>
+
+
+<div class="viva-note">
+
+<strong>Easy to Remember</strong>
+
+<ul>
+
+<li>Loops → <strong>Most common</strong>.</li>
+
+<li>Composites → <strong>Rarest</strong>.</li>
+
+</ul>
+
+</div>
+
+
+
+<h3>Other Biometric Methods</h3>
+
+<table>
+
+<thead>
+<tr>
+<th>Method</th>
+<th>Application</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td><strong>Poroscopy</strong></td>
+<td>Study of sweat pores along fingerprint ridges (Locard).</td>
+</tr>
+
+<tr>
+<td><strong>Podogram</strong></td>
+<td>Footprints; useful for newborn identification.</td>
+</tr>
+
+<tr>
+<td><strong>Palatoscopy</strong></td>
+<td>Study of palatal rugae; resistant to burns and decomposition.</td>
+</tr>
+
+<tr>
+<td><strong>Cheiloscopy</strong></td>
+<td>Study of lip-print patterns.</td>
+</tr>
+
+<tr>
+<td><strong>Retinal / Iris Scan</strong></td>
+<td>Biometric identification using retinal vessels or iris pattern.</td>
+</tr>
+
+</tbody>
+
+</table>
+
+
+<div class="viva-note">
+
+<strong>Frequently Asked Viva Questions</strong>
+
+<ul>
+
+<li>Poroscopy → <strong>Locard</strong>.</li>
+
+<li>Podogram → Identification of newborns.</li>
+
+<li>Palatoscopy → Palatal rugae.</li>
+
+<li>Cheiloscopy → Lip prints.</li>
+
+<li>Retinal pattern may change in <strong>Diabetes Mellitus</strong>.</li>
+
+</ul>
+
+</div>
+
+
+
+<h2>VI. Forensic Odontology & Anthropology</h2>
+
+<h3>Teeth vs Fingerprints</h3>
+
+<table>
+
+<thead>
+<tr>
+<th>Feature</th>
+<th>Teeth</th>
+<th>Fingerprints</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td><strong>Fire</strong></td>
+<td>Highly resistant</td>
+<td>Destroyed by severe burns</td>
+</tr>
+
+<tr>
+<td><strong>Putrefaction</strong></td>
+<td>Highly resistant</td>
+<td>Affected by decomposition</td>
+</tr>
+
+<tr>
+<td><strong>Postmortem Survival</strong></td>
+<td>May remain intact for years</td>
+<td>Require preservation of skin</td>
+</tr>
+
+<tr>
+<td><strong>Identification Method</strong></td>
+<td>Comparison with dental records</td>
+<td>Fingerprint comparison</td>
+</tr>
+
+</tbody>
+
+</table>
+
+
+<div class="highlight-box">
+
+<strong>Bite Mark Analysis</strong>
+
+<ul>
+
+<li>Bite marks are patterned injuries caused by teeth.</li>
+
+<li>Usually appear as abrasions or contusions.</li>
+
+<li>Human bite → <strong>Circular or oval</strong>.</li>
+
+<li>Animal bite → <strong>Narrow U-shaped</strong>.</li>
+
+<li>Can establish:
+<ul>
+<li>Direct physical contact</li>
+<li>Identity of the assailant (when corroborated with other evidence)</li>
+</ul>
+</li>
+
+</ul>
+
+</div>
+
+
+<div class="viva-note">
+
+<strong>Last Minute Revision</strong>
+
+<ul>
+
+<li>Scar forms only after injury reaches the <strong>dermis</strong>.</li>
+
+<li>Loops are the <strong>most common</strong> fingerprint pattern.</li>
+
+<li>Composites are the <strong>least common</strong>.</li>
+
+<li>Fingerprints develop during the <strong>5th month of intrauterine life</strong>.</li>
+
+<li>Poroscopy → Sweat pores.</li>
+
+<li>Palatoscopy → Palatal rugae.</li>
+
+<li>Cheiloscopy → Lip prints.</li>
+
+<li>Podogram → Footprints.</li>
+
+<li>Human bite → Circular/Oval.</li>
+
+</ul>
+
+</div>
+        <h3>Forensic Anthropology Approach to Unknown Skeletal Remains</h3>
+
+<p>Unknown skeletal remains should be examined in a systematic sequence:</p>
+
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Question</th>
+<th>How it is Determined</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td><strong>1</strong></td>
+<td><strong>Bone or Artifact?</strong></td>
+<td>
+<ul>
+<li>Look for nutrient foramina/canals</li>
+<li>Look for muscle attachment markings</li>
+<li>Confirm by histological examination if required</li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td><strong>2</strong></td>
+<td><strong>Human or Animal?</strong></td>
+<td>
+<ul>
+<li>Comparative morphology</li>
+<li>Precipitin test</li>
+<li>DNA analysis</li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td><strong>3</strong></td>
+<td><strong>One Individual or More?</strong></td>
+<td>
+<ul>
+<li>Separate bones by size and morphology</li>
+<li>Look for duplication of bones</li>
+<li>UV fluorescence if required</li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td><strong>4</strong></td>
+<td><strong>Who was the Individual?</strong></td>
+<td>
+<ul>
+<li>Age → Dentition & ossification</li>
+<li>Sex → Pelvis and skull</li>
+<li>Stature → Long bones</li>
+<li>Race (where applicable)</li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td><strong>5</strong></td>
+<td><strong>How and When did Death Occur?</strong></td>
+<td>
+<ul>
+<li>Fractures and injuries</li>
+<li>Weapon marks</li>
+<li>Cause of death</li>
+<li>Time since death</li>
+</ul>
+</td>
+</tr>
+
+</tbody>
+</table>
+
+
+<div class="highlight-box">
+
+<strong>Quick Sequence</strong>
+
+<p style="text-align:center;">
+<strong>
+Bone →
+Human →
+Number →
+Age →
+Sex →
+Stature →
+Cause of Death →
+Time Since Death
+</strong>
+</p>
+
+</div>
+
+
+
+<h2>VII. Forensic DNA Profiling</h2>
+
+<p><strong>DNA profiling</strong> identifies an individual by analysing <strong>Short Tandem Repeats (STRs)</strong>, which are highly variable DNA sequences.</p>
+
+<div class="viva-note">
+
+<strong>Important Principle</strong>
+
+<ul>
+
+<li>DNA can establish <strong>identity, biological relationship, or source of biological material</strong>.</li>
+
+<li>DNA evidence alone <strong>does not prove criminal guilt</strong>; it only links a person to a biological sample.</li>
+
+</ul>
+
+</div>
+
+
+<h3>Common Sources of DNA</h3>
+
+<ul>
+
+<li>Blood</li>
+
+<li>Semen</li>
+
+<li>Saliva</li>
+
+<li>Hair with intact root</li>
+
+<li>Bone</li>
+
+<li>Teeth</li>
+
+<li>Soft tissues</li>
+
+<li>Nails</li>
+
+</ul>
+
+
+<h3>Collection & Preservation of DNA Samples</h3>
+
+<table>
+
+<thead>
+<tr>
+<th>Sample</th>
+<th>Collection & Preservation</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td><strong>Liquid Blood</strong></td>
+<td>
+<ul>
+<li>Absorb on sterile gauze/cotton</li>
+<li>Air-dry completely</li>
+<li>Pack in a paper bag or envelope</li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td><strong>Blood-stained Clothes/Fabrics</strong></td>
+<td>
+<ul>
+<li>Air-dry away from direct sunlight</li>
+<li>Pack each item separately in paper</li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td><strong>Soft Tissue</strong></td>
+<td>
+<ul>
+<li>Collect approximately 100 g</li>
+<li>Store in chilled normal saline surrounded by ice</li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td><strong>Bones & Teeth</strong></td>
+<td>
+<ul>
+<li>Preserve fresh bones in crystal salt</li>
+<li>Send dry long bones (preferably femur)</li>
+<li>Alternatively send 2–3 molar teeth</li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td><strong>Swabs</strong></td>
+<td>
+<ul>
+<li>Allow to air-dry completely</li>
+<li>Store in paper envelopes</li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td><strong>Hair</strong></td>
+<td>
+<ul>
+<li>Collect hairs with intact roots</li>
+<li>Store dry in paper envelopes</li>
+</ul>
+</td>
+</tr>
+
+</tbody>
+
+</table>
+
+
+<div class="viva-note">
+
+<strong>Golden Rules for DNA Preservation</strong>
+
+<ul>
+
+<li>Always air-dry moist samples.</li>
+
+<li>Use <strong>paper</strong>, not plastic, for packaging.</li>
+
+<li>Keep samples cool and dry.</li>
+
+<li>Avoid contamination by using sterile instruments and gloves.</li>
+
+<li>Label every specimen properly and maintain chain of custody.</li>
+
+</ul>
+
+</div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 MONOLITH. Built to persist.</p>
+    </footer>
+
+</body>
+</html>
