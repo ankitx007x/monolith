@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monolith — Legal Procedure & Forensic Medicine</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #e5e5e5;
+            --accent-color: #888888;
+            --border-color: #222222;
+            --hover-color: #ffffff;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-family: var(--font-mono);
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--hover-color);
+        }
+
+        main {
+            max-width: 800px;
+            margin: 80px auto;
+        }
+
+        .page-header {
+            margin-bottom: 60px;
+        }
+
+        .breadcrumb {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--hover-color);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 400;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-family: var(--font-mono);
+            font-size: 1.2rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            color: var(--hover-color);
+            margin: 50px 0 20px 0;
+            border-left: 3px solid var(--accent-color);
+            padding-left: 12px;
+        }
+
+        h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #dddddd;
+            margin: 25px 0 10px 0;
+            text-transform: uppercase;
+            font-family: var(--font-mono);
+            letter-spacing: 0.5px;
+        }
+
+        p {
+            color: #cccccc;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        ul, ol {
+            margin-bottom: 20px;
+            padding-left: 25px;
+            color: #cccccc;
+            font-size: 0.95rem;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        .highlight-box {
+            background-color: #111111;
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: #d4d4d4;
+            margin: 20px 0;
+            line-height: 1.5;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.85rem;
+            text-align: left;
+        }
+
+        th {
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--border-color);
+            padding: 10px;
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid var(--border-color);
+            color: #cccccc;
+            vertical-align: top;
+        }
+
+        tr:hover td {
+            color: var(--hover-color);
+            background-color: #111111;
+        }
+
+        .viva-note {
+            background-color: #161611;
+            border-left: 3px solid #cc9900;
+            padding: 15px;
+            margin: 25px 0;
+            font-size: 0.9rem;
+            color: #e5e5e5;
+        }
+        
+        .viva-note strong {
+            color: #fff;
+            font-family: var(--font-mono);
+        }
+
+        .flow-step {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: #cccccc;
+            background: #111111;
+            padding: 8px 15px;
+            margin: 5px 0;
+            border-radius: 4px;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .flow-arrow {
+            text-align: center;
+            color: var(--accent-color);
+            margin: 4px 0;
+            font-weight: bold;
+        }
+
+        .badge {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--accent-color);
+            border: 1px solid var(--border-color);
+            padding: 2px 6px;
+            border-radius: 3px;
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+
+        .q-item {
+            margin-bottom: 20px;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 15px;
+        }
+
+        .q-title {
+            font-weight: 600;
+            color: #e5e5e5;
+            margin-bottom: 8px;
+        }
+
+        .q-marks {
+            float: right;
+            font-family: var(--font-mono);
+            color: #cc9900;
+            font-size: 0.8rem;
+        }
+
+        textarea, input[type="text"] {
+            width: 100%;
+            background-color: #111111;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            font-family: var(--font-mono);
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 5px;
+            font-size: 0.85rem;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 60px;
+        }
+
+        textarea:focus, input[type="text"]:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        footer {
+            max-width: 800px;
+            margin: 100px auto 40px auto;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Monolith</div>
+        <ul class="nav-links">
+            <li><a href="https://fidelioa.github.io/monolith">Home</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/archives">Archives</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/about">About</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="page-header">
+            <div class="breadcrumb">
+                <a href="https://fidelioa.github.io/monolith/archives">Archives</a> / 
+                <a href="https://fidelioa.github.io/monolith/archives/forensic/index.html">Forensic</a> / Legal Procedure
+            </div>
+            <h1>Forensic Medicine: Legal Procedure</h1>
+            <p style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-color); margin-top: 5px;">Forensic Medicine — Fast Track Clinical Science - MBBS, 3rd Year</p>
+        </section>
+
+        <!-- STUDENT METADATA -->
+        <div class="highlight-box">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                <div>
+                    <label style="font-size: 0.75rem; text-transform: uppercase; color: var(--accent-color);">Student Name</label>
+                    <input type="text" name="student_name" value="Ankit Shah">
+                </div>
+                <div>
+                    <label style="font-size: 0.75rem; text-transform: uppercase; color: var(--accent-color);">Roll No / Batch</label>
+                    <input type="text" name="roll_no" value="MBBS 3rd Year">
+                </div>
+                <div>
+                    <label style="font-size: 0.75rem; text-transform: uppercase; color: var(--accent-color);">Date / Revision</label>
+                    <input type="text" name="rev_date" value="2026">
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 1 -->
+        <h2>Past Examination Questions</h2>
+        
+        <div class="q-item">
+            <span class="q-marks">1+1+2=4 [2073/10]</span>
+            <div class="q-title">1. What is summon? Who is expert witness? How recording of evidence is carried out in the court of law?</div>
+            <textarea name="q1_notes" placeholder="Type notes or answer summary..."></textarea>
+        </div>
+
+        <div class="q-item">
+            <span class="q-marks">4 [2072/10]</span>
+            <div class="q-title">2. Write in brief about the functions of NMC (Nepal Medical Council). Describe the process of giving license to new graduates.</div>
+            <textarea name="q2_notes" placeholder="Type notes or answer summary..."></textarea>
+        </div>
+
+        <div class="q-item">
+            <span class="q-marks">4 [2068/12]</span>
+            <div class="q-title">3. Describe the steps and procedures followed in acquiring the testimony of a doctor as an expert witness in a court.</div>
+            <textarea name="q3_notes" placeholder="Type notes or answer summary..."></textarea>
+        </div>
+
+        <div class="q-item">
+            <span class="q-marks">5 [2068/5]</span>
+            <div class="q-title">4. What are the basic functions of Nepal Medical Council? How is NMC formed according to NMC act?</div>
+            <textarea name="q4_notes" placeholder="Type notes or answer summary..."></textarea>
+        </div>
+
+        <div class="q-item">
+            <span class="q-marks">4 [2065/1]</span>
+            <div class="q-title">5. What is the difference between a common witness and expert witness? Describe how a doctor is examined in court as an expert witness.</div>
+            <textarea name="q5_notes" placeholder="Type notes or answer summary..."></textarea>
+        </div>
+
+        <div class="q-item">
+            <span class="q-marks">4 [2064/8]</span>
+            <div class="q-title">6. Explain what implied and informed consent mean, giving two examples each.</div>
+            <textarea name="q6_notes" placeholder="Type notes or answer summary..."></textarea>
+        </div>
+
+        <div class="q-item">
+            <span class="q-marks">1 [2061]</span>
+            <div class="q-title">7. Write short notes on: a. Function of medico legal system</div>
+            <textarea name="q7_notes" placeholder="Type notes or answer summary..."></textarea>
+        </div>
+
+        <div class="q-item">
+            <span class="q-marks">4 [2060]</span>
+            <div class="q-title">8. Discuss the four basic functions any medico legal system must fulfill if it is to serve the public properly.</div>
+            <textarea name="q8_notes" placeholder="Type notes or answer summary..."></textarea>
+        </div>
+
+        <div class="q-item">
+            <span class="q-marks">10 [2059]</span>
+            <div class="q-title">9. Describe the role of a doctor in the investigation of a scene of crime.</div>
+            <textarea name="q9_notes" placeholder="Type notes or answer summary..."></textarea>
+        </div>
+
+        <div class="q-item">
+            <span class="q-marks">[2055]</span>
+            <div class="q-title">10. Make a comparison of written and verbal consent, implied and informed consent, and common witness and expert witness.</div>
+            <textarea name="q10_notes" placeholder="Type notes or answer summary..."></textarea>
+        </div>
+
+        <div class="q-item">
+            <span class="q-marks">2 [2080]</span>
+            <div class="q-title">11. Write short notes on: a. Evidence</div>
+            <textarea name="q11_notes" placeholder="Type notes or answer summary..."></textarea>
+        </div>
+
+        <!-- SECTION 2 -->
+        <h2>Courts in Nepal</h2>
+        
+        <h3>A. District Court</h3>
+        <ul>
+            <li><strong>Total number:</strong> 77</li>
+            <li><strong>First court:</strong> For all cases (civil / criminal).</li>
+            <li><strong>Jurisdiction:</strong> Within the district boundary.</li>
+            <li><strong>Exception of jurisdiction:</strong> Women trafficking, cases under Civil Aviation Act, and Passport Act.</li>
+            <li>The Chief Justice shall, on recommendation of the Judicial Council, appoint judges of the district courts.</li>
+            <li>A district court shall have the power to originally try and settle all cases under its jurisdiction, to try petitions under law, including petitions of <em>habeas corpus</em> and <em>prohibition</em>, and hear appeals from decisions made by local level judicial bodies formed under state law.</li>
+        </ul>
+
+        <div class="viva-note">
+            <strong>Note:</strong> NMC Acts and Regulations are equivalent to district courts.<br>
+            Contempt of court cases go to high court (i.e., those not attending court cases, any publicly criticised cases).
+        </div>
+
+        <h3>B. High Courts</h3>
+        <ul>
+            <li><strong>Total number:</strong> 1 high court in each state (7 high courts total).</li>
+            <li><strong>Composition:</strong> 1 Chief Judge or a judge of high court.</li>
+            <li><strong>First court for:</strong>
+                <ul>
+                    <li>Contempt of court cases.</li>
+                    <li>Power to originally settle cases, hear appeals, and test judgements referred for confirmation.</li>
+                    <li>Directed by laws.</li>
+                    <li>Prolonged cases where complex legal questions exist.</li>
+                </ul>
+            </li>
+            <li>The Chief Judge shall have the ultimate responsibility to make effective the administration of justice by the high court and subordinate courts/judicial bodies.</li>
+            <li>May issue orders, Writ cases (<em>Habeas corpus, Mandamus, Certiorari, Prohibition, Quo-warranto</em>).</li>
+            <li>Hears cases of appeal from district court of own jurisdiction.</li>
+        </ul>
+
+        <h3>C. Supreme Court</h3>
+        <ul>
+            <li><strong>Court of record</strong> | <strong>Total number:</strong> 1</li>
+            <li><strong>Composition:</strong> Maximum 20 judges + Chief Justice of Nepal.</li>
+            <li><strong>Ordinary jurisdiction:</strong>
+                <ul>
+                    <li>Appeals from high court.</li>
+                    <li>All courts and judicial bodies are under the Supreme Court. Supreme Court shall have the final authority to interpret this constitution and laws.</li>
+                    <li>Inspect, supervise, and give necessary directives to courts, specialized courts, or judicial bodies under its jurisdiction.</li>
+                    <li>Contempt of court cases (own and undercourts).</li>
+                </ul>
+            </li>
+            <li><strong>Extraordinary jurisdiction:</strong>
+                <ul>
+                    <li><strong>Writ applications:</strong> Habeas corpus, Mandamus, Certiorari, Prohibition, Quo-warranto, Injunction.</li>
+                    <li>Hearing to public litigation.</li>
+                    <li>Precedent (<em>Najir</em>) laws made by Supreme Court.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>D. Special Court</h3>
+        <ul>
+            <li>Trial of cases from Commission for Investigation of Abuse of Authority (CIAA).</li>
+            <li>Nepal Army Court.</li>
+        </ul>
+
+        <h3>Legal Writs Definitions</h3>
+        <ul>
+            <li><strong>Writ:</strong> An order issued by a court requiring that something be done or giving authority to do a specified act.</li>
+            <li><strong>Habeas corpus (Bandhi pratyakshikaran):</strong> Order to produce the prisoner at a designated time/place to determine legality of custody.</li>
+            <li><strong>Mandamus (Parmadesh):</strong> Order to an inferior tribunal/individual to perform or refrain from performing a specific act.</li>
+            <li><strong>Certiorari (Uttpreshan):</strong> Order to an inferior court to produce certified records of a case to inspect for errors/irregularities.</li>
+            <li><strong>Prohibition (Pratisedh):</strong> Order stopping something from being done or used.</li>
+            <li><strong>Quo-warranto (Adhikar preksha):</strong> Demanding by what authority or right an entity is taking action.</li>
+            <li><strong>Injunction (Nisedhaagya):</strong> Court order to perform or restrain from performing a particular act.</li>
+        </ul>
+
+        <!-- SECTION 3 -->
+        <h2>Medicolegal System & Inquest</h2>
+        
+        <h3>Functions of Medicolegal System</h3>
+        <ol>
+            <li><strong>To aid in the discovery and prosecution of crime:</strong> Investigation of death, abortion cases, sexual offenses, child abuse, and torture.</li>
+            <li><strong>To protect the innocent:</strong> Protects innocent individuals/doctors (e.g., protecting doctors whose patient died during treatment; protecting alleged assailant of sexual offense who is congenitally malformed).</li>
+            <li><strong>To protect public health:</strong> Study of infectious diseases, environmental conditions, and illicit drug abuse in causation of death. Helps identify mushroom poisoning, chronic arsenic poisoning, etc.</li>
+            <li><strong>To aid in administration of civil justice:</strong> Insurance and compensation claims effectively addressed through studying manner of death or injury.</li>
+        </ol>
+
+        <h3>Inquest Definition & Types</h3>
+        <p><strong>Inquest:</strong> Inquiry into the cause of death, where death has occurred in suspicious circumstances. In Nepal, <strong>Police Inquest</strong> exists.</p>
+        
+        <h3>Types of Inquest</h3>
+        <ul>
+            <li><strong>A. Police Inquest:</strong> Incident of unnatural death (suicide, homicide, accident, neonaticide).</li>
+            <li><strong>B. Magistrate Inquest:</strong> (Not done in Nepal). Done in cases of:
+                <ul>
+                    <li>Death in police custody / interrogation</li>
+                    <li>Death due to police firing</li>
+                    <li>Death in prison / psychiatric hospital</li>
+                    <li>Dowry deaths | Exhumation</li>
+                    <li>Death/disappearance/rape alleged in police custody</li>
+                </ul>
+            </li>
+            <li><strong>C. Coroner's Inquest:</strong> Done in UK, USA, etc. Court of inquiry where jurors swear to give true verdict. Coroner has judicial powers.</li>
+            <li><strong>D. Medical Examiner's Inquest:</strong> Done in USA, Japan, Canada. ME visits crime scene & conducts inquest (no judicial power). Superior because involved from beginning.</li>
+        </ul>
+
+        <h3>Police Inquest Procedure</h3>
+        <div class="flow-step">Unnatural Death Occurs (Suicide, Homicide, etc.)</div>
+        <div class="flow-arrow">&darr;</div>
+        <div class="flow-step">Information sent to Police</div>
+        <div class="flow-arrow">&darr;</div>
+        <div class="flow-step">Police visits & secures scene &rarr; Inquest by Police &rarr; Collects evidence</div>
+        <div class="flow-arrow">&darr;</div>
+        <div class="flow-step">Report to Medical Officer for Autopsy</div>
+        <div class="flow-arrow">&darr;</div>
+        <div class="flow-step">MO gives Autopsy findings/opinion to Police</div>
+        <div class="flow-arrow">&darr;</div>
+        <div class="flow-step">Samples sent to Forensic Science Lab (FSL) (if needed)</div>
+        <div class="flow-arrow">&darr;</div>
+        <div class="flow-step">Report from FSL submitted</div>
+        <div class="flow-arrow">&darr;</div>
+        <div class="flow-step">Report to Government Attorney</div>
+        <div class="flow-arrow">&darr;</div>
+        <div class="flow-step">Govt. Attorney files case in court + suggests further investigation</div>
+        <div class="flow-arrow">&darr;</div>
+        <div class="flow-step">Court Proceedings &rarr; Verdict by Judge</div>
+
+        <div class="viva-note">
+            <strong>Key Personnel in Investigation:</strong> Witness &bull; Technical Helpers (Medical personnel, forensic scientist, fingerprint expert, photographers) &bull; Advocate for accused (Defense lawyer)
+        </div>
+
+        <h3>Problems / Current Situation in Nepal</h3>
+        <ul>
+            <li>No specific agency/institution to investigate human deaths. Investigations carried out by police and doctors at PHCs, district, regional, and zonal hospitals.</li>
+            <li>Law requires autopsies for "unnatural deaths", but no clear explanation of the term.</li>
+            <li>Physical facilities, supplies, minimal equipment, and assistants virtually non-existent.</li>
+            <li>Laboratory services are fragmented and do not approach minimal qualifications.</li>
+        </ul>
+
+        <!-- SECTION 4 -->
+        <h2>Medical Evidence & Court Examination</h2>
+        
+        <h3>Medical Evidence Types <span class="badge">2080</span></h3>
+        <p><strong>Definition:</strong> All statements and documents in relation to matters of fact under inquiry, permitted or required by court.</p>
+        <ul>
+            <li><strong>A. Documentary Evidence:</strong>
+                <ul>
+                    <li><em>Medical Certificates:</em> Ill health, insanity, age, death, physical fitness.</li>
+                    <li><em>Medicolegal Reports:</em> Injury report, torture victim report, sexual assault report, drunkenness report, dying declaration.</li>
+                </ul>
+            </li>
+            <li><strong>B. Oral Evidence:</strong>
+                <ul>
+                    <li><em>Direct:</em> Witness directly experienced fact (e.g., saw defendant shoot victim).</li>
+                    <li><em>Indirect (Circumstantial):</em> Inference required (e.g., saw defendant with gun on that day).</li>
+                </ul>
+            </li>
+            <li><strong>C. Hearsay Evidence:</strong> Obtained from third party (e.g., friend told witness he saw the shooting).</li>
+            <li><strong>D. Prima Facie Evidence:</strong> Apparent nature upon initial observation, presumed true unless disproved (e.g., videotape of death threats).</li>
+        </ul>
+        <div class="viva-note">
+            <strong>Note:</strong> Oral evidence is more important than documentary evidence because it allows cross-examination.
+        </div>
+
+        <h3>Recording Evidence in Court <span class="badge">2073</span></h3>
+        <ul>
+            <li><strong>A. Oath:</strong> "I do swear in the name of god that what I shall state shall be the truth..." (Atheists "solemnly affirm").</li>
+            <li><strong>B. Examination-in-Chief:</strong> First examination by lawyer who summoned witness. Elicits relevant medical facts. Leading questions NOT allowed.</li>
+            <li><strong>C. Cross Examination:</strong> Questioned by opposite party (defense lawyer) to discredit witness. Leading questions ARE permitted. No time limit.</li>
+            <li><strong>D. Re-examination:</strong> Conducted by original lawyer to clarify damaging details. No new matters allowed. Leading questions NOT allowed.</li>
+            <li><strong>E. Question by Judge:</strong> Can be asked at any stage. Deposition signed by witness after reading.</li>
+        </ul>
+
+        <h3>Witness & Subpoena</h3>
+        <ul>
+            <li><strong>Common Witness:</strong> Gives evidence on facts directly observed/perceived by own senses ("First-hand knowledge rule").</li>
+            <li><strong>Expert Witness:</strong> Trained/skilled with specialized knowledge to draw opinions/conclusions from facts (e.g., Doctors, fingerprint experts).</li>
+            <li><strong>Hostile Witness:</strong> Has interest in concealing truth, gives false evidence.</li>
+            <li><strong>Perjury:</strong> Giving false evidence while under oath.</li>
+        </ul>
+        <div class="viva-note">
+            <strong>Medicolegal Role:</strong> A doctor acts as a <strong>common witness</strong> when describing wounds, and as an <strong>expert witness</strong> when giving opinions (e.g., antemortem vs. postmortem, cause of death).
+        </div>
+
+        <h3>Subpoena / Summons <span class="badge">2073</span></h3>
+        <p>Document compelling attendance of witness in court under penalty on a specified date/time/place.</p>
+        <ul>
+            <li><strong>Failure to attend:</strong>
+                <ul>
+                    <li><em>Civil case:</em> Liable to pay damages.</li>
+                    <li><em>Criminal case:</em> Court may issue fine, imprisonment, or bailable/non-bailable warrants.</li>
+                </ul>
+            </li>
+            <li><strong>Conflicting Summons:</strong> Criminal court &gt; Civil court; Higher court &gt; Lower court; First received &gt; Later received.</li>
+        </ul>
+
+        <h3>Conduct Money</h3>
+        <p>Fee paid in civil cases at time of serving summons for expenses. In criminal cases, no fee is paid in advance, but conveyance/daily allowance can be claimed per govt rules.</p>
+
+        <!-- SECTION 5 -->
+        <h2>Dying Declaration, Deposition & Nepal Medical Council (NMC)</h2>
+        
+        <h3>Dying Declaration vs. Dying Deposition</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Traits</th>
+                    <th>Dying Declaration</th>
+                    <th>Dying Deposition</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Recorded by</strong></td>
+                    <td>Magistrate or Doctor</td>
+                    <td>Magistrate</td>
+                </tr>
+                <tr>
+                    <td><strong>Oath</strong></td>
+                    <td>Not necessary</td>
+                    <td>Necessary</td>
+                </tr>
+                <tr>
+                    <td><strong>Presence of Accused/Lawyer</strong></td>
+                    <td>Not necessary</td>
+                    <td>Necessary</td>
+                </tr>
+                <tr>
+                    <td><strong>Legal Value if Victim Survives</strong></td>
+                    <td>Does not retain value (needs oral testimony)</td>
+                    <td>Retains value</td>
+                </tr>
+                <tr>
+                    <td><strong>Cross-examination</strong></td>
+                    <td>Not allowed</td>
+                    <td>Allowed</td>
+                </tr>
+                <tr>
+                    <td><strong>Superiority</strong></td>
+                    <td>Inferior</td>
+                    <td>Superior</td>
+                </tr>
+                <tr>
+                    <td><strong>Witnesses</strong></td>
+                    <td>2 witnesses required</td>
+                    <td>No witness required</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Chain of Custody</h3>
+        <p>Method to verify actual possession of object from identification to court evidence. Proper labeling, signatures, and receipts required. Shorter chain is better.</p>
+
+        <h3>Nepal Medical Council Act, 2020 (1964)</h3>
+        <p><strong>Amending Acts:</strong> 2044 (1987), 2047 (1990), 2055 (1999), 2058 (2001).</p>
+        <p><strong>Composition of NMC (Total 20 Members, 4-yr tenure):</strong></p>
+        <ul>
+            <li><strong>Chairman:</strong> Nominated by Govt (min. 20 yrs exp, Master's degree).</li>
+            <li><strong>Vice-Chairman:</strong> Registered doctor with min. 15 yrs exp.</li>
+            <li><strong>Members (17 total):</strong>
+                <ul>
+                    <li>1 Dean/Rector of medical college</li>
+                    <li>1 Consumer representative</li>
+                    <li>8 Elected registered doctors</li>
+                    <li>Chairman of NMA & Chairman of Nepal Dental Doctor Association</li>
+                    <li>2 Dental doctors (Master's degree)</li>
+                    <li>3 Medical doctors (Master's degree)</li>
+                </ul>
+            </li>
+            <li><strong>Registrar:</strong> Nominated by Govt of Nepal.</li>
+        </ul>
+
+        <h3>Functions of NMC <span class="badge">2072, 2068</span></h3>
+        <ul>
+            <li>Determine qualifications, conduct licensing exams (NMCLE), grant registration certificates, maintain register.</li>
+            <li>Recognize medical institutions and training programs.</li>
+            <li>Formulate curriculum, admission, and exam policies.</li>
+            <li>Establish Code of Conduct & ethical guidelines.</li>
+            <li><strong>Disciplinary actions:</strong> Warning, Probation, Suspension of registration, Permanent removal ("Professional Death Sentence").</li>
+        </ul>
+
+        <h3>NMC Examination & Registration Process</h3>
+        <ul>
+            <li><strong>NMCLE:</strong> Held 3 times/year. Requires min. 6 months internship. 180 MCQ questions (50% pass mark).</li>
+            <li><strong>Provisional:</strong> For interns.</li>
+            <li><strong>Temporary:</strong> Valid 2 years post-exam.</li>
+            <li><strong>Permanent:</strong> Granted after 2 years experience.</li>
+            <li><strong>Specialist & Foreign National Registrations:</strong> Separate categories.</li>
+        </ul>
+
+        <h3>NMC Code of Ethics Declaration (Summary)</h3>
+        <div class="highlight-box">
+            "I solemnly pledge myself to dedicate my life to the service of humanity... maintain utmost respect for human life right from conception... health of my patient will be my first consideration..."
+        </div>
+
+        <h3>Revision & Study Notes</h3>
+        <textarea name="general_notes" style="min-height: 100px;" placeholder="Add personal study notes, key mnemonics, or exam tips..."></textarea>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 MONOLITH. Built to persist.</p>
+    </footer>
+
+</body>
+</html>
