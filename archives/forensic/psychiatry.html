@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monolith — Forensic Psychiatry</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #e5e5e5;
+            --accent-color: #888888;
+            --border-color: #222222;
+            --hover-color: #ffffff;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-family: var(--font-mono);
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--hover-color);
+        }
+
+        main {
+            max-width: 800px;
+            margin: 80px auto;
+        }
+
+        .page-header {
+            margin-bottom: 60px;
+        }
+
+        .breadcrumb {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--hover-color);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 400;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-family: var(--font-mono);
+            font-size: 1.2rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            color: var(--hover-color);
+            margin: 50px 0 20px 0;
+            border-left: 3px solid var(--accent-color);
+            padding-left: 12px;
+        }
+
+        h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #dddddd;
+            margin: 25px 0 10px 0;
+            text-transform: uppercase;
+            font-family: var(--font-mono);
+            letter-spacing: 0.5px;
+        }
+
+        h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #cccccc;
+            margin: 15px 0 8px 0;
+            font-family: var(--font-mono);
+        }
+
+        p {
+            color: #cccccc;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        ul, ol {
+            margin-bottom: 20px;
+            padding-left: 25px;
+            color: #cccccc;
+            font-size: 0.95rem;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        .highlight-box {
+            background-color: #111111;
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: #d4d4d4;
+            margin: 20px 0;
+            line-height: 1.5;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.85rem;
+            text-align: left;
+        }
+
+        th {
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--border-color);
+            padding: 10px;
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid var(--border-color);
+            color: #cccccc;
+            vertical-align: top;
+        }
+
+        tr:hover td {
+            color: var(--hover-color);
+            background-color: #111111;
+        }
+
+        .viva-note {
+            background-color: #161611;
+            border-left: 3px solid #cc9900;
+            padding: 15px;
+            margin: 25px 0;
+            font-size: 0.9rem;
+            color: #e5e5e5;
+        }
+        
+        .viva-note strong {
+            color: #fff;
+            font-family: var(--font-mono);
+        }
+
+        .question-list {
+            list-style-type: decimal;
+            padding-left: 20px;
+        }
+
+        .question-list li {
+            margin-bottom: 12px;
+            color: #cccccc;
+        }
+
+        .year-tag {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-left: 8px;
+        }
+
+        footer {
+            max-width: 800px;
+            margin: 100px auto 40px auto;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Monolith</div>
+        <ul class="nav-links">
+            <li><a href="https://fidelioa.github.io/monolith">Home</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/archives">Archives</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/about">About</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="page-header">
+            <div class="breadcrumb">
+                <a href="https://fidelioa.github.io/monolith/archives">Archives</a> / 
+                <a href="https://fidelioa.github.io/monolith/archives/forensic/index.html">Forensic</a> / Psychiatry
+            </div>
+            <h1>Forensic Psychiatry</h1>
+            <p style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-color); margin-top: 5px;">Forensic Medicine — Fast Track Clinical Science - MBBS, 3rd Year (p. 399–406)</p>
+        </section>
+
+        <!-- PAST QUESTIONS -->
+        <h2>Past Questions</h2>
+        <ol class="question-list">
+            <li>Write short notes on: Mc Naughten Rule <span class="year-tag">(2073/10)</span></li>
+            <li>Define and give circumstances: Irresistible impulse test <span class="year-tag">(2072/10)</span></li>
+            <li>What is the difference between an illusion and a delusion? <span class="year-tag">(2062/7)</span></li>
+            <li>Enumerate the steps in examination of feigned insanity <span class="year-tag">(2054)</span></li>
+            <li>List the features of feigned insanity <span class="year-tag">(2052)</span></li>
+            <li>Bite Marks <span class="year-tag">(2062)</span></li>
+        </ol>
+
+        <!-- TERMINOLOGY & INTRO -->
+        <h2>General Terminology</h2>
+        <ul>
+            <li><strong>Psychiatry:</strong> It deals with study, diagnosis and treatment of mental illness.</li>
+            <li><strong>Forensic Psychiatry:</strong> Deals with application of psychiatry in the administration of justice.</li>
+            <li><strong>Insanity / Unsoundness of Mind / Lunacy / Mental Derangement / Mental Disorder:</strong> It can be defined as the disease of the mind or the personality, in which there is derangement of the mental or emotional process and impairment of behavior control.</li>
+            <li><strong>Mentally Ill Person:</strong> Any person who is in need of treatment by reason of any mental disorder other than mental retardation.</li>
+        </ul>
+
+        <!-- EXAMINATION OF ALLEGED INSANE PERSON -->
+        <h2>Steps in Examination of an Alleged Insane Person / Examination of Feigned Insanity</h2>
+        <p><em>(Past Question 2054)</em></p>
+        
+        <ol>
+            <li><strong>Identifying Data:</strong> Note name, age, sex, address, etc.</li>
+            <li><strong>Presenting Complaints & History of Presenting Illness</strong></li>
+            <li><strong>Past Psychiatric and Treatment History</strong></li>
+            <li><strong>Family History:</strong> Mental condition of patient's parents and siblings</li>
+            <li><strong>Personal History:</strong>
+                <ul>
+                    <li>Childhood environment, over protection, strictness, inferiority complex, discrimination, rejection</li>
+                    <li>Psychogenic factors: Repression, Emotional conflict, Anxiety</li>
+                    <li>Organic disease: Head injury, Cerebrovascular Accident</li>
+                    <li>Drug dependence: Opium, Alcohol</li>
+                    <li>Domestic difficulties</li>
+                    <li>Emotional Shock</li>
+                    <li>Frustration in life, love, sex, etc.</li>
+                </ul>
+            </li>
+            <li><strong>Physical Examination:</strong>
+                <ul>
+                    <li>General appearance and behavior</li>
+                    <li>Manner of dressing, walking</li>
+                    <li>Deformities in head or body</li>
+                    <li>Pulse rate and body temperature</li>
+                    <li>Tongue may be furred</li>
+                    <li>Skin may be dry and wrinkled</li>
+                </ul>
+            </li>
+            <li><strong>Mental Condition:</strong>
+                <ul>
+                    <li>General appearance</li>
+                    <li>Speech</li>
+                    <li>Writing</li>
+                    <li>Behavior</li>
+                    <li>Mood</li>
+                    <li>Sleep</li>
+                    <li>Cognition (assessed under: Consciousness, Orientation, Attention, Concentration, Memory, Intelligence, Abstract Thinking)</li>
+                </ul>
+            </li>
+            <li><strong>Biological Investigation:</strong>
+                <ul>
+                    <li>Medical screen</li>
+                    <li>Toxicology screen</li>
+                    <li>Drug levels</li>
+                    <li>EEG</li>
+                    <li>MRI</li>
+                    <li>Neuroendocrine tests</li>
+                    <li>Biochemical tests</li>
+                    <li>Sexual disorder investigations</li>
+                </ul>
+            </li>
+        </ol>
+
+        <!-- FEIGNED INSANITY -->
+        <h2>Feigned Insanity</h2>
+        <p>It is a condition where a person with some motive pretends to be insane. Mental illness may be feigned by criminals to evade sentence of death or long terms of imprisonment, by soldiers and policeman to leave the service, and by businessmen to avoid contracts.</p>
+
+        <h3>Difference Between True and Feigned Insanity</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Features</th>
+                    <th>True Insanity</th>
+                    <th>Feigned Insanity</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>1. Onset</strong></td>
+                    <td>Gradual</td>
+                    <td>Sudden</td>
+                </tr>
+                <tr>
+                    <td><strong>2. Motive</strong></td>
+                    <td>Absent</td>
+                    <td>Present (commission of crime)</td>
+                </tr>
+                <tr>
+                    <td><strong>3. Predisposing Factors</strong></td>
+                    <td>Usually present like history of insanity in parents</td>
+                    <td>Absent</td>
+                </tr>
+                <tr>
+                    <td><strong>4. Sign and Symptom</strong></td>
+                    <td>Uniform and present specific to some type of insanity</td>
+                    <td>No such relation</td>
+                </tr>
+                <tr>
+                    <td><strong>5. Activity</strong></td>
+                    <td>Activity careless, present whether the patient is being observed or not</td>
+                    <td>Present only when conscious of being observed; variable and always exaggerated</td>
+                </tr>
+                <tr>
+                    <td><strong>6. Mood</strong></td>
+                    <td>Excited, depressed or fluctuating</td>
+                    <td>May overact to show abnormality in mood</td>
+                </tr>
+                <tr>
+                    <td><strong>7. Facial Expression</strong></td>
+                    <td>Peculiar e.g. vacant look</td>
+                    <td>No peculiarity</td>
+                </tr>
+                <tr>
+                    <td><strong>8. Insomnia</strong></td>
+                    <td>Present</td>
+                    <td>Absent</td>
+                </tr>
+                <tr>
+                    <td><strong>9. Exertion</strong></td>
+                    <td>Patient can withstand exertion, hunger, and sleep deprivation for several days</td>
+                    <td>Cannot withstand exertion for more than a few days</td>
+                </tr>
+                <tr>
+                    <td><strong>10. Habit</strong></td>
+                    <td>Dirty and filthy</td>
+                    <td>Not dirty and filthy</td>
+                </tr>
+                <tr>
+                    <td><strong>11. Skin and Lips</strong></td>
+                    <td>Dry, harsh</td>
+                    <td>Normal</td>
+                </tr>
+                <tr>
+                    <td><strong>12. Frequent Examination</strong></td>
+                    <td>Does not mind</td>
+                    <td>Resents for fear of detection</td>
+                </tr>
+                <tr>
+                    <td><strong>13. Appetite</strong></td>
+                    <td>Lost</td>
+                    <td>Present</td>
+                </tr>
+                <tr>
+                    <td><strong>14. Tongue</strong></td>
+                    <td>Dry and furred</td>
+                    <td>Normal, moist</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- PSYCHOSIS VS NEUROSIS -->
+        <h2>Difference Between Psychosis and Neurosis</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Features</th>
+                    <th>Psychosis</th>
+                    <th>Neurosis</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>1. Contact with Reality</strong></td>
+                    <td>Loss (main feature separating the two)</td>
+                    <td>Preserved</td>
+                </tr>
+                <tr>
+                    <td><strong>2. Empathy</strong></td>
+                    <td>Absent</td>
+                    <td>Present</td>
+                </tr>
+                <tr>
+                    <td><strong>3. Insight</strong></td>
+                    <td>Absent</td>
+                    <td>Intact</td>
+                </tr>
+                <tr>
+                    <td><strong>4. Organic Causative Factor</strong></td>
+                    <td>Present</td>
+                    <td>Absent</td>
+                </tr>
+                <tr>
+                    <td><strong>5. Symptoms</strong></td>
+                    <td>Delusion, illusion and hallucination</td>
+                    <td>Usually physical or psychic symptoms</td>
+                </tr>
+                <tr>
+                    <td><strong>6. Example</strong></td>
+                    <td>Schizophrenia</td>
+                    <td>Anxiety, phobia, OCD, Impulse control disorder</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- RESTRAINT OF THE INSANE -->
+        <h2>Restraint of the Insane</h2>
+        <p>A mentally ill person needs to be restrained for his own safety and/or for safety of others. If the lawful guardian of such a patient is unable to keep him under control for any reason, or if there is no guardian at all, the state is legally justified to take charge of such a person and put him under restraint.</p>
+
+        <h3>I. Immediate Restraint</h3>
+        <p>Done in case of:</p>
+        <ul>
+            <li>An insane person who is dangerous to himself or to others, or likely to injure or wastefully spend his property or that of others.</li>
+            <li>Person suffering from delirium due to disease.</li>
+            <li>Delirium tremens.</li>
+        </ul>
+        <p>It is done under the personal care of attendants, e.g. by safely locking up in a room. The consent of the lawful guardian of the insane person has to be taken, but if there is no time for consent and the person is dangerous, he can be immediately restrained.</p>
+
+        <h3>II. Admission in Psychiatric Hospital / Asylum</h3>
+        <p>The following procedures are adapted:</p>
+        <ol type="a">
+            <li>Admission on voluntary basis</li>
+            <li>Admission under special circumstances</li>
+            <li>Reception order on application (officer in charge of psychiatric hospital makes application to magistrate)</li>
+            <li>Reception order on production of mentally ill person before magistrate</li>
+            <li>Admission after judicial inquisition</li>
+            <li>Admission of mentally ill prisoner</li>
+            <li>Admission of an escaped mentally ill person</li>
+        </ol>
+
+        <!-- MENTAL DISORDER & RESPONSIBILITY -->
+        <h2>Mental Disorder and Responsibility</h2>
+        <p>Responsibility in the legal sense means the liability of a person for his act or omission and, if these are against the law, the liability to be punished for them. The law presumes that every person is mentally sound until the opposite is proved.</p>
+
+        <h3>Civil Responsibility</h3>
+        <ol type="i">
+            <li><strong>Management of Property:</strong> Court may appoint a guardian/manager or order the sale of property to pay debts and expenses.</li>
+            <li><strong>Contract:</strong> A contract is invalid if one party was mentally ill and incapable of understanding its nature at the time of making it. However, the person is liable for contracts made during a <em>lucid interval</em>.</li>
+            <li><strong>Marriage and Divorce:</strong> Marriage can be declared null if either party was incapable of valid consent due to mental illness, unfit for marriage/procreation, or suffering from recurrent attacks of unsoundness of mind/epilepsy.</li>
+            <li><strong>Competency as a Witness:</strong> A mentally ill person is incompetent if unable to understand questions or give rational answers. Competent during a lucid interval.</li>
+            <li><strong>Validity of Consent:</strong> Consent to sexual intercourse or hurt is invalid if given by a person who, from unsoundness of mind, cannot understand the nature and consequences.</li>
+            <li><strong>Testamentary Capacity:</strong> The mental ability to make a valid will.
+                <ul>
+                    <li>Testator must be a major and of sound disposing mind at the time of making the will.</li>
+                    <li>No force or undue influence applied.</li>
+                </ul>
+            </li>
+        </ol>
+
+        <div class="viva-note">
+            <strong>Medicolegal Importance of Wills:</strong>
+            <ul>
+                <li>A person with an insane delusion can make a valid will if the delusion is unrelated to the property or beneficiary.</li>
+                <li>Valid wills can be made during a <strong>lucid interval</strong>.</li>
+                <li>A will remains valid if the testator commits suicide shortly after making it (without other proof of mental disorder).</li>
+                <li>Persons with aphasia, agraphia, alexia, or blindness can make valid wills if they can use clear gestures and comprehend questions.</li>
+                <li>Wills made in <em>extremis</em> (at point of death) or during delirium are regarded with suspicion or considered invalid.</li>
+                <li><strong>Holographic Will:</strong> A will written entirely by the testator in their own handwriting.</li>
+            </ul>
+        </div>
+
+        <h3>Criminal Responsibility</h3>
+        <p>A person may plead insanity to avoid:</p>
+        <ul>
+            <li><strong>Conviction:</strong> If insane when the crime was committed.</li>
+            <li><strong>Trial:</strong> When insane and unable to plead.</li>
+            <li><strong>Capital Punishment:</strong> When a condemned prisoner becomes insane.</li>
+        </ul>
+        <p>If insanity is proved, the person is found "not guilty" and ordered to be kept in a psychiatric hospital. The law requires both <strong>Actus Reus</strong> (physical act) and <strong>Mens Rea</strong> (guilty mind/criminal intent) for a crime to be complete.</p>
+
+        <!-- TESTS FOR CRIMINAL RESPONSIBILITY -->
+        <h2>Tests for Detecting Criminal Responsibility</h2>
+
+        <h3>1. Mc Naughten Rule <span class="year-tag">(2073)</span></h3>
+        <p>Also called the <strong>right or wrong test</strong> or legal test.</p>
+
+        <div class="highlight-box">
+            "An accused person is not legally responsible, if it is clearly proved, that at the time of committing the crime, he was suffering from such a defect of reason from abnormality of mind, that he did not know the nature and quality of act he was doing, or that what he was doing was wrong."
+        </div>
+
+        <p><strong>Requirements for exclusion of criminal responsibility:</strong></p>
+        <ul>
+            <li>Evidence of mental disease.</li>
+            <li>Mental disease or defect must exist <em>at the time</em> of commission of crime.</li>
+            <li>Degree of illness makes the person unable to understand that the act is wrong and/or contrary to law.</li>
+            <li>Direct causative relationship between the mental abnormality and the offense.</li>
+        </ul>
+
+        <h3>2. Irresistible Impulse Test <span class="year-tag">(2072)</span></h3>
+        <p>Also known as the <em>New Hampshire Doctrine</em>.</p>
+
+        <div class="highlight-box">
+            "An accused person is not criminally responsible even if he knows the nature and quality of his act and knows that it is wrong, if he is incapable of restraining himself from committing the act, because the free agency of his will has been destroyed by mental disease."
+        </div>
+        <p>This test is never relied on as the sole test but is combined with the "right or wrong" test.</p>
+
+        <h3>3. Other Rules</h3>
+        <ul>
+            <li><strong>Durham's Rule:</strong> Not criminally responsible if the unlawful act is the product of mental disease or defect.</li>
+            <li><strong>Curren's Rule:</strong> Not responsible if the person lacked capacity to regulate conduct to legal requirements due to mental disease.</li>
+            <li><strong>American Law Institute Test / Brawner Rule</strong></li>
+        </ul>
+
+        <!-- SPECIAL PSYCHIATRIC CONDITIONS -->
+        <h2>Special Conditions & Related Terms</h2>
+
+        <h3>Somnambulism (Sleep Walking)</h3>
+        <p>A condition where a person walks during sleep in a state of dissociated consciousness and performs automatic acts without memory of it the next day. The act remains limited to sleeping hours, and the person has no mental abnormality when awake. Not criminally responsible for acts done in a fit of somnambulistic automatism.</p>
+
+        <h3>Somnolentia / Semi-Somnolence (Sleep Drunkenness)</h3>
+        <p>A state of mind midway between sleep and waking. When aroused suddenly, the person may act violently or commit crimes without awareness. Not responsible for criminal acts performed in this state.</p>
+
+        <h3>Automatism</h3>
+        <p>Behavior performed by a person whose consciousness is impaired to such an extent that they are not fully aware of their actions.</p>
+
+        <h3>Delirium</h3>
+        <p>Disturbance of Consciousness, Orientation, Memory, and Abstract Thinking. Orientation is impaired, critical faculty is blunted/lost, and thoughts are irrelevant/inconsistent. A delirious person is not legally responsible for criminal acts committed due to delusions and hallucinations during delirium.</p>
+
+        <h3>Aphasia</h3>
+        <p>Loss of ability to express meaning by speech/writing or to understand language.</p>
+        <ul>
+            <li><strong>Motor Aphasia:</strong> Unable to express speech or writing.</li>
+            <li><strong>Sensory / Auditory Aphasia:</strong> Unable to understand spoken or written language.</li>
+        </ul>
+
+        <!-- DELUSION & ILLUSION -->
+        <h2>Delusion vs. Illusion</h2>
+        <p><em>(Past Question 2062)</em></p>
+
+        <h3>Delusion (Disorder of Thought)</h3>
+        <p>A false, unshakeable belief in something which is not a fact and which persists even after its falsity has been clearly demonstrated. Secondary delusions arise from morbid experiences, under the control of emotional rather than rational forces.</p>
+
+        <p><strong>Types of Delusions:</strong></p>
+        <ul>
+            <li><strong>Grandeur / Exaltation:</strong> Exalted feelings of greatness, power, wealth, or godhood.</li>
+            <li><strong>Persecution (Paranoid):</strong> Belief that attempts are being made to harm, rob, or kill them.</li>
+            <li><strong>Reference:</strong> Belief that strangers, media, or agencies are referring to them.</li>
+            <li><strong>Influence:</strong> Belief that thoughts/actions are controlled by outside energy (e.g., radio, hypnotism). Seen in schizophrenia.</li>
+            <li><strong>Infidelity:</strong> Unfounded belief that spouse is unfaithful.</li>
+            <li><strong>Self-Reproach:</strong> Blaming oneself for minor past misdeeds.</li>
+            <li><strong>Nihilistic:</strong> Belief that oneself or earthly matters do not exist.</li>
+            <li><strong>Hypochondriacal:</strong> Belief in bodily disease despite good health.</li>
+            <li><strong>Erotomania (Clérambault's Syndrome):</strong> Belief that someone is deeply in love with them.</li>
+            <li><strong>Doppelgänger (Delusion of Double):</strong> Belief that another person has physically transformed into themselves.</li>
+        </ul>
+
+        <h3>Illusion (Disorder of Perception)</h3>
+        <p>A false interpretation by the senses of an external object or stimulus which has a real existence (e.g., mistaking water for milk, or a rope for a snake). Feature of psychoses, mainly organic psychoses.</p>
+
+        <h3>Comparison Table</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Delusion</th>
+                    <th>Illusion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Fixed, false belief that cannot be corrected by logic.</td>
+                    <td>Misperception of a real external stimulus.</td>
+                </tr>
+                <tr>
+                    <td>Thought disturbance.</td>
+                    <td>Perceptual disturbance.</td>
+                </tr>
+                <tr>
+                    <td>No external stimulus needed.</td>
+                    <td>Requires an external stimulus.</td>
+                </tr>
+                <tr>
+                    <td>More difficult to fix.</td>
+                    <td>Easier to correct after scrutiny.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- HALLUCINATION & IMPULSE -->
+        <h2>Hallucination & Impulses</h2>
+
+        <h3>Hallucination</h3>
+        <p>A false perception in the absence of any real external object or stimulus. (If not as clear as normal perception, termed <em>pseudohallucination</em>).</p>
+
+        <p><strong>Types of Hallucination:</strong></p>
+        <ul>
+            <li><strong>Visual:</strong> Seeing non-existent objects/animals. Common in organic mental disorders, delirium tremens, schizophrenia.</li>
+            <li><strong>Auditory:</strong> Hearing non-existent voices (most common type). Can be <em>commenting</em> or <em>commanding</em>. Common in schizophrenia, delirium, mood disorders.</li>
+            <li><strong>Olfactory:</strong> False perception of smell. Seen in major depression, organic brain disorders.</li>
+            <li><strong>Tactile:</strong> False perception of touch/crawling insects (e.g. <em>Magnan's syndrome</em> in chronic cocaine poisoning).</li>
+            <li><strong>Gustatory:</strong> False perception of taste. Seen in temporal lobe epilepsy, organic brain disorders.</li>
+            <li><strong>Psychomotor:</strong> False feeling of body part movement.</li>
+            <li><strong>Lilliputian (Micropsia):</strong> Visual perception that objects/people are reduced in size. Seen in alcoholic delirium tremens.</li>
+        </ul>
+
+        <h3>Impulse</h3>
+        <p>Sudden, irresistible force compelling a person to perform an act without motive or forethought.</p>
+        <ul>
+            <li><strong>Kleptomania:</strong> Compulsive urge to steal items of little value.</li>
+            <li><strong>Pyromania:</strong> Compulsive urge to set fire.</li>
+            <li><strong>Mutilomania:</strong> Compulsive urge to mutilate animals.</li>
+            <li><strong>Dipsomania:</strong> Compulsive periodic urge for alcoholic drinks.</li>
+            <li><strong>Sexual Impulses:</strong> Compulsive perverted sexual urges.</li>
+            <li><strong>Oniomania:</strong> Compulsive desire to shop.</li>
+            <li><strong>Trichotillomania:</strong> Recurrent impulse to pull out hair.</li>
+            <li><strong>Suicidal / Homicidal Impulses</strong></li>
+        </ul>
+
+        <h3>Obsession</h3>
+        <p>A single idea or emotion constantly entertained by a person, recognized as irrational, but persisting despite efforts to drive it out.</p>
+
+        <!-- LUCID INTERVAL -->
+        <h2>Lucid Interval</h2>
+
+        <div class="viva-note">
+            <strong>Definition:</strong> A period in insanity during which all signs and symptoms disappear and behavior returns to normal. The individual can judge acts soundly and becomes legally liable.
+        </div>
+
+        <p>Seen in: <strong>Mania, Melancholia, Head injuries (Extradural Hemorrhage)</strong>.</p>
+
+        <h3>Difference Between Lucid Interval in Insanity and Head Injury</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Features</th>
+                    <th>Insanity</th>
+                    <th>Head Injury</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>1. History</strong></td>
+                    <td>History of insanity present</td>
+                    <td>History of head injury present</td>
+                </tr>
+                <tr>
+                    <td><strong>2. Preceding Symptom</strong></td>
+                    <td>Insanity-related symptoms</td>
+                    <td>Concussion</td>
+                </tr>
+                <tr>
+                    <td><strong>3. Following Symptom</strong></td>
+                    <td>Insanity-related symptoms</td>
+                    <td>Cerebral compression</td>
+                </tr>
+                <tr>
+                    <td><strong>4. Occurrence</strong></td>
+                    <td>Repeated</td>
+                    <td>Occurs once</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- ROLE OF FORENSIC PSYCHIATRIST -->
+        <h2>Role of Forensic Psychiatrist & Assessment</h2>
+
+        <h3>Criminal Cases</h3>
+        <ul>
+            <li>Assessing fitness to stand trial and plead defense.</li>
+            <li>Evaluating defense pleas based on mental illness at time of offense.</li>
+            <li>Evaluating insanity pleas post-conviction to defer execution or transfer to an asylum.</li>
+            <li>Investigating suicide or abetment of suicide linked to mental illness.</li>
+            <li>Evaluating fraud or breach of trust committed against mentally ill individuals.</li>
+        </ul>
+
+        <h3>Civil Cases</h3>
+        <ul>
+            <li>Assessing validity of consent given by mentally ill individuals.</li>
+            <li>Evaluating competency as a witness.</li>
+            <li>Handling dissolution/continuance of business contracts or nullity of marriage/divorce.</li>
+            <li>Child custody determinations involving mentally ill parents.</li>
+            <li>Determining testamentary capacity to make a valid will.</li>
+        </ul>
+
+        <h3>Psychiatric Assessment Steps</h3>
+        <ol>
+            <li>Identification data</li>
+            <li>History (Chief complaint, HPI, Past psychiatric/medical/surgical history, Personal history)</li>
+            <li>Physical Examination (General physical and systemic examination)</li>
+            <li>Mental Status Examination (MSE):
+                <ul>
+                    <li>General appearance and behavior</li>
+                    <li>Speech</li>
+                    <li>Affect and mood</li>
+                    <li>Thought</li>
+                    <li>Perception</li>
+                    <li>Cognition / Higher mental functions (Consciousness, Orientation, Attention, Concentration, Memory, Intelligence, Abstract thinking)</li>
+                    <li>Insight</li>
+                    <li>Judgment</li>
+                </ul>
+            </li>
+        </ol>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 MONOLITH. Built to persist.</p>
+    </footer>
+
+</body>
+</html>
