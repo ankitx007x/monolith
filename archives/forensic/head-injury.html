@@ -1,0 +1,1729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monolith — Head Injury (Forensic Medicine)</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #e5e5e5;
+            --accent-color: #888888;
+            --border-color: #222222;
+            --hover-color: #ffffff;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-family: var(--font-mono);
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--hover-color);
+        }
+
+        main {
+            max-width: 800px;
+            margin: 80px auto;
+        }
+
+        .page-header {
+            margin-bottom: 60px;
+        }
+
+        .breadcrumb {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--hover-color);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 400;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-family: var(--font-mono);
+            font-size: 1.2rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            color: var(--hover-color);
+            margin: 50px 0 20px 0;
+            border-left: 3px solid var(--accent-color);
+            padding-left: 12px;
+        }
+
+        h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #dddddd;
+            margin: 25px 0 10px 0;
+            text-transform: uppercase;
+            font-family: var(--font-mono);
+            letter-spacing: 0.5px;
+        }
+
+        h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #cccccc;
+            margin: 15px 0 8px 0;
+        }
+
+        p {
+            color: #cccccc;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        ul, ol {
+            margin-bottom: 20px;
+            padding-left: 25px;
+            color: #cccccc;
+            font-size: 0.95rem;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        .highlight-box {
+            background-color: #111111;
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: #d4d4d4;
+            margin: 20px 0;
+            line-height: 1.5;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.85rem;
+            text-align: left;
+        }
+
+        th {
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--border-color);
+            padding: 10px;
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid var(--border-color);
+            color: #cccccc;
+            vertical-align: top;
+        }
+
+        tr:hover td {
+            color: var(--hover-color);
+            background-color: #111111;
+        }
+
+        .viva-note {
+            background-color: #161611;
+            border-left: 3px solid #cc9900;
+            padding: 15px;
+            margin: 25px 0;
+            font-size: 0.9rem;
+            color: #e5e5e5;
+        }
+        
+        .viva-note strong {
+            color: #fff;
+            font-family: var(--font-mono);
+        }
+
+        .question-list {
+            list-style-type: decimal;
+            padding-left: 20px;
+        }
+
+        .question-list li {
+            margin-bottom: 12px;
+            color: #cccccc;
+        }
+
+        .year-tag {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-left: 8px;
+        }
+
+        .diagram-container {
+            background: #111111;
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            margin: 25px 0;
+            text-align: center;
+            border-radius: 4px;
+        }
+
+        .diagram-container svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .diagram-title {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            margin-top: 10px;
+            text-transform: uppercase;
+        }
+
+        footer {
+            max-width: 800px;
+            margin: 100px auto 40px auto;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Monolith</div>
+        <ul class="nav-links">
+            <li><a href="https://fidelioa.github.io/monolith">Home</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/archives">Archives</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/about">About</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="page-header">
+            <div class="breadcrumb">
+                <a href="https://fidelioa.github.io/monolith/archives">Archives</a> / 
+                <a href="https://fidelioa.github.io/monolith/archives/forensic/index.html">Forensic</a> / Head Injury
+            </div>
+            <h1>Head Injuries</h1>
+            <p style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-color); margin-top: 5px;">Forensic Medicine — Fast Track Clinical Science - MBBS, 3rd Year (pp. 437–442)</p>
+        </section>
+
+        <!-- PAST QUESTIONS -->
+        <h2>Past Questions</h2>
+        <ol class="question-list">
+            <li>Write down the possible findings in autopsy of person who died by severe striking of hammer in head. <span class="year-tag">(2072/10) [4 marks]</span></li>
+            <li>Define: Contre-coup injury. <span class="year-tag">(2071/11) [1 mark]</span></li>
+            <li>Discuss- Coup and Contrecoup injuries. <span class="year-tag">(2070/11) [4 marks - 1 page answer]</span></li>
+            <li>Briefly discuss coup and contrecoup head injuries. <span class="year-tag">(2068/5) [5 marks]</span></li>
+            <li>Discuss coup &amp; contrecoup contusions and their medicolegal aspects. <span class="year-tag">(2067/1) [4 marks]</span></li>
+            <li>Discuss coup and contrecoup injuries. <span class="year-tag">(2065/12) [2 marks]</span></li>
+            <li>Discuss craniocerebral coup and contrecoup injuries. <span class="year-tag">(2065/7) [4 marks]</span></li>
+            <li>A man fell from the roof of a five storey house of about 50 feet onto the grass lawn below, landing flatly on his back. The external examination at the autopsy presented with no gross injuries or whatsoever. Describe the possible internal injuries that resulted in death. <span class="year-tag">(2065/1) [4 marks]</span></li>
+            <li>Define the following terms: cerebral contusion; coup and contrecoup contusions. <span class="year-tag">(2062/7)</span></li>
+            <li>Discuss coup and contrecoup contusions. <span class="year-tag">(2062/1) [5 marks]</span></li>
+            <li>Describe coup and contrecoup injuries. <span class="year-tag">(2061) [5 marks]</span></li>
+            <li>Distinguish between COUP and CONTRECOUP contusions. <span class="year-tag">(2060) [4 marks]</span></li>
+            <li>The only positive findings at autopsy of a 21 year old male who was said to have been involved in a fist fight, is a 4x2 cm abrasion of the chin and extensive basal subarachnoid hemorrhage. Discuss the differential diagnosis. <span class="year-tag">(2060) [4 marks]</span></li>
+            <li>Write short notes on coup &amp; contrecoup contusions. <span class="year-tag">(2060)</span></li>
+            <li>What are coup and contrecoup injuries? <span class="year-tag">(2058) [4 marks]</span></li>
+            <li>Write short notes on Patterned contusions. <span class="year-tag">(2053)</span></li>
+            <li>Describe the medico-legal importance of extradural hematoma. <span class="year-tag">(2052)</span></li>
+            <li>Describe anatomic structure of head in order and list the possible injuries to head accordingly in circumstances of a person fallen down from the roof of a house to ground. <span class="year-tag">(2076/3)</span></li>
+            <li>List the intracranial hemorrhages. Describe subdural hemorrhage. <span class="year-tag">(2074/10)</span></li>
+            <li>Compare and contrast between: Coup and contra coup. <span class="year-tag">(2074/2)</span></li>
+            <li>Describe the anatomical structures of head in systemic order and list the possible injuries to head accordingly in circumstance of a person fallen down from roof of a house to ground. <span class="year-tag">(2073/2)</span></li>
+            <li>What are 'coup and contre-coup' craniocerebral injuries? <span class="year-tag">(2078) [4 marks]</span></li>
+        </ol>
+
+        <!-- INTRODUCTION -->
+        <h2>Introduction &amp; General Principles</h2>
+        <p><strong>Regional injuries</strong> are defined as injuries to various anatomical regions of the body having medicolegal significance and include injuries to the head, neck, spine and spinal cord, chest, abdomen, limbs, bone and joints.</p>
+        <p><strong>Head (craniocerebral) injury</strong> is a morbid state, resulting from gross or subtle structural changes in the scalp, skull, and/or the contents of the skull, produced by mechanical forces.</p>
+        
+        <div class="highlight-box">
+            <strong>Why are Head and Neck Injuries Most Common in Routine Forensic Practice?</strong>
+            <ul>
+                <li>Head is the target of choice in the great majority of assaults involving blunt trauma.</li>
+                <li>On being pushed or knocked to the ground, the victim usually strikes his head.</li>
+                <li>The brain and its coverings are vulnerable to that degree of trauma as would rarely prove fatal if applied to other parts of the body.</li>
+            </ul>
+        </div>
+
+        <!-- MECHANISM & CAUSES -->
+        <h2>Mechanisms &amp; Etiology of Head Injuries</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Cause / Mechanism</th>
+                    <th>Forensic Significance &amp; Characteristics</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Motor Vehicle Crashes</strong></td>
+                    <td>Most common cause of head trauma overall. Most common cause of subdural hematoma.</td>
+                </tr>
+                <tr>
+                    <td><strong>Sports Injuries</strong></td>
+                    <td>High frequency of impact and acceleration/deceleration injuries.</td>
+                </tr>
+                <tr>
+                    <td><strong>Falls</strong></td>
+                    <td>Common in elderly and in presence of alcohol. Associated with subdural hematomas.</td>
+                </tr>
+                <tr>
+                    <td><strong>Penetrating Trauma or Blunt Trauma</strong></td>
+                    <td>Missiles are more common than sharp projectiles or hammers.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- CLASSIFICATION -->
+        <h2>Classification of Head Injuries</h2>
+
+        <h3>A. Based on Involvement of Dura Mater</h3>
+        <ol>
+            <li><strong>Closed head injury (Non-penetrating):</strong> Wherein dura mater is intact.</li>
+            <li><strong>Open head injury (Penetrating):</strong> Wherein dura mater is torn.</li>
+        </ol>
+
+        <h3>B. Classification According to Mechanism of Production</h3>
+        <ul>
+            <li><strong>Impact injury:</strong>
+                <ul>
+                    <li>Blunt trauma scalp injuries</li>
+                    <li>Skull fractures</li>
+                    <li>Cerebral contusions and laceration</li>
+                    <li>Epidural hematomas</li>
+                    <li>Intracerebral hemorrhages</li>
+                </ul>
+            </li>
+            <li><strong>Acceleration / Deceleration injury:</strong>
+                <ul>
+                    <li>Subdural hematomas</li>
+                    <li>Diffuse axonal injury (DAI)</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>C. Based on Involvement of Gross Anatomical Structures</h3>
+        <ol>
+            <li>Scalp injuries</li>
+            <li>Facial injuries</li>
+            <li>Skull injuries</li>
+            <li>Injury to meninges</li>
+            <li>Brain injuries</li>
+        </ol>
+
+        <!-- SCALP INJURIES -->
+        <h2>Scalp Injuries</h2>
+        
+        <h3>Layers of Scalp</h3>
+        <p>The following mnemonic is a useful reminder of the anatomical layers of the scalp:</p>
+        <div class="highlight-box">
+            <ul>
+                <li><strong>S:</strong> Skin</li>
+                <li><strong>C:</strong> Close connective tissue and cutaneous vessels and nerves</li>
+                <li><strong>A:</strong> Aponeurosis (epicranial aponeurosis / galea aponeurotica)</li>
+                <li><strong>L:</strong> Loose connective tissue (scalping layer, "Danger Zone")</li>
+                <li><strong>P:</strong> Pericranium (periosteum of skull bones)</li>
+            </ul>
+        </div>
+
+        <h3>Types of Scalp Wounds</h3>
+        <p>Scalp wounds are caused by falls, blows, sharp cutting instruments, or discharge of a firearm. They can be classified into:</p>
+        
+        <ul>
+            <li><strong>Contusions:</strong>
+                <ul>
+                    <li>Presence of scalp contusion is indicative of contact injury.</li>
+                    <li>In superficial fascia, they appear as localized swelling due to the dense fibro-fatty tissues.</li>
+                    <li>Contusions deep into the galea aponeurotica are diffuse on account of loose aponeurotic tissues and are difficult to make out on external examination.</li>
+                    <li>The easiest way to detect scalp injuries is by palpation, but shaving is necessary for proper documentation and photography.</li>
+                    <li>During postmortem examination, autopsy surgeons are able to visualize this subscalpular (subgaleal) hemorrhage after reflection of the scalp.</li>
+                    <li>A bruise under the anterior scalp slides downwards to appear in the orbit simulating a black eye.</li>
+                </ul>
+            </li>
+            <li><strong>Lacerations:</strong>
+                <ul>
+                    <li>They resemble incised wounds (incised-looking lacerations).</li>
+                    <li>Careful examination in the depths of the wound will reveal tissue bridging (bridging fibers) with a surrounding band of abrasion.</li>
+                </ul>
+            </li>
+            <li><strong>Incised Wounds:</strong> Produced by sharp-edged instruments with clean-cut margins.</li>
+        </ul>
+
+        <div class="viva-note">
+            <strong>Clinical &amp; Forensic Notes on Scalp Wounds:</strong>
+            <ul>
+                <li><strong>Free Bleeding:</strong> Wounds of the scalp bleed freely because blood vessels in the fibrous layer (superficial to galea aponeurotica) are held open once cut, but they heal rapidly.</li>
+                <li><strong>Simulation of Fractures:</strong> The soft fluctuant centers of scalp hematomas can simulate depressed skull fractures upon palpation.</li>
+            </ul>
+        </div>
+
+        <div class="viva-note">
+            <strong>Black Eye / Spectacle Hematoma / Periorbital Hematoma / Raccoon Eyes:</strong>
+            <p>An effusion of blood over the top of the head/forehead may gravitate down to the loose tissues causing black eyes.</p>
+            <p><strong>Causes of Black Eyes:</strong></p>
+            <ol>
+                <li>Due to local violence causing subcutaneous extravasation of blood into the lids; occurs soon after injury to upper and lower eyelids (most common).</li>
+                <li>Injury to the forehead, with blood tracking down under the scalp.</li>
+                <li>Fracture of the base of the skull in the anterior fossa, blood leaking through cracked orbital plates (Special terminology: <em>Spectacle haematoma</em>).</li>
+            </ol>
+        </div>
+
+        <h3>Medicolegal Importance of Scalp Injuries</h3>
+        <ul>
+            <li>Even after death, scalp injuries may bleed profusely, especially if the head is in a dependent position.</li>
+            <li>In cases of homicide with head trauma, always retain a sample of the victim's head hair, pulled from an area adjacent to the area of trauma.</li>
+        </ul>
+
+        <!-- FACIAL INJURIES -->
+        <h2>Facial Injuries</h2>
+        <p>Involves injuries to the eyes, nose, ears, lips, teeth, and facial bones. Usually associated with heavy bleeding and may cause disfiguration.</p>
+
+        <h3>Specific Structures</h3>
+        <ul>
+            <li><strong>Eyes (Blunt Force Injuries):</strong>
+                <ul>
+                    <li>Lacerated wound of the eyes</li>
+                    <li>Permanent injury to the cornea, iris, or lens</li>
+                    <li>Vitreous hemorrhage</li>
+                    <li>Detachment of retina</li>
+                    <li>Rupture of retina</li>
+                    <li>Traumatic cataract</li>
+                    <li>Penetrating injuries or gouging out of the eyes by finger</li>
+                    <li>Black eye</li>
+                </ul>
+            </li>
+            <li><strong>Nose:</strong>
+                <ul>
+                    <li>Biting or cutting of nose</li>
+                    <li>Injury to the ala due to snatching or nose ring/stud</li>
+                    <li>Penetrating wound from sharp objects (accidental or homicidal)</li>
+                    <li>Concealed puncture wound</li>
+                    <li>Partial detachment of mucous membrane causing epistaxis</li>
+                </ul>
+            </li>
+            <li><strong>Ears:</strong>
+                <ul>
+                    <li>Ears may be cut off or bitten off</li>
+                    <li>Rupture to tympanic membrane caused by a blow resulting in deafness</li>
+                    <li>Severe blow can cause vertigo and tinnitus from injury to the labyrinth</li>
+                </ul>
+            </li>
+            <li><strong>Lips:</strong>
+                <ul>
+                    <li>Contusion/laceration from blows</li>
+                    <li>Cut and bite marks in cases of sexual assault</li>
+                </ul>
+            </li>
+            <li><strong>Teeth:</strong>
+                <ul>
+                    <li>Fracture or dislocation of teeth</li>
+                    <li>Bleeding from the sockets and gums</li>
+                    <li>Contusion/laceration of gums</li>
+                    <li>Contusion/laceration of frenulum as well as inner aspect of lips</li>
+                    <li>Fracture of the jaw or alveolar margin of the jaw</li>
+                </ul>
+            </li>
+            <li><strong>Facial Bones:</strong>
+                <p>Facial bones are extremely vulnerable due to their location and proximity to the surface:</p>
+                <ul>
+                    <li>Nasal bones are frequently fractured from blows to the face.</li>
+                    <li>Ethmoidal bones are involved if force is greater.</li>
+                    <li>Maxilla, malar bones, and mandible.</li>
+                    <li>A heavy blow on the jaw can drive the condyles against the base of the skull and produce a fissured fracture.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>Medicolegal Importance of Facial Injuries</h3>
+        <ul>
+            <li>Injuries causing disfiguration of the face are punishable with a fine of Rs. 5000 and/or 1–3 years imprisonment.</li>
+            <li>If the injury is cured and function is good, it is punishable with a maximum fine of Rs. 3000 and/or 1 year imprisonment.</li>
+            <li>Any injury resulting in permanent privation of eyesight of either eye, hearing of either ear, or speech of the tongue is considered <strong>grievous hurt</strong>.</li>
+        </ul>
+
+        <!-- SKULL INJURIES -->
+        <h2>Skull Injuries</h2>
+
+        <h3>Forensic Anatomy of Skull</h3>
+        <ul>
+            <li>Bones of the head are known as <strong>calvaria</strong> or <strong>cranium</strong>. Skull cap or calva is the roof of the skull, often called the vault. The remaining part is called the base of the skull.</li>
+            <li>The skull consists of two parallel tables of compact bone connected together by soft cancellous bone—the <strong>diploe</strong>.</li>
+            <li>The outer table is twice in thickness compared to the inner table.</li>
+            <li>Calvaria consists of two parietal bones, two temporal bones, and one each of ethmoid, sphenoid, occipital, and frontal bone.</li>
+        </ul>
+
+        <h3>Mechanism of Skull Fractures (Rowbotham's Hypothesis)</h3>
+        <p>According to Rowbotham's hypothesis, fractures of the skull are caused by:</p>
+        
+        <h4>a. Direct Application of Force to the Skull</h4>
+        <p><em>Examples:</em> Compression of the head of the fetus during forceps delivery/cranioclast; head crushed under wheels of a vehicle in RTA; fall from height onto the head; blow over head with an iron rod.</p>
+        <p>Direct force fractures result from the following mechanisms:</p>
+        <ol>
+            <li><strong>Fracture due to local deformation:</strong> The skull is not completely rigid and bends when force is applied. A blow causes inbending of bone at the impact site and asymmetric outbending at a distance. Exceeding elastic limits causes fracture at both intruded and extruded areas, leading to <strong>depressed fractures</strong>.</li>
+            <li><strong>Fracture due to general deformation:</strong> The skull behaves like an elastic sphere. Compression in one plane causes bulging in another plane. Exceeding elastic limit causes fractures in these planes, resulting in <strong>fissured fractures</strong>.</li>
+            <li>Combinations of local and general deformation lead to various complex types of fractures.</li>
+        </ol>
+
+        <h4>b. Indirect Violence</h4>
+        <p><em>Examples:</em> Fall on buttocks or feet from height causing ring fracture around occiput; blast explosions to the face with force from below; heavy blows on the chin causing fracture of the glenoid fossa.</p>
+
+        <h3>Factors Affecting Fractures</h3>
+        <ul>
+            <li>Violence acting / force of active blows or passive impact</li>
+            <li>Site of injury on the skull</li>
+            <li>Age of the victim</li>
+            <li>Supporting tissues</li>
+        </ul>
+
+        <h3>Site of Injury on the Skull</h3>
+        <p>Skull fractures can be seen on:</p>
+        <ol>
+            <li>Outer table alone</li>
+            <li>Inner table alone</li>
+            <li>Combination involving both tables</li>
+        </ol>
+        <p><em>Explanation:</em> Due to bone elasticity, initially only the outer table undergoes bending. Further increase in force causes fracture of the weaker inner table first, followed by the outer table.</p>
+
+        <!-- DIAGRAM 1: SKULL STRUCTURE & PUPPE'S RULE -->
+        <div class="diagram-container">
+            <svg viewBox="0 0 650 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+                <!-- Structure of skull bone (A) -->
+                <g transform="translate(30, 20)">
+                    <rect x="0" y="0" width="140" height="25" fill="#333333" stroke="#888888" stroke-width="1.5"/>
+                    <text x="70" y="17" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">Outer Table</text>
+                    
+                    <rect x="0" y="25" width="140" height="40" fill="#222222" stroke="#888888" stroke-width="1.5" stroke-dasharray="3 3"/>
+                    <text x="70" y="48" fill="#888888" font-size="11" font-weight="bold" text-anchor="middle">Spongy Bone (Diploe)</text>
+                    
+                    <rect x="0" y="65" width="140" height="15" fill="#444444" stroke="#888888" stroke-width="1.5"/>
+                    <text x="70" y="77" fill="#ffffff" font-size="10" font-weight="bold" text-anchor="middle">Inner Table</text>
+                    
+                    <text x="70" y="115" fill="#e5e5e5" font-size="12" font-weight="bold" text-anchor="middle">(A) Skull Bone Structure</text>
+                </g>
+
+                <!-- Mechanism of fracture (B) -->
+                <g transform="translate(230, 20)">
+                    <path d="M 10 0 L 130 0" stroke="#888888" stroke-width="3"/>
+                    <path d="M 70 -15 L 70 5" stroke="#ffffff" stroke-width="2" marker-end="url(#arrow)"/>
+                    <text x="70" y="-20" fill="#ffffff" font-size="10" text-anchor="middle">Force</text>
+                    
+                    <path d="M 10 25 Q 70 45 130 25" fill="none" stroke="#888888" stroke-width="2"/>
+                    <path d="M 10 65 Q 70 95 130 65" fill="none" stroke="#888888" stroke-width="2"/>
+                    
+                    <!-- Break in inner table -->
+                    <line x1="65" y1="80" x2="75" y2="80" stroke="#000000" stroke-width="4"/>
+                    <text x="70" y="105" fill="#ff6666" font-size="10" text-anchor="middle">First fracture (Inner)</text>
+                    <text x="70" y="120" fill="#e5e5e5" font-size="12" font-weight="bold" text-anchor="middle">(B) Bending Mechanism</text>
+                </g>
+
+                <!-- Puppe's Rule (C) -->
+                <g transform="translate(440, 20)">
+                    <rect x="0" y="0" width="160" height="110" fill="#111111" stroke="#222222" stroke-width="1"/>
+                    <!-- Primary fracture line 1 -->
+                    <path d="M 20 20 L 140 90" stroke="#ffffff" stroke-width="2.5"/>
+                    <text x="135" y="102" fill="#ffffff" font-size="10" font-weight="bold">Fracture 1</text>
+                    
+                    <!-- Secondary fracture line 2 terminating on 1 -->
+                    <path d="M 140 20 L 80 55" stroke="#888888" stroke-width="2.5"/>
+                    <text x="145" y="15" fill="#888888" font-size="10">Fracture 2</text>
+                    <circle cx="80" cy="55" r="4" fill="#ffcc00"/>
+                    
+                    <text x="80" y="128" fill="#e5e5e5" font-size="12" font-weight="bold" text-anchor="middle">(C) Puppe's Rule</text>
+                </g>
+            </svg>
+            <div class="diagram-title">Mechanism of Skull Bone Fracture &amp; Puppe's Rule</div>
+        </div>
+
+        <div class="highlight-box">
+            <strong>Puppe's Rule:</strong>
+            <p>According to Puppe's Rule, a later fracture line does not cross a pre-existing fracture line, but terminates upon reaching the fracture line of the earlier fracture.</p>
+        </div>
+
+        <!-- CLASSIFICATION OF SKULL FRACTURES -->
+        <h2>Classification of Skull Fractures</h2>
+
+        <h3>I. Fractures of the Vault of the Skull</h3>
+        
+        <h4>a. Fissured Fracture (Linear Fracture)</h4>
+        <p>Linear cracks passing over the vertex or across the skull base without displacement of fragments. Involves full thickness, or inner/outer table alone.</p>
+        <p><em>Caused by:</em> Forcible impact against broad resisting surface (hard ground in RTA); knocked to ground by fist; blows with hard blunt objects having a broad striking surface.</p>
+
+        <h4>b. Depressed Fracture</h4>
+        <p>Driven inwards; also termed <em>'fracture a la signature'</em> (signature fracture) as the shape often points towards the shape of the offending weapon.</p>
+        <p><em>Caused by:</em> Blows with heavy weapons having small striking surfaces (hammer, axe, brick, chopper).</p>
+        
+        <p><strong>Variants:</strong></p>
+        <ul>
+            <li><strong>Elevated fracture:</strong> One end of fragment is elevated above skull surface while the other dips into cranial cavity damaging brain. Caused by heavy sharp objects (e.g. axe) pulled laterally during retrieval. Rare; usually associated with dura tear.</li>
+            <li><strong>Pond or Indented fracture (Ping-pong fracture):</strong> Smooth concave depression without fracture line due to in-buckling of skull in infants/children (&lt;4 years). Inner table intact; meninges/brain undamaged. Caused by force/obstetric forceps or impact against protruding objects (e.g., sacral promontory).</li>
+        </ul>
+
+        <h4>c. Comminuted Fracture (Spider-web / Mosaic Fracture):</h4>
+        <ul>
+                    <li>Two or more intersecting lines of fracture divide the bone into three or more fragments.</li>
+                    <li>Skull bone gets broken into multiple pieces by fracture lines, which are haphazardly or concentrically arranged, or stellate if they radiate from the site of impact.</li>
+                    <li>Caused by vehicular accidents, fall from height on a hard surface, or by blows with weapons having large striking surface, such as a heavy iron bar, or from a bullet.</li>
+                    <li>Comminuted fractures may be a complication of fissure fracture and the fragments of bone, if displaced inward, form a depressed skull fracture.</li>
+                </ul>
+      
+        <h4>d. Gutter Fracture</h4>
+       <ul>
+                    <li>Formed when part of the thickness of the bone is removed so as to form a gutter, e.g., oblique bullet wounds.</li>
+                    <li>Usually accompanied by comminuted depressed fracture of the inner table of skull and the fragments causing injury to the meninges and brain.</li>
+                </ul>
+       
+      <h4>e. Mosaic Fracture (Spider's Web Fracture)</h4>
+        <ul>
+                    <li>A non-depressed comminuted fracture where fractured site appears in the form of several fissures forming a spider's web or cob web or mosaic pattern.</li>
+                </ul>
+      
+        <h4>f. Diastactic Fracture (Suture Line Fracture / Diastasis)</h4>
+        <ul>
+                    <li><em>Diastasis</em> means "to separate".</li>
+                    <li>Usually occurs in young children following a forcible blow on the head with a heavy hard blunt object where the fracture line passes through the sutures.</li>
+                    <li>Usually seen in sagittal suture.</li>
+                    <li>Common in traffic accidents.</li>
+                </ul>
+      
+        <h4>g. Perforating Fractures</h4>
+        <ul>
+                    <li>Caused by firearms and pointed weapons like daggers, knives, and axes.</li>
+                </ul>
+      
+        <h4>h. Contre-coup Fracture</h4>
+       <ul>
+                    <li>Occurs exactly opposite to the site of primary impact or 'coup violence' due to shear strain.</li>
+                    <li>Usually seen in the anterior cranial fossa involving the bones of the orbital or ethmoid plates with associated periorbital hematoma.</li>
+                    <li>Occurs after an occipital, parietal, or temporal impact along with fracture at the site of impact.</li>
+                </ul>
+      
+        <h4>i. Blow-out Fracture</h4>
+        <ul>
+                    <li>Due to blunt trauma to the eye wherein the forces are transmitted via the globe to the bony orbit, causing disruption of the orbital walls.</li>
+                </ul>
+      
+       <div class="viva-note">
+            <strong>Note: Teardrop Sign in Blow-out Fractures</strong>
+            <p>The fracture most commonly involves the thin medial wall and/or orbital floor. This results in orbital contents such as periorbital fat and inferior rectus muscle herniating downwards into the maxillary sinus, causing pain, restricted eye movements, and diplopia.</p>
+            <p>Radiographically, a soft tissue 'teardrop' or polypoid mass may be seen in the roof of the maxillary antrum.</p>
+        </div>
+
+        <h3>II. Fractures of the Base of the Skull (Basilar Fractures)</h3>
+        <p>The base of the skull is weak and hence any diffuse impact to the vertex of the skull will produce basilar fracture. These fractures may be missed on X-ray examination.</p>
+
+        <!-- DIAGRAM: BASILAR FRACTURES -->
+        <div class="diagram-container">
+            <svg viewBox="0 0 400 400" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+                <!-- Base of skull outer boundary -->
+                <ellipse cx="200" cy="200" rx="140" ry="170" fill="#111111" stroke="#888888" stroke-width="2"/>
+                
+                <!-- Foramen Magnum -->
+                <ellipse cx="200" cy="250" rx="25" ry="35" fill="#222222" stroke="#888888" stroke-width="2"/>
+                
+                <!-- Ring fracture around foramen magnum -->
+                <ellipse cx="200" cy="250" rx="42" ry="55" fill="none" stroke="#e5e5e5" stroke-width="2.5" stroke-dasharray="3 3"/>
+                
+                <!-- Longitudinal fracture line passing vertically -->
+                <path d="M 200 30 L 200 215 M 200 285 L 200 370" stroke="#e5e5e5" stroke-width="2"/>
+                
+                <!-- Transverse 'hinge' fracture -->
+                <path d="M 70 180 Q 200 195 330 180" fill="none" stroke="#e5e5e5" stroke-width="2.5"/>
+                
+                <!-- Secondary fracture in anterior fossa -->
+                <path d="M 230 70 Q 235 85 230 100 T 230 115" fill="none" stroke="#e5e5e5" stroke-width="2"/>
+                
+                <!-- Pointer lines & text labels -->
+                <!-- Secondary fracture label -->
+                <line x1="235" y1="85" x2="310" y2="70" stroke="#888888" stroke-width="1"/>
+                <text x="315" y="68" fill="#e5e5e5" font-size="10" font-family="monospace">Secondary fracture in anterior</text>
+                <text x="315" y="80" fill="#e5e5e5" font-size="10" font-family="monospace">fossa floor or orbital roof</text>
+                
+                <!-- Transverse hinge label -->
+                <line x1="270" y1="183" x2="310" y2="183" stroke="#888888" stroke-width="1"/>
+                <text x="315" y="180" fill="#e5e5e5" font-size="10" font-family="monospace">Transverse 'hinge' fracture</text>
+                
+                <!-- Ring fracture label -->
+                <line x1="240" y1="260" x2="310" y2="280" stroke="#888888" stroke-width="1"/>
+                <text x="315" y="278" fill="#e5e5e5" font-size="10" font-family="monospace">Ring fracture around</text>
+                <text x="315" y="290" fill="#e5e5e5" font-size="10" font-family="monospace">foramen magnum</text>
+                
+                <!-- Longitudinal fracture label -->
+                <line x1="200" y1="340" x2="310" y2="350" stroke="#888888" stroke-width="1"/>
+                <text x="315" y="353" fill="#e5e5e5" font-size="10" font-family="monospace">Longitudinal fracture</text>
+            </svg>
+            <div class="diagram-title">Basilar Fractures (Anatomical Diagram)</div>
+        </div>
+
+        <ol>
+            <li>
+                <strong>Fracture of Anterior Cranial Fossa:</strong>
+                <ul>
+                    <li>Usually due to direct impact, although fissure fractures in orbital or cribriform plate may be due to contre-coup injury.</li>
+                    <li><em>Clinical Presentation:</em> Epistaxis, CSF rhinorrhea (at times from mouth), anosmia, nasal tip paresthesia, black eye, and occasionally caroticocavernous fistula.</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Fracture of Middle Cranial Fossa:</strong>
+                <ul>
+                    <li>Seen due to direct impact behind the ear or crush injuries of the head.</li>
+                    <li><em>Clinical Presentation:</em> CSF otorrhea (or rhinorrhea via Eustachian tube) if petrous part of temporal bone is fractured, hemotympanum, ossicular disruption, Battle's sign, or VII and VIII nerve palsy.</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Fracture of Posterior Cranial Fossa:</strong>
+                <ul>
+                    <li>Commonly due to direct impact of the back of the head on the ground.</li>
+                    <li>Clinically diagnosed by escape of blood and CSF through the mouth.</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Ring or Foramen Fracture:</strong>
+                <ul>
+                    <li>A type of fissure fracture that encircles the base of skull around the foramen magnum.</li>
+                    <li><em>Seen in:</em>
+                        <ul>
+                            <li>Fall from a height on feet or buttocks, when the force of the fall is transmitted upwards through the spinal column.</li>
+                            <li>Vault of skull being driven against vertebral column by fall of heavy load or by a heavy blow over the vertex.</li>
+                            <li>Violent twisting of the head on the spine, shearing the vault from base.</li>
+                            <li>Heavy blow directed underneath the occiput or chin.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <strong>Hinge / Transverse / Motorcyclist's Fracture:</strong>
+                <ul>
+                    <li>Fracture of the base of skull occurs that completely splits it, creating a hinge ('nodding face' sign).</li>
+                    <li>Frequently occurs with side impacts.</li>
+                    <li>Most common form extends from the petrous bony ridge through sella turcica to lateral end of the contralateral petrous ridge.</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h3>Complications of Skull Fractures</h3>
+        <ol>
+            <li>Injury to the brain which may be dangerous to life.</li>
+            <li><strong>Hemorrhage:</strong> If middle meningeal artery is ruptured, fatal hemorrhage may occur.</li>
+            <li><strong>Infections:</strong> Direct spread from compound fracture or spread from fracture of paranasal sinuses (e.g., frontal or ethmoidal).</li>
+            <li><strong>Traumatic Epilepsy:</strong> More common with open head injuries; usually seen 1–2 years after the episode, manifesting as tonic or clonic fits.</li>
+        </ol>
+
+        <div class="viva-note">
+            <strong>Autopsy Technique Notes:</strong>
+            <ul>
+                <li>Care should be taken against indiscreet use of chisel and hammer.</li>
+                <li>Strip away dura, especially to appreciate linear fissured fractures at the base of the skull.</li>
+                <li>Tapping of the skull to elicit a 'cracked pot' sound is a time-honored and still profitable method for appreciating skull fractures.</li>
+            </ul>
+        </div>
+
+        <h3>Medicolegal Importance: Age of Skull Injury</h3>
+        <ul>
+            <li>Healing occurs without the formation of visible callus.</li>
+            <li>The edges of fissured fracture stick together within a week.</li>
+            <li>The edges are slightly eroded and the inner surface of the skull may show pitting or deposition of lime salts in 14 days.</li>
+            <li>The edges become slightly smooth and bands of osseous tissue run across the fissure in 3–5 weeks.</li>
+            <li>When the edges are not in apposition, they become quite smooth in 3 months, or partially healed if close together.</li>
+            <li>If there is much loss of bone, the gap is filled only with fibrous tissues.</li>
+        </ul>
+
+        <!-- INJURY TO MENINGES -->
+        <h2>Injury to Meninges</h2>
+
+        <h3>Anatomy of Meninges</h3>
+        <ul>
+            <li>
+                <strong>a. Dura Mater:</strong>
+                <ul>
+                    <li>2 layers of tough collagenous tissue.</li>
+                    <li><em>External layer (periosteal):</em> Firmly in apposition with inner surface of skull.</li>
+                    <li><em>Internal layer (meningeal):</em> Merges with arachnoid mater.</li>
+                    <li><em>Epidural or Extra-dural Space:</em> Potential space between skull and dura.</li>
+                </ul>
+            </li>
+            <li>
+                <strong>b. Arachnoid Mater:</strong>
+                <ul>
+                    <li>Thin vascular meshwork closely applied to inner surface of dura.</li>
+                    <li>Follows contour of brain but does not dip into sulci.</li>
+                    <li>Sub-dural space separates dura from arachnoid mater, which is filled with CSF.</li>
+                </ul>
+            </li>
+            <li>
+                <strong>c. Pia Mater:</strong>
+                <ul>
+                    <li>Not a true membrane; surface network of glial fibers inseparable from the brain.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>Types of Intracranial Hemorrhage</h3>
+        <ul>
+            <li>Extradural or epidural hemorrhage</li>
+            <li>Subdural hemorrhage</li>
+            <li>Subarachnoid hemorrhage</li>
+            <li>Intracerebral hemorrhage</li>
+            <li>Intraventricular hemorrhage</li>
+        </ul>
+
+        <!-- EXTRADURAL HEMORRHAGE -->
+        <h2>Extradural (Epidural) Hemorrhage</h2>
+        <p>Bleeding between the inner surface of skull and the dura mater. It is the least common intracranial hemorrhage and is usually associated with fissured fractures running across the grooves of meningeal vessels (may occur without fracture in children).</p>
+
+        <h3>Cause / Source</h3>
+        <ul>
+            <li><strong>Blow over Tempero-parietal region (lateral) &rarr; Fracture of squamous temporal bone:</strong> Posterior branch of middle meningeal artery.</li>
+            <li><strong>Blow over Forehead:</strong> Anterior ethmoidal artery.</li>
+            <li><strong>Blow over Occiput:</strong> Transverse sigmoid sinus.</li>
+            <li><strong>Blow on the Vertex:</strong> Sagittal sinus.</li>
+            <li><strong>Fracture of skull (usually occipital):</strong> Diploic veins.</li>
+        </ul>
+
+        <h3>Mechanism &amp; Fatality</h3>
+        <ul>
+            <li>Fracture of skull leads to separation of durameter from skull bone, leading to injury to the meningeal artery or its branches, resulting in extradural hematoma.</li>
+            <li><strong>Fatality Threshold:</strong> 35 ml of hematoma is required for clinical signs to appear. A volume of 100 ml EDH is considered fatal.</li>
+        </ul>
+
+        <h3>Clinical Features</h3>
+        <ul>
+            <li>Most common in 2nd and 3rd decades; rare in children &lt;2 years due to adherence of dura to skull and lack of bony canal for arteries.</li>
+            <li>
+                <strong>Lucid Interval:</strong> Interval between two stages of unconsciousness.
+                <ol>
+                    <li>Immediate (first) unconsciousness occurs due to concussion.</li>
+                    <li>Person slowly recovers consciousness (lucid interval).</li>
+                    <li>Second loss of consciousness occurs gradually due to compression.</li>
+                </ol>
+            </li>
+            <li>Brief loss of consciousness initially, followed by coma after tentorial herniation and midbrain compression.</li>
+        </ul>
+
+        <h3>Autopsy Finding &amp; Medicolegal Importance</h3>
+        <ul>
+            <li><strong>Autopsy:</strong> Blood clot is seen in the extradural space, which can be washed out easily.</li>
+            <li>Collected blood: 30 ml = symptoms; 100 ml = death.</li>
+            <li>Victim may present with volitional activities immediately after injury or prior to death.</li>
+            <li>Victim may exhibit lucid interval.</li>
+            <li>Victim may be confused for alcoholic intoxication and held in custody under drunkenness charge.</li>
+        </ul>
+
+        <h3>Comparison: Heat EDH vs. Traumatic EDH</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>EDH Due to Burns</th>
+                    <th>EDH Due to Blunt Force</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Cause</strong></td>
+                    <td>Charring of skull due to intense heat</td>
+                    <td>Blunt force to the head</td>
+                </tr>
+                <tr>
+                    <td><strong>Situation</strong></td>
+                    <td>Anywhere</td>
+                    <td>Usually adjacent to sylvian fissure</td>
+                </tr>
+                <tr>
+                    <td><strong>Position</strong></td>
+                    <td>Usually bilateral</td>
+                    <td>Usually unilateral</td>
+                </tr>
+                <tr>
+                    <td><strong>Distribution</strong></td>
+                    <td>Diffuse</td>
+                    <td>Localized</td>
+                </tr>
+                <tr>
+                    <td><strong>Characteristics</strong></td>
+                    <td>Evenly distributed or sickle-shaped; honeycomb appearance; soft, granular, foamy, friable clot; chocolate brown color (pink if CO present)</td>
+                    <td>Disk-shaped; uniform, smooth, rubbery; reddish-purple color</td>
+                </tr>
+                <tr>
+                    <td><strong>Skull Fracture</strong></td>
+                    <td>Eggshell fracture—elliptical or circular defect without radiating fracture lines, seen above temple</td>
+                    <td>Fracture line radiating from a skull defect present in temporal area</td>
+                </tr>
+                <tr>
+                    <td><strong>Crossing Suture Lines</strong></td>
+                    <td>May cross suture lines and overlie frontal, parietal, and temporal areas</td>
+                    <td>Hematoma does not cross sutures as dura is anchored at suture lines</td>
+                </tr>
+                <tr>
+                    <td><strong>Injury to CNS</strong></td>
+                    <td>Absent</td>
+                    <td>Subdural hemorrhage may be present</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- SUBDURAL HEMORRHAGE -->
+        <h2>Subdural Hemorrhage (SDH)</h2>
+        <p>More common than extradural. Common in childhood or old age (5th to 7th decade). Hemorrhage is essentially venous or capillary and not arterial.</p>
+
+        <h3>Causes &amp; Sources</h3>
+        <ol>
+            <li>Gliding movement between dura and arachnoid mater leading to overstretching and tearing of communicating or bridging veins traversing in subdural space near sagittal sinus.</li>
+            <li>Rupture of dural venous sinuses.</li>
+            <li>Rupture of inferior cerebral veins entering sinuses at base of skull.</li>
+            <li>Injury to cortical veins torn by sliding motion of brain after head has been arrested.</li>
+            <li>Laceration and contusion of brain and dura.</li>
+        </ol>
+
+        <h3>Types of Subdural Hemorrhage</h3>
+        
+        <h4>1. Acute Subdural Hemorrhage</h4>
+        <ul>
+            <li>Acute accumulation of blood in subdural space; almost always traumatic and venous in origin.</li>
+            <li>Hemorrhage occurs immediately and rapidly after trauma, arising mostly from rupture of large bridging veins.</li>
+            <li><em>Features:</em> Loss of consciousness, ipsilateral pupillary disturbance (dilatation of ipsilateral pupil), hemianopia, speech defects, contralateral hemiparesis, urinary disturbances. Lucid interval occasionally seen.</li>
+            <li><em>CT Scan:</em> C-shaped (crescent-shaped) high-density lesion between skull and brain.</li>
+        </ul>
+
+        <h4>2. Subacute Subdural Hemorrhage</h4>
+        <ul>
+            <li>Symptoms develop from several days to 2–3 weeks after injury due to hematoma pressure.</li>
+            <li>Occurs when bleeding is from smaller bridging veins.</li>
+            <li>Fibrinous membrane spreads over inner surface of clot by 10 days; clot can be lifted with forceps.</li>
+        </ul>
+
+        <h4>3. Chronic Subdural Hemorrhage</h4>
+        <ul>
+            <li>Results from slight trauma where symptoms appear weeks or months later.</li>
+            <li>Cellular organizing membrane forms over undersurface of hematoma.</li>
+            <li>Common in old persons and chronic alcoholics (diminished brain size &rarr; increased subdural space &rarr; increased acceleration/deceleration effect &rarr; increased tension on bridging veins).</li>
+            <li>Repeated incidents of minimal bleeding lead to organization of clot and cellular membrane formation.</li>
+        </ul>
+
+        <div class="viva-note">
+            <strong>Subdural Hygroma:</strong>
+            <p>When the arachnoid is torn, CSF may pass from the subarachnoid space into the subdural space. A large collection of fluid may accumulate and cause cerebral compression, termed <em>cerebral hygroma</em>.</p>
+        </div>
+
+        <h3>Autopsy Findings &amp; Medicolegal Importance</h3>
+        <ul>
+            <li><strong>Acute:</strong> Blood clot in subdural space that cannot be washed out with water.</li>
+            <li><strong>Chronic:</strong> Blood cyst may be noticed; can result in sudden natural death.</li>
+            <li>Clinical symptoms may be mistaken for Schizophrenia in young victims or Presenile/Senile Dementia in elderly victims.</li>
+        </ul>
+
+        <h3>Timeline / Aging of Subdural Lesion</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Time / Stage</th>
+                    <th>Clot Changes</th>
+                    <th>Dural Side Changes</th>
+                    <th>Arachnoid Side Changes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>&lt; 24-36 Hours</strong></td>
+                    <td>RBCs intact up to 36 hours</td>
+                    <td>Thin layer of fibrin (24 hrs)</td>
+                    <td>Thin fibrin layer seen within 24 hrs</td>
+                </tr>
+                <tr>
+                    <td><strong>7 - 10 Days</strong></td>
+                    <td>Clot liquefied in 7–8 days; fibroblasts enter</td>
+                    <td>Fibrinous membrane spreads</td>
+                    <td>—</td>
+                </tr>
+                <tr>
+                    <td><strong>10 - 20 Days</strong></td>
+                    <td>Capillaries, fibroblasts, and fibrin between 10–20 days</td>
+                    <td>Fibroblasts migrate within 2 weeks</td>
+                    <td>Thin membrane seen first after 2 weeks</td>
+                </tr>
+                <tr>
+                    <td><strong>20 - 30 Days (1 Mo.)</strong></td>
+                    <td>Large capillaries between 20–30 days</td>
+                    <td>Membrane half thickness of dura (2–3 wks); same thickness as dura in 1 month</td>
+                    <td>Membrane half thickness of dura in 1 month</td>
+                </tr>
+                <tr>
+                    <td><strong>1 - 3 Months</strong></td>
+                    <td>Giant capillaries &amp; secondary bleeding (1–3 mos)</td>
+                    <td>Hyalinization in 1–3 months</td>
+                    <td>Hyalinization; membrane as thick as dura</td>
+                </tr>
+                <tr>
+                    <td><strong>1 Year</strong></td>
+                    <td>—</td>
+                    <td>Resembles dura</td>
+                    <td>Resembles dura</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- SUBARACHNOID HEMORRHAGE -->
+        <h2>Subarachnoid Hemorrhage (SAH)</h2>
+        <p>Hemorrhage into the space below pia mater and brain substance (i.e., subarachnoid space).</p>
+
+        <h3>Causes &amp; Sources</h3>
+        <ul>
+            <li>
+                <strong>a. Traumatic Origin:</strong>
+                <ul>
+                    <li>Rupture of bridging veins near sagittal sinus.</li>
+                    <li>Laceration and contusions of brain and pia-arachnoid.</li>
+                </ul>
+            </li>
+            <li>
+                <strong>b. Spontaneous Origin:</strong>
+                <ul>
+                    <li>Diseases like atherosclerosis, hypertension, leukemia, etc.</li>
+                    <li>Rupture of saccular Berry aneurysm (accounts for 95% of ruptured aneurysms).</li>
+                </ul>
+            </li>
+        </ul>
+
+        <div class="viva-note">
+            <strong>Key Aneurysm Notes:</strong>
+            <ul>
+                <li>Spontaneous hypertensive subarachnoid hemorrhage occurs due to rupture of microaneurysms called <strong>Charcot-Bouchard aneurysms</strong>.</li>
+                <li><strong>Berry aneurysms</strong> are most often found (~90%) at the bifurcation of middle cerebral, anterior cerebral (more common), and posterior communicating arteries.</li>
+                <li>In all cases of significant brain injury, some degree of subarachnoid hemorrhage is found.</li>
+                <li>No hematoma is formed in SAH as blood is removed by lysis or phagocytosis, allowing complete recovery.</li>
+            </ul>
+        </div>
+
+        <h3>Clinical Features &amp; Autopsy Findings</h3>
+        <ul>
+            <li><strong>Clinical Features:</strong> Sudden loss of consciousness, thunderclap headache (sudden severe unusual headache), stiff neck, and photophobia.</li>
+            <li><strong>Autopsy Findings:</strong> Yellowish-brown discoloration of leptomeninges.</li>
+            <li><strong>Distinguishing Test:</strong> Subarachnoid blood imparts a red color to the brain that <em>does not wash off</em> under gently running water, whereas subdural blood washes away easily.</li>
+            <li><strong>Medicolegal Importance:</strong> Testifying trauma as the cause of aneurysm rupture is very important.</li>
+        </ul>
+
+        <!-- COMPARISON TABLE OF INTRACRANIAL HEMORRHAGES -->
+        <h2>Comparison: EDH vs. SDH vs. SAH</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Extradural (EDH)</th>
+                    <th>Subdural (SDH)</th>
+                    <th>Subarachnoid (SAH)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Location</strong></td>
+                    <td>Between skull and dura</td>
+                    <td>Between dura and arachnoid</td>
+                    <td>Between arachnoid and pia</td>
+                </tr>
+                <tr>
+                    <td><strong>Cause</strong></td>
+                    <td>Always due to head injury</td>
+                    <td>Mostly due to injury, but not always</td>
+                    <td>Both natural and traumatic</td>
+                </tr>
+                <tr>
+                    <td><strong>Incidence</strong></td>
+                    <td>2% of head injuries</td>
+                    <td>5% of all head injuries; 50% of fatal head injuries</td>
+                    <td>Extremely common in head injuries</td>
+                </tr>
+                <tr>
+                    <td><strong>Vessel Involved</strong></td>
+                    <td>Middle meningeal artery</td>
+                    <td>Bridging veins, cortical contusions</td>
+                    <td>Leakage from vessels on brain surface</td>
+                </tr>
+                <tr>
+                    <td><strong>Externally</strong></td>
+                    <td>Often swelling under scalp</td>
+                    <td>Often no external manifestation</td>
+                    <td>No external manifestation</td>
+                </tr>
+                <tr>
+                    <td><strong>Confusion with Other Conditions</strong></td>
+                    <td>Can be confused with heat artifact</td>
+                    <td>Seldom confused with other bleeding</td>
+                    <td>Can be artifact from opening the skull</td>
+                </tr>
+                <tr>
+                    <td><strong>Space Occupying</strong></td>
+                    <td>Can be space occupying</td>
+                    <td>Often space occupying</td>
+                    <td>Space occupying if arterial</td>
+                </tr>
+                <tr>
+                    <td><strong>Effect on Brain</strong></td>
+                    <td>Brain surface ironed out by dura</td>
+                    <td>Brain compressed, but less ironed out</td>
+                    <td>Brain surface not distorted</td>
+                </tr>
+                <tr>
+                    <td><strong>Situation</strong></td>
+                    <td>Usually on one side, but can be bilateral</td>
+                    <td>Unilateral or bilateral</td>
+                    <td>Focal, diffuse, or bilateral</td>
+                </tr>
+                <tr>
+                    <td><strong>Clinical Course</strong></td>
+                    <td>Classic lucid interval</td>
+                    <td>Less well-defined</td>
+                    <td>Depends on cause, location, vessel</td>
+                </tr>
+                <tr>
+                    <td><strong>Autopsy Sample</strong></td>
+                    <td>Save a portion for alcohol and drugs</td>
+                    <td>If fresh, save a portion for alcohol and drugs</td>
+                    <td>Seldom sufficient or helpful for analysis</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- INTRACEREBRAL HEMATOMA -->
+        <h2>Intracerebral Hematoma (ICH)</h2>
+        <p>Hemorrhage found within the cerebral parenchyma that is not in contact with the surface of the brain.</p>
+
+        <h3>Salient Features &amp; Causes</h3>
+        <ul>
+            <li>Most likely results from a direct rupture of intrinsic cerebral blood vessels in relation to contusions at the time of injury; may be single or multiple.</li>
+            <li>Traumatic ICH is seen in 15% of all patients who sustain fatal head injuries.</li>
+            <li>Hypertension, trauma, and cerebral amyloid angiopathy cause the majority of these hemorrhages. Advanced age, heavy alcohol, and cocaine use increase the risk.</li>
+            <li>
+                <strong>Specific Etiologies:</strong>
+                <ol>
+                    <li>Spontaneous hemorrhage in region of basal ganglia by rupture of lenticulostriate artery (Charcot's artery), a branch of middle cerebral artery.</li>
+                    <li>Capillary hemorrhage in anoxia, arterial thrombosis, blood dyscrasias, fat embolism, and asphyxial states.</li>
+                    <li>Angioma or malignant tumor of brain.</li>
+                    <li>Hypertensive cerebral vascular disease.</li>
+                    <li>Laceration of brain.</li>
+                    <li>Puerperal toxemia.</li>
+                </ol>
+            </li>
+        </ul>
+
+        <h3>Sites &amp; Clinical Features</h3>
+        <ul>
+            <li><strong>Sites:</strong> Most frequently seen in white matter of fronto-temporal lobes when superficially located (related to contusional injury). Deeper hematomas occur with greater force impacts (e.g., RTAs).</li>
+            <li>
+                <strong>Clinical Features (occurs while awake &amp; stressed):</strong>
+                <ul>
+                    <li>Abrupt onset of focal neurologic deficit</li>
+                    <li>Diminished level of consciousness</li>
+                    <li>Signs of increased intracranial pressure (vomiting, headache)</li>
+                    <li>Seizures are uncommon</li>
+                    <li>Contralateral hemiparesis</li>
+                </ul>
+            </li>
+        </ul>
+
+        <!-- TRAUMATIC BRAIN INJURIES -->
+        <h2>Traumatic Brain Injuries (TBI)</h2>
+
+        <h3>Classification</h3>
+        <ul>
+            <li>
+                <strong>a. Depending on State of Dura:</strong>
+                <ul>
+                    <li><em>Closed:</em> Dura intact</li>
+                    <li><em>Open:</em> Dura ruptured</li>
+                </ul>
+            </li>
+            <li>
+                <strong>b. Timing:</strong>
+                <ul>
+                    <li><em>Primary Brain Injury:</em> Injury caused at time of impact.</li>
+                    <li><em>Secondary Brain Injury:</em> Progressive brain damage arising from events developing as a result of primary brain injury.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>Mechanisms of Traumatic Brain Injury</h3>
+        <ol>
+            <li>
+                <strong>Accelerating Injury:</strong>
+                <p>When a moving object hits the head, which is static, the skull picks up momentum first and hits the brain, which is still at rest and picks up momentum a fraction of a second later.</p>
+                <p><em>Example:</em> A blow on the head with a hockey stick leading to brain injury.</p>
+            </li>
+            <li>
+                <strong>Decelerating Injury:</strong>
+                <p>When a non-moving object suddenly arrests the head in motion, the skull loses momentum much prior to the brain, which hits the inner aspects of the skull before becoming static.</p>
+                <p><em>Example:</em> Head of a motor biker sustaining head-on collision with a roadway pole or tree.</p>
+            </li>
+            <li>
+                <strong>Shear Strain / Rotational Injury:</strong>
+                <p>Due to side-to-side or rotational movement of the head, causing the brain to get jolted on sharp edges of tentorial attachments and bony buttresses at the base of skull.</p>
+            </li>
+            <li>
+                <strong>Coup and Contrecoup Injury:</strong>
+                <ul>
+                    <li><strong>Coup Injury:</strong> Injury to skull and brain both occur at the site of impact (more common with blunt force blows).</li>
+                    <li><strong>Contrecoup Injury:</strong> Injury to skull and brain occurs on the side opposite to impact (more common in fall injuries).</li>
+                </ul>
+            </li>
+        </ol>
+
+        <!-- ===================== CEREBRAL CONCUSSION ===================== -->
+
+<h2>Cerebral Concussion</h2>
+
+<div class="highlight-box">
+    <strong>Trotter's Definition of Concussion:</strong>
+    <p>
+        "Transient paralytic state of instantaneous onset, showing no evidence
+        of structural cerebral injury, followed by amnesia from the actual
+        moment of accident."
+    </p>
+</div>
+
+<h3>Etiology &amp; Manifestations</h3>
+
+<ul>
+    <li>
+        <strong>Cause:</strong>
+        Low level of acceleration/deceleration of the head causing functional
+        physiological changes in neurons without anatomical alteration.
+    </li>
+
+    <li>
+        <strong>Signs &amp; Symptoms:</strong>
+        <ul>
+            <li>
+                <em>Initially:</em>
+                Unconsciousness, bradycardia, hypotension, and sweating.
+            </li>
+            <li>
+                <em>Followed by:</em>
+                Retrograde or post-traumatic (antegrade) amnesia, temporary
+                lethargy, irritability, and cognitive dysfunction.
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<p>Neurological examination in cerebral concussion reveals:</p>
+
+<ul>
+    <li>Muscles are flaccid.</li>
+    <li>Pupils are dilated and unreacting.</li>
+    <li>Pulse is weak and slow.</li>
+    <li>Respiration is shallow.</li>
+</ul>
+
+<h3>Severity Grading of Concussion</h3>
+
+<table>
+    <thead>
+        <tr>
+            <th>Grade</th>
+            <th>Clinical Features</th>
+            <th>Duration / Resolution</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td><strong>Grade 1</strong></td>
+            <td>Transient confusion; <em>no loss of consciousness</em>.</td>
+            <td>Symptoms or mental status changes resolve within <strong>&le;15 minutes</strong>.</td>
+        </tr>
+
+        <tr>
+            <td><strong>Grade 2</strong></td>
+            <td>Transient confusion; <em>no loss of consciousness</em>.</td>
+            <td>Symptoms or mental status changes persist for <strong>&gt;15 minutes</strong>.</td>
+        </tr>
+
+        <tr>
+            <td><strong>Grade 3</strong></td>
+            <td>Brief or prolonged <strong>loss of consciousness</strong>.</td>
+            <td>Variable duration of symptoms following loss of consciousness.</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>Pathological Findings</h3>
+
+<p>
+    Gross and light microscopic changes in the brain are usually absent.
+    However, biochemical and ultrastructural changes, such as mitochondrial ATP
+    depletion and local disruption of the blood-brain barrier, may occur.
+</p>
+
+<div class="viva-note">
+    <strong>Post-Concussion Syndrome</strong>
+    <p>
+        Seen in patients who return to work too early after head injury.
+        Features include headache, vertigo, lassitude, irritability, and
+        depression, which may persist for months.
+    </p>
+</div>
+
+<h3>Differential Diagnosis: Drunkenness vs. Concussion</h3>
+
+<table>
+    <thead>
+        <tr>
+            <th>Feature</th>
+            <th>Drunkenness</th>
+            <th>Concussion</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td><strong>Skin</strong></td>
+            <td>Flushed, congested, and warm.</td>
+            <td>Pale, cold, and sweating.</td>
+        </tr>
+
+        <tr>
+            <td><strong>Pulse</strong></td>
+            <td>Rapid and bounding.</td>
+            <td>Slow and feeble.</td>
+        </tr>
+
+        <tr>
+            <td><strong>Pupils</strong></td>
+            <td>Dilated; contracted in deep coma.</td>
+            <td>Contracted (e.g., in pontine hemorrhage).</td>
+        </tr>
+
+        <tr>
+            <td><strong>Light Reflex</strong></td>
+            <td>Sluggish.</td>
+            <td>May be brisk.</td>
+        </tr>
+
+        <tr>
+            <td><strong>Respiration</strong></td>
+            <td>Sighs, puffs, eructates.</td>
+            <td>Shallow, irregular, and slow.</td>
+        </tr>
+
+        <tr>
+            <td><strong>Memory</strong></td>
+            <td>Confused and disoriented.</td>
+            <td>Retrograde amnesia.</td>
+        </tr>
+
+        <tr>
+            <td><strong>Behavior</strong></td>
+            <td>Uncooperative, abusive, talkative, or sulky.</td>
+            <td>Quiet, retracted, curled up in bed, with photophobia.</td>
+        </tr>
+
+        <tr>
+            <td><strong>Urine / Blood</strong></td>
+            <td>Examination confirms alcohol.</td>
+            <td>Retention of urine; urine may contain albumin.</td>
+        </tr>
+
+        <tr>
+            <td><strong>History</strong></td>
+            <td>History of alcohol intake with smell of alcohol.</td>
+            <td>History of head injury with features of concussion.</td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="viva-note">
+    <strong>Medicolegal Importance</strong>
+    <p>
+        Concussion produces retrograde amnesia and may be mistaken for
+        drunkenness or "punch-drunk syndrome" during clinical and forensic
+        examinations.
+    </p>
+</div>
+
+<!-- ===================== DIFFUSE AXONAL INJURY ===================== -->
+
+<h2>Diffuse Axonal Injury (DAI)</h2>
+
+<p>
+    Diffuse axonal injury (DAI) is a clinicopathological condition representing
+    a spectrum of severity in which the victim is unconscious from the time of
+    injury and either remains in coma or progresses to a persistent vegetative
+    state.
+</p>
+
+<ul>
+    <li>
+        <strong>Mechanism:</strong>
+        Sudden rotational and acceleration/deceleration forces produce shearing
+        at the gray-white matter junction, disrupting axons, myelin sheaths,
+        and blood capillaries.
+    </li>
+
+    <li>
+        <strong>Reversibility:</strong>
+        Axonal injury in concussion is generally reversible; severe axonal
+        disruption may result in death.
+    </li>
+
+    <li>
+        <strong>Etiology:</strong>
+        Approximately 90% are due to road traffic accidents, while 10% result
+        from falls and assaults.
+    </li>
+</ul>
+
+<h3>Diagnosis of DAI</h3>
+
+<ul>
+    <li><strong>Neuroimaging:</strong> CT scan and MRI.</li>
+
+    <li>
+        <strong>Histology:</strong>
+        Numerous axonal swellings ("retraction balls" or "retraction bulbs")
+        are demonstrated in the internal capsule, corpus callosum, and superior
+        cerebellar peduncle.
+    </li>
+
+    <li>
+        <strong>Most Sensitive Technique:</strong>
+        Immunostaining for <strong>&beta;-amyloid precursor protein (&beta;APP)</strong>
+        is highly sensitive and specific for detecting axonal swellings.
+    </li>
+</ul>
+
+<!-- ===================== CEREBRAL CONTUSIONS ===================== -->
+
+<h2>Cerebral Contusions</h2>
+
+<p>
+    Cerebral contusions are usually located in the gray matter and may extend
+    into the white matter as wedge-shaped lesions. They consist of hemorrhage
+    and necrosis and are frequently associated with skull fractures. Large
+    hemorrhages may result in cavitation. Contusions are typically situated at
+    or near the gyral crest and may produce focal subarachnoid hemorrhage if
+    close to the cortical surface. The frontal and temporal lobes are the most
+    commonly affected because of adjacent bony prominences.
+</p>
+
+<h3>Six Types of Brain Contusion</h3>
+
+<ol>
+    <li>
+        <strong>Coup Contusion</strong>
+        <p>
+            Occurs at the point of impact and is more common when the front of
+            the head is struck. Impact on a stationary head causes skull
+            deformation while the brain lags behind, producing an acceleration
+            injury.
+        </p>
+    </li>
+
+    <li>
+        <strong>Contrecoup Contusion</strong>
+        <p>
+            Occurs directly opposite (180°) the point of impact and is more
+            common when the back of the head is struck. A moving head striking
+            a stationary object results in a deceleration injury as the brain
+            continues moving and impacts the opposite side of the skull.
+        </p>
+    </li>
+
+    <li>
+        <strong>Intermediary Coup Contusion</strong>
+        <p>
+            Occurs in the deep structures of the brain along the line of impact
+            between the coup and contrecoup areas.
+        </p>
+    </li>
+
+    <li>
+        <strong>Fracture Contusion</strong>
+        <p>
+            Associated with skull fractures but not necessarily located beneath
+            the impact site because the fracture line may extend away from the
+            point of injury.
+        </p>
+    </li>
+
+    <li>
+        <strong>Gliding Contusions</strong>
+        <p>
+            Located in the cortex and underlying white matter of the frontal
+            and central convolutions due to stretching and shearing forces
+            during transient back-and-forth movement of the brain.
+        </p>
+    </li>
+
+    <li>
+        <strong>Herniation Contusion</strong>
+        <p>
+            Caused by impaction of the cerebellar tonsils against the foramen
+            magnum or the medial temporal lobes against the tentorial edge
+            following transient brain displacement.
+        </p>
+    </li>
+</ol>
+      <!-- FLOWCHART: COUP VS CONTRECOUP MECHANISM -->
+        <div class="diagram-container">
+            <svg viewBox="0 0 500 240" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+                <!-- Root Box -->
+                <rect x="200" y="10" width="100" height="30" fill="#222222" stroke="#888888" stroke-width="1.5" rx="3"/>
+                <text x="250" y="30" fill="#ffffff" font-family="monospace" font-size="12" text-anchor="middle">PERSON</text>
+
+                <!-- Branch Lines -->
+                <path d="M 250 40 L 250 55 L 120 55 L 120 70" fill="none" stroke="#888888" stroke-width="1.5"/>
+                <path d="M 250 40 L 250 55 L 380 55 L 380 70" fill="none" stroke="#888888" stroke-width="1.5"/>
+
+                <!-- Left Branch: Blow to Head -->
+                <rect x="50" y="70" width="140" height="30" fill="#111111" stroke="#888888" stroke-width="1" rx="3"/>
+                <text x="120" y="88" fill="#e5e5e5" font-family="sans-serif" font-size="11" text-anchor="middle">Blow to head (Resting head)</text>
+
+                <line x1="120" y1="100" x2="120" y2="120" stroke="#888888" stroke-width="1.5"/>
+                <rect x="50" y="120" width="140" height="30" fill="#111111" stroke="#888888" stroke-width="1" rx="3"/>
+                <text x="120" y="138" fill="#e5e5e5" font-family="sans-serif" font-size="11" text-anchor="middle">Indentation of skull</text>
+
+                <line x1="120" y1="150" x2="120" y2="170" stroke="#888888" stroke-width="1.5"/>
+                <rect x="50" y="170" width="140" height="30" fill="#222222" stroke="#ffffff" stroke-width="1.5" rx="3"/>
+                <text x="120" y="188" fill="#ffffff" font-family="monospace" font-size="11" text-anchor="middle" font-weight="bold">Coup Contusion</text>
+
+                <!-- Right Branch: Fall on Head -->
+                <rect x="310" y="70" width="140" height="30" fill="#111111" stroke="#888888" stroke-width="1" rx="3"/>
+                <text x="380" y="88" fill="#e5e5e5" font-family="sans-serif" font-size="11" text-anchor="middle">Fall on head (Moving head)</text>
+
+                <line x1="380" y1="100" x2="380" y2="120" stroke="#888888" stroke-width="1.5"/>
+                <rect x="310" y="120" width="140" height="30" fill="#111111" stroke="#888888" stroke-width="1" rx="3"/>
+                <text x="380" y="138" fill="#e5e5e5" font-family="sans-serif" font-size="11" text-anchor="middle">Hits stationary ground</text>
+
+                <line x1="380" y1="150" x2="380" y2="170" stroke="#888888" stroke-width="1.5"/>
+                <rect x="310" y="170" width="140" height="30" fill="#222222" stroke="#ffffff" stroke-width="1.5" rx="3"/>
+                <text x="380" y="188" fill="#ffffff" font-family="monospace" font-size="11" text-anchor="middle" font-weight="bold">Contrecoup Contusion</text>
+            </svg>
+            <div class="diagram-title">Mechanism of Coup vs. Contrecoup Contusions</div>
+        </div>
+
+        <!-- BRAIN LACERATION & SPECIAL SYNDROMES -->
+        <h2>Brain Laceration &amp; Boxer's Injury</h2>
+        <p><strong>Brain Lacerations:</strong> Traumatic lesions with loss of continuity of brain substance. Penetrating and perforating wounds often show little or no bleeding due to vasospasm. Laceration in the brainstem occurs due to severe hyperextension (at junction of medulla oblongata and pons). Laceration of white matter occurs in trauma in infants &lt;5 months (common in orbital and temporal lobes).</p>
+
+        <h3>Boxer's Injury (Punch-Drunk Syndrome)</h3>
+        <p>Chronic traumatic encephalopathy induced in boxers due to repeated blows to the head.</p>
+        <ul>
+            <li><strong>Signs &amp; Symptoms:</strong> Deterioration in speed and coordination, slurred speech, defective memory, slow thoughts, stiff limbs, ataxia, unsteady gait, and Parkinsonian-like dementia.</li>
+        </ul>
+
+        <!-- DETAILED COUP VS CONTRECOUP INJURY -->
+        <h2>Detailed Comparison: Coup vs. Contrecoup Injury</h2>
+
+        <!-- DIAGRAM: COUP VS CONTRECOUP HEAD ANATOMY -->
+        <div class="diagram-container">
+            <svg viewBox="0 0 500 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+                <!-- Figure A: Coup -->
+                <g transform="translate(40, 10)">
+                    <ellipse cx="90" cy="100" rx="70" ry="85" fill="#111111" stroke="#888888" stroke-width="2"/>
+                    <path d="M 50 50 Q 80 40 110 50" fill="none" stroke="#ffffff" stroke-width="3"/> <!-- Impact site -->
+                    <polygon points="90,10 80,35 100,35" fill="#ffffff"/> <!-- Object arrow -->
+                    <rect x="65" y="0" width="50" height="15" fill="#333333" stroke="#888888"/> <!-- Moving Object -->
+                    <circle cx="80" cy="55" r="18" fill="#552222" opacity="0.8"/> <!-- Coup Damage -->
+                    <text x="90" y="195" fill="#e5e5e5" font-family="monospace" font-size="11" text-anchor="middle">(A) Coup Injury (Fixed Head)</text>
+                </g>
+
+                <!-- Figure B: Contrecoup -->
+                <g transform="translate(270, 10)">
+                    <ellipse cx="90" cy="100" rx="70" ry="85" fill="#111111" stroke="#888888" stroke-width="2"/>
+                    <!-- Ground line -->
+                    <line x1="10" y1="180" x2="170" y2="180" stroke="#ffffff" stroke-width="3"/>
+                    <circle cx="90" cy="165" r="12" fill="#333333"/> <!-- Primary impact occiput -->
+                    <circle cx="90" cy="35" r="22" fill="#552222" opacity="0.8"/> <!-- Contrecoup Damage Frontal -->
+                    <text x="90" y="195" fill="#e5e5e5" font-family="monospace" font-size="11" text-anchor="middle">(B) Contrecoup Injury (Moving Head)</text>
+                </g>
+            </svg>
+            <div class="diagram-title">Coup Injury (Impact Site) vs. Contrecoup Injury (Opposite Site)</div>
+        </div>
+      <h3>Coup Injury</h3>
+        <ul>
+            <li>Occurs immediately beneath the area of impact and results directly from the impacting force.</li>
+            <li>Smaller impact area increases the likelihood of a coup injury. Effects are immediate, resulting in contusion and hemorrhage.</li>
+            <li><em>Example:</em> If head is fixed (person standing still) and violent impact occurs over frontal bone, fracture and underlying brain damage are located directly beneath the impact site.</li>
+        </ul>
+
+        <h3>Contrecoup Injury</h3>
+        <ul>
+            <li>Lesion is present in the brain directly opposite to the site of impact (180&deg;).</li>
+            <li>Caused when a moving head is suddenly decelerated by hitting a firm surface (e.g., striking head on ground during a fall in RTAs).</li>
+            <li>Sudden arrest of the head results in injury to the brain, which is still in motion, striking the arrested skull.</li>
+            <li><em>Mechanism:</em> Local skull distortion and sudden rotation cause shear strain by pulling apart brain constituents. A temporary cavity or vacuum exerts a 'suction effect' on the opposite side as the brain lags behind. In-bending of bone displaces brain to opposite side.</li>
+            <li><em>Prerequisites &amp; Sites:</em> Can occur <strong>only when the head is free to move</strong>. Most frequent in temporal and frontal lobes (especially orbital surface). Rare before 3 years of age.</li>
+        </ul>
+
+        <h3>Medicolegal Differentiation: Blows vs. Falls</h3>
+        <ul>
+            <li><strong>Blows (Assault):</strong> Brain shows much larger contusions underlying the area of impact (coup) than on the site opposite impact (contrecoup).</li>
+            <li><strong>Falls (e.g., RTAs):</strong> Contrecoup injuries are usually located in inaccessible portions and are <strong>larger</strong> than coup contusions. Coup lesions may be absent or minimal.</li>
+        </ul>
+
+        <!-- CAUSE OF DEATH & SPINAL TRAUMA -->
+        <h2>Causes of Death in Head Injury &amp; Spinal Trauma</h2>
+
+        <h3>Causes of Death in Head Injury</h3>
+        <ol>
+            <li>Damage to vital cerebral areas around posterior hypothalamus, midbrain, and medulla &rarr; respiratory failure or paralysis followed by permanent cardiac arrest.</li>
+            <li>Compression or concussion of vital centers.</li>
+            <li>Markedly raised intracranial pressure (ICP).</li>
+            <li>Secondary complications: Infection, hypostatic pneumonia, pulmonary embolism, renal infection.</li>
+        </ol>
+
+        <h2>Spinal Fractures &amp; Cord Injuries</h2>
+        <p><strong>Commonest Site of Spinal Fracture:</strong> Thoraco-lumbar segment.</p>
+
+        <h3>Types of Spinal Injury Mechanisms</h3>
+        <ul>
+            <li><strong>Flexion Injury:</strong> Results in compression fracture of vertebral body with dislocation.</li>
+            <li><strong>Flexion-Rotation Injury:</strong> Results in fracture-dislocation of vertebra.</li>
+            <li><strong>Vertical Compression Injury:</strong> Vertebral body is crushed and breaks into pieces.</li>
+            <li><strong>Extension Type Injury:</strong> Hyperextension mechanism.</li>
+            <li><strong>Direct Trauma:</strong> Force applied directly to spine.</li>
+            <li><strong>Indirect Trauma:</strong> Transmitted force (e.g., fall from height landing on feet).</li>
+        </ul>
+
+        <p><strong>Spinal Cord Injuries:</strong> Penetrating wounds most commonly affect (in order of frequency): <em>Lower Cervical &gt; Thoracolumbar &gt; Upper Cervical</em>.</p>
+
+        <!-- WHIPLASH INJURY -->
+        <h2>Whiplash Injury</h2>
+        <p>An acceleration-deceleration mechanism of energy transfer to the neck that may result in bony and soft tissue injuries. Characterized by <strong>acute hyperflexion + reactionary hyperextension</strong> of the head (common in front-seat passengers).</p>
+
+        <h3>Causes &amp; Mechanism</h3>
+        <ul>
+            <li>Rear-end or side-impact motor vehicle collisions (sometimes front impacts).</li>
+            <li>Blow on the chin.</li>
+            <li>Blow against spinous process of upper cervical vertebrae ('rabbit punch').</li>
+            <li><em>Mechanism:</em> Abrupt acceleration of trunk causes whip-like movements of head in rear-end collisions, leading to maximal unchecked backward thrust followed immediately by forward rebound.</li>
+        </ul>
+
+        <h3>Clinical Features &amp; Imaging</h3>
+        <ul>
+            <li><strong>Cardinal Manifestation:</strong> Pain and/or stiffness of neck and lower back immediately or within 24 hours after trauma.</li>
+            <li><strong>Associated Symptoms:</strong> Headache, dizziness, tinnitus, vertigo, irritability, nausea, fatigue, blurred vision, numbness/tingling, arm/leg/hand pain, dysphagia, interscapular pain, cognitive and psychological problems.</li>
+            <li><strong>X-Ray:</strong> New degenerative changes.</li>
+            <li><strong>CT Scan:</strong> Rotatory instability with increased rotation at C<sub>0</sub>–C<sub>1</sub> and/or C<sub>1</sub>–C<sub>2</sub>.</li>
+            <li><strong>MRI:</strong> Disc herniations, ligamentous lesions at craniovertebral junction.</li>
+            <li><strong>Autopsy Findings:</strong> Facet joint (cervical zygapophysial joint), ligamentum flavum, uncovertebral, and disc/endplate lesions.</li>
+            <li><strong>Medicolegal Aspect:</strong> A rising percentage of car accidents result in refund/compensation claims based on whiplash.</li>
+        </ul>
+
+        <!-- SPECIAL SPINAL CONDITIONS -->
+        <h2>Special Spinal Conditions &amp; Forensic Concepts</h2>
+
+        <h3>Concussion of Spinal Cord ('Railway Spine')</h3>
+        <ul>
+            <li><strong>Causes:</strong> Railway and motor collisions (most common), severe blow to back, compression from fracture-dislocation, effusion of blood, fall from height, bullet injury.</li>
+            <li><strong>Symptoms:</strong> Appear immediately or after hours: headache, giddiness, restlessness, sleeplessness, neurasthenia, limb weakness, amnesia, loss of sexual power, derangement of special senses.</li>
+            <li>Produces temporary paralysis affecting arms, hands, bladder, rectum, or lower extremities; recovery occurs in ~48 hours.</li>
+        </ul>
+
+        <h3>Compression, Pithing &amp; Laceration</h3>
+        <ul>
+            <li><strong>Compression of Spinal Cord:</strong> Due to fracture-dislocation, usually at levels C<sub>5</sub>–C<sub>6</sub>, T<sub>3</sub>–T<sub>6</sub>, T<sub>10</sub>–L<sub>3</sub>.</li>
+            <li><strong>Pithing:</strong> Killing by pushing a fine needle into nape of neck between base of skull and 1st cervical vertebra (concealed punctured wound).</li>
+            <li><strong>Spinal Laceration:</strong> Twisting the neck can lead to laceration of spinal cord causing death without external injury (e.g., infanticide, wrestling, firearm injuries).</li>
+        </ul>
+
+        <!-- PAST EXAM QUESTION RECAP BOXES -->
+        <h2>Past Exam Question Solutions</h2>
+
+        <div class="viva-note">
+            <strong>Past Exam Question [2072/10]:</strong> Autopsy findings in death by severe striking of hammer on head.
+            <ul>
+                <li><strong>Skull Findings:</strong> Depressed fracture ('signature fracture' displaying rounded contour of a round-headed hammer).</li>
+                <li><strong>Brain &amp; Vascular Findings:</strong> Brain contusion with both coup and contrecoup injuries; epidural hemorrhage; intracerebral hemorrhage.</li>
+                <li><strong>External Appearance:</strong> Laceration and depression in scalp contour with hairs driven/turned into wound.</li>
+                <li><strong>Mode of Death:</strong> Coma.</li>
+                <li><strong>Manner of Death:</strong> Homicide.</li>
+                <li><strong>Cause of Death:</strong> Head injury with blunt force object.</li>
+                <li><strong>Mechanism of Death:</strong> Brain contusion and brainstem compression (herniation of cerebellar tonsils).</li>
+            </ul>
+        </div>
+
+        <div class="viva-note">
+            <strong>Past Exam Question [2076/3]:</strong> Anatomic structures of head in order and possible injuries in fall from roof to ground.
+            <ol>
+                <li><strong>Scalp:</strong> Contusions, lacerations.</li>
+                <li><strong>Skull:</strong> Fracture of skull bones.</li>
+                <li><strong>Dura Mater:</strong> Extradural hemorrhage (bleeding between skull and dura due to middle meningeal artery rupture).</li>
+                <li><strong>Arachnoid Mater:</strong> Subdural hemorrhage (bleeding between dura and arachnoid due to dural venous sinus / cortical vein rupture).</li>
+                <li><strong>Pia Mater:</strong> Subarachnoid hemorrhage (bleeding between arachnoid and pia due to bridging vein rupture).</li>
+                <li><strong>Brain Parenchyma:</strong> Intracerebral hemorrhage (within parenchyma due to middle cerebral artery rupture) and brain injury (contusion, laceration).</li>
+            </ol>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; Monolith Academic Archives — Fast Track Clinical Science Series</p>
+    </footer>
+
+</body>
+</html>
