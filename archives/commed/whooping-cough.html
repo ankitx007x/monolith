@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monolith — Whooping Cough (Pertussis)</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #e5e5e5;
+            --accent-color: #888888;
+            --border-color: #222222;
+            --hover-color: #ffffff;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-family: var(--font-mono);
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--hover-color);
+        }
+
+        /* Main Container */
+        main {
+            max-width: 800px;
+            margin: 80px auto;
+        }
+
+        /* Header Section */
+        .subject-header {
+            margin-bottom: 60px;
+        }
+
+        .breadcrumb {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--hover-color);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-family: var(--font-mono);
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        /* Typography & Layout Content Elements */
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0px;
+            margin: 50px 0 20px 0;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        h3 {
+            font-size: 1.15rem;
+            font-weight: 500;
+            margin: 25px 0 10px 0;
+            color: var(--hover-color);
+        }
+
+        h4 {
+            font-size: 1.0rem;
+            font-weight: 600;
+            margin: 15px 0 5px 0;
+            color: #d0d0d0;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: var(--text-color);
+            text-align: justify;
+        }
+
+        strong {
+            color: var(--hover-color);
+            font-weight: 600;
+        }
+
+        em {
+            color: #b0b0b0;
+            font-style: italic;
+        }
+
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: square;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        li strong {
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
+        }
+
+        /* Tables matching Minimal Dark theme */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.95rem;
+        }
+
+        th {
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            color: var(--accent-color);
+            text-align: left;
+            padding: 10px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.85rem;
+        }
+
+        td {
+            padding: 12px 10px;
+            border-bottom: 1px dashed var(--border-color);
+            vertical-align: top;
+        }
+
+        tr:hover td {
+            color: var(--hover-color);
+            background-color: #0f0f0f;
+        }
+
+        .note {
+            background-color: #111111;
+            border-left: 2px solid var(--accent-color);
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            max-width: 800px;
+            margin: 100px auto 40px auto;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Monolith</div>
+        <ul class="nav-links">
+            <li><a href="https://fidelioa.github.io/monolith">Home</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/archives">Archives</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/about">About</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Document Header -->
+        <section class="subject-header">
+            <div class="breadcrumb">
+                <a href="https://fidelioa.github.io/monolith/archives">Archives</a> / 
+                <a href="https://fidelioa.github.io/monolith/archives/commed">Community Medicine</a> / Whooping Cough
+            </div>
+            <h1>Whooping Cough (Pertussis) Epidemiology</h1>
+            <div class="subtitle">Fast Track Clinical Science MBBS - 3rd Year | Communicable Diseases</div>
+        </section>
+
+        <!-- Main Chapter Content -->
+        <section class="content">
+
+            <h2>Whooping Cough (Pertussis)</h2>
+
+            <h3>Introduction</h3>
+            <ul>
+                <li>Whooping cough is an infectious disease mainly of children caused by <em>Bordetella pertussis</em>.</li>
+                <li>It is clinically characterized by an insidious onset with mild fever and an irritating cough, gradually becoming paroxysmal with the characteristic whoop.</li>
+            </ul>
+
+            <h3>Problem Statement</h3>
+            <ul>
+                <li>It is an important cause of death in infants worldwide, and continues to be a public health concern even in countries with high vaccination coverage.</li>
+                <li>It is one of the most lethal diseases of infants and young children who have not been immunized, particularly those with underlying malnutrition and other respiratory infections.</li>
+                <li>In 2023, 11 pertussis cases were reported from Nepal.</li>
+                <li>DPT-HepB-Hib1 (101%) in FY 2079/80 exceeded the target (95%). The coverage is more than 100% due to more newborns shown up for vaccination than the targeted and expected pregnancies/deliveries. Coverage of DPT-HepB-Hib3 increased by 4% in FY 2079/80 compared to FY 2078/79. Bagmati province leads in DPT-HepB-Hib3 coverage.</li>
+            </ul>
+
+            <h3>Epidemiological Determinants</h3>
+
+            <h4>Agent Factors</h4>
+            <ul>
+                <li><strong>Agent:</strong> Bacteria called <em>Bordetella pertussis</em>.</li>
+                <li><strong>Source of infection:</strong> Only affects humans, so cases are the only source of infection. There is no carrier state of <em>Bordetella</em>.</li>
+                <li><strong>Infective material:</strong> Nasopharyngeal and bronchial secretions. Objects freshly contaminated by such discharges are also infective.</li>
+                <li><strong>Infective period:</strong> Most infectious during the catarrhal stage (a week after exposure to about 3 weeks after the onset of the paroxysmal stage).</li>
+                <li><strong>Secondary attack rate:</strong> 90 percent in unimmunized household contacts.</li>
+            </ul>
+
+            <h4>Host Factors</h4>
+            <ul>
+                <li><strong>Age:</strong> It is a disease of infants and pre-school children.</li>
+                <li><strong>Sex:</strong> Incidence and fatality are higher among females than males.</li>
+                <li><strong>Immunity:</strong> 
+                    <ul>
+                        <li>Infants are susceptible to infection from birth because maternal antibody does not appear to give them protection.</li>
+                        <li>Recovery from pertussis provides immunity, although a second attack may occur in persons with declining immunity (usually mild).</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h4>Environmental Factors</h4>
+            <ul>
+                <li><strong>Seasonal trend:</strong> Occurs throughout the year but more cases during the winter and spring months due to overcrowding.</li>
+                <li><strong>Socio-economic class:</strong> More prevalent in low social classes due to overcrowding.</li>
+            </ul>
+
+            <h3>Mode of Transmission &amp; Incubation</h3>
+            <ul>
+                <li><strong>Transmission:</strong> Spread mainly by droplet infection and direct contact.</li>
+                <li><strong>Incubation period:</strong> Usually 7 to 14 days.</li>
+            </ul>
+
+            <h3>Clinical Course</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Stage</th>
+                        <th>Length</th>
+                        <th>Clinical Features</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Stage 1: Catarrhal</strong></td>
+                        <td>Usually 7–10 days (range of 4–21 days)</td>
+                        <td>
+                            Characterized by:
+                            <ul>
+                                <li>Coryza</li>
+                                <li>Low grade fever</li>
+                                <li>Mild occasional cough (which gradually becomes more severe)</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Stage 2: Paroxysmal</strong></td>
+                        <td>Usually lasts 1–6 weeks, but may persist for up to 10 weeks</td>
+                        <td>
+                            Characterized by:
+                            <ul>
+                                <li>Paroxysms of numerous, rapid coughs due to difficulty expelling thick mucus from the tracheobronchial tree</li>
+                                <li>Long inspiratory effort accompanied by a high-pitched "whoop" at the end of the paroxysms</li>
+                                <li>Cyanosis</li>
+                                <li>Vomiting and exhaustion</li>
+                            </ul>
+                            <strong>Paroxysmal attacks:</strong>
+                            <ul>
+                                <li>Occur frequently at night, with an average of 15 attacks per 24 hours</li>
+                                <li>Increase in frequency during the first 1–2 weeks, remain at the same frequency for 2–3 weeks, and gradually decrease</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Stage 3: Convalescent</strong></td>
+                        <td>Usually 7–10 days (range of 4–21 days)</td>
+                        <td>
+                            Characterized by:
+                            <ul>
+                                <li>Gradual recovery</li>
+                                <li>Less persistent paroxysmal coughs that disappear in 2–3 weeks</li>
+                            </ul>
+                            <em>Note: Paroxysms often recur with subsequent respiratory infections for many months after the onset of pertussis.</em>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Complications</h3>
+            <ul>
+                <li>Bronchitis</li>
+                <li>Bronchopneumonia</li>
+                <li>Bronchiectasis</li>
+                <li>Subconjunctival haemorrhages</li>
+                <li>Epistaxis</li>
+                <li>Punctate cerebral haemorrhages</li>
+            </ul>
+
+            <h3>Diagnosis</h3>
+            <ul>
+                <li><strong>Culture:</strong>
+                    <ul>
+                        <li>Specimen is nasopharyngeal secretions.</li>
+                        <li>Culture has excellent specificity; it is particularly useful for confirming pertussis diagnosis when suspecting an outbreak.</li>
+                    </ul>
+                </li>
+                <li><strong>PCR:</strong>
+                    <ul>
+                        <li>PCR is a rapid test and has excellent sensitivity. However, PCR tests vary in specificity. Therefore, you should obtain culture confirmation of pertussis for at least one suspicious case any time there is suspicion of a pertussis outbreak.</li>
+                    </ul>
+                </li>
+                <li><strong>Serology:</strong>
+                    <ul>
+                        <li>Fluorescent antibody staining</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>Prevention</h3>
+
+            <h4>Active Immunization</h4>
+            <ul>
+                <li>Best way to prevent infant pertussis is vaccination.</li>
+                <li>Both whole-cell (wP) and acellular (aP) pertussis vaccines provide excellent protection and are safe apart from minor adverse events. In Nepal, whole cell pertussis vaccine is given.</li>
+                <li>Both wP and aP are usually administered in combination with diphtheria and tetanus toxoids (DTwP or DTaP).</li>
+                <li><strong>Doses:</strong>
+                    <ul>
+                        <li>WHO recommends a three-dose primary series, with the first dose administered at age 6 weeks; subsequent doses should be given 4–8 weeks apart, at age 10–14 weeks and 14–18 weeks.</li>
+                        <li>The last dose of the recommended primary series should be completed by the age of 6 months.</li>
+                        <li>Protection declines with time and probably lasts only a few years.</li>
+                        <li>A booster dose should be administered 1–6 years after the primary series, preferably during the second year of life.</li>
+                        <li>Some countries now offer an adolescent/adult booster, in particular to health care workers and young parents.</li>
+                        <li>Previously unvaccinated adolescents/adults should receive three doses of wP or aP vaccine: with an interval of 2 months between the first and second, and 6–12 months between the second and third doses.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h4>Passive Immunization</h4>
+            <p>The merit of hyperimmune globulin in pertussis prophylaxis has yet to be established.</p>
+
+            <h3>Control of Whooping Cough</h3>
+
+            <h4>1. Cases and Contacts</h4>
+            <ul>
+                <li>Early diagnosis, isolation and treatment of cases and disinfection of discharges from nose and throat are principles of control of whooping cough.</li>
+                <li>The patient should be isolated until considered to be non-infectious.</li>
+                <li>Erythromycin is drug of choice for treatment. Other alternatives are ampicillin, tetracycline, etc.</li>
+                <li>During paroxysmal phase of disease, antimicrobial drugs will not change clinical course but may eliminate the bacterium from nasopharynx and thus reduce transmission of disease. They are useful in controlling secondary bacterial infections.</li>
+            </ul>
+
+            <h4>2. Contacts</h4>
+            <ul>
+                <li>Infants and young children should be kept away from cases.</li>
+                <li>Those known to have been in contact with whooping cough may be given prophylactic antibiotic (erythromycin or ampicillin) treatment for 10 days.</li>
+                <li>Vaccination with DPT.</li>
+            </ul>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 MONOLITH. Built to persist.</p>
+    </footer>
+
+</body>
+</html>
