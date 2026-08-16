@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monolith — Diphtheria</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #e5e5e5;
+            --accent-color: #888888;
+            --border-color: #222222;
+            --hover-color: #ffffff;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-family: var(--font-mono);
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--hover-color);
+        }
+
+        /* Main Container */
+        main {
+            max-width: 800px;
+            margin: 80px auto;
+        }
+
+        /* Header Section */
+        .subject-header {
+            margin-bottom: 60px;
+        }
+
+        .breadcrumb {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--hover-color);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-family: var(--font-mono);
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        /* Typography & Layout Content Elements */
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0px;
+            margin: 50px 0 20px 0;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        h3 {
+            font-size: 1.15rem;
+            font-weight: 500;
+            margin: 25px 0 10px 0;
+            color: var(--hover-color);
+        }
+
+        h4 {
+            font-size: 1.0rem;
+            font-weight: 600;
+            margin: 15px 0 5px 0;
+            color: #d0d0d0;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: var(--text-color);
+            text-align: justify;
+        }
+
+        strong {
+            color: var(--hover-color);
+            font-weight: 600;
+        }
+
+        em {
+            color: #b0b0b0;
+            font-style: italic;
+        }
+
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: square;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        li strong {
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
+        }
+
+        /* Tables matching Minimal Dark theme */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.95rem;
+        }
+
+        th {
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            color: var(--accent-color);
+            text-align: left;
+            padding: 10px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.85rem;
+        }
+
+        td {
+            padding: 12px 10px;
+            border-bottom: 1px dashed var(--border-color);
+            vertical-align: top;
+        }
+
+        tr:hover td {
+            color: var(--hover-color);
+            background-color: #0f0f0f;
+        }
+
+        .note {
+            background-color: #111111;
+            border-left: 2px solid var(--accent-color);
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            max-width: 800px;
+            margin: 100px auto 40px auto;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Monolith</div>
+        <ul class="nav-links">
+            <li><a href="https://fidelioa.github.io/monolith">Home</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/archives">Archives</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/about">About</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Document Header -->
+        <section class="subject-header">
+            <div class="breadcrumb">
+                <a href="https://fidelioa.github.io/monolith/archives">Archives</a> / 
+                <a href="https://fidelioa.github.io/monolith/archives/commed">Community Medicine</a> / Applied Epidemiology
+            </div>
+            <h1>Diphtheria Epidemiology &amp; Control</h1>
+            <div class="subtitle">Fast Track Clinical Science MBBS - 3rd Year | Communicable Diseases</div>
+        </section>
+
+        <!-- Main Chapter Content -->
+        <section class="content">
+
+            <h2>Diphtheria</h2>
+
+            <h3>Introduction</h3>
+            <ul>
+                <li>It is an acute infectious disease caused by toxigenic strains of <em>Corynebacterium diphtheriae</em>.</li>
+                <li>Primarily infects the throat and upper airways by producing a toxin.</li>
+            </ul>
+
+            <h3>Problem Statement</h3>
+            <p><strong>Global Scenario:</strong></p>
+            <ul>
+                <li>Diphtheria is a rare disease in most developed countries owing to routine childhood vaccination. In countries where satisfactory vaccination schemes have been instituted, the disease has declined so significantly that it is no longer regarded as a public health problem.</li>
+                <li>Just about 4,490 cases were reported globally during the year 2012 (down from 100,000 in 1980).</li>
+                <li>Currently, sub-Saharan Africa, India, Indonesia, and the Philippines are the more affected areas.</li>
+                <li>Significant outbreaks reported in 2010.</li>
+                <li>Although 86% of the global population is vaccinated, only 28% of countries have vaccination coverage greater than 80% in all districts.</li>
+            </ul>
+
+            <p><strong>Nepal Scenario:</strong></p>
+            <ul>
+                <li>Expanded Program on Immunization (EPI) including BCG and DPT vaccines in Nepal started in 1979 in three districts (Bara, Kaski, and Bhaktapur).</li>
+                <li>Expanded to all 75 districts by 1989.</li>
+                <li>Due to this, a significant reduction in the number of cases occurred, with just 3 or 4 reported annually.</li>
+                <li>4 cases of diphtheria were reported in 2023.</li>
+            </ul>
+
+            <h3>Epidemiological Determinants</h3>
+
+            <h4>1. Agent Factors</h4>
+            <ul>
+                <li><strong>Agent:</strong> <em>Corynebacterium diphtheriae</em> — Non-motile, non-capsulated, club-shaped Gram-positive bacilli. Possesses no invasive power, but produces a powerful exotoxin.</li>
+                <li><strong>Source of Infection:</strong> Cases and carriers (carriers are more common).</li>
+                <li><strong>Infective Material:</strong> Nasopharyngeal secretions, discharges from skin lesions, and contaminated fomites.</li>
+                <li><strong>Portal of Entry:</strong> Respiratory route, or non-respiratory routes (skin-cut wounds, umbilicus in newborns, eye, middle ear, or genitalia).</li>
+                <li><strong>Period of Infectivity:</strong> 14–28 days from the onset of disease.</li>
+            </ul>
+
+            <h4>2. Host Factors</h4>
+            <ul>
+                <li><strong>Age:</strong> Children aged 1 to 5 years (a shift in age has been observed from preschool to school age).</li>
+                <li><strong>Sex:</strong> Both sexes are affected equally.</li>
+                <li><strong>Immunity:</strong> Infants born to immune mothers remain relatively immune during the first few weeks or months. Diphtheria generally occurs only in persons who possess no antitoxin.</li>
+            </ul>
+
+            <h4>3. Environmental Factors</h4>
+            <ul>
+                <li>All seasons, but more prevalent in winter.</li>
+                <li>Overcrowded living conditions.</li>
+                <li>Poor sanitation.</li>
+            </ul>
+
+            <h3>Mode of Transmission</h3>
+            <ul>
+                <li>Mainly droplet infection.</li>
+                <li>Infected cutaneous lesions.</li>
+                <li>Objects contaminated with nasopharyngeal secretions (e.g., toys, pencils, cups).</li>
+            </ul>
+
+            <h3>Incubation Period</h3>
+            <p>2 to 6 days.</p>
+
+            <h3>Clinical Features</h3>
+
+            <h4>A. Respiratory Tract Forms</h4>
+            <p><strong>1. Pharyngotonsillar Type:</strong></p>
+            <ul>
+                <li>Sore throat and difficulty in swallowing.</li>
+                <li>Low-grade fever and mild erythema.</li>
+                <li>Localized exudate forming a <strong>pseudomembrane</strong> (bleeds if removed).</li>
+                <li><strong>Severe forms:</strong> "Bull-necked" appearance due to cervical lymph node enlargement.</li>
+            </ul>
+
+            <p><strong>2. Laryngotracheal Type:</strong></p>
+            <ul>
+                <li>Fever, hoarseness of voice, and croupy cough.</li>
+                <li><strong>Most severe form:</strong> Airway obstruction by the membrane leading to prostration and dyspnea.</li>
+            </ul>
+
+            <p><strong>3. Nasal Type:</strong></p>
+            <ul>
+                <li>Mildest clinical form.</li>
+                <li>Localized to septum/turbinates.</li>
+                <li>Nasal carriers are particularly dangerous than throat carriers.</li>
+            </ul>
+
+            <h4>B. Non-Respiratory Forms</h4>
+            <ul>
+                <li><strong>Skin (Cutaneous):</strong> Punched-out ulcers on fingers and back of hands.</li>
+                <li><strong>Ocular:</strong> Conjunctival inflammation and corneal damage.</li>
+                <li><strong>Intestinal:</strong> Dysphagia and bloody diarrhea.</li>
+                <li><strong>Genital:</strong> Ulcerative lesions on genitalia.</li>
+            </ul>
+
+            <h3>Complications</h3>
+            <ul>
+                <li>Myocarditis</li>
+                <li>Polyneuropathy and postdiphtheric paralysis</li>
+                <li>Mechanical asphyxia due to obstruction of respiratory passage by pseudomembrane</li>
+                <li>Pneumonia</li>
+                <li>Otitis media</li>
+            </ul>
+
+            <h3>Diagnosis</h3>
+            <p>Based on clinical features (sore throat, pharyngeal exudate, fever, hoarseness, stridor, palatal paralysis, pseudomembrane) and confirmed by <strong>laboratory examination:</strong> cultivation of <em>C. diphtheriae</em> on Loeffler's serum slope and observing colonies.</p>
+
+            <h3>Prevention &amp; Control</h3>
+
+            <h4>1. Vaccination / Immunization</h4>
+            <ul>
+                <li>Given as <strong>Pentavalent vaccine</strong> (DPT + HepB + Hib) at 6, 10, and 14 weeks of age in Nepal.</li>
+                <li>DPT or DTaP (diphtheria/tetanus/acellular pertussis) triple vaccine is routinely used for primary immunization.</li>
+                <li><strong>Booster doses:</strong> After the primary 3-dose series, DT is given to children &lt;7 years old; individuals &ge;7 years should receive a vaccine with reduced diphtheria content (dT).</li>
+                <li>Booster intervals of about 10 years maintain protective immunity. Primary series plus two boosters eliminates the need for further routine doses in early adulthood.</li>
+                <li><strong>Available Prophylactics:</strong>
+                    <ul>
+                        <li>Combined/mixed vaccine (e.g., DPT)</li>
+                        <li>Single vaccine (e.g., Formal-toxoid)</li>
+                        <li>Antisera (e.g., Diphtheria antitoxin)</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h4>2. Control Measures (Cases &amp; Carriers)</h4>
+            <ul>
+                <li><strong>Early Detection:</strong> Active search among contacts, family, and friends using throat and nose swabs cultured for the organism.</li>
+                <li><strong>Isolation:</strong> Suspected cases and carriers must be isolated promptly.</li>
+                <li><strong>Treatment:</strong>
+                    <ul>
+                        <li><strong>Diphtheria Antitoxin (DAT):</strong> 20,000 to 120,000 units IM/IV for cases without delay.</li>
+                        <li><strong>Antibiotics:</strong> Oral erythromycin for 10 days for carriers, or penicillin 40–50 mg/kg/day in 4 divided doses.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h4>3. Contact Management</h4>
+            <ul>
+                <li><strong>Immunized within 2 years:</strong> No action needed.</li>
+                <li><strong>Immunized &gt;2 years ago:</strong> Administer a booster dose of diphtheria toxoid.</li>
+                <li><strong>Unimmunized contacts:</strong> Prophylactic penicillin/erythromycin + 1,000–2,000 units of diphtheria antitoxin + start active immunization series.</li>
+            </ul>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 MONOLITH. Built to persist.</p>
+    </footer>
+
+</body>
+</html>
