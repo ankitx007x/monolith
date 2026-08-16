@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monolith — Chicken Pox (Varicella)</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #e5e5e5;
+            --accent-color: #888888;
+            --border-color: #222222;
+            --hover-color: #ffffff;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-family: var(--font-mono);
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--hover-color);
+        }
+
+        /* Main Container */
+        main {
+            max-width: 800px;
+            margin: 80px auto;
+        }
+
+        /* Header Section */
+        .subject-header {
+            margin-bottom: 60px;
+        }
+
+        .breadcrumb {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--hover-color);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-family: var(--font-mono);
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        /* Typography & Layout Content Elements */
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0px;
+            margin: 50px 0 20px 0;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        h3 {
+            font-size: 1.15rem;
+            font-weight: 500;
+            margin: 25px 0 10px 0;
+            color: var(--hover-color);
+        }
+
+        h4 {
+            font-size: 1.0rem;
+            font-weight: 600;
+            margin: 15px 0 5px 0;
+            color: #d0d0d0;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: var(--text-color);
+            text-align: justify;
+        }
+
+        strong {
+            color: var(--hover-color);
+            font-weight: 600;
+        }
+
+        em {
+            color: #b0b0b0;
+            font-style: italic;
+        }
+
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: square;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        li strong {
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
+        }
+
+        /* Tables matching Minimal Dark theme */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.95rem;
+        }
+
+        th {
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            color: var(--accent-color);
+            text-align: left;
+            padding: 10px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.85rem;
+        }
+
+        td {
+            padding: 12px 10px;
+            border-bottom: 1px dashed var(--border-color);
+            vertical-align: top;
+        }
+
+        tr:hover td {
+            color: var(--hover-color);
+            background-color: #0f0f0f;
+        }
+
+        .note {
+            background-color: #111111;
+            border-left: 2px solid var(--accent-color);
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            max-width: 800px;
+            margin: 100px auto 40px auto;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Monolith</div>
+        <ul class="nav-links">
+            <li><a href="https://fidelioa.github.io/monolith">Home</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/archives">Archives</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/about">About</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Document Header -->
+        <section class="subject-header">
+            <div class="breadcrumb">
+                <a href="https://fidelioa.github.io/monolith/archives">Archives</a> / 
+                <a href="https://fidelioa.github.io/monolith/archives/commed">Community Medicine</a> / Varicella
+            </div>
+            <h1>Chicken Pox (Varicella)</h1>
+            <div class="subtitle">Fast Track Clinical Science MBBS - 3rd Year | Communicable Diseases</div>
+        </section>
+
+        <!-- Main Chapter Content -->
+        <section class="content">
+
+            <div class="note">
+                <p><strong>Past Questions:</strong> Write short note on chicken pox. [2064/65]</p>
+            </div>
+
+            <h2>Introduction</h2>
+            <p>It is an acute, highly infectious disease caused by <strong>Varicella zoster (V-Z) virus</strong> characterized by vesicular rash that may be accompanied by fever and malaise.</p>
+
+            <h2>Problem Statement</h2>
+            <ul>
+                <li><strong>Global:</strong> Annual incidence of 4.2 million hospitalizations and 4,200 deaths.</li>
+                <li><strong>National (Nepal):</strong> Frequent outbreaks including massive outbreaks reported in 2015 from Nawalparasi district and a recent outbreak in 2019 in Lalbandhi district, Sarlahi.</li>
+            </ul>
+
+            <h2>Epidemiological Determinants</h2>
+
+            <h3>Agent Factors</h3>
+            <ul>
+                <li><strong>Agent:</strong> Human alpha herpes virus 3 (ds DNA, enveloped).</li>
+                <li><strong>Primary Infection:</strong> Causes chickenpox.</li>
+                <li><strong>Source of Infection:</strong> Case of chickenpox through oropharyngeal secretions and lesions of skin and mucosa.</li>
+                <li><strong>Infectivity:</strong> 1 to 2 days before and 4 to 5 days after rash (crust is not infective).</li>
+                <li><strong>Secondary Attack Rate:</strong> Up to 90% in household contacts as it is highly contagious.</li>
+            </ul>
+
+            <h3>Host Factors</h3>
+            <ul>
+                <li><strong>Age:</strong> Children &lt; 10 years (severe in adults). 50% cases in 5–9 years children. At least 90% of the population has had chickenpox by age 15, and 95% by young adulthood. 5–10% of population are susceptible to the disease in adulthood.</li>
+                <li><strong>Immunity:</strong> Primary attack gives lifelong immunity (second attack is rare).</li>
+                <li><strong>Pregnancy:</strong> Risk for fetus leading to congenital varicella syndrome, occurring in 0.4–2.0% of children born to mothers infected with VZV during the first 20 weeks of gestation.</li>
+            </ul>
+
+            <h3>Environmental Factors</h3>
+            <ul>
+                <li>In the coolest and driest months in tropics.</li>
+                <li>Periodic large outbreaks occur with an inter-epidemic cycle of 2–5 years.</li>
+                <li>Crowded areas favor transmission.</li>
+                <li>Heat-labile virus, so outside the host cell, VZV survives in the external environment for only a few hours, occasionally for a day or two, and is readily inactivated by lipid solvents, detergents, and proteases.</li>
+            </ul>
+
+            <h2>Transmission of Virus</h2>
+            <ul>
+                <li>VZV is highly transmissible via <strong>droplet infection and droplet nuclei</strong>.</li>
+                <li><strong>Direct contact</strong> with characteristic skin lesions of the infected person, face-to-face contact.</li>
+                <li><strong>Portal of entry:</strong> Upper respiratory tract or conjunctiva.</li>
+                <li>VZV can cross the placental barrier, causing congenital varicella.</li>
+            </ul>
+
+            <h2>Incubation Period</h2>
+            <p>14–17 days (range: 10–21 days).</p>
+
+            <h2>Clinical Features</h2>
+
+            <h3>1. Prodrome</h3>
+            <p>Fever, malaise, headache, anorexia.</p>
+
+            <h3>2. Exanthema</h3>
+            <ul>
+                <li>Rash occurs within 24–48 hours.</li>
+                <li><strong>Centripetal spread:</strong> Macules appear in trunk and spread to face and extremities.</li>
+                <li>Evolution: <strong>Papules &rarr; Vesicles &rarr; Pustules &rarr; Crusts</strong>.</li>
+                <li>Appears in crops.</li>
+                <li><strong>Pleomorphic rash:</strong> Pathognomonic for varicella (all stages of rash present simultaneously).</li>
+                <li>Rash fades with hypo/hyperpigmented lesion.</li>
+                <li>Scarring is unusual unless infected.</li>
+                <li>Pruritus present.</li>
+                <li>Mucosa involved.</li>
+            </ul>
+
+            <h2>Complications</h2>
+            <ul>
+                <li>Secondary skin infection</li>
+                <li>Pneumonia</li>
+                <li>Meningoencephalitis</li>
+                <li>Acute cerebellar ataxia</li>
+                <li>Transverse myelitis</li>
+                <li>Guillain-Barré Syndrome (GBS)</li>
+            </ul>
+
+            <h2>Diagnosis</h2>
+            <ul>
+                <li>Clinical evaluation</li>
+                <li>PCR</li>
+                <li>Anti-IgM antibody</li>
+                <li><strong>Tzanck smear:</strong> Presence of multinucleated giant cells.</li>
+            </ul>
+
+            <h2>Treatment &amp; Management</h2>
+            <ul>
+                <li><strong>Symptomatic:</strong> Antipyretic, Antipruritic, Good hygiene.</li>
+                <li>Isolation of patient.</li>
+                <li><strong>Acyclovir / Valacyclovir / Famciclovir</strong> for 5 days started within 24 hours.</li>
+                <li>Varicella Zoster Immunoglobulin (VZIG).</li>
+            </ul>
+
+            <h2>Control &amp; Prevention</h2>
+
+            <h3>Control Measures</h3>
+            <ul>
+                <li><strong>Notifications:</strong> Isolation of cases for about 6 days after onset of rash.</li>
+                <li>Disinfection of articles soiled by nose and throat discharge.</li>
+                <li>Antiviral therapy (Acyclovir, valacyclovir, famciclovir) for 5 days started within 24 hours.</li>
+            </ul>
+
+            <h3>Prevention</h3>
+            <h4>1. Varicella Zoster Immunoglobulin (V-ZIG)</h4>
+            <p>To be given within 96 hr (preferably 72 hours) IM with a repeat dose in 3 weeks in conditions like:</p>
+            <ul>
+                <li>Exposure to person with chicken pox / zoster</li>
+                <li>Immune compromised without history of infection/immunization</li>
+                <li>Premature infant in hospital</li>
+                <li>Pregnant women</li>
+            </ul>
+
+            <h4>2. Vaccination</h4>
+            <p>A live attenuated varicella virus vaccine is safe and currently recommended for children between 12–18 months of age who have had chickenpox.</p>
+            <ul>
+                <li>All children more than 1 year of age (upto 12 years) with no infection: single dose.</li>
+                <li>Seronegative adults more than 12 years of age: two doses given 4 to 8 weeks apart.</li>
+                <li><strong>Contraindicated:</strong> Immunocompromised and pregnant women (therefore given varicella zoster immunoglobulin).</li>
+            </ul>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 MONOLITH. Built to persist.</p>
+    </footer>
+
+</body>
+</html>
