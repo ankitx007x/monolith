@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monolith — Measles Epidemiology &amp; Management</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #e5e5e5;
+            --accent-color: #888888;
+            --border-color: #222222;
+            --hover-color: #ffffff;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-family: var(--font-mono);
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--hover-color);
+        }
+
+        /* Main Container */
+        main {
+            max-width: 800px;
+            margin: 80px auto;
+        }
+
+        /* Header Section */
+        .subject-header {
+            margin-bottom: 60px;
+        }
+
+        .breadcrumb {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--hover-color);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-family: var(--font-mono);
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        /* Typography & Layout Content Elements */
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0px;
+            margin: 50px 0 20px 0;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        h3 {
+            font-size: 1.15rem;
+            font-weight: 500;
+            margin: 25px 0 10px 0;
+            color: var(--hover-color);
+        }
+
+        h4 {
+            font-size: 1.0rem;
+            font-weight: 600;
+            margin: 15px 0 5px 0;
+            color: #d0d0d0;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: var(--text-color);
+            text-align: justify;
+        }
+
+        strong {
+            color: var(--hover-color);
+            font-weight: 600;
+        }
+
+        em {
+            color: #b0b0b0;
+            font-style: italic;
+        }
+
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: square;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        li strong {
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
+        }
+
+        /* Tables matching Minimal Dark theme */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.95rem;
+        }
+
+        th {
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            color: var(--accent-color);
+            text-align: left;
+            padding: 10px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.85rem;
+        }
+
+        td {
+            padding: 12px 10px;
+            border-bottom: 1px dashed var(--border-color);
+            vertical-align: top;
+        }
+
+        tr:hover td {
+            color: var(--hover-color);
+            background-color: #0f0f0f;
+        }
+
+        .note {
+            background-color: #111111;
+            border-left: 2px solid var(--accent-color);
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            max-width: 800px;
+            margin: 100px auto 40px auto;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Monolith</div>
+        <ul class="nav-links">
+            <li><a href="https://fidelioa.github.io/monolith">Home</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/archives">Archives</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/about">About</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Document Header -->
+        <section class="subject-header">
+            <div class="breadcrumb">
+                <a href="https://fidelioa.github.io/monolith/archives">Archives</a> / 
+                <a href="https://fidelioa.github.io/monolith/archives/commed">Community Medicine</a> / Measles
+            </div>
+            <h1>Measles Epidemiology &amp; Management</h1>
+            <div class="subtitle">Fast Track Clinical Science MBBS - 3rd Year | Communicable Diseases</div>
+        </section>
+
+        <!-- Main Chapter Content -->
+        <section class="content">
+
+            <div class="note">
+                <p><strong>Past Questions:</strong></p>
+                <ul>
+                    <li>What are the strategies in favor of measles elimination in national and global level? [8 Marks, 2074]</li>
+                    <li>Write short notes on: Measles elimination strategies at the global and national level [3 Marks, 2073]</li>
+                    <li>Write short notes on: Measles elimination strategy [4 Marks, 2072]</li>
+                    <li>Write short notes on: Measles [2065]</li>
+                    <li>Write brief notes on: Measles and its complication [4 Marks, 2062]</li>
+                    <li>Write short notes on: Measles Surveillance [2063]</li>
+                    <li>Write short notes on: Measles and its prevention [4 Marks, 2055]</li>
+                    <li>Write short notes on: Prodromal symptoms and its epidemiological significance in measles [4 Marks, 2055]</li>
+                    <li>Write short notes on: Strategies for elimination of measles [5 Marks, 2078]</li>
+                </ul>
+            </div>
+
+            <h2>Introduction</h2>
+            <p>Measles is a highly infectious disease of childhood caused by measles virus of the group myxovirus, characterized by fever and catarrhal symptoms of the upper respiratory tract followed by a typical rash.</p>
+
+            <h2>Problem Statement of Measles</h2>
+            <p><strong>Status of Measles in FY 2079/80 (Source: DoHS 2079/80):</strong></p>
+            <ul>
+                <li>A total of <strong>1,022 measles positive cases</strong> (including laboratory confirmed, epi-linked, and clinical cases) were identified in FY 2079/80. 559 cases were clinical cases.</li>
+                <li><strong>Highest number of cases:</strong> Reported from Bagmati province (207 cases), followed by Lumbini (174 cases), Sudurpashchim, and Koshi province. Among the total lab-confirmed measles cases, there were cases seen across the country with no provinces with zero reporting.</li>
+                <li>In FY 2079/80, Measles outbreak originated from <strong>Banke district</strong> that spread to over 17 districts of Nepal.</li>
+                <li><strong>Immunization Coverage:</strong> National MR1 and MR2 coverage stood at <strong>97% and 95%</strong>, respectively, but subnational variations exist. In FY 2079/80, there were only 26 districts which achieved MR2 coverage &gt;95% (needed to maintain herd immunity for measles elimination). MR1 and MR2 achieve over 95% coverage only in Bagmati and Madhesh. Notably, Madhesh sees a 12% increase in MR2 coverage, but Gandaki experienced a 4% decline. Karnali has the lowest MR1 coverage at 86%.</li>
+                <li><strong>Global/General Trends:</strong> Endemic in virtually every part of the world. Causes an epidemic when the proportion of susceptible children reaches 40%. Remains a common illness in developing nations. Decline in mortality from measles in developed countries was associated with economic development, improved nutritional status, supportive care, and antibiotic therapy for secondary bacterial pneumonia.</li>
+            </ul>
+
+            <p><strong>Nepal Context:</strong></p>
+            <ul>
+                <li><strong>Measles-like surveillance:</strong> Nepal targeted measles elimination by 2019 and maintains 520 measles surveillance sites. Non-measles and non-rubella rate is 1.92 per 1 lakh people (just below surveillance standard).</li>
+                <li>There has been a large reduction in laboratory confirmed measles and rubella cases since 2005. There were 16 suspected measles outbreaks and 203 suspected measles cases during the reporting period. Out of 16 outbreaks, 12 were confirmed measles outbreaks (total of 100 laboratory confirmed cases).</li>
+                <li>Nepal's national measles rubella reporting rate is 3.73/100,000.</li>
+                <li>In 2074/75, MR1 coverage was 81% and MR2 coverage was 66% (increased by 9% compared to previous year).</li>
+            </ul>
+
+            <h2>Epidemiological Determinants</h2>
+
+            <h3>Agent Factors</h3>
+            <ul>
+                <li><strong>Agent:</strong> RNA paramyxovirus. This virus cannot survive outside the human body for any length of time.</li>
+                <li><strong>Source of Infection:</strong> The only source of infection is known to be a case of measles. NO carriers or animal hosts.</li>
+                <li><strong>Infective Material:</strong> Secretions of nose, throat, and respiratory tract during prodromal period and at early stage of rash.</li>
+                <li><strong>Communicability:</strong> Highly infectious at the prodromal period and at the time of eruption. Communicability declines after appearance of rash. Communicable period is mainly 4 days before and 4 days after the appearance of rash.</li>
+                <li><strong>Secondary Attack Rate:</strong> Only one antigenic type of measles virus is found. Infection confers lifelong immunity.</li>
+            </ul>
+
+            <h3>Host Factors</h3>
+            <ul>
+                <li><strong>Age:</strong> Virtually every infant or child.</li>
+                <li><strong>Sex:</strong> Same incidence in males and females.</li>
+                <li><strong>Immunity:</strong> No age immune if no previous immunity.</li>
+                <li><strong>Nutrition:</strong> Severe infection in a malnourished child. Malnourished children have a tendency to excrete virus for longer periods.</li>
+            </ul>
+
+            <h3>Environmental Factors</h3>
+            <ul>
+                <li>NO seasonal change.</li>
+                <li>In tropical zones: more in dry season.</li>
+                <li>In temperate climate: more in winter.</li>
+            </ul>
+
+            <h2>Transmission of Virus</h2>
+            <ul>
+                <li>Person to person by droplet infections or droplet nuclei.</li>
+                <li><strong>Portal of entry:</strong> Respiratory tract. Infection by conjunctiva is considered likely.</li>
+                <li>Occurs in 4 days before onset of rash until 4 days thereafter.</li>
+            </ul>
+
+            <h2>Incubation Period</h2>
+            <ul>
+                <li>10 days from exposure to onset of fever.</li>
+                <li>14 days from exposure to onset of rash.</li>
+            </ul>
+
+            <h2>Clinical Features</h2>
+
+            <h3>1. Prodromal Stage</h3>
+            <p>Begins 10 days after infection and lasts until day 14. Characterized by:</p>
+            <ul>
+                <li>Fever</li>
+                <li>Coryza with sneezing and nasal discharge</li>
+                <li>Cough</li>
+                <li>Redness of eyes</li>
+                <li>Lacrimation &amp; Photophobia</li>
+                <li><strong>Koplik's spot:</strong> 1–2 mm blue-white spots on red background on buccal mucosa alongside 2nd molar. Pathognomonic of measles.</li>
+            </ul>
+
+            <div class="note">
+                <p><strong>Epidemiological significance of prodromal symptoms in measles [2055]:</strong> When patient is in prodromal stage, he/she cannot be diagnosed clinically as measles; therefore he/she is not isolated or treated as a measles patient. So in this period, disease is transmitted to other children leading to increase in incidence of measles or sometimes an epidemic.</p>
+            </div>
+
+            <h3>2. Eruptive Phase</h3>
+            <ul>
+                <li>Presence of typical, dusky red, macular or maculo-papular rash.</li>
+                <li>3 to 5 days after the start of symptoms, a red or reddish-brown itchy rash appears.</li>
+                <li>The rash usually begins on a person's face at the hairline and spreads downward to the neck, trunk, arms, legs, and feet.</li>
+                <li>It regresses in the same manner as it appeared in about 5–7 days.</li>
+                <li>The rash is blanching, maculopapular in nature to begin with, but may coalesce later to become plaques and patches.</li>
+                <li>When the rash appears, a person's fever may spike to more than 104°F.</li>
+            </ul>
+
+            <h3>3. Post-Measles Stage</h3>
+            <p>Loss of weight and weakness for a number of days [2062].</p>
+
+            <h2>Complications</h2>
+            <ul>
+                <li>Pneumonia</li>
+                <li>Encephalitis (Subacute Sclerosing Panencephalitis - SSPE)</li>
+                <li>Ear infection (Otitis media)</li>
+                <li>Bronchitis</li>
+                <li>Miscarriage or preterm labor</li>
+                <li>Decrease in blood platelets</li>
+                <li>Blindness</li>
+                <li>Severe diarrhea and some other rare neurological complications</li>
+            </ul>
+
+            <h2>Diagnosis</h2>
+            <p>Mainly clinical and can be confirmed by IgM antibody testing.</p>
+
+            <h2>Treatment</h2>
+            <ul>
+                <li><strong>Supportive:</strong>
+                    <ul>
+                        <li>Acetaminophen to relieve fever and muscle aches</li>
+                        <li>Rest to help boost immune system</li>
+                        <li>Plenty of fluids (6 to 8 glasses of water a day)</li>
+                        <li>Humidifier to ease a cough and sore throat</li>
+                    </ul>
+                </li>
+                <li><strong>Vitamin A:</strong> Given to decrease morbidity and mortality.</li>
+                <li><strong>Management of complications:</strong> Administration of immunoglobulin in immunocompromised child.</li>
+            </ul>
+
+            <h2>Prevention &amp; Eradication</h2>
+
+            <h3>Prevention Guidelines</h3>
+            <p>Achieving an immunization rate of over 95 percent and ongoing immunization against measles through successive generations of children.</p>
+
+            <h4>1. Vaccination</h4>
+            <ul>
+                <li>Best prevented by active immunization; usually live attenuated tissue culture vaccines (chick embryo or human diploid cell) are used.</li>
+                <li>The MR vaccine is a two-in-one vaccine that protects from measles and rubella.</li>
+                <li><strong>In Nepal:</strong> First dose of MR is given at 9 months (infants up to 9 months are protected by maternal antibodies) and second dose is given at 15 months (subcutaneously).</li>
+                <li><strong>Adverse effects include:</strong>
+                    <ul>
+                        <li>Toxic shock syndrome (severe watery diarrhea, vomiting, high fever within hours)</li>
+                        <li>Febrile seizures</li>
+                        <li>Thrombocytopenia</li>
+                        <li>Anaphylaxis</li>
+                    </ul>
+                </li>
+                <li><strong>Contraindications:</strong> Pregnancy, impaired CMI (AIDS, untreated TB).</li>
+            </ul>
+
+            <h4>2. Immunoglobulin</h4>
+            <ul>
+                <li><strong>Post-exposure prophylaxis:</strong> IM administration within 3–4 days of exposure.</li>
+                <li><strong>Indications:</strong> Household contacts less than 1 year, Immunocompromised, Severe HIV.</li>
+                <li>Vaccine and immunoglobulin should NOT be given concurrently; vaccine should be given 8–12 weeks later.</li>
+            </ul>
+
+            <h3>Eradication of Measles</h3>
+            <ul>
+                <li>Measles, like smallpox, is amenable to eradication because only one dose is needed and measles vaccine has now been developed which is more heat stable.</li>
+                <li>Requires achieving immunization coverage of at least 96% under 1 year of age, and preventing accumulation of immunity gap.</li>
+            </ul>
+
+            <h3>Outbreak Control Measures</h3>
+            <ul>
+                <li>Isolation of 7 days after onset of rash.</li>
+                <li>Immunization of contacts within 2 days of exposure (if contraindicated, immunoglobulin within 3–4 days).</li>
+                <li>Prompt immunization at the beginning of an epidemic.</li>
+            </ul>
+
+            <h2>Measles Elimination Strategy</h2>
+            <p>Consists of:</p>
+            <ul>
+                <li><strong>Catch up:</strong> Catch-up supplementary immunization targeting all children aged 9 months to 14 years, irrespective of prior history.</li>
+                <li><strong>Keep up:</strong> Routine services aimed at vaccinating &gt;95% of each successive birth cohort (MR1, MR2).</li>
+                <li><strong>Follow up:</strong> Campaigns conducted nationwide every 2–4 years targeting children 9 to 59 months.</li>
+            </ul>
+
+            <h2>National &amp; International Plans</h2>
+            <ul>
+                <li>Nepal target of Elimination of Measles by 2019.</li>
+                <li>Comprehensive Multi Years plan of action (2017-2021).</li>
+                <li><strong>Key Strategies [2073/74]:</strong>
+                    <ul>
+                        <li>Achieve and sustain high population immunity.</li>
+                        <li>Achieve and sustain 95% MCV-1 coverage in 77 districts.</li>
+                        <li>Investigate all suspected measles-like outbreaks with program response.</li>
+                        <li>Use platform of measles elimination for Rubella/CRS control.</li>
+                        <li>Continue case-based measles surveillance.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h2>Measles Surveillance</h2>
+            <ul>
+                <li>Integrated with AFP surveillance in 2003, started case-based surveillance in 2007.</li>
+                <li>All suspected measles outbreaks investigated by district rapid response team with collection of 5–10 blood samples and urine samples.</li>
+                <li><strong>Suspected measles case:</strong> Any person with fever, maculopapular rash along with cough, coryza or conjunctivitis, or case suspected by clinician.</li>
+                <li><strong>Surveillance Goals:</strong> Identify cases/outbreaks by date and geographical area, age distribution and vaccination status, identify high-risk populations, investigate/verify outbreaks, maintain timeliness/completeness, provide feedback.</li>
+                <li><strong>Health Care Professional Action:</strong> Notify case, complete case investigation form, collect blood sample, manage case (Vitamin A, supportive tx).</li>
+            </ul>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 MONOLITH. Built to persist.</p>
+    </footer>
+
+</body>
+</html>
