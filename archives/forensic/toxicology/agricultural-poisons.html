@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monolith — Forensic Medicine: Agricultural Poisons</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #e5e5e5;
+            --accent-color: #888888;
+            --border-color: #222222;
+            --hover-color: #ffffff;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-family: var(--font-mono);
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--hover-color);
+        }
+
+        main {
+            max-width: 900px;
+            margin: 60px auto;
+        }
+
+        .page-header {
+            margin-bottom: 50px;
+        }
+
+        .breadcrumb {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--hover-color);
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 400;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-family: var(--font-mono);
+            font-size: 1.25rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            color: var(--hover-color);
+            margin: 60px 0 25px 0;
+            border-left: 3px solid var(--accent-color);
+            padding-left: 12px;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #dddddd;
+            margin: 30px 0 12px 0;
+            text-transform: uppercase;
+            font-family: var(--font-mono);
+            letter-spacing: 0.5px;
+        }
+
+        h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            margin: 18px 0 8px 0;
+            text-transform: uppercase;
+            font-family: var(--font-mono);
+        }
+
+        p {
+            color: #cccccc;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        ul, ol {
+            margin-bottom: 20px;
+            padding-left: 25px;
+            color: #cccccc;
+            font-size: 0.95rem;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .highlight-box {
+            background-color: #111111;
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: #d4d4d4;
+            margin: 25px 0;
+            line-height: 1.6;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.88rem;
+            text-align: left;
+        }
+
+        th {
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--border-color);
+            padding: 12px 10px;
+            background-color: #0e0e0e;
+        }
+
+        td {
+            padding: 12px 10px;
+            border-bottom: 1px solid var(--border-color);
+            color: #cccccc;
+            vertical-align: top;
+        }
+
+        tr:hover td {
+            color: var(--hover-color);
+            background-color: #111111;
+        }
+
+        .viva-note {
+            background-color: #111516;
+            border-left: 3px solid #0099cc;
+            padding: 18px;
+            margin: 25px 0;
+            font-size: 0.9rem;
+            color: #e5e5e5;
+        }
+        
+        .viva-note strong {
+            color: #fff;
+            font-family: var(--font-mono);
+        }
+
+        footer {
+            max-width: 900px;
+            margin: 100px auto 40px auto;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Monolith</div>
+        <ul class="nav-links">
+            <li><a href="https://fidelioa.github.io/monolith">Home</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/archives">Archives</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/about">About</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="page-header">
+            <div class="breadcrumb">
+                <a href="https://fidelioa.github.io/monolith/archives">Archives</a> / 
+                <a href="https://fidelioa.github.io/monolith/archives/forensic/index.html">Forensic</a> / 
+                <a href="https://fidelioa.github.io/monolith/archives/forensic/toxicology/index.html">Toxicology</a> / Agricultural Poisons
+            </div>
+            <h1>Agricultural Poisons</h1>
+            <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-color); margin-top: 5px;">FAST TRACK CLINICAL SCIENCE MBBS - 3rd YEAR (pp. 601–604)</p>
+        </section>
+
+        <!-- CLASSIFICATION -->
+        <h2>Classification</h2>
+        <ul>
+            <li><strong>Insecticides:</strong> Organophosphorous, Carbamates, Organochlorines</li>
+            <li><strong>Rodenticides:</strong> Phosphorous, Aluminium Phosphide, Anticoagulants, Strychnine</li>
+            <li><strong>Herbicides:</strong> Paraquat and Diquat</li>
+            <li><strong>Fungicides</strong></li>
+            <li><strong>Nematicides</strong></li>
+            <li><strong>Acaricides:</strong> Mites, ticks, spiders (Kelthane), Pyrethrins and Pyrethroids, Naphthalene</li>
+        </ul>
+
+        <div class="viva-note">
+            <strong>Note:</strong> Most common form of suicide in many regions is by insecticide ingestion.
+        </div>
+
+        <!-- ORGANOPHOSPHOROUS -->
+        <h2>ORGANOPHOSPHOROUS POISONS</h2>
+        
+        <h3>Classification of OP Compounds</h3>
+        <ul>
+            <li><strong>Alkyl Phosphates:</strong> HETP, TEPP, OMPA, Malathion</li>
+            <li><strong>Aryl Phosphates:</strong> Parathion, Paraoxon, Methyl-parathion, Chlorthion, Diazinon</li>
+        </ul>
+
+        <div class="viva-note">
+            <strong>Exam Note:</strong> In the classification of organophosphorus poisons, all those having suffix <em>-ion</em> and <em>-on</em> are aryl phosphates except malathion, demeton, and trichlorfon.
+        </div>
+
+        <h3>Absorption &amp; Mechanism of Action</h3>
+        <p><strong>Absorption:</strong> Through transdermal, transconjunctival, inhalational, ingestion, and direct injection routes.</p>
+        
+        <div class="highlight-box">
+            Organophosphorous compound<br>
+            ↓<br>
+            Inhibits acetylcholinesterase in all parts of the body<br>
+            ↓<br>
+            Acetylcholine accumulates at parasympathetic, sympathetic, and somatic sites<br>
+            ↓<br>
+            Continuous stimulation of local receptors<br>
+            ↓<br>
+            Eventual paralysis of nerve or muscle
+        </div>
+
+        <h3>Clinical Features</h3>
+
+        <h4>1. Muscarinic Manifestations</h4>
+        <p>Acts on smooth muscles, heart, and exocrine glands.</p>
+        <ul>
+            <li><strong>Bronchial tree:</strong> Bronchoconstriction, increased bronchial secretion, dyspnea, pulmonary edema, cyanosis.</li>
+            <li><strong>GIT:</strong> Anorexia, salivation, nausea, vomiting, cramps, diarrhea, tenesmus.</li>
+            <li><strong>Sweat glands:</strong> Increased sweating.</li>
+            <li><strong>Salivary glands:</strong> Increased salivation.</li>
+            <li><strong>Lacrimal glands:</strong> Increased lacrimation (tears may be pink due to accumulation of porphyrin — <em>chromodacryorrhea</em>).</li>
+            <li><strong>CVS:</strong> Arrhythmias, conduction blocks, hypotension.</li>
+            <li><strong>Pupils:</strong> Miosis (occasionally unequal or dilated).</li>
+            <li><strong>Ciliary body:</strong> Blurred vision.</li>
+            <li><strong>Bladder:</strong> Urinary incontinence.</li>
+        </ul>
+
+        <div class="highlight-box">
+            <strong>Acronym: SLUDGE</strong><br>
+            • <strong>S</strong>alivation<br>
+            • <strong>L</strong>acrimation (chromodacryorrhea)<br>
+            • <strong>U</strong>rination<br>
+            • <strong>D</strong>efecation<br>
+            • <strong>G</strong>astrointestinal distress<br>
+            • <strong>E</strong>mesis
+        </div>
+
+        <h4>2. Nicotinic Manifestations</h4>
+        <p>Acts on skeletal muscle and autonomic ganglia.</p>
+        <ul>
+            <li><strong>Skeletal muscle:</strong> Initially contraction/fasciculations, later paralysis.</li>
+            <li><strong>Sympathetic ganglia:</strong> Hypertension, tachycardia, pallor, mydriasis.</li>
+        </ul>
+
+        <h4>3. CNS Manifestations</h4>
+        <ul>
+            <li>Restlessness, emotional lability, headache, tremors.</li>
+            <li>Anxiety, drowsiness, confusion, slurred speech.</li>
+            <li>Generalized weakness, convulsions, coma.</li>
+            <li>Depression of cardiovascular and respiratory centers.</li>
+        </ul>
+
+        <h3>Chronic Poisoning</h3>
+        <p>Occurs as an occupational hazard among agricultural workers.</p>
+
+        <h3>Diagnosis</h3>
+        <ul>
+            <li>Estimation of cholinesterase activity: RBC cholinesterase and Plasma cholinesterase.</li>
+            <li>P-Nitrophenol test.</li>
+            <li>Thin Layer Chromatography (TLC).</li>
+            <li><strong>Diagnostic Atropine Challenge:</strong> Confirmed by giving 2 mg IV atropine, which relieves muscarinic symptoms without causing signs of atropinization in poisoned patients.</li>
+        </ul>
+
+        <h3>Treatment</h3>
+        <h4>A. Prehospital Treatment</h4>
+        <ul>
+            <li>Decontamination and supportive care, including airway, breathing, and respiration.</li>
+        </ul>
+
+        <h4>B. Hospital Care</h4>
+        <ol>
+            <li><strong>Gastric Lavage:</strong> With oral administration of activated charcoal if patient presents within 60 minutes of ingestion.</li>
+            <li><strong>Atropine (Specific Antidote):</strong> Counteracts muscarinic effects.
+                <ul>
+                    <li>Given as 3–5 ampoules (1.8–3 mg) in adults and 0.05–0.1 mg/kg in children below 12 years bolus IV every 5–20 minutes until atropinization is attained.</li>
+                    <li><strong>Signs of atropinization:</strong> Mid-dilated pupils, HR &gt;80 bpm, Systolic BP &gt;80 mmHg, clear air entry on auscultation, dry axilla &amp; tongue, flushing of skin.</li>
+                    <li>Once atropinized, administer 20% of the total loading dose every hour via IV infusion in normal saline for 24–48 hours, tapering gradually.</li>
+                </ul>
+            </li>
+            <li><strong>Pralidoxime / PAM (Specific Antidote):</strong> Reactivates phosphorylated acetylcholinesterase and works on nicotinic effects.
+                <ul>
+                    <li>Administer 2 g in 100 mL NS (30 mg/kg) over 30 minutes, followed by an infusion of 1 g every 4 hours.</li>
+                </ul>
+            </li>
+            <li><strong>Supportive Measures:</strong> Furosemide for pulmonary congestion, benzodiazepines for seizure control, oxygen support, ICU monitoring.</li>
+        </ol>
+
+        <div class="viva-note">
+            <strong>Contraindicated Drugs:</strong> Morphine, aminophylline, phenothiazine, and reserpine should NEVER be given in OP poisoning.
+        </div>
+
+        <h3>Postmortem Findings</h3>
+        <h4>External Findings</h4>
+        <ul>
+            <li>Kerosene-like smell (since OP compounds are formulated in kerosene solvents).</li>
+            <li>Signs of asphyxia: Face congested, cyanosis of lips, fingers, and nose.</li>
+            <li>Blood-stained froth at mouth and nose.</li>
+            <li>Constricted pupils.</li>
+        </ul>
+
+        <h4>Internal Findings</h4>
+        <ul>
+            <li>Stomach contents smell of kerosene; gastric mucosa congested with submucous petechial hemorrhages.</li>
+            <li>Lungs show gross congestion, excessive edema, and subpleural petechiae.</li>
+            <li>Brain, meninges, and internal organs are hyperemic and congested; cerebral edema present.</li>
+            <li>Microscopic exam of heart: Dilatation of pericardial blood vessels, interstitial edema, inflammatory cells, hemosiderin-laden macrophages, and toxic myocarditis with fatty infiltration.</li>
+            <li>Putrefaction is delayed.</li>
+        </ul>
+
+        <!-- CARBAMATES -->
+        <h2>CARBAMATES</h2>
+        <p>Derivatives of carbonic acid.</p>
+        <ul>
+            <li><strong>Extremely / Highly Toxic (LD50: 1–500 mg/kg):</strong> Carbaryl, carbofuran, methomyl, propoxur.</li>
+            <li><strong>Moderately / Slightly Toxic (LD50: &gt;500 mg/kg):</strong> Aldicarb, carbendazim, triallate.</li>
+        </ul>
+
+        <h3>Action &amp; Clinical Features</h3>
+        <ul>
+            <li>Binds to acetylcholinesterase at esteric and anionic sites. This bond is weak and <strong>reversible</strong>.</li>
+            <li>Produces muscarinic and nicotinic symptoms identical to organophosphates.</li>
+            <li><strong>Difference from OP:</strong> Spontaneously hydrolyzes from cholinesterase within 24 to 48 hours; does NOT cross the blood-brain barrier effectively.</li>
+        </ul>
+
+        <h3>Treatment</h3>
+        <ul>
+            <li><strong>Atropine:</strong> Main treatment to reduce muscarinic effects.</li>
+            <li><strong>Oximes are CONTRAINDICATED:</strong> Carbamate-AChE bond is weak, anionic site is not free for oxime binding, and oximes themselves have weak anticholinesterase activity, worsening toxicity.</li>
+        </ul>
+
+        <!-- ALUMINIUM PHOSPHIDE -->
+        <h2>ALUMINIUM PHOSPHIDE (Al Phosphide)</h2>
+        <p>Available in tablet form (e.g., Celphos, QuickPhos). Each 3g tablet liberates 1g of phosphine gas. Possesses a characteristic <strong>garlicky / rotten fish odor</strong>.</p>
+        <p><strong>Uses:</strong> Pesticide, insecticide, grain preservative, rodenticide.</p>
+        <p><strong>Fatal Dose:</strong> 0.5 g (1 tablet). <strong>Fatal Period:</strong> 1 to 4 hours.</p>
+
+        <h3>Action</h3>
+        <p>In contact with water/moisture or gastric HCl, aluminium phosphide releases phosphine gas:</p>
+        <div class="highlight-box">
+            AlP + 3H<sub>2</sub>O → Al(OH)<sub>3</sub> + PH<sub>3</sub> ↑
+        </div>
+        <p>Phosphine gas inhibits <strong>cytochrome oxidase</strong>, blocking cellular respiration and causing widespread cellular hypoxia and organ damage.</p>
+
+        <h3>Clinical Features</h3>
+        <ul>
+            <li><strong>Mild cases:</strong> Nausea, vomiting, headache, abdominal pain.</li>
+            <li><strong>Moderate to Severe cases:</strong>
+                <ul>
+                    <li><strong>GIT:</strong> Retrosternal pain, severe epigastric burning, nausea, vomiting, diarrhea.</li>
+                    <li><strong>CVS:</strong> Refractory hypotension, cardiogenic shock, myocarditis, arrhythmias, heart failure. <em>(Cardiogenic shock is the most common cause of death)</em>.</li>
+                    <li><strong>Respiratory:</strong> Cough, dyspnea, cyanosis, ARDS, pulmonary edema.</li>
+                    <li><strong>Hepatic &amp; Renal:</strong> Jaundice, hepatitis, acute renal failure.</li>
+                    <li><strong>CNS:</strong> Headache, dizziness, altered mental status, delirium.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>Diagnosis &amp; Chemical Tests</h3>
+        <ul>
+            <li>Garlicky odor on breath or gastric contents.</li>
+            <li><strong>Silver Nitrate Test (Biological Sample Test):</strong> Gastric aspirate or tissue in steam distillation flask + HCl/H<sub>2</sub>SO<sub>4</sub> heated to 50°C for 15 min. Distillate passed into 1% AgNO<sub>3</sub> solution turns <strong>black</strong> if phosphine is present.</li>
+        </ul>
+
+        <h3>Treatment</h3>
+        <ul>
+            <li><strong>Gastric Lavage:</strong> Using 1:1000 Potassium Permanganate (KMnO<sub>4</sub>) or Coconut oil / Liquid paraffin.</li>
+            <li><strong>Activated Charcoal:</strong> Given orally to adsorb phosphine.</li>
+            <li><strong>No Specific Antidote:</strong> Treatment is supportive and symptomatic.</li>
+            <li>Management of shock (IV fluids, Inotropes like dopamine/norepinephrine).</li>
+            <li>Magnesium Sulfate Therapy (3g IV bolus followed by 6g infusion over 24 hrs for 5–7 days) to stabilize cardiac membranes.</li>
+            <li>Sodium Bicarbonate for severe metabolic acidosis; H2-blockers/PPIs for stomach pain.</li>
+        </ul>
+
+        <h3>Postmortem Findings</h3>
+        <ul>
+            <li>Pungent garlic/rotten fish odor upon opening body cavities.</li>
+            <li>Stomach mucosa shows mucosal shedding, intense congestion, and hemorrhagic spots.</li>
+            <li>Liver &amp; Kidneys: Necrotic changes and cloudy swelling.</li>
+            <li>Heart: Toxic myocarditis with fibrillar necrosis.</li>
+            <li>Lungs: ARDS features, congestion, pulmonary edema.</li>
+        </ul>
+
+        <h3>Medicolegal Importance</h3>
+        <p>Mostly suicidal; occasionally accidental in agricultural workers or grain handlers.</p>
+
+        <!-- PARAQUAT & DIQUAT -->
+        <h2>PARAQUAT AND DIQUAT</h2>
+        <p>Bipyridyl compounds used widely as non-selective herbicides. Granular or water-soluble dark brown liquids.</p>
+        <p><strong>Fatal Dose:</strong> 3 to 5 g (or 10–15 mL of 20% solution). <strong>Fatal Period:</strong> 2 to 7 days.</p>
+
+        <h3>Action</h3>
+        <p>Undergoes nicotinamide-dependent reduction to form free radicals. These react with molecular oxygen to produce superoxide and hydroxyl radicals, causing cell membrane destruction, lipid peroxidation, and multi-organ cell death.</p>
+
+        <h3>Clinical Features</h3>
+        <ul>
+            <li><strong>Local / GIT:</strong> Severe burning, oropharyngeal ulceration, tongue corrosion, vomiting, hematemesis.</li>
+            <li><strong>Renal:</strong> Oliguric or non-oliguric renal failure.</li>
+            <li><strong>Lungs:</strong> Progressive pulmonary fibrosis, cough, hemoptysis, pulmonary edema, severe dyspnea.</li>
+            <li><strong>Hepatic &amp; CVS:</strong> Centrilobular necrosis, cholestasis, coma, convulsions, cerebral edema.</li>
+        </ul>
+
+        <h3>Treatment</h3>
+        <ul>
+            <li>Gastric lavage within 1 hour.</li>
+            <li>Administration of 1 liter of 15–30% suspension of <strong>Fuller's Earth</strong> or Activated Charcoal to bind herbicide.</li>
+            <li>Hemodialysis and hemoperfusion within 12 hours.</li>
+            <li><em>Note:</em> Supplemental high-flow oxygen should be avoided in early stages as oxygen accelerates free radical formation and lung damage.</li>
+        </ul>
+
+        <!-- REVISION BOX -->
+        <div class="highlight-box">
+            <strong>High-Yield Summary: Agricultural Poisons</strong>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Poison</th>
+                        <th>Key Mechanism</th>
+                        <th>Characteristic Feature</th>
+                        <th>Antidote / Treatment</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Organophosphates</strong></td>
+                        <td>Irreversible AChE inhibition</td>
+                        <td>Kerosene odor, SLUDGE signs, Miosis</td>
+                        <td>Atropine + Oximes (PAM)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Carbamates</strong></td>
+                        <td>Reversible AChE inhibition</td>
+                        <td>Short-acting, no BBB penetration</td>
+                        <td>Atropine (Oximes contraindicated)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Aluminium Phosphide</strong></td>
+                        <td>Cytochrome oxidase inhibition via PH<sub>3</sub></td>
+                        <td>Garlic odor, Cardiogenic shock</td>
+                        <td>KMnO<sub>4</sub> lavage, MgSO<sub>4</sub>, Coconut oil</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Paraquat</strong></td>
+                        <td>Superoxide free radical lipid peroxidation</td>
+                        <td>Oropharyngeal ulcers, Pulmonary fibrosis</td>
+                        <td>Fuller's Earth, Hemoperfusion</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 MONOLITH. Built to persist.</p>
+    </footer>
+
+</body>
+</html>
