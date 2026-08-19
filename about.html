@@ -9,11 +9,9 @@
     <style>
         :root {
             --bg-color: #0a0a0a;
-            --panel-bg: #111111;
-            --text-color: #e5e5e5;
-            --accent-color: #888888;
-            --border-color: #222222;
-            --hover-color: #ffffff;
+            --text-color: #ffffff;
+            --accent-color: #f0f0f0;
+            --border-color: rgba(255, 255, 255, 0.35);
             --font-mono: 'Courier New', Courier, monospace;
         }
 
@@ -26,13 +24,38 @@
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
-            font-family: -apple-system, BlinkMacSystemFont, "Georgia", Roboto, Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
             padding: 0 20px;
             position: relative;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Fully Bright Background Layer aligned with Index page */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            background-image: 
+                linear-gradient(
+                    to bottom, 
+                    rgba(0, 0, 0, 0.25) 0%, 
+                    rgba(0, 0, 0, 0.15) 50%, 
+                    rgba(10, 10, 10, 0.85) 100%
+                ),
+                url('https://image.tmdb.org/t/p/original/rA9QYI7yTV2F2AvaqBcq1vL3MOr.jpg');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            filter: brightness(1.15) contrast(1.05);
+            pointer-events: none;
         }
 
         /* Navigation */
@@ -40,23 +63,21 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 650px;
+            max-width: 800px;
             width: 100%;
             margin: 0 auto;
-            padding: 30px 0;
-            border-bottom: 1px solid rgba(34, 34, 34, 0.4);
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
             z-index: 10;
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
         }
 
         .logo {
             font-family: var(--font-mono);
             font-weight: 700;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             text-transform: uppercase;
             font-size: 1.2rem;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.9);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95), 0 0 4px rgba(0, 0, 0, 0.9);
         }
 
         .nav-links {
@@ -71,92 +92,63 @@
             font-size: 0.9rem;
             font-family: var(--font-mono);
             transition: color 0.2s ease;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.8);
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95), 0 0 4px rgba(0, 0, 0, 0.9);
         }
 
         .nav-links a.active {
-            color: var(--hover-color);
-            border-bottom: 1px solid var(--hover-color);
+            color: #ffffff;
+            border-bottom: 1px solid #ffffff;
         }
 
         .nav-links a:hover {
-            color: var(--hover-color);
-        }
-
-        /* WIDESCREEN PATRON BACKDROP */
-        .widescreen-backdrop {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 60vh; /* Increased viewport height to give the image more breathing room */
-            background-image: url('https://image.tmdb.org/t/p/original/rA9QYI7yTV2F2AvaqBcq1vL3MOr.jpg');
-            background-size: cover;
-            background-position: left bottom; /* Anchors the stick figure to the visible frame on wide monitors */
-            z-index: 1;
-            filter: brightness(65%) contrast(110%);
-        }
-
-        /* Edge Bleed Fades */
-        .widescreen-backdrop::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                linear-gradient(to bottom, rgba(10, 10, 10, 0.2) 0%, transparent 40%, transparent 70%, var(--bg-color) 100%),
-                linear-gradient(to right, var(--bg-color) 0%, transparent 12%, transparent 88%, var(--bg-color) 100%);
+            color: #ffffff;
         }
 
         /* Main Container */
         main {
-            position: relative;
-            max-width: 650px;
+            max-width: 800px;
             width: 100%;
-            margin: 0 auto;
-            padding: 52vh 0 40px 0; /* Adjusted padding to sync gracefully with the 60vh container background height */
+            margin: 60px auto 40px auto;
             z-index: 2;
             display: flex;
             flex-direction: column;
-            gap: 2.5rem;
+            gap: 2rem;
         }
 
-        /* Identity Stack Layout matching your home aesthetic with overlapping overlay alignment */
+        /* Identity Stack Header */
         .identity-stack {
             display: flex;
             align-items: center;
             gap: 2rem;
-            margin-top: -80px; /* Pulls profile picture up to overlap smoothly onto the image banner */
-            margin-bottom: -0.5rem;
         }
 
         .avatar {
-            width: 110px;
-            height: 110px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
-            border: 3px solid var(--bg-color);
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.8);
+            border: 2px solid var(--border-color);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.8);
             object-fit: cover;
             flex-shrink: 0;
         }
 
         h1 {
             font-size: 3rem;
-            font-weight: 400;
-            font-style: italic;
-            letter-spacing: -1px;
-            text-shadow: 0 4px 15px rgba(0,0,0,0.9);
+            font-weight: 500;
+            letter-spacing: 1px;
+            color: #ffffff;
+            text-shadow: 0 3px 12px rgba(0, 0, 0, 0.98), 0 0 6px rgba(0, 0, 0, 0.9);
         }
 
-        /* Coordinates Panel */
+        /* Coordinates Panel matching Index Glassmorphism */
         .coordinates-panel {
-            background: var(--panel-bg);
+            background: rgba(10, 10, 10, 0.55);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border: 1px solid var(--border-color);
             padding: 1.5rem;
-            border-radius: 4px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border-radius: 6px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
         }
 
         .panel-label {
@@ -169,6 +161,7 @@
             display: block;
             border-bottom: 1px dashed var(--border-color);
             padding-bottom: 0.5rem;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
         }
 
         .social-grid {
@@ -190,6 +183,7 @@
             font-size: 1.1rem;
             color: var(--accent-color);
             transition: color 0.2s ease, transform 0.2s ease;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.9));
         }
 
         .network-details {
@@ -202,28 +196,30 @@
             font-size: 0.85rem;
             color: var(--text-color);
             font-weight: bold;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
         }
 
         .network-handle {
             font-family: var(--font-mono);
             font-size: 0.7rem;
             color: var(--accent-color);
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
         }
 
-        /* Hover Coordinates Actions */
         .social-link:hover i {
-            color: var(--hover-color);
+            color: #ffffff;
             transform: scale(1.08);
         }
 
         .social-link:hover .network-name {
-            color: var(--hover-color);
+            color: #ffffff;
         }
 
         /* Bio Content Layout */
         .bio-content {
             font-size: 1.05rem;
-            color: #cccccc;
+            color: #ffffff;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.98), 0 0 5px rgba(0, 0, 0, 0.9);
         }
 
         .bio-content p {
@@ -233,39 +229,34 @@
 
         /* Footer */
         footer {
-            max-width: 650px;
+            max-width: 800px;
             width: 100%;
-            margin: auto auto 40px auto;
+            margin: 50px auto 30px auto;
             text-align: center;
             font-family: var(--font-mono);
             font-size: 0.8rem;
             color: var(--accent-color);
             border-top: 1px solid var(--border-color);
             padding-top: 20px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
             z-index: 2;
         }
 
-        /* Responsive Formatting Layout Overrides */
+        /* Responsive Formatting Overrides */
         @media (max-width: 680px) {
             nav {
                 padding: 20px 0;
             }
 
-            .widescreen-backdrop {
-                height: 42vh;
-                background-position: 22% bottom; /* Maintains optimal subject focus framing across phone layouts */
-            }
-
             main {
-                padding-top: 32vh;
-                gap: 2rem;
+                margin-top: 40px;
+                gap: 1.5rem;
             }
 
             .identity-stack {
                 flex-direction: column;
                 text-align: center;
                 gap: 1rem;
-                margin-top: -60px;
             }
 
             h1 {
@@ -290,11 +281,8 @@
         </ul>
     </nav>
 
-    <!-- Full-Width Atmospheric Cinematic Backdrop Frame -->
-    <div class="widescreen-backdrop"></div>
-
     <main>
-        <!-- Identity Stack Header with overlapping layout avatar positioning -->
+        <!-- Identity Stack Header -->
         <div class="identity-stack">
             <img src="https://a.ltrbxd.com/resized/avatar/upload/1/6/9/6/0/4/2/0/shard/avtr-0-1000-0-1000-crop.jpg?v=a112d9f86b" alt="ankit" class="avatar">
             <h1>ankit.</h1>
