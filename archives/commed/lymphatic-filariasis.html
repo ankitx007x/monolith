@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monolith — Lymphatic Filariasis</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #e5e5e5;
+            --accent-color: #888888;
+            --border-color: #222222;
+            --hover-color: #ffffff;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-family: var(--font-mono);
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--hover-color);
+        }
+
+        /* Main Container */
+        main {
+            max-width: 800px;
+            margin: 80px auto;
+        }
+
+        /* Header Section */
+        .subject-header {
+            margin-bottom: 60px;
+        }
+
+        .breadcrumb {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--hover-color);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-family: var(--font-mono);
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        /* Typography & Layout Content Elements */
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0px;
+            margin: 50px 0 20px 0;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        h3 {
+            font-size: 1.15rem;
+            font-weight: 500;
+            margin: 25px 0 10px 0;
+            color: var(--hover-color);
+        }
+
+        h4 {
+            font-size: 1.0rem;
+            font-weight: 600;
+            margin: 15px 0 5px 0;
+            color: #d0d0d0;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: var(--text-color);
+            text-align: justify;
+        }
+
+        strong {
+            color: var(--hover-color);
+            font-weight: 600;
+        }
+
+        em {
+            color: #b0b0b0;
+            font-style: italic;
+        }
+
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: square;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        li strong {
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
+        }
+
+        /* Tables matching Minimal Dark theme */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.85rem;
+        }
+
+        th {
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            color: var(--accent-color);
+            text-align: left;
+            padding: 8px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.8rem;
+        }
+
+        td {
+            padding: 8px;
+            border-bottom: 1px dashed var(--border-color);
+            vertical-align: top;
+        }
+
+        tr:hover td {
+            color: var(--hover-color);
+            background-color: #0f0f0f;
+        }
+
+        .note {
+            background-color: #111111;
+            border-left: 2px solid var(--accent-color);
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 0.95rem;
+        }
+
+        .equation {
+            font-family: var(--font-mono);
+            background-color: #111111;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            margin: 10px 0 15px 0;
+            text-align: center;
+        }
+
+        /* Image / Diagram Container */
+        .diagram-container {
+            text-align: center;
+            margin: 30px 0;
+            background-color: #111111;
+            padding: 15px;
+            border: 1px solid var(--border-color);
+        }
+
+        .diagram-container img {
+            max-width: 100%;
+            height: auto;
+            filter: invert(0.9) hue-rotate(180deg); /* Adjust for dark mode aesthetics if necessary */
+        }
+
+        /* Footer */
+        footer {
+            max-width: 800px;
+            margin: 100px auto 40px auto;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Monolith</div>
+        <ul class="nav-links">
+            <li><a href="https://fidelioa.github.io/monolith">Home</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/archives">Archives</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/about">About</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Document Header -->
+        <section class="subject-header">
+            <div class="breadcrumb">
+                <a href="https://fidelioa.github.io/monolith/archives">Archives</a> / 
+                <a href="https://fidelioa.github.io/monolith/archives/commed">Communicable Diseases</a> / Lymphatic Filariasis
+            </div>
+            <h1>LYMPHATIC FILARIASIS</h1>
+            <div class="subtitle">FAST TRACK CLINICAL SCIENCE MBBS - 3rd YEAR</div>
+        </section>
+
+        <!-- Main Chapter Content -->
+        <section class="content">
+
+            <h3>Past Questions</h3>
+            <ul>
+                <li><strong>1.</strong> Discuss epidemiology of filariasis, describe national preventive Strategies in Nepal. <strong>10 (2072)</strong></li>
+                <li><strong>2.</strong> Describe brief account of the epidemiology of lymphatic filariasis in Nepal. What are the goals and objectives of lymphatic filariasis elimination program? <strong>(2071)</strong></li>
+            </ul>
+
+            <ul>
+                <li>'Filar' means thread-like.</li>
+                <li>Lymphatic filariasis is a disease caused by the lymphatic dwelling nematode (thread like) parasite viz. <em>Wuchereria bancrofti</em>, <em>Brugia malayi</em> and <em>Brugia timori</em>, the former being the most widespread parasite. Therefore, the disease is also called 'Wuchereriasis' (Bancroftian filariasis).</li>
+                <li>Eventhough it is not a fatal disease, the public health importance lies in the fact that it causes considerable suffering, deformity and disability.</li>
+                <li>Filariasis is one of the leading causes of disability in the world, next to leprosy.</li>
+            </ul>
+
+            <h2>Problem Statement</h2>
+
+            <h3>World</h3>
+            <ul>
+                <li>Filariasis is a global problem.</li>
+                <li>Affects 120 million people in more than 55 countries.</li>
+                <li>1.1 billion people live in areas with risk of infection.</li>
+                <li>SEAR: 600 million live in endemic areas 60 million infected.</li>
+            </ul>
+
+            <h3>LF Burden in Nepal (Source - DoHS 2079/80)</h3>
+            <p>Nepal was identified as one of the 72 countries endemic for LF by WHO. Initially, the LF vector was believed to be present between altitudes of 300 to 5,800 feet. However, a 2070/71 (2014) study expanded this range, revealing vector presence up to 6,890 feet in Nepal.</p>
+            <p>Combining ICT survey data with morbidity reporting, vector density, sanitation status, and geo-ecological considerations, 64 out of 77 districts were identified as endemic, encompassing an initial at-risk population of 25 million.</p>
+
+            <h3>Status of LF Elimination Program</h3>
+
+            <h4>1. Mass drug administration implementation, monitoring and evaluation</h4>
+            <p><strong>Status of MDA Implementation</strong></p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Number of endemic district</th>
+                        <th>MDA not started/not at scale</th>
+                        <th>MDA at scale IDA 1st round</th>
+                        <th>IDA completed/EMS planned</th>
+                        <th>DA completed/TAS 1 ongoing</th>
+                        <th>TAS 1 passed</th>
+                        <th>TAS 2 passed</th>
+                        <th>TAS 3 passed</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>64 districts</td>
+                        <td>0</td>
+                        <td>6 districts (Jhapa, Rasuwa, Dhanusha, Mahottari, Rautahat, Sarlahi)</td>
+                        <td>5 districts (Morang, Kapilvastu, Dang, Banke, Kailali)</td>
+                        <td>4 districts (Bara, Lamjung, Parbat, Baglung)</td>
+                        <td>53 districts</td>
+                        <td>47 districts</td>
+                        <td>28 districts</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>In 2079/80, MDA covered 15 districts, with 11 using the triple drug therapy (IDA regimen) and four sticking to the two-drug regimen (DA). The campaign was highly successful, with all districts surpassing the recommended epidemiological coverage threshold (>65%). Remarkably, 13 out of the 15 districts achieved an epidemiological coverage of over 80%.</p>
+
+            <h4>2. Status of TAS positive follow up survey</h4>
+            <p>In the FY 2079/80, Pre-TAS Surveys were conducted in Jhapa, Bara, Lamjung, Parbat, and Baglung. TAS II Surveys occurred in Ilam, Panchthar, and Kanchanpur, while TAS III was completed in 13 districts (Okhaldhunga, Saptari, Siraha, Kathmandu, Lalitpur, Bhaktapur, Kaski, Rukum East, Arghakhanchi, Pyuthan, Rukum West, Salyan, and Rolpa), all successfully passing these surveys.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Case no.</th>
+                        <th>Location</th>
+                        <th>Number of persons tested around index cases</th>
+                        <th>Number of antigen positives among tested</th>
+                        <th>Number of microfilariae positive among tested</th>
+                        <th>% of antigen positives</th>
+                        <th>% of MF positives</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Taudaha, Kathmandu</td>
+                        <td>93</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1.08</td>
+                        <td>1.08</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Dallu, Kathmandu</td>
+                        <td>74</td>
+                        <td>2</td>
+                        <td>0</td>
+                        <td>2.70</td>
+                        <td>0.00</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Kathmandu 18</td>
+                        <td>137</td>
+                        <td>3</td>
+                        <td>0</td>
+                        <td>2.70</td>
+                        <td>0.00</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Madhyapur Thimi, Bhaktapur</td>
+                        <td>134</td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td>0.75</td>
+                        <td>0.00</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Lalitpur 11</td>
+                        <td>105</td>
+                        <td>2</td>
+                        <td>0</td>
+                        <td>1.90</td>
+                        <td>0.00</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Thulachhap, Okhaldhunga</td>
+                        <td>87</td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td>1.15</td>
+                        <td>0.00</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>3. Morbidity mapping, care and support</h4>
+            <p>The morbidity data collected from mapping (SMS and paper-based approach) of 49 districts showed that 41,535 cases of LF have been identified so far, among which majority (28,896 cases) were hydrocele, 12,310 lymphoedema and 329 cases were having both Hydrocele and Lymphoedema.</p>
+
+            <h2>Socioeconomic Burden</h2>
+            <ul>
+                <li>Since filariasis causes a long-term suffering by producing physical deformity, it affects the human resource of the country as well as social and economic burden not only to the individuals but also to the family and country at large.</li>
+                <li>Lymphatic filariasis is a social problem, an economic problem and a health problem.</li>
+                <li>It is a social problem because it carries 'Social stigma'.</li>
+                <li>It is an economic problem because of lots of total annual economic loss.</li>
+                <li>It is a health problem because it results in disability and deformity.</li>
+            </ul>
+
+            <h2>Epidemiological Determinants</h2>
+
+            <h3>Agent Factors</h3>
+            <p>Lymphatic filariasis is caused by three types of parasites namely <em>Wuchereria bancrofti</em>, <em>Brugia malayi</em> and <em>Brugia timori</em>.</p>
+
+            <h3>Environmental Factors</h3>
+            <ul>
+                <li>Climate: The temperature, relative humidity, and rainfall favor vector longevity and development of the parasite. A relative humidity of 70 percent favors the mosquito to survive longer.</li>
+                <li>Drainage of sewage: Since sewage water is an excellent breeding place for the <em>Culex</em> mosquitoes, improper drainage of sewage favors the prevalence of the disease in the area.</li>
+            </ul>
+
+            <h3>Vectors</h3>
+            <p>Female mosquitoes are the only known vectors of lymphatic filariasis. <em>Wuchereria bancrofti</em> is the only recorded parasite in Nepal and the mosquito, <em>Culex quinquefasciatus</em> (sometimes called as <em>C. fatigans</em>), an efficient vector of the disease has been recorded in all the endemic areas of the country.</p>
+
+            <p><strong>Culex quinquefasciatus:</strong></p>
+            <ul>
+                <li>This breeds predominantly in organically contaminated water like sewage, sullage water, septic tank, soakage pit drains, pit latrines, etc.</li>
+                <li>This is active during night times and transmits Bancroftian filariasis.</li>
+            </ul>
+
+            <p><strong>Mansonia (Mansonoides):</strong></p>
+            <ul>
+                <li>This breeds in water containing aquatic plants such as <em>Pistia stratiotes</em>, <em>Eichhornia</em> and <em>Salvinia</em>.</li>
+                <li>In the absence of these plants, mansonia mosquitoes do not breed.</li>
+                <li>They transmit Brugian filariasis.</li>
+            </ul>
+
+            <h2>Mode of Transmission</h2>
+            <p>The disease is transmitted by the bite of infected, female, vector mosquito. The parasites are deposited near the site of puncture, penetrate skin and reach lymphatics.</p>
+
+            <h2>Incubation Period</h2>
+            <p>It varies from 8 to 16 months (Average - 1 year).</p>
+            <div class="note">
+                <strong>Note:</strong> Prepatent period is the interval between inoculation of infective larvae and the first appearance of detectable Mf.
+            </div>
+
+            <h2>Clinical Features</h2>
+            <p>The clinical spectrum of lymphatic filariasis are seen as:</p>
+
+            <h3>1. Lymphatic filariasis:</h3>
+            <p>Caused by parasites in lymphatic system. It can be:</p>
+            <p><strong>a. Asymptomatic amicrofilaremia:</strong> These are the people, who neither have symptoms nor have demonstrable microfilariae in the blood smear. They may be infected or may not be infected.</p>
+            <p><strong>b. Asymptomatic microfilaremia:</strong> These are the people who do not have any recognizable clinical features (symptoms) but their (night time) blood is positive for microfilariae. That means they are carriers and act as a source of infection in the community.</p>
+            <p><strong>c. Acute filariasis:</strong> This is characterized by recurrent attacks of fever, associated with lymphadenitis and lymphangitis. It is mainly because of infection of the lymphatics by the adult worms. They also constitute a source of infection to others.</p>
+            <p><strong>d. Chronic filariasis:</strong> It requires about 10 to 15 years to develop fibrosis and obstruction of lymphatics resulting in permanent damage characterized by lymph-edema of various parts of the body, i.e. elephantiasis of leg, genitals, breasts, hydrocoele, lymph varix, chyluria, etc. They are not infectious to others.</p>
+
+            <h3>2. Occult filariasis (Cryptic filariasis):</h3>
+            <ul>
+                <li>This is caused by human or nonhuman filarial parasites.</li>
+                <li>It is believed to result from a hypersensitivity reaction of the host to microfilariae, resulting in tropical pulmonary eosinophilia.</li>
+                <li>It characterized by paroxysmal nocturnal cough, breathlessness, wheezing, miliary infiltration of the lungs giving a radiological picture of diffuse patchy infiltration of the lungs, may be associated with lymphadenopathy and hepato-splenomegaly.</li>
+                <li>Microfilariae are almost never present in the blood but absolute eosinophil count is very much increased.</li>
+                <li>The syndrome responds well to treatment with diethylcarbamazine citrate (DEC).</li>
+                <li>If not treated results in interstitial fibrosis of lungs, leading on to chronic obstructive pulmonary disease (COPD) and respiratory failure.</li>
+                <li>The disease is called 'Occult filariasis' because microfilariae are not present in the blood (though they can be demonstrated in the tissues like liver, lungs and spleen).</li>
+            </ul>
+
+            <h2>Filaria Survey</h2>
+            <p>It can be:</p>
+            <ul>
+                <li><strong>a. Routine survey:</strong> 5-7% of population</li>
+                <li><strong>b. Evaluation survey:</strong> 20% of population</li>
+            </ul>
+
+            <p>The different components of filarial survey are:</p>
+            <ul>
+                <li>Blood survey</li>
+                <li>Clinical survey</li>
+                <li>Entomological survey</li>
+                <li>Xenodiagnosis</li>
+                <li>Skin and serological tests</li>
+            </ul>
+
+            <h2>Filarial Indices</h2>
+            <p>The data collected by filaria survey is analysed and expressed as filarial indices (indicators) which are grouped into three groups - namely Clinical, parasitological and vector (entomological) indicators.</p>
+
+            <p><strong>a. Clinical indices:</strong></p>
+            <ul>
+                <li>i. Incidence of acute lymphangitis, lymphadenitis, epididymo-orchitis</li>
+                <li>ii. Prevalence of chronic cases of lymphedema, elephantiasis, hydrocoele, chyluria, etc.</li>
+            </ul>
+
+            <p><strong>b. Parasitological indices:</strong> These are:</p>
+            <ul>
+                <li><strong>Microfilaria rate:</strong> It is the percentage of the people among the population sample, showing blood smear positive for microfilariae.</li>
+                <li><strong>Microfilarial density:</strong> It is the number of microfilariae per unit volume of blood (i.e. 20 cu mm = 4 to 5 drops of blood). This indicates the intensity of infection.</li>
+                <li><strong>Filarial disease rate:</strong> It is the percentage of the people showing the clinical manifestations of the disease.</li>
+                <li><strong>Filarial endemicity rate:</strong> It is the percentage of the people showing either microfilariae in the blood or clinical manifestations or both.</li>
+                <li><strong>Average infestation rate:</strong> It is the average number of microfilariae per positive slide. It indicates the prevalence of microfilaremia in the population.</li>
+            </ul>
+
+            <p><strong>c. Vector indices (entomological indicators):</strong> These are:</p>
+            <ul>
+                <li>Vectors density per 10 man-hour catch</li>
+                <li>Percentage of mosquitoes positive for larvae (all stages)</li>
+                <li>Percentage of mosquitoes positive for infective stage of larvae</li>
+                <li>Annual biting rate</li>
+                <li>Types of larval breeding places</li>
+            </ul>
+
+            <h2>Newer Diagnostic Modalities</h2>
+            <ol>
+                <li>Demonstration of adult parasite in ultrasonography of lymphatics.</li>
+                <li>Lymphoscintigram using gamma camera with tracer Tc 99 nanocolloid, a radio active label.</li>
+            </ol>
+
+            <h2>Control Measures</h2>
+            <p>The current strategy of filariasis control is based on:</p>
+            <ol>
+                <li>Chemotherapy</li>
+                <li>Vector control</li>
+            </ol>
+            <p>Even after the full regimen of treatment, some microfilariae still persist in the body. It has not been possible to prevent the spread of filariasis by the administration of DEC alone. Chemotherapy must be supplemented by an effective vector control programme, if the disease transmission has to be effectively prevented.</p>
+
+            <h3>Chemotherapy</h3>
+
+            <h4>a. Diethylcarbamazine (DEC)</h4>
+            <ul>
+                <li>Safe and effective.</li>
+                <li>The dose of DEC that is most generally accepted for the treatment of Bancroftian filariasis is 6 mg/kg body weight per day orally for 12 days, given preferably in divided doses after meals. This amounts to a total of 72 mg of DEC per kg of body weight as a full treatment.</li>
+                <li>For Brugian filariasis, recommended doses range from 3 to 6 mg of DEC/kg body weight per day, up to a total dose of 36-72 mg DEC/kg body weight as a full treatment.</li>
+                <li>DEC is rapidly absorbed after oral administration, reaching peak blood levels in 1-2 hours.</li>
+                <li>It is rapidly excreted - the blood half-life is only 2-3 hours in alkaline urine and about 10-20 hours in acid urine.</li>
+                <li>DEC causes rapid disappearance of Mf from the circulation.</li>
+                <li>The effect on the adult worm is uncertain. It has probably no effect on the infective stage larvae.</li>
+            </ul>
+
+            <div class="note">
+                <strong>Note:</strong> DEC is effective in killing microfilariae.
+            </div>
+
+            <p><strong>Toxic reactions:</strong> The reactions may be of two kinds:</p>
+            <ul>
+                <li><strong>i. Those due to the drug itself:</strong> Headache, nausea, vomiting, dizziness, etc. Observed a few hours after the first dose of DEC and generally do not last for more than 3 days.</li>
+                <li><strong>ii. Those which are allergic reactions due to destruction of microfilariae and adult worms:</strong> Fever, local inflammations around dead worms, orchitis, lymphadenitis, transient lymphoedema and hydrocele. Occur later in the course of treatment and tend to last longer.</li>
+            </ul>
+            <p>If the drug is given in spaced doses, systemic reactions are much less frequent and less intense after the second dose and are rare after subsequent doses. Reactions disappear spontaneously and interruption of treatment is not necessary.</p>
+
+            <h4>b. Filaria control in the community</h4>
+            <p>Three reasons why filariasis never cause explosive epidemics:</p>
+            <ol>
+                <li>The parasite does not multiply in the insect vector (Lifecycle is cyclo-developmental).</li>
+                <li>The infective larvae do not multiply in the human host.</li>
+                <li>The life cycle of the parasite is relatively long, 15 years or more.</li>
+            </ol>
+            <p>These factors favour the success of control programme.</p>
+
+            <p><strong>i. Mass therapy:</strong> DEC is given to almost everyone in the community irrespective of whether they have microfilaraemia, disease manifestations or no signs of infection except children under 2 years, pregnant women and seriously ill patients. The dose recommended is 6 mg/kg body weight. In some countries it is used alone and in some countries with albendazole or ivermectin. Indicated in highly endemic areas. A good rapport must be established with the community before the treatment begins. This requires intensive health education of the general public.</p>
+
+            <p><strong>ii. Selective treatment:</strong> DEC is given only to those who are Mf positive. More suitable in areas of low endemicity than in highly endemic areas.</p>
+
+            <p><strong>iii. DEC-medicated salt:</strong> Special form of mass treatment using very low doses of the drug over a long period of time. Common salt medicated with 1-4 g of DEC per kg has been used for filariasis control in some endemic areas of <em>W. bancrofti</em> and <em>B. malayi</em>, particularly after an initial reduction in prevalence has been achieved by mass or selective treatment of Mf carriers. Treatment should be continued for at least 6 to 9 months.</p>
+
+            <p>Combination of the long life of the adult parasite for years and infectiousness of a patient with low parasitaemia represents a serious obstacle to control programmes based on chemotherapy.</p>
+
+            <h4>c. Ivermectin</h4>
+            <ul>
+                <li>Ivermectin is a semi-synthetic macrolide antibiotic, with a broad spectrum of activity against a variety of nematodes and ectoparasites.</li>
+                <li>Dose is 150-200 µg/kg of body weight.</li>
+                <li>No drug toxicity in normal persons.</li>
+                <li>In filaraemic patients there may be a variety of reactions as a result of inflammatory response triggered by the cleared and dying microfilariae.</li>
+                <li>Not used in this region (used in African region only).</li>
+            </ul>
+
+            <div class="note">
+                <strong>New Regimen (Triple Drug / IDA):</strong> Ivermectin + DEC + Albendazole
+            </div>
+
+            <div class="note">
+                <strong>Note:</strong> Intensive local hygiene on the affected limb (with or without the use of antibiotic or antifungal cream) has shown to have dramatic effect by halting the progression or even reversal of Elephantiasis and lymphedema.
+            </div>
+
+            <h3>Vector Control</h3>
+            <p>In cases where mass treatment with DEC is impracticable. Beneficial when used in conjunction with mass treatment. The most important element in vector control is the reduction of the target mosquito population in order to stop or reduce transmission quickly.</p>
+
+            <h4>a. Antilarval measures</h4>
+            <p>Elimination of breeding places by providing adequate sanitation and underground waste-water disposal system. May not be feasible in developing countries because of financial constraint.</p>
+            <p>Vector control must be based on temporary or recurrent methods. Currently restricted in urban areas including an extra 3-km peripheral belt because the flight range of <em>Culex quinquefasciatus</em> (<em>C. fatigans</em>) is about 3 km.</p>
+
+            <p>The anti-larval activities are as follows:</p>
+
+            <p><strong>1. Chemical Control:</strong></p>
+            <ul>
+                <li><strong>i. Mosquito larvicidal oil:</strong> Active against all preadult stages. Main chemical used to control <em>C. quinquefasciatus</em> for some time. Less efficient under field conditions and more expensive than other chemical preparations. It is being replaced by pyrethrum oil, temephos and fenthion.</li>
+                <li><strong>ii. Pyrosene oil-E:</strong> A pyrethrum-based emulsifiable larvicide. The emulsion concentrate contains 0.1 to 0.2 per cent pyrethrins by weight and is required to be diluted with water before use. The emulsion is diluted in the ratio of 1:4.</li>
+                <li><strong>iii. Organophosphorus larvicides:</strong> Temephos, fenthion. Vector mosquito has developed resistance to many of these chemicals. The frequency of application is once weekly on all breeding places.</li>
+            </ul>
+
+            <p><strong>2. Removal Of Pistia Plant (In the case of Mansonia mosquitoes):</strong> Removal of the supporting aquatic vegetation such as the pistia plant from all water collections and converting the ponds to fish or lotus culture. Certain herbicides such as phenoxylene 30 or Shell Weed Killer D may be used for destroying the aquatic vegetation.</p>
+
+            <p><strong>3. Minor Environmental Measures:</strong></p>
+            <ul>
+                <li>Filling up of ditches and cesspools.</li>
+                <li>Drainage of stagnant water.</li>
+                <li>Adequate maintenance of septic tanks and soakage pits, etc.</li>
+                <li>Environmental management is the most efficient approach to the problem of controlling mosquito breeding.</li>
+            </ul>
+
+            <h4>b. Anti-adult measures</h4>
+            <ul>
+                <li>The vector mosquitoes of filariasis have become resistant to DDT, HCH and dieldrin.</li>
+                <li>Pyrethrum is useful as a temporary means of personal protection, but has no practical value in present-day vector control programmes.</li>
+            </ul>
+
+            <h4>c. Personal prophylaxis</h4>
+            <ul>
+                <li>The most effective preventive measure is avoidance of mosquito bites (reduction of man-mosquito contact) by using mosquito nets.</li>
+                <li>Screening of houses can substantially reduce transmission, but it is expensive.</li>
+            </ul>
+
+            <h3>Integrated Vector Control</h3>
+            <ul>
+                <li>None of the vector control measures applied alone is likely to bring about sustained control of filariasis vectors.</li>
+                <li>An integrated or combined approach is needed to control filariasis using all the above strategies and approaches in optimum combination.</li>
+            </ul>
+
+            <h2>National Lymphatic Filariasis Elimination Program</h2>
+
+            <p><strong>Goal:</strong> Elimination of Lymphatic Filariasis from Nepal by the year 2087/88 (2030) as a public health problem by reducing the level of the disease in population to a point where transmission no longer occurs.</p>
+
+            <p><strong>Objectives:</strong></p>
+            <ul>
+                <li>To interrupt the transmission of Lymphatic Filariasis.</li>
+                <li>To reduce and prevent morbidity.</li>
+                <li>To provide de-worming benefit using Albendazole to endemic communities.</li>
+                <li>To reduce mosquito vectors through application of suitable and available vector control measures (Integrated Vector Management).</li>
+            </ul>
+
+            <p><strong>Targets:</strong></p>
+            <ul>
+                <li>Complete MDA in all LF endemic districts by 2082/83 (2025).</li>
+                <li>Complete post MDA surveillance to validate LF elimination by 2087/88 (2030).</li>
+                <li>Achieve elimination of LF as a public health problem defined as &lt;1% microfilaremia and &lt;2% antigenemia by 2082/83 (2025) and sustain thereafter.</li>
+                <li>Complete the morbidity mapping in all districts by 2083/84 (2026).</li>
+                <li>Ensure continued essential package of care for all identified morbid cases by 2084/85 (2027).</li>
+                <li>Validate LF elimination by 2087/88 (2030) and sustain thereafter.</li>
+            </ul>
+
+            <div class="note">
+                <strong>Strategies for LF Elimination (Framework Summary):</strong><br>
+                Integrated Vector Management spans across both tracks:<br>
+                1. <strong>MDA Track:</strong> Mapping &rarr; MDA &rarr; Post-treatment surveillance &rarr; Dossier development &amp; VALIDATION &rarr; Post-validation surveillance<br>
+                2. <strong>MMDP Track:</strong> Situation analysis &rarr; Plan &rarr; Essential package of MMDP care &rarr; Dossier development &amp; VALIDATION &rarr; MMDP and rehabilitation integrated into health services
+            </div>
+
+            <p>The LF elimination strategy starts with a baseline survey, followed by Mass Drug Administration (MDA) for six rounds (DA MDA) or two rounds (IDA MDA). Post-treatment surveillance (Pre-TAS/EMS and TAS/IIS) assesses MDA impact, with additional rounds if needed. Successful MDA completion and comprehensive MMDP interventions lead to validation of LF elimination. A dossier is submitted to the WHO, and after validation, Post-Validation Surveillance ensures sustained absence of LF transmission. MMDP interventions continue, seamlessly integrated with primary healthcare services.</p>
+
+            <h3>Major activities in FY 2079/80:</h3>
+
+            <p><strong>1. Interruption of transmission through MDA campaign</strong></p>
+            <ul>
+                <li>Mass Drug Administration (MDA) involves giving single dose of Albendazole and Diethylcarbamazine (DEC) to the entire at-risk population for at least six rounds. The goal is to reduce microfilariae density, preventing mosquito-borne transmission and lowering infection prevalence.</li>
+                <li>Each round should achieve &ge;65% epidemiological coverage in a district, and MDA can be stopped after passing TAS I.</li>
+                <li>Since 2078/79 (2022), Nepal has adopted the Triple drug regimen (IDA) in five districts, expanding to 11 in 2079/80 (2023).</li>
+                <li>IDA MDA, with Ivermectin, is more efficient in clearing microfilariae, requiring only two to three rounds for a shorter elimination effort compared to DEC MDA.</li>
+            </ul>
+
+            <p><strong>2. Monitoring and evaluation of the MDA program</strong></p>
+            <ul>
+                <li>MDA is crucial for reducing community infection levels below a threshold, preventing the spread of parasites by mosquitoes and new infections. Monitoring coverage in each MDA round is essential to achieving a minimum 65% coverage of the total population.</li>
+                <li>EDCD conducts post-MDA Coverage Surveys, Pre-Transmission Assessment Surveys, and Transmission Assessment Surveys (TAS) (I, II, &amp; III) following WHO guidelines to monitor Lymphatic Filariasis Elimination activities.</li>
+                <li>TAS surveys are performed for DA (two-drug regimen) MDA, while in IDA (three-drug regimen) MDA districts, Epidemiological Monitoring Surveys (EMS) and IDA Impact Surveys (IIS) are conducted.</li>
+            </ul>
+
+            <div class="note">
+                <strong>M&amp;E Flowchart of MDA Program:</strong><br>
+                Mapping &rarr; MDA &rarr; Pre-TAS / EMS (If Pass &rarr; TAS1 / IIS1 &rarr; TAS2 / IIS2 &rarr; TAS3 / IIS3; If Fail &rarr; 2 additional rounds of MDA)
+            </div>
+
+            <p><strong>3. Morbidity mapping and disability prevention</strong></p>
+            <ul>
+                <li>Morbidity mapping and disability prevention (MMDP), a key element of the LF elimination program, complements MDA.</li>
+                <li>The MMDP program extends its impact through phased training for health workers and FCHVs in all districts, ensuring continuous mapping, management, and referral of LF morbid cases. Currently, 58 districts have received training, actively reporting cases through morbidity mapping surveys.</li>
+                <li>Functional MMDP centers in 13 districts provide surgical and management services, while self-help groups offer rehabilitative and social support to LF cases, promoting self-care and livelihood activities.</li>
+            </ul>
+
+            <h2>National Lymphatic Filariasis Elimination Programme (Historical Targets)</h2>
+
+            <p><strong>Goal:</strong> The people of Nepal no longer suffer from lymphatic filariasis</p>
+
+            <p><strong>Objectives:</strong></p>
+            <ul>
+                <li>To eliminate lymphatic filariasis as a public health problem by 2020</li>
+                <li>To interrupt the transmission of lymphatic filariasis</li>
+                <li>To reduce and prevent morbidity</li>
+                <li>To provide deworming through albendazole to endemic communities especially to children</li>
+                <li>To reduce mosquito vectors by the application of suitable available vector control measures (Integrated Vector Management)</li>
+            </ul>
+
+            <p><strong>Strategies:</strong></p>
+            <ul>
+                <li>Interrupt transmission by yearly mass drug administration using two drug regimens (DEC and albendazole) for six years</li>
+                <li>Morbidity management by self-care and support using intensive simple, effective and local hygienic techniques</li>
+            </ul>
+
+            <p><strong>Targets:</strong></p>
+            <ul>
+                <li>To scale up MDA to all endemic districts by 2014</li>
+                <li>Achieve &lt;1% prevalence (microfilaraemia rate) in endemic districts after six years of MDA by 2018</li>
+            </ul>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 MONOLITH. Built to persist.</p>
+    </footer>
+
+</body>
+</html>
