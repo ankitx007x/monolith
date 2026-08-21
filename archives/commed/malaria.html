@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monolith — Malaria</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #e5e5e5;
+            --accent-color: #888888;
+            --border-color: #222222;
+            --hover-color: #ffffff;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-family: var(--font-mono);
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--hover-color);
+        }
+
+        /* Main Container */
+        main {
+            max-width: 800px;
+            margin: 80px auto;
+        }
+
+        /* Header Section */
+        .subject-header {
+            margin-bottom: 60px;
+        }
+
+        .breadcrumb {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--hover-color);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-family: var(--font-mono);
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        /* Typography & Layout Content Elements */
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0px;
+            margin: 50px 0 20px 0;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        h3 {
+            font-size: 1.15rem;
+            font-weight: 500;
+            margin: 25px 0 10px 0;
+            color: var(--hover-color);
+        }
+
+        h4 {
+            font-size: 1.0rem;
+            font-weight: 600;
+            margin: 15px 0 5px 0;
+            color: #d0d0d0;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: var(--text-color);
+            text-align: justify;
+        }
+
+        strong {
+            color: var(--hover-color);
+            font-weight: 600;
+        }
+
+        em {
+            color: #b0b0b0;
+            font-style: italic;
+        }
+
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: square;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        li strong {
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
+        }
+
+        /* Tables matching Minimal Dark theme */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.85rem;
+        }
+
+        th {
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            color: var(--accent-color);
+            text-align: left;
+            padding: 8px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.8rem;
+        }
+
+        td {
+            padding: 8px;
+            border-bottom: 1px dashed var(--border-color);
+            vertical-align: top;
+        }
+
+        tr:hover td {
+            color: var(--hover-color);
+            background-color: #0f0f0f;
+        }
+
+        .note {
+            background-color: #111111;
+            border-left: 2px solid var(--accent-color);
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 0.95rem;
+        }
+
+        .equation {
+            font-family: var(--font-mono);
+            background-color: #111111;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            margin: 10px 0 15px 0;
+            text-align: center;
+        }
+
+        /* Image / Diagram Container */
+        .diagram-container {
+            text-align: center;
+            margin: 30px 0;
+            background-color: #111111;
+            padding: 15px;
+            border: 1px solid var(--border-color);
+        }
+
+        .diagram-container img {
+            max-width: 100%;
+            height: auto;
+            filter: invert(0.9) hue-rotate(180deg); /* Adjust for dark mode aesthetics if necessary */
+        }
+
+        /* Footer */
+        footer {
+            max-width: 800px;
+            margin: 100px auto 40px auto;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Monolith</div>
+        <ul class="nav-links">
+            <li><a href="https://fidelioa.github.io/monolith">Home</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/archives">Archives</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/about">About</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Document Header -->
+        <section class="subject-header">
+            <div class="breadcrumb">
+                <a href="https://fidelioa.github.io/monolith/archives">Archives</a> / 
+                <a href="https://fidelioa.github.io/monolith/archives/commed">Communicable Diseases</a> / Malaria
+            </div>
+            <h1>MALARIA</h1>
+            <div class="subtitle">FAST TRACK CLINICAL SCIENCE MBBS - 3rd YEAR</div>
+        </section>
+
+        <!-- Main Chapter Content -->
+        <section class="content">
+
+            <h3>Past Questions:</h3>
+            <ul>
+                <li><strong>1.</strong> What is the magnitude of the problem of malaria in Nepal? Describe the preventive and control measures adopted by the Government of Nepal. <strong>8 (2072)</strong></li>
+                <li><strong>2. Write short notes on: (2056)</strong><br>
+                a. Malaria as resurging health problem in Nepal <strong>5</strong></li>
+                <li><strong>3. Write short notes on: (2055)</strong><br>
+                a. Malaria and its causes <strong>4</strong></li>
+            </ul>
+
+            <ul>
+                <li>A protozoal disease caused by infection with parasite of genus <em>Plasmodium</em></li>
+                <li>Transmitted to man by bite of infected female <em>Anopheles</em> mosquito.</li>
+            </ul>
+
+            <h3>Some Definitions</h3>
+            <p><strong>1. Hypnozoites:</strong> Persistent liver stages of <em>P. vivax</em> and <em>P. ovale</em> malaria that remains dormant in host hepatocytes for an interval (most often 3 - 45 weeks) before maturing to hepatic schizonts. These then burst and release merozoites, which infects RBCs (Source of Relapses)</p>
+
+            <p><strong>2. Recrudescence:</strong></p>
+            <ul>
+                <li>Reattack of malaria because of surviving malarial parasites in RBCs.</li>
+                <li>This results from incomplete clearance of parasitaemia due to inadequate or ineffective treatment.</li>
+            </ul>
+
+            <p><strong>3. Relapse:</strong></p>
+            <ul>
+                <li>Reattack of malaria because of infection by malarial parasite which were surviving in liver.</li>
+            </ul>
+
+            <div class="note">
+                <strong>Note:</strong><br>
+                Recurrence of asexual parasitaemia in <em>P. vivax</em> and <em>P. ovale</em> malaria deriving from persisting liver stages.<br>
+                Occurs when blood stage infection has been eliminated but hypnozoites persists in liver.
+            </div>
+
+            <p><strong>Malaria control:</strong> Reducing the malaria disease burden to a level at which it is no longer a public health problem</p>
+
+            <p><strong>Malaria elimination:</strong> The interruption of local mosquito borne malaria transmission</p>
+            <ul>
+                <li>Reduction to "zero" of the incidence of infection caused by human malaria parasites in a defined geographical area as a result of deliberate efforts</li>
+                <li>Continued measures to prevent re-establishment of transmission are required</li>
+            </ul>
+
+            <p><strong>Certificate of malaria elimination:</strong> Can be granted by WHO after it has been proved beyond reasonable doubt that the chain of human malaria transmission by <em>Anopheles</em> mosquito has been fully interrupted in an entire country for at least 3 consecutive years</p>
+
+            <p><strong>Malaria eradication:</strong> Permanent reduction to "zero" of the worldwide incidence of infection caused by a specific agent</p>
+            <ul>
+                <li>Applies to a particular malaria parasite species.</li>
+                <li>Intervention measures are no longer needed once eradication has been achieved.</li>
+            </ul>
+
+            <h2>Problem Statement</h2>
+
+            <h3>World</h3>
+            <p>Malaria is a life-threatening disease caused by parasites that are transmitted to people through the bites of infected female <em>Anopheles</em> mosquitoes. It is preventable and curable.</p>
+            <p>In 2021, there were an estimated 247 million cases of malaria worldwide.</p>
+            <p>The estimated number of malaria deaths stood at 619 000 in 2021.</p>
+            <p>The WHO African Region carries a disproportionately high share of the global malaria burden. In 2021, the region was home to 95% of malaria cases and 96% of malaria deaths. Children under 5 accounted for about 80% of all malaria deaths in the Region.</p>
+
+            <h3>Nepal: (As per DoHS 2079/80)</h3>
+            <p>Malaria is a mosquito-borne infectious disease that possess a public health challenge in Nepal. The disease is primarily transmitted to humans through the bites of infected female <em>Anopheles</em> mosquitoes. Malaria is endemic in certain parts of Nepal, with the Terai region (southern plains) being the most affected area. However, the cases have also be reported in the hilly and mountainous regions. Malaria in Nepal exhibits seasonality, with the peak transmission occurring before and after the rainy season.</p>
+            <p>Nepal has adopted a micro-stratification approach. To enhance community level risk stratification and accurately define the total population at risk, micro-stratification is being performed at the ward level. Using this approach, the 2079/80 (2023) micro-stratification updated wards, categorizing them as high, moderate, low and no risk. While the Terai regions show low endemicity, upper hilly river valleys, previously categorized as 'No Malaria' risk, are now reporting increased infection rates. Despite this, the current stratification retains the same ward categories as the previous three years, with program activities directed accordingly.</p>
+            <p>The concentration of malaria cases was primarily observed in Sudurpaschim and Karnali Provinces, encompassing all high-risk wards and 94% of moderate-risk wards. The remaining 6% of moderate-risk wards were identified in Lumbini Province.</p>
+            <p>Confirmed malaria cases increased from 491 in 2078/79 to 533 in 2079/80 of which most are contributed by imported cases (95.6%). The proportion of <em>P. falciparum</em> infections is increased and accounted for more than 28.33% of all cases in current year. There were 31 <em>P. ovale</em> malaria cases among returnees from peacekeeping missions in the FY.</p>
+            <p><strong>In FY 2079/80:</strong><br>
+            Cases of <em>P. Falciparum</em> - 38<br>
+            Cases of <em>P. vivax</em> - 66</p>
+            <p>In 2079/80, the case decreased from 303 to 290, out of which some were tested negative but treated by chloroquine</p>
+            <p>The highest number of total confirmed cases were reported from Banke district (122) followed by Kailali (73), Kathmandu (45), Sarlahi (37), Kanchanpur (28), Achham (20), Rupandehi (20), Surkhet (20), Dhanusa (14) and Kapilbastu (13)</p>
+            <p>Out of total confirmed cases, majority of indigenous cases were reported from Humla district (6) followed by Kanchanpur (5), Kailali (3) and Surkhet (3). Achham, Bajura, Banke, Doti, Kathmandu, Mugu and Sindhuli reported single indigenous case in each district.</p>
+
+            <h3>Malaria epidemiological status in FY 2079/80</h3>
+            <p><strong>Table: Malaria epidemiological Information (FY 2079/80)</strong></p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Items/indicators</th>
+                        <th>2077/78</th>
+                        <th>2078/79</th>
+                        <th>2079/80</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Total population</strong></td>
+                        <td>11,902,650</td>
+                        <td>10,140,450</td>
+                        <td>10,299,169</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total slide examined (Slide and RDT)</strong></td>
+                        <td>156,783</td>
+                        <td>292,893</td>
+                        <td>468,350</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total positive cases</strong></td>
+                        <td>377</td>
+                        <td>491</td>
+                        <td>583</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total Indigenous cases</strong></td>
+                        <td>66</td>
+                        <td>38</td>
+                        <td>24</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total imported cases</strong></td>
+                        <td>311</td>
+                        <td>453</td>
+                        <td>509</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total P. falciparum (Pf) cases*</strong></td>
+                        <td>51</td>
+                        <td>114</td>
+                        <td>151</td>
+                    </tr>
+                    <tr>
+                        <td><strong>% of Pf of total cases</strong></td>
+                        <td>13.53</td>
+                        <td>23.2</td>
+                        <td>28.33</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total indigenous Pf cases</strong></td>
+                        <td>8</td>
+                        <td>0</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td><strong>% indigenous Pf cases</strong></td>
+                        <td>16</td>
+                        <td>0</td>
+                        <td>2.64</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total Imported Pf cases</strong></td>
+                        <td>43</td>
+                        <td>114</td>
+                        <td>147</td>
+                    </tr>
+                    <tr>
+                        <td><strong>% imported Pf cases</strong></td>
+                        <td>84</td>
+                        <td>100</td>
+                        <td>97.36</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total P. vivax (Pv) cases+Ovale**</strong></td>
+                        <td>326</td>
+                        <td>377</td>
+                        <td>382</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total Indigenous Pv cases+Ovale</strong></td>
+                        <td>58</td>
+                        <td>38</td>
+                        <td>20</td>
+                    </tr>
+                    <tr>
+                        <td><strong>% indigenous Pv cases + Ovale</strong></td>
+                        <td>18</td>
+                        <td>10</td>
+                        <td>5.24</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total imported Pv cases + Ovale***</strong></td>
+                        <td>268</td>
+                        <td>339</td>
+                        <td>362</td>
+                    </tr>
+                    <tr>
+                        <td><strong>% imported Pv cases + Ovale</strong></td>
+                        <td>82</td>
+                        <td>90</td>
+                        <td>94.76</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Annual blood examination rate</strong></td>
+                        <td>1.32</td>
+                        <td>2.89</td>
+                        <td>4.55</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Annual parasite incidence</strong></td>
+                        <td>0.03</td>
+                        <td>0.05</td>
+                        <td>0.06</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Annual Pf incidence</strong></td>
+                        <td>0.004</td>
+                        <td>0.011</td>
+                        <td>0.015</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Slide positivity rate</strong></td>
+                        <td>0.24</td>
+                        <td>0.17</td>
+                        <td>0.12</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Slide Pf positivity rate</strong></td>
+                        <td>0.03</td>
+                        <td>0.04</td>
+                        <td>0.03</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Death from Malaria</strong></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Probable/clinical suspected malaria cases</strong></td>
+                        <td>129</td>
+                        <td>503</td>
+                        <td>290</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Active Foci</strong></td>
+                        <td>30</td>
+                        <td>24</td>
+                        <td>16</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Residual Non Active Foci</strong></td>
+                        <td>117</td>
+                        <td>48</td>
+                        <td>44</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cleared Foci</strong></td>
+                        <td>152</td>
+                        <td>87</td>
+                        <td>23</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><em>*Pf+Pmix, **P. Ovale (31 in FY 2079/80), *** Imported relapse (10 in FY 2079/80)</em></p>
+
+            <h2>Epidemiological Determinants</h2>
+
+            <h3>Agent Factors</h3>
+            <p><strong>1. Agent:</strong></p>
+            <p>Four distinct species:</p>
+            <ul>
+                <li><em>P. vivax</em> (widest geographical distribution in the world).</li>
+                <li><em>P. falciparum</em></li>
+                <li><em>P. malariae</em></li>
+                <li><em>P. ovale</em> (Very rare and mostly confined to tropical Africa).</li>
+                <li><em>P. knowlesi</em></li>
+            </ul>
+
+            <p><strong>2. Reservoir of infection:</strong></p>
+            <ul>
+                <li>No animal reservoir (except chimpanzee carry <em>P. malariae</em>)</li>
+                <li>Human reservoir: harbours sexual forms (gametocytes) of parasites</li>
+                <li>Children more likely carriers than adults thus, children are epidemiologically better reservoir than adult.</li>
+            </ul>
+
+            <p><strong>3. Period of communicability:</strong></p>
+            <ul>
+                <li>Malaria is communicable as long as mature, viable gametocyte exist in sufficient density in blood to infect mosquito.</li>
+                <li>Appearance of gametocyte after appearance of asexual forms:<br>
+                <em>P. vivax</em>: 4-5 days<br>
+                <em>P. falciparum</em>: 10-12 days</li>
+                <li>Gametocyte numerous during early stages (may exceed 1000 per cubic mm)</li>
+            </ul>
+
+            <p><strong>Relapses:</strong></p>
+            <ul>
+                <li><em>Vivax</em> and <em>ovale</em>: More than 3 years after first attack</li>
+                <li>Recurrences of <em>falciparum</em> disappear within 1-2 years</li>
+                <li><em>P. malariae</em>: prolonged low level asymptomatic parasitaemia (persists for 40 yrs or more)</li>
+            </ul>
+
+            <h3>Life Cycle</h3>
+            <ul>
+                <li><em>Vivax</em> and <em>ovale</em> relapses: derived from original sporozoite induced, liver schizonts which have lain latent long before bursting</li>
+                <li>In <em>P. falciparum</em> and <em>P. malariae</em> relapses: Due to chronic blood infection, i.e., erythrocytic schizogony persisting at a low level</li>
+            </ul>
+
+            <div class="note">
+                <strong>Life Cycle Summary:</strong><br>
+                - <strong>LIVER:</strong> Mosquito bite &rarr; Sporozoite &rarr; Hepatocyte &rarr; Primary Exoerythrocytic Schizogony &rarr; Mature primary exoerythrocytic schizont &rarr; Merozoites released into RBC.<br>
+                - <strong>MAN (Erythrocytic Schizogony):</strong> RBC &rarr; Trophozoite &rarr; Accole form &rarr; Immature schizont &rarr; Mature schizont &rarr; Merozoites.<br>
+                - <strong>GAMETOGONY:</strong> Merozoites &rarr; Female gametocyte &amp; Male gametocyte.<br>
+                - <strong>MOSQUITO (Midgut &amp; Salivary Gland):</strong> Male gametocyte (Exflagellation &rarr; Microgamete) + Female gametocyte (Macrogamete) &rarr; Fertilization &rarr; Ookinete &rarr; Midgut &rarr; Developing oocysts &rarr; Mature oocyst with sporozoites &rarr; Salivary Gland (Sporozoite).
+            </div>
+
+            <div class="note">
+                <strong>Note: Life cycle of malaria parasite</strong><br>
+                - Man is intermediate host as asexual cycle (Schizogony) takes place.<br>
+                - Mosquito is considered as definitive host as sexual cycle (Sporogony) takes place.<br>
+                - Sporozoite disappears within 60 minutes from peripheral circulation<br>
+                - After 1-2 weeks of development sporozoite becomes hepatic schizont which eventually burst releasing merozoites:
+                <ul>
+                    <li><strong>i. P. falciparum:</strong> up to 40,000 merozoites from a single sporozoite. Hepatic schizonts rupture almost simultaneously. No persistent tissue phase (so called exo-erythrocytic phase)</li>
+                    <li><strong>ii. Other species:</strong> 2,000 to 15,000 merozoites/sporozoite. Hepatic schizonts do not burst at the same time. Some persists and remain dormant for considerable period of time</li>
+                </ul>
+                - After which they begin to grow undergoing pre-erythrocytic schizogony thus liberating merozoites in the blood stream and causing relapses<br>
+                - <em>P. vivax</em> and <em>P. ovale</em> may continue to relapse for 2 to 3 years whereas <em>P. malariae</em> relapses for 10-20 years or more<br>
+                - <strong>Period of Erythrocytic schizogony:</strong>
+                <ul>
+                    <li>72 hours for <em>P. malariae</em></li>
+                    <li>48 hours for <em>P. falciparum</em>, <em>P. vivax</em> and <em>P. ovale</em></li>
+                </ul>
+                - The sexual cycle begins when gametocytes are ingested by vector mosquitoes when feeding infected person<br>
+                - First event to take place in stomach of mosquito is exflagellation of male gametocyte which results in 4-8 thread like filaments called "microgametes"<br>
+                - Microgametes are attracted to female gametes (macrogametes) by chemotaxis.<br>
+                - <strong>Period of time required for development of parasite from gametocyte to sporozoite stage:</strong> 10-20 days (External Incubation Period)
+            </div>
+
+            <h3>Host Factors</h3>
+            <p><strong>1. Age:</strong></p>
+            <ul>
+                <li>Affect all ages</li>
+                <li>Newborn infant have considerable resistance to infection with <em>P. falciparum</em> (high concentration of fetal hemoglobin)</li>
+            </ul>
+
+            <p><strong>2. Sex:</strong></p>
+            <ul>
+                <li>Male more frequently exposed</li>
+            </ul>
+
+            <p><strong>3. Race:</strong></p>
+            <ul>
+                <li>Sickle cell trait: milder infection with <em>P. falciparum</em></li>
+                <li>Persons with red cells "Duffy negative": Resistance to <em>Vivax</em> infection</li>
+            </ul>
+
+            <p><strong>4. Pregnancy:</strong></p>
+            <ul>
+                <li>Increases risk of malaria in women (especially primigravida)</li>
+                <li>May lead to:
+                    <ul>
+                        <li>Intrauterine fetal death</li>
+                        <li>Premature labor</li>
+                        <li>Abortion</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <p><strong>5. Socioeconomic development:</strong></p>
+            <ul>
+                <li>Malaria has disappeared from most of the developed countries as a result of socioeconomic development.</li>
+            </ul>
+
+            <p><strong>6. Housing:</strong></p>
+            <ul>
+                <li>Ill ventilated, ill-lighted house provide resting place for mosquito</li>
+                <li>Site, type of construction, nature of walls, etc. influence the selection of control measures</li>
+            </ul>
+
+            <p><strong>7. Population mobility:</strong></p>
+            <ul>
+                <li>Due to migration, malaria may be imported and reintroduces into areas where malaria has been controlled or eliminated.</li>
+            </ul>
+
+            <p><strong>8. Occupation:</strong></p>
+            <ul>
+                <li>Predominantly a rural disease and closely related to agricultural practices</li>
+            </ul>
+
+            <p><strong>9. Human habits:</strong></p>
+            <ul>
+                <li>Sleeping outdoors, nomadism, refusal to spray insecticides, not using personal protection increases risk</li>
+            </ul>
+
+            <p><strong>10. Immunity:</strong></p>
+            <ul>
+                <li>Epidemic of malaria is influenced by the immune status of the population.</li>
+                <li>Immunity is acquired only after repeated exposure over several years.</li>
+                <li>Infants, young children, migrants and travelers from non-endemic areas suffer most from the disease.</li>
+                <li>Infants born to immune mothers are protected during first 3-5 months by maternal IgG antibody</li>
+                <li>Infants born to semi immune mothers are partially protected.</li>
+                <li>Active immunity is species specific.</li>
+                <li>The partial immunity of people decline with time after they leave their endemic countries.</li>
+            </ul>
+
+            <h3>Environment Factors</h3>
+            <p><strong>1. Season:</strong> Maximum prevalence from July to November (rainy season)</p>
+
+            <p><strong>2. Temperature:</strong></p>
+            <ul>
+                <li>Optimum temperature for development of parasite: 20 to 30 degree C (in the insect vector)</li>
+                <li>Cessation of development: &lt;16 degree C</li>
+                <li>Lethal: &gt; 30 degree C</li>
+            </ul>
+
+            <p><strong>3. Humidity:</strong> A relative humidity of 60% is required for mosquito to live normal life span</p>
+
+            <p><strong>4. Rainfall:</strong> Rain provides opportunities for breeding and may give rise to epidemic</p>
+
+            <p><strong>5. Altitude:</strong> Anopheline mosquito not found above 2000-2500 m.</p>
+
+            <p><strong>6. Man-made malaria:</strong> Burrow pits, garden pools, irrigation channels and engineering projects like construction of hydroelectric dams, roads, bridges have led to breeding of mosquito and an increase in malaria. Malaria consequent on such human undertakings is called "Man-made malaria"</p>
+
+            <h2>Vector of Malaria</h2>
+
+            <p><strong>Species:</strong></p>
+            <ul>
+                <li><em>Anopheles culicifacies</em> (Rural vector)</li>
+                <li><em>An. fluviatilis</em></li>
+                <li><em>An. stephensi</em> (Urban vector)</li>
+            </ul>
+
+            <p>Following are the main factors which determine the vectorial importance of mosquitoes are:</p>
+
+            <p><strong>a. Density:</strong></p>
+            <ul>
+                <li>A species must be present in adequate density in or near human habitations to be an effective vector</li>
+                <li>A sudden increase in density may be the cause of epidemic outbreaks</li>
+                <li><strong>Critical density:</strong> Density below which effective transmission cannot be maintained in the community.</li>
+                <li>Critical density varies with species (High in <em>An. culicifacies</em> and low in <em>An. fluviatilis</em>)</li>
+            </ul>
+
+            <p><strong>b. Life span:</strong></p>
+            <ul>
+                <li>Vector must live for at least 10-12 days after an infective blood meal to become infective.</li>
+                <li>The strategy of malaria eradication is to shorten the life span to less than 10 days by insecticides</li>
+            </ul>
+
+            <p><strong>c. Choice of host:</strong></p>
+            <ul>
+                <li><strong>Anthropophilic species:</strong> prefer human blood meal e.g.: <em>An. fluviatilis</em>.</li>
+                <li><strong>Zoophilic species:</strong> prefer animal blood meal</li>
+                <li>Anthropophilic species are better vectors of malaria than zoophilic species.</li>
+            </ul>
+
+            <p><strong>d. Resting habits:</strong></p>
+            <ul>
+                <li><strong>Endophily:</strong> Resting indoors on the walls after a blood meal</li>
+                <li><strong>Exophily:</strong> Resting outdoors after a blood meal</li>
+                <li>The concept of malaria eradication is based on endophilism of most malaria vectors.</li>
+            </ul>
+
+            <p><strong>e. Breeding habits:</strong></p>
+            <ul>
+                <li>Breeding habit vary considerably.</li>
+                <li>In moving water: <em>An. fluviatilis</em></li>
+                <li>In brackish water: <em>An. sundaicus</em></li>
+                <li>In wells, cisterns, fountains and overhead tanks</li>
+                <li>A knowledge of breeding habit is required for anti-larval operations</li>
+            </ul>
+
+            <p><strong>f. Time of biting:</strong></p>
+            <ul>
+                <li>Majority bite at night except <em>Aedes</em> mosquito.</li>
+                <li>Anopheline mosquito has nocturnal feeding habits, between dusk and dawn.</li>
+            </ul>
+
+            <p><strong>g. Vectorial capacity:</strong> It refers to the combined effect of density of the vector population, its susceptibility to infection, life span and probability of feeding in man.</p>
+
+            <p><strong>h. Resistance to insecticides:</strong></p>
+            <ul>
+                <li>Choice of insecticides depends upon knowledge of the status of vector resistance to insecticides.</li>
+                <li>Alternative insecticides must be used in case of resistance.</li>
+            </ul>
+
+            <h2>Mode of Transmission</h2>
+
+            <p><strong>a. Vector transmission:</strong></p>
+            <ul>
+                <li>By bite of certain species of infected female anopheline mosquito</li>
+                <li>A single infected vector during her life time may infect several persons.</li>
+                <li>Mosquito is not infective unless the sporozoites are present in salivary glands.</li>
+            </ul>
+
+            <p><strong>b. Direct transmission:</strong></p>
+            <ul>
+                <li>Also known as "Trophozoite induced malaria"</li>
+                <li>Induced accidentally by hypodermic intramuscular and intravenous injections of blood or plasma. Eg, blood transfusion, malaria in drug addicts.</li>
+                <li>Parasites keep their infective activity during at least 14 days in blood bottles stored at -4°C</li>
+                <li>Persons who live in endemic area (including those who have been taking antimalarial prophylactically) and anyone who has had malaria should not be accepted as blood donor until 3 years afterwards</li>
+            </ul>
+
+            <p><strong>c. Congenital malaria:</strong> Infection of newborn from infected mother may also occur, but is comparatively rare.</p>
+
+            <h2>Incubation Period</h2>
+            <p>It is the length of time between infective mosquito bite and the first appearance of clinical signs in which fever is most common</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Malarial species</th>
+                        <th>Incubation period (days)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>P. falciparum</strong></td>
+                        <td>12 (9-14)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>P. vivax</strong></td>
+                        <td>14 (8-17)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>P. malariae</strong></td>
+                        <td>28 (18-40)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>P. ovale</strong></td>
+                        <td>17 (16-18)</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>In some strains of <em>P. vivax</em>, the incubation period may be delayed as long as 9 months; this may also occur in other species in persons who have been taking immunosuppressive antimalarial drugs.</p>
+
+            <h2>Clinical Features</h2>
+            <ul>
+                <li>The primary fever is marked by paroxysm which correspond to the development of parasite in the red blood cells.</li>
+                <li>The peaks of fever coincide with release into the blood stream of successive broods of merozoites.</li>
+                <li>The typical attack comprises of three distinct stages:
+                    <p><strong>a. COLD stage (15 minutes to 1 hour):</strong> Onset is with lassitude, headache, nausea and chilly sensation followed in an hour or so by rigors. Temperature rises rapidly to 39-41°C. Headache is severe with vomiting. In early part of the stage, skin feels cold, later it becomes hot. Parasite is usually demonstrable in blood. Pulse is rapid and may be weak.</p>
+                    <p><strong>b. HOT stage (2 to 6 hours):</strong> Patient feels burning hot and casts off his clothes. Skin is hot and dry to touch. Headache is intense but nausea commonly diminishes. Pulse is full and respiration rapid.</p>
+                    <p><strong>c. SWEATING stage (2-4 hours):</strong> Fever comes down with profuse sweating. The temperature comes down to normal and skin is cool and moist. Pulse rate becomes slower, patient feels relieved and often falls asleep.</p>
+                </li>
+                <li>These three stages are followed by an afebrile period in which patients feels greatly relieved.</li>
+                <li>The classical three stages may not always be observed due to maturation of generation of parasite at different times.</li>
+                <li>The disease has tendency to relapse and is characterized by enlargement of spleen and severe anemia.</li>
+            </ul>
+
+            <p><strong>P. falciparum:</strong></p>
+            <ul>
+                <li>The primary fever in the first few days is usually irregular or even continuous and then the classical 48 hour periodicity becomes established or the fever may continue to be irregular and the hot and cold stages, so typical of other malarial infections are less clearly separated from one another.</li>
+                <li>In person with poor immunity, paroxysms are associated with marked prostration</li>
+                <li>Headache, nausea and vomiting are usually more severe</li>
+                <li>Presence of delirium, hemolytic Jaundice and anemia.</li>
+                <li>Mortality much greater than other form</li>
+            </ul>
+
+            <p><strong>P. vivax:</strong> Symptoms are usually milder and more regularly divided into "hot" and "cold" stages than in <em>P. falciparum</em></p>
+
+            <p><strong>P. ovale:</strong> Milder than <em>P. vivax</em> and cease after a few paroxysm even if no treatment is given.</p>
+
+            <p><strong>P. malariae:</strong> Similar to <em>P. vivax</em> but the cycle is of 72 hours instead 48 hours. High tendency for long term relapses.</p>
+
+            <h3>Complications</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Species</th>
+                        <th>Complications</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>P. falciparum</strong></td>
+                        <td>Cerebral malaria, Acute renal failure, Liver damage, Gastro intestinal symptoms, Dehydration, Collapse, Anemia, Blackwater fever</td>
+                    </tr>
+                    <tr>
+                        <td><strong>P. vivax / P. ovale</strong></td>
+                        <td>Anemia, Splenomegaly</td>
+                    </tr>
+                    <tr>
+                        <td><strong>P. malariae</strong></td>
+                        <td>Enlargement of liver, Herpes, Renal complications</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Diagnosis</h2>
+            <p>Depends upon demonstration of the parasite in the blood.</p>
+
+            <p><strong>1. Microscopy:</strong></p>
+            <ul>
+                <li>Two types of blood films are used: Thick film and Thin film</li>
+                <li>Both films on same slide (Recommended)</li>
+                <li>Thick film is more reliable in searching the parasite as large volume of blood is examined under each microscopic field.</li>
+                <li>When scanty, the parasite may be found 20 times more rapidly in thick slide than thin slide.</li>
+                <li>Thin smear: Reliable in identifying species.</li>
+            </ul>
+
+            <p><strong>2. Serological test (Malarial fluorescent antibody test):</strong></p>
+            <ul>
+                <li>Becomes positive two weeks or more after the primary infection, by which time the infection may have become cured.</li>
+                <li>A positive test may not be indication of current infection.</li>
+                <li>The test is of greatest value in epidemiological studies and in determining whether a person has had malaria in the past.</li>
+            </ul>
+
+            <p><strong>3. Rapid diagnostic test:</strong></p>
+            <ul>
+                <li>Based on detection of circulating parasite antigen with a simple dipstick format.</li>
+                <li>Some kits detect <em>P. falciparum</em> while others detect other parasites.</li>
+                <li>User manual should be read properly to avoid false negatives.</li>
+            </ul>
+
+            <h2>Measurement of Malaria Eradication Era (Current Incidence Level)</h2>
+            <p>Following are the parameters of malaria surveillance:</p>
+
+            <p><strong>1. Annual parasite incidence (API):</strong></p>
+            <div class="equation">
+                API = (confirmed cases during one year / population under surveillance) &times; 1000
+            </div>
+            <ul>
+                <li>It is a sophisticated measure of malaria incidence in a community.</li>
+                <li>It is based on intensive active and passive surveillance and cases are confirmed by blood examination.</li>
+                <li>It depends upon the annual blood collection and examination rates.</li>
+                <li>A sufficient number of blood slides must be systematically obtained and examined for malaria parasites to work out accurately annual parasite incidence.</li>
+                <li>If API &ge; 2 per 1000, the area is of high risk.</li>
+            </ul>
+
+            <p><strong>2. Annual blood examination rate (ABER):</strong></p>
+            <div class="equation">
+                ABER = (Number of slides examined / population under surveillance) &times; 100
+            </div>
+            <ul>
+                <li>It reflects the efficiency and adequacy of case detection mechanism (i.e. operational efficiency)</li>
+                <li>The WHO expert committee on malaria on 1964 recommended that the monthly number of slides examined should amount to at least 1% of total population.</li>
+            </ul>
+
+            <p><strong>3. Annual falciparum incidence</strong></p>
+
+            <p><strong>4. Others:</strong> Following provide information on trend of malaria transmission.</p>
+            <ul>
+                <li><strong>a. Slide positivity rate:</strong> It is the percentage of slides found positive for malarial parasite, irrespective of type of species</li>
+                <li><strong>b. Slide falciparum rate:</strong> It is the percentage of slides positive for <em>P. falciparum</em> parasite</li>
+            </ul>
+
+            <h3>Vector Indices</h3>
+            <p>A malarial survey is not complete unless it includes investigations relating to the insect vector</p>
+            <p><strong>1. Human blood index:</strong> It is the proportion of freshly-fed female Anopheline mosquitoes whose stomach contains human blood. It indicates the rate of anthropophilism.</p>
+            <p><strong>2. Sporozoite rate:</strong> It is the percentage of female Anophelines with sporozoites in the salivary glands.</p>
+            <p><strong>3. Mosquito density:</strong> Number of mosquitoes per man-hour-catch.</p>
+            <p><strong>4. Man-biting rate (Biting density):</strong> It is the average incidence of anopheline bites per day per person. It is determined by standardized vector catches on human bait.</p>
+            <p><strong>5. Inoculation rate:</strong> It is man-biting rate multiplied by infective sporozoite rate</p>
+
+            <h2>Prevention and Control</h2>
+            <ul>
+                <li>i. Elimination of reservoirs [2072]</li>
+                <li>ii. Breaking the channel of transmission</li>
+                <li>iii. Protection of susceptible</li>
+            </ul>
+
+            <h3>Elimination of Reservoirs [2072]</h3>
+
+            <h4>1. Treatment of uncomplicated malaria</h4>
+            <p><strong>a. Chloroquine sensitive malaria:</strong></p>
+            <ul>
+                <li>i. Chloroquine 25 mg/kg bw of base in 3 days (10mg/kg at 0hr, 5mg/kg at 12, 24, 36hrs)</li>
+                <li>ii. Radical treatment of <em>P. vivax</em> and <em>P. ovale</em> add primaquine 0.25 mg/kg bw for 14 days</li>
+            </ul>
+            <p><strong>b. P. falciparum</strong> (usually chloroquine resistant, if sensitive give as above and Primaquine 0.75 mg/kg on day 1):</p>
+            <ul>
+                <li>i. Artesunate 4 mg/kg for 3 days plus Mefloquine 1 gram on day 2 and 500mg on day 3 or</li>
+                <li>ii. Artemether-lumefantrine 4 tabs at 0, 8, 24, 36, 48 and 60hrs</li>
+            </ul>
+
+            <h4>2. Severe falciparum malaria</h4>
+            <p><strong>a. Antimalarials:</strong></p>
+            <ul>
+                <li>i. Artesunate (2.4 mg/kg stat IV) followed by 2.4 mg/kg at 12 and 24 hrs and then daily for 7 days or</li>
+                <li>ii. Artemether (3.2 mg/kg stat im followed by 1.6 mg/kg) or</li>
+                <li>iii. Quinine (20mg/kg infused over 4 hour, followed by 10mg of salt/kg infused over 2-8hr q8h)</li>
+            </ul>
+            <p><strong>b. Supportive management:</strong></p>
+            <ul>
+                <li>i. Airway breathing and circulation support</li>
+                <li>ii. Hypoglycemia, dyselectrolytemia and acid base balance diagnosis and management</li>
+                <li>iii. Hydration</li>
+                <li>iv. Avoid harmful treatment like corticosteroids, heparin and epinephrine</li>
+                <li>v. Management of complication</li>
+            </ul>
+
+            <h3>Chemoprophylaxis</h3>
+            <ul>
+                <li>Indicated for travelers and pregnant woman in high risk areas</li>
+                <li>In sensitive areas, chloroquine 300mg once a week on same day each week can be given</li>
+                <li>For areas with chloroquine resistant <em>P. falciparum</em>, mefloquine (250mg/kg) is the recommended chemoprophylactic agent</li>
+                <li>Start 1 week before travel, continue weekly during exposure and for 4 week after leaving the endemic area</li>
+            </ul>
+
+            <div class="note">
+                <strong>(Malaria Diagnosis and Treatment Chart Summary / औलो निदान तथा उपचार तालिका):</strong><br>
+                - Rapid Diagnostic Test (RDT) or Microscopy for clinical assessment.<br>
+                - Categorize into Vivax Malaria, Falciparum Malaria, Mixed Malaria, or Severe Malaria.<br>
+                - <strong>P. vivax:</strong> Chloroquine + Primaquine (0.25 mg/kg bw for 14 days, check G6PD deficiency).<br>
+                - <strong>P. falciparum / Mixed:</strong> ACT (Coartem) + Primaquine single dose (0.75 mg/kg bw on day 1).<br>
+                - <strong>Severe Malaria:</strong> Inj Artesunate 2.4 mg/kg bw IV at 0, 12, 24 hrs; or Inj Artemether; or Inj Quinine IV infusion in dextrose saline. Referral to higher facility if needed.
+            </div>
+
+            <h3>Breaking the Channel of Transmission</h3>
+            <p>This measure consists of control of vectors. The different methods of control of vectors are:</p>
+            <ul>
+                <li>a. Anti-adult measures</li>
+                <li>b. Anti-larval measures</li>
+            </ul>
+
+            <h4>a. Antiadult measures:</h4>
+            <p>Consists of spraying the insecticides:</p>
+            <p><strong>i. Residual spraying:</strong> Consists of spraying of indoor surfaces of houses, cattle sheds with residual insecticides like DDT, Malathion, Fenitrothion. (Malathion and Fenitrothion used in case of resistance to DDT). Suspension of malathion is prepared by adding 2 kg of 25 percent malathion powder in 10 liters of water and sprayed over 250 sq m area. This provides a dosage of 2 g per sq meter area, after spraying in two coats. If API &ge; 2, three rounds of malathion every three months should be sprayed.</p>
+            <p><strong>ii. Space spraying:</strong> Consists of out-door spraying of the insecticides. Insecticide (Malathion) is sprayed in the form of fog or mist by ultra low volume thermal fogging method by using agricultural aircraft or by using ground equipment, fitted over a vehicle. Controls the vectors quickly.</p>
+
+            <h4>b. Antilarval measures:</h4>
+            <p>Consists of bioenvironmental control strategy components are:</p>
+            <p><strong>i. Source reduction:</strong> Consists of elimination of nonessential water bodies. Includes periodical emptying of domestic water container, sealing of water tanks, filling pot holes, puddles, burrow-pits and canalizing drains so that water does not stagnate.</p>
+            <p><strong>ii. Environmental modification and manipulation:</strong> Consists of leveling of land or filling of depressions and making of soakage pits help in prevention of mosquito breeding.</p>
+            <p><strong>iii. Biological control:</strong> Mosquitoes (Larvae) can also be controlled by employing their natural enemies such as fish, bacteriae and fungi.</p>
+
+            <p><strong>Larvivorous Fish:</strong></p>
+            <ul>
+                <li>Easy, practical and cheap</li>
+                <li>Their small size helps to move easily among the weeds.</li>
+                <li>The best known are <em>Gambusia affinis</em> and <em>Lebister reticulates</em> (often known as Barbados millions). Other fish which can also be employed is <em>Poecilia reticulata</em>.</li>
+                <li>For maximum efficacy, removal of predacious fish, if present, in the water body is a must.</li>
+                <li>About 5 fish per sq meter of water surface should be released.</li>
+            </ul>
+
+            <p><strong>Use of bacteriae (i.e. Biocides):</strong></p>
+            <ul>
+                <li>The best known biocides are <em>Bacillus sphaericus</em> and <em>Bacillus thuringiensis</em>. They kill the mosquito larvae.</li>
+                <li>These biocides should not be used for larval control in potable water, i.e. drinking water collections.</li>
+                <li>The suspension of these bacteriae-powder is prepared and sprayed using knap-sack sprayers once in 2 to 3 weeks.</li>
+            </ul>
+
+            <p><strong>Other biological agents:</strong></p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Biological agents</th>
+                        <th>Features</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Notonectids</strong></td>
+                        <td>Aquatic insects, which voraciously feed on larvae in ponds and rice fields.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hydra</strong></td>
+                        <td>Coelenterates useful as mosquito predators.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Flatworms</strong></td>
+                        <td>Planaria (feed on larvae)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fungi</strong></td>
+                        <td>Culicinomyces, coelomomyces, lagenidium, leptolegniasmetarhizium are considerably effective against larvae.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Nematodes</strong></td>
+                        <td>Ramanomermis culicivorax and R. iyengari (under trial)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Viruses</strong></td>
+                        <td>Polyhedrosis viruses and iridoviruses (under trial)</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>At present, apart from Larvivorous fish none is considered operational as a replacement for insecticide because of the difficulties involved in mass rearing technique of these predators. Biocontrol methods are better than insecticidal methods because they do not cause chemical pollution.</p>
+
+            <h3>Integrated Control</h3>
+            <ul>
+                <li>In order to reduce too much dependence on residual insecticides, emphasis has been laid on 'integrated vector control'</li>
+                <li>Includes bioenvironmental and personal protection measures, so that the vectors can be controlled effectively.</li>
+                <li>Integrated control is an approach, considering more than one method, whether directed only against larvae or adults or both.</li>
+            </ul>
+
+            <h3>Personal Protection</h3>
+            <p>These measures are directed against mosquito bites:</p>
+            <p><strong>a. Bed nets:</strong> Nylon nets are preferred over cotton nets, because of their durability and longer stay of insecticide on nylon fiber. They are impregnated with an insecticide either one g of deltamethrin or 0.5 g of cyfluthrin or 0.25 g of lambda cyhalothrin per square meter of mosquito-net. The impregnated net will have efficacy for 6 months when not washed.</p>
+            <p><strong>b. Use of mosquito repellents:</strong> Applied on the skin. They repel the mosquitoes by their smell and protect the individual from the mosquito bites. Diethyl-toluamide (DEET) has been found to be very effective. Other repellents are: Dimethyl phthalate, Dimethyl carbate, Ethylhexanediol, etc. Effective for short period of 8 to 10 hours.</p>
+            <p><strong>c. Malaria vaccines (under trial):</strong></p>
+            <ul>
+                <li>i. Asexual blood stage vaccines (merozoite vaccine): Prepared from the polypeptides of the merozoites (blood stages) of <em>P. falciparum</em> present in man. Prevent the RBCs alone from being infected</li>
+                <li>ii. Sporozoite vaccines: Prepared from the antigens of sporozoites. They are expected to prevent both the liver cells and RBCs from being infected.</li>
+                <li>iii. Gamete vaccines: Prepared from gametes. The mosquito picks up the antibodies produced in the person, when it bites the vaccinee. These antibodies prevent the fertilization of gametes inside the body of the mosquito and thus arrests further development. But the vaccinee is not prevented from getting infected.</li>
+                <li>iv. A synthetic cocktail vaccine: This vaccine for <em>P. falciparum</em> is called 'PfS 66'. It is formulated as a peptide-alum combination (30 percent effective)</li>
+                <li>v. Transmission blocking vaccine: Like PfS 25; it is also under trial.</li>
+            </ul>
+
+            <h2>Why malaria is still a burden in Nepal?</h2>
+            <p>Nepal is primarily a low malaria endemic country with around 80% of malaria cases due to <em>P. vivax</em> and the remaining burden due to <em>P. falciparum</em> with occasional case reports of <em>P. ovale</em> or <em>P. malariae</em> mostly imported from Africa.</p>
+            <p>Vivax parasites have unique biological and epidemiological characteristics that pose challenges to control strategies that have been principally targeted against <em>Plasmodium falciparum</em>.</p>
+            <p>Infection with <em>P. vivax</em> typically results in a low blood-stage parasitemia with gametocytes emerging before illness manifests, and dormant liver stages causing relapses.</p>
+            <p>As a consequence of low parasitemia, high prevalence of asymptomatic infection and difficulty in detection of the parasites, ability to infect mosquitoes before development of clinical symptoms, and appearance of relapse within months to years of the primary infection; <em>P. vivax</em> pose a great challenge to malaria elimination.</p>
+            <p>Radical cure with at least 2 weeks of Primaquine is required to clear the hypnozoites but the drug can only be given after a normal G6PD test.</p>
+            <p>Besides, current point of care rapid tests may not identify heterozygotes G6PD deficient female despite a normal rapid test and such a case may hemolyze on exposure to Primaquine. <em>P. vivax</em> tolerates a wider range of environmental conditions and is more likely to lead to geographical expansion.</p>
+            <p>Conventional control methods of minimizing human contact with mosquito vectors through insecticide-treated mosquito nets and indoor residual spraying may be less effective against <em>P. vivax</em>.</p>
+            <p>This is because, in many areas where <em>P. vivax</em> predominates, vectors bite early in the evening, obtain blood meals outdoors and rest outdoors.</p>
+            <p>In addition, vector control has no impact on the human reservoir of latent hypnozoite stage parasites residing in the liver, which are responsible for an appreciable proportion of morbidity.</p>
+
+            <h2>National Antimalaria Program 78/79</h2>
+            <p><strong>Vision:</strong> Malaria Elimination in Nepal by 2078/79 (2022).</p>
+            <p><strong>Mission:</strong> Ensure universal access to quality assured malaria services for prevention, diagnosis, treatment and prompt response in outbreak.</p>
+            <p><strong>Goal:</strong> Reduce the indigenous malaria cases to zero by 2022 and sustain thereafter and sustain zero malaria mortality.</p>
+            <p><strong>Five major strategies:</strong></p>
+            <ul>
+                <li>Strengthen surveillance and information system on malaria for effective decision making.</li>
+                <li>Ensure effective coverage of vector control interventions in malaria risk areas to reduce transmission.</li>
+                <li>Ensure universal access to quality assured diagnosis and effective treatment for malaria.</li>
+                <li>Ensure government committed leadership and engage community for malaria elimination.</li>
+                <li>Strengthen technical and managerial capacities towards malaria elimination</li>
+            </ul>
+
+            <p><strong>Major activities conducted in FY 2079/80:</strong></p>
+            <ul>
+                <li><strong>1.</strong> Total of 97,053 Long Lasting Insecticidal nets (LLIN) were distributed through mass distribution and 20,207 LLINs through continuous distribution to people living in active foci, malaria risk groups, military and police personnel and pregnant women at their first ANC visits.</li>
+                <li><strong>2.</strong> Ward-level micro-stratification of malaria cases in 77 districts.</li>
+                <li><strong>3.</strong> Continuation of case-based surveillance as key intervention, including web-based recording and reporting system for districts. The Malaria Disease Information System (MDIS) is fully operational.</li>
+                <li><strong>4.</strong> Continuation of program orientation to district and peripheral level health workers on case-based surveillance and response</li>
+                <li><strong>5.</strong> Continuation of private sector engagement activities, health worker orientation on malaria diagnosis and treatment, recording and reporting to HMIS2 in correct and timely manner.</li>
+                <li><strong>6.</strong> Carried out detailed foci investigation at 23 sites.</li>
+                <li><strong>7.</strong> Reorientation in Sudurpaschim and Madhesh provinces on malaria prevention, early diagnosis, prompt treatment and conduction of CBI including 1-3-7 modality of malaria disease surveillance.</li>
+                <li><strong>8.</strong> Re-orientation in Koshi, Bagmati, Gandaki, Lumbini and Karnali Provinces through COVID-19 Response Mechanism (C19RM) program at LLGs.</li>
+                <li><strong>9.</strong> Periodic review meetings for district and central level staff. Participants reviewed data from peripheral facilities and revised it based on suggestions.</li>
+                <li><strong>10.</strong> Continuation of study on prevalence of laboratory-confirmed malaria among clinical malaria cases identified by physicians in referral hospitals of Nepal.</li>
+                <li><strong>11.</strong> Carried out malaria program mid-term review by External experts.</li>
+                <li><strong>12.</strong> Regular vector control (indoor residual spraying) biannually across high and moderate risk districts.</li>
+                <li><strong>13.</strong> Detailed case-based investigation and fever surveys around positive index cases.</li>
+                <li><strong>14.</strong> Regular supply of malaria Rapid Diagnostic Test (mRDT) and anti-malaria drugs to Service Delivery Points (SDPs)</li>
+                <li><strong>15.</strong> Supportive supervision to SDPs</li>
+                <li><strong>16.</strong> Celebrated World Malaria Day on 12th Baisakh 2080 (25th April 2023)</li>
+            </ul>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 MONOLITH. Built to persist.</p>
+    </footer>
+
+</body>
+</html>
