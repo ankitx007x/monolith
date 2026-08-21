@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monolith — Respiratory Tract Infections</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #e5e5e5;
+            --accent-color: #888888;
+            --border-color: #222222;
+            --hover-color: #ffffff;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-family: var(--font-mono);
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--hover-color);
+        }
+
+        /* Main Container */
+        main {
+            max-width: 800px;
+            margin: 80px auto;
+        }
+
+        /* Header Section */
+        .subject-header {
+            margin-bottom: 60px;
+        }
+
+        .breadcrumb {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--hover-color);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-family: var(--font-mono);
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        /* Typography & Layout Content Elements */
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0px;
+            margin: 50px 0 20px 0;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        h3 {
+            font-size: 1.15rem;
+            font-weight: 500;
+            margin: 25px 0 10px 0;
+            color: var(--hover-color);
+        }
+
+        h4 {
+            font-size: 1.0rem;
+            font-weight: 600;
+            margin: 15px 0 5px 0;
+            color: #d0d0d0;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: var(--text-color);
+            text-align: justify;
+        }
+
+        strong {
+            color: var(--hover-color);
+            font-weight: 600;
+        }
+
+        em {
+            color: #b0b0b0;
+            font-style: italic;
+        }
+
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: square;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        li strong {
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
+        }
+
+        /* Tables matching Minimal Dark theme */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.95rem;
+        }
+
+        th {
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            color: var(--accent-color);
+            text-align: left;
+            padding: 10px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.85rem;
+        }
+
+        td {
+            padding: 12px 10px;
+            border-bottom: 1px dashed var(--border-color);
+            vertical-align: top;
+        }
+
+        tr:hover td {
+            color: var(--hover-color);
+            background-color: #0f0f0f;
+        }
+
+        .note {
+            background-color: #111111;
+            border-left: 2px solid var(--accent-color);
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 0.95rem;
+        }
+
+        .img-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 10px;
+            background: #111;
+            border: 1px solid var(--border-color);
+        }
+
+        .img-container img {
+            max-width: 100%;
+            height: auto;
+            filter: grayscale(100%) contrast(120%);
+        }
+
+        /* Footer */
+        footer {
+            max-width: 800px;
+            margin: 100px auto 40px auto;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Monolith</div>
+        <ul class="nav-links">
+            <li><a href="https://fidelioa.github.io/monolith">Home</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/archives">Archives</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/about">About</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Document Header -->
+        <section class="subject-header">
+            <div class="breadcrumb">
+                <a href="https://fidelioa.github.io/monolith/archives">Archives</a> / 
+                <a href="https://fidelioa.github.io/monolith/archives/commed">Community Medicine</a> / Respiratory Tract Infections
+            </div>
+            <h1>Respiratory Tract Infections</h1>
+            <div class="subtitle">Fast Track Clinical Science MBBS - 3rd Year | Communicable Diseases</div>
+        </section>
+
+        <!-- Main Content -->
+        <section class="content">
+
+            <div class="note">
+                <p><strong>Key Focus Areas &amp; Strategies:</strong> Testing, tracking, treatment, training, and isolation.</p>
+            </div>
+
+            <h2>Classification</h2>
+            <p>Respiratory Tract Infections are often classified depending on the site of infection as:</p>
+            <ol>
+                <li><strong>ARI of Upper Respiratory Tract (AURI):</strong> Consists of infections up to the pharynx. Includes common cold, pharyngitis, and otitis media.</li>
+                <li><strong>ARI of Lower Respiratory Tract (ALRI):</strong> Infection of the respiratory tract from the larynx to alveoli. Includes epiglottitis, laryngitis, laryngotracheobronchitis, spasmodic laryngitis, bronchitis, bronchiolitis, and pneumonia.</li>
+            </ol>
+
+            <h2>Problem Statement</h2>
+
+            <h3>Global Context</h3>
+            <ul>
+                <li><strong>Incidence:</strong> Similar in developed and developing countries. However:
+                    <ul>
+                        <li>In developed countries: As low as 3–4%</li>
+                        <li>In developing countries: Between 20–30%</li>
+                    </ul>
+                </li>
+                <li><strong>Morbidity:</strong> On average, children below 5 years of age suffer about 5 episodes of ARI per child per year; accounting for:
+                    <ul>
+                        <li>30–50% of visits to health facilities</li>
+                        <li>20–40% of hospital admissions</li>
+                        <li>Leading cause of disabilities including deafness as a sequel of otitis media.</li>
+                    </ul>
+                </li>
+                <li><strong>Mortality:</strong>
+                    <ul>
+                        <li>ARI in young children accounts for every year 3.9 million deaths worldwide.</li>
+                        <li>90% of deaths are due to pneumonia (usually bacterial).</li>
+                        <li>Pneumonia kills more children than any other disease (AIDS, malaria, and measles combined). More than 2 million children die from pneumonia each year (accounting for almost 18% of under-five deaths worldwide).</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>Problem Statement on ARI &amp; Pneumonia in Nepal (Source: DoHS)</h3>
+            <p>In FY 2079/80, there were <strong>689,310 registered Acute Respiratory Infection (ARI) cases</strong> in health posts and primary health care centers/outreach clinics, with 33.6% categorized as pneumonia and 0.37% as severe pneumonia. 11,957 cases of Severe Acute Respiratory Illness (SARI) were reported by EWARS during this year. The highest number of SARI cases were documented in Koshi Province (n=3,464), followed closely by Lumbini Province (n=2,912). A total of 22 deaths were reported due to acute respiratory infections.</p>
+
+            <p>The national pneumonia incidence for under-5 children decreased by over 22%, reaching 55.1 per 1,000. Karnali province had the highest ARI incidence (406/1,000 under-5 children), followed by Sudurpaschim (356/1,000), and Madhesh had the lowest (209/1,000). Karnali and Sudurpaschim also had the highest pneumonia percentage among ARI cases (19.98% and 16.21%), while Madhesh had the lowest (8.79%). The ARI case fatality rate per thousand at health facilities decreased to 0.01 per 1,000 cases in FY 2079/80 compared to 0.02 in FY 2078/79.</p>
+
+            <h2>Epidemiological Determinants</h2>
+
+            <h3>Agent Factors</h3>
+            <h4>1. Bacteria</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Bacteria</th>
+                        <th>Age Group Frequently Involved</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1. <em>Bordetella pertussis</em></td>
+                        <td>Infants and young children</td>
+                    </tr>
+                    <tr>
+                        <td>2. <em>Corynebacterium diphtheriae</em></td>
+                        <td>Children</td>
+                    </tr>
+                    <tr>
+                        <td>3. <em>Haemophilus influenzae</em></td>
+                        <td>Adults</td>
+                    </tr>
+                    <tr>
+                        <td>4. <em>Klebsiella pneumoniae</em></td>
+                        <td>Adults</td>
+                    </tr>
+                    <tr>
+                        <td>5. <em>Legionella pneumophila</em></td>
+                        <td>Adults</td>
+                    </tr>
+                    <tr>
+                        <td>6. <em>Staphylococcus pyogenes</em></td>
+                        <td>All ages</td>
+                    </tr>
+                    <tr>
+                        <td>7. <em>Streptococcus pneumoniae</em></td>
+                        <td>All ages</td>
+                    </tr>
+                    <tr>
+                        <td>8. <em>Streptococcus pyogenes</em></td>
+                        <td>All ages</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>2. Viruses</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Viruses</th>
+                        <th>Age Group Frequently Involved</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1. Adenovirus (Endemic: type 1, 2, 5 | Epidemic: type 3, 4, 7)</td>
+                        <td>Young children / Older children and young adults</td>
+                    </tr>
+                    <tr>
+                        <td>2. Enterovirus (ECHO and Coxsackie A, B, C)</td>
+                        <td>All ages</td>
+                    </tr>
+                    <tr>
+                        <td>3. Influenza</td>
+                        <td>All ages (Type A &amp; B: All ages/School children; Type C: Rare)</td>
+                    </tr>
+                    <tr>
+                        <td>4. Measles</td>
+                        <td>Young children</td>
+                    </tr>
+                    <tr>
+                        <td>5. Parainfluenza (1, 2, 3)</td>
+                        <td>Young children</td>
+                    </tr>
+                    <tr>
+                        <td>6. Respiratory Syncytial Virus (RSV)</td>
+                        <td>Infants and young children</td>
+                    </tr>
+                    <tr>
+                        <td>7. Rhinoviruses (Multiple Serotypes)</td>
+                        <td>All ages</td>
+                    </tr>
+                    <tr>
+                        <td>8. Coronavirus</td>
+                        <td>All ages</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p><strong>Other Agents Include:</strong> <em>Chlamydia</em> type B, <em>Coxiella burnetii</em> (Q fever), and <em>Mycoplasma pneumoniae</em>.</p>
+
+            <h3>Host Factors</h3>
+            <ul>
+                <li><strong>Sex:</strong> Until 3 years of age, boys are more affected than girls. After 3 years, women are more affected than men.</li>
+                <li><strong>Age:</strong> ARI incidence is higher in children than in adults. Rates are highest in young children and decrease with age, except during the third decade of life when young adults are exposed to infection by their own children.</li>
+            </ul>
+
+            <h3>Environmental Factors</h3>
+            <ul>
+                <li>Climatic conditions</li>
+                <li>Overcrowding in dwellings (Urban &gt; Rural)</li>
+                <li>Low birth weight</li>
+                <li>Indoor air pollution</li>
+                <li>Maternal cigarette smoking</li>
+                <li>Poor nutrition</li>
+                <li><strong>Socioeconomic Status:</strong> More common in children from low socioeconomic status families.</li>
+            </ul>
+
+            <h3>Mode of Transmission</h3>
+            <p>Transmitted predominantly by the <strong>airborne route</strong>.</p>
+
+            <h2>Control and Management of ARI</h2>
+            <p>Improving primary medical care services and developing better methods for <strong>early detection, treatment, and prevention</strong> is the best strategy to control ARI.</p>
+            <p><strong>Education to mothers:</strong> Seeking care when signs of pneumonia are observed, and ensuring compliance with treatment.</p>
+
+            <h3>Management of Acute Respiratory Infections in Children</h3>
+            <ol>
+                <li>Clinical Assessment</li>
+                <li>Physical Examination</li>
+                <li>Classification and Management of Illness</li>
+                <li>Treatment</li>
+            </ol>
+
+            <h4>1. Clinical Assessment</h4>
+            <p>Includes asking about: Age, Duration of cough, Drinking/feeding ability, Fever, Convulsions, Cyanosis, Drowsiness/difficulty waking, and Any prior treatment received.</p>
+
+            <h4>2. Physical Examination</h4>
+            <ul>
+                <li><strong>Count breaths in one minute:</strong>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Age</th>
+                                <th>Fast Breathing Cut-off</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Less than 2 months</td>
+                                <td>60 breaths per minute or more</td>
+                            </tr>
+                            <tr>
+                                <td>2 months up to 12 months</td>
+                                <td>50 breaths per minute or more</td>
+                            </tr>
+                            <tr>
+                                <td>12 months up to 5 years</td>
+                                <td>40 breaths per minute or more</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </li>
+                <li><strong>Chest Indrawing:</strong> In-drawing during inspiration.</li>
+                <li><strong>Stridor:</strong> Harsh noise when child breathes in.</li>
+                <li><strong>Wheeze:</strong> Soft whistling noise when breathing out.</li>
+                <li><strong>Sleepy / Difficult to wake.</strong></li>
+                <li><strong>Body Temperature:</strong> Feel for fever or hypothermia.</li>
+                <li><strong>Severe Malnutrition &amp; Cyanosis</strong> (sign of hypoxia).</li>
+            </ul>
+
+            <h2>Classification and Management (Child Aged 2 Months to 5 Years)</h2>
+
+            <h3>a. Very Severe Disease</h3>
+            <p><strong>Signs (Mnemonic: Mother Can't Drink SWEETS):</strong></p>
+            <ul>
+                <li><strong>M:</strong> Severe Malnutrition</li>
+                <li><strong>C:</strong> Convulsions</li>
+                <li><strong>D:</strong> Not able to Drink</li>
+                <li><strong>S:</strong> Abnormally Sleepy / difficult to wake</li>
+                <li><strong>W:</strong> Wheeze</li>
+                <li><strong>T:</strong> Alteration of Temperature</li>
+                <li><strong>S:</strong> Stridor in a calm child</li>
+            </ul>
+            <p><strong>Treatment:</strong></p>
+            <ul>
+                <li>Refer <strong>URGENTLY</strong> to hospital.</li>
+                <li>Give first dose of an antibiotic (Ampicillin, Gentamicin, and Benzylpenicillin).</li>
+                <li>Treat fever and wheezing if present.</li>
+                <li>If cerebral malaria is possible, give an antimalarial.</li>
+                <li><strong>At Hospital:</strong> Oxygen therapy with intense monitoring. Chloramphenicol IM is drug of choice in all cases. Treat for 48 hours; if condition improves, switch to oral chloramphenicol (total 10 days). If condition worsens, switch to IM cloxacillin and gentamicin.</li>
+            </ul>
+
+            <h3>b. Severe Pneumonia</h3>
+            <p><strong>Signs:</strong> Chest indrawing and Fast breathing.</p>
+            <p><strong>Treatment:</strong></p>
+            <ul>
+                <li>Refer URGENTLY to hospital.</li>
+                <li>Give first dose of an antibiotic. Treat fever/wheezing if present.</li>
+                <li><strong>At Hospital:</strong> Inpatient treatment with IM injections of benzylpenicillin (after test dose), ampicillin, or chloramphenicol.</li>
+                <li>Monitor fluid/food intake and review after 48 hours. Antibiotic therapy must be given for a minimum of 5 days and continued for at least 3 days after recovery.</li>
+            </ul>
+
+            <h3>c. Pneumonia (Not Severe)</h3>
+            <p><strong>Signs:</strong> No chest indrawing and Fast breathing.</p>
+            <p><strong>Treatment:</strong></p>
+            <ul>
+                <li>Advise mother on home care.</li>
+                <li>Give oral antibiotic (Cotrimoxazole is drug of choice).</li>
+                <li>Treat fever and wheezing if present. Reassess after 48 hours.</li>
+                <li>If improving: continue antibiotic for 5 days total. If no change at 48 hrs: continue 48 hrs more. If worsening: hospitalize immediately.</li>
+            </ul>
+
+            <h3>d. No Pneumonia: Cough or Cold</h3>
+            <p><strong>Signs:</strong> No chest indrawing and No fast breathing.</p>
+            <p><strong>Treatment:</strong></p>
+            <ul>
+                <li>If coughing &gt; 30 days, refer for assessment (e.g., TB/Asthma).</li>
+                <li>Treat ear problem or sore throat if present.</li>
+                <li>Advise mother on home care and treat fever. Follow up in 5 days if no improvement.</li>
+            </ul>
+
+            <h2>Classification and Treatment (Age Less Than 2 Months)</h2>
+            <ol>
+                <li><strong>No Pneumonia (Cough/Cold):</strong>
+                    <ul>
+                        <li><em>Signs:</em> No severe chest indrawing, no fast breathing (&lt;60 bpm).</li>
+                        <li><em>Treatment:</em> Keep infant warm, breastfeed frequently, clear nose, and return quickly if breathing becomes fast/difficult or feeding drops.</li>
+                    </ul>
+                </li>
+                <li><strong>Severe Pneumonia:</strong>
+                    <ul>
+                        <li><em>Signs:</em> Severe chest indrawing OR Fast breathing (&ge;60 bpm).</li>
+                        <li><em>Treatment:</em> Refer urgently to hospital, keep warm, give first dose of antibiotic (IM Benzylpenicillin/Ampicillin + Gentamicin).</li>
+                    </ul>
+                </li>
+                <li><strong>Very Severe Pneumonia:</strong>
+                    <ul>
+                        <li><em>Signs:</em> Stopped feeding well, Convulsions, Abnormally sleepy, Stridor in calm child, Wheezing, Fever, or Low body temperature.</li>
+                        <li><em>Treatment:</em> Refer urgently to hospital, keep warm, give first dose of antibiotic (Penicillin or Ampicillin with Gentamicin).</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h2>Prevention Strategies</h2>
+            <h3>Primary Prevention</h3>
+            <ul>
+                <li>Improved living conditions and reduction of indoor air pollution.</li>
+                <li>Better nutrition and maternal &amp; child health care.</li>
+                <li><strong>Immunization:</strong>
+                    <ul>
+                        <li><strong>Measles Vaccine:</strong> Reduces post-measles pneumonia. EPI schedule: MR vaccine at 9 and 15 months.</li>
+                        <li><strong>Hib Vaccine:</strong> Reduces <em>Haemophilus influenzae</em> type B pneumonia/meningitis. EPI schedule: 6, 10, and 14 weeks (Pentavalent).</li>
+                        <li><strong>Pneumococcal Vaccine (PCV):</strong> EPI schedule at 6 weeks, 10 weeks, and 9 months. PPV 23 is given to high-risk children &gt;2 years and adults.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>Secondary Prevention</h3>
+            <p>Early diagnosis and prompt treatment of pneumonia cases.</p>
+
+            <h2>Programs Related to Pneumonia</h2>
+            <h3>International Level</h3>
+            <p><strong>The Integrated Global Action Plan for Pneumonia and Diarrhoea (GAPPD):</strong> Goal to end preventable child deaths from pneumonia and diarrhea by 2025 across three pillars: <strong>PROTECT</strong> (exclusive breastfeeding, nutrition, Vit A), <strong>PREVENT</strong> (vaccines, handwashing, safe water, clean air), and <strong>TREAT</strong> (case management, ORS, zinc, antibiotics, oxygen).</p>
+
+            <h3>National Level (Nepal)</h3>
+            <p><strong>Community-Based Integrated Management of Neonatal and Childhood Illness (CB-IMNCI):</strong> Guided by Vision 90 by 2030:</p>
+            <ul>
+                <li>90% Institutional Delivery</li>
+                <li>90% Newborns receiving Chlorhexidine (CHX) gel on umbilical stump</li>
+                <li>90% Under-5 children with diarrhea treated with ORS and Zinc</li>
+                <li>90% Under-5 children with pneumonia treated with appropriate antibiotics</li>
+            </ul>
+
+            <h2>Short Note on Viral Pneumonia</h2>
+            <p>Viral pneumonia is an infection causing lung inflammation resulting from viruses (accounting for ~1/3 of pneumonia cases). It often arises as a complication of cold or flu viruses. While many cases resolve spontaneously within weeks, severe cases can be life-threatening.</p>
+
+            <p><strong>Symptoms:</strong> Cough with yellow/green mucus, fever, chills, fatigue, sweating, cyanosis, headache, muscle pain, worsening shortness of breath, and loss of appetite.</p>
+
+            <p><strong>Risk Factors:</strong> Age &le; 2 years or &ge; 65 years, pregnancy, living/working in healthcare settings, immunocompromised state (HIV/AIDS, chemotherapy), and chronic diseases (cardiac, respiratory).</p>
+
+            <p><strong>Causative Agents:</strong> Adenoviruses, Influenza viruses, Respiratory Syncytial Virus (RSV), Varicella zoster, and Coronaviruses.</p>
+
+            <p><strong>Diagnosis &amp; Management:</strong> Clinical examination supported by chest X-ray, sputum/nasal swab tests, and blood cultures. Treatment is primarily supportive (hydration, fever management, antiviral drugs where indicated). Prevention includes hygiene, annual seasonal influenza vaccination (recommended for everyone &ge; 6 months), and isolation of active cases.</p>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 MONOLITH. Built to persist.</p>
+    </footer>
+
+</body>
+</html>
