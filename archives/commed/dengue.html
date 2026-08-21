@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monolith — Dengue</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #e5e5e5;
+            --accent-color: #888888;
+            --border-color: #222222;
+            --hover-color: #ffffff;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-family: var(--font-mono);
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--hover-color);
+        }
+
+        /* Main Container */
+        main {
+            max-width: 800px;
+            margin: 80px auto;
+        }
+
+        /* Header Section */
+        .subject-header {
+            margin-bottom: 60px;
+        }
+
+        .breadcrumb {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--hover-color);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-family: var(--font-mono);
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        /* Typography & Layout Content Elements */
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0px;
+            margin: 50px 0 20px 0;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        h3 {
+            font-size: 1.15rem;
+            font-weight: 500;
+            margin: 25px 0 10px 0;
+            color: var(--hover-color);
+        }
+
+        h4 {
+            font-size: 1.0rem;
+            font-weight: 600;
+            margin: 15px 0 5px 0;
+            color: #d0d0d0;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: var(--text-color);
+            text-align: justify;
+        }
+
+        strong {
+            color: var(--hover-color);
+            font-weight: 600;
+        }
+
+        em {
+            color: #b0b0b0;
+            font-style: italic;
+        }
+
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: square;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        li strong {
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
+        }
+
+        /* Tables matching Minimal Dark theme */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.95rem;
+        }
+
+        th {
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            color: var(--accent-color);
+            text-align: left;
+            padding: 10px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.85rem;
+        }
+
+        td {
+            padding: 12px 10px;
+            border-bottom: 1px dashed var(--border-color);
+            vertical-align: top;
+        }
+
+        tr:hover td {
+            color: var(--hover-color);
+            background-color: #0f0f0f;
+        }
+
+        .note {
+            background-color: #111111;
+            border-left: 2px solid var(--accent-color);
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 0.95rem;
+        }
+
+        /* Flowchart / Box Styling */
+        .flow-step {
+            background-color: #111111;
+            border: 1px solid var(--border-color);
+            padding: 12px 15px;
+            margin: 8px 0;
+            border-radius: 4px;
+        }
+
+        .flow-arrow {
+            text-align: center;
+            color: var(--accent-color);
+            font-weight: bold;
+            margin: 4px 0;
+        }
+
+        /* Footer */
+        footer {
+            max-width: 800px;
+            margin: 100px auto 40px auto;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Monolith</div>
+        <ul class="nav-links">
+            <li><a href="https://fidelioa.github.io/monolith">Home</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/archives">Archives</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/about">About</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Document Header -->
+        <section class="subject-header">
+            <div class="breadcrumb">
+                <a href="https://fidelioa.github.io/monolith/archives">Archives</a> / 
+                <a href="https://fidelioa.github.io/monolith/archives/commed">Communicable Diseases</a> / Dengue
+            </div>
+            <h1>Applied Epidemiology: Vector Borne Diseases &amp; Dengue</h1>
+            <div class="subtitle">FAST TRACK CLINICAL SCIENCE MBBS - 3rd YEAR</div>
+        </section>
+
+        <!-- Main Chapter Content -->
+        <section class="content">
+
+            <h2>Vector Borne Diseases</h2>
+
+            <h3>Vector</h3>
+            <p>It is an arthropod capable of transmitting or spreading the diseases.</p>
+            <p>There are two types of vector, depending upon the mode of transmission of diseases:</p>
+
+            <h4>1. Mechanical vector:</h4>
+            <p>It is an arthropod, which passively, directly transmits the pathogens without biting.</p>
+            <p><strong>Example:</strong> Housefly mechanically lifts up the pathogens from the filthy substances and deposits over the eatables and contaminates the food.</p>
+
+            <h4>2. Biological vector:</h4>
+            <p>It is an arthropod, which transmits the pathogens indirectly by biting the reservoir and sucking the blood containing pathogens. Subsequently the pathogens undergo biological development inside the body of the vector for a specified period, only after which the vector can spread the disease.</p>
+            <p><strong>Example:</strong> Mosquito, rat flea, cyclops, etc.</p>
+
+            <h3>Types</h3>
+            <ul>
+                <li><strong>i. Propagative:</strong> The pathogens undergo multiplication inside the body of the vector.<br>
+                <strong>Examples:</strong> Plague bacilli in rat flea, yellow fever virus in aedes mosquito.</li>
+                <li><strong>ii. Cyclopropagative:</strong> The pathogens undergo not only multiplication but also cyclic development inside the body of the vector.<br>
+                <strong>Example:</strong> Malarial parasites in female anopheline mosquito</li>
+                <li><strong>iii. Cyclodevelopmental:</strong> The pathogens undergo only developmental changes and no multiplication inside the body of the vector<br>
+                <strong>Example:</strong> <em>Wuchereria bancrofti</em> microfilariae inside female culex mosquito; Guineaworm embryo in cyclops.</li>
+            </ul>
+
+            <div class="note">
+                <strong>Note:</strong> Arthropods also transmit the disease by:<br>
+                - Invading the tissues (skin) of the man: itch mite invading the skin and resulting in scabies<br>
+                - By inoculating poisonous substance: scorpion when it stings or spider when it bites.
+            </div>
+
+            <h3>Vector &amp; Diseases Transmitted</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Vector</th>
+                        <th>Diseases Transmitted</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Anopheles stephensi</strong></td>
+                        <td>Urban malaria</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Anopheles culicifacies</strong></td>
+                        <td>Rural malaria</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Phlebotamus argentipes</strong></td>
+                        <td>Kala azar (visceral leishmaniasis), orienta sore (cutaneous leishmaniasis), sandfly fever, oroya fever</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Aedes aegypti</strong></td>
+                        <td>Dengue, Chikungunya fever, yellow fever</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Culex vishnuii</strong></td>
+                        <td>Japanese encephalitis</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Vector Borne Disease Control and Prevention</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Level</th>
+                        <th>Interventions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Primordial Prevention</strong></td>
+                        <td>
+                            1. Health education awareness regarding vector, disease transmission diagnosis, treatment<br>
+                            2. Build suitable infrastructures and provision of RDT at all levels.<br>
+                            3. Upgrade the level of education<br>
+                            4. Promote employment, eliminate poverty.<br>
+                            5. Surveillance: Active (index-case, incentive base, blanket, camp based) Passive (Sentinel)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Primary Prevention</strong></td>
+                        <td>
+                            1. Use of prophylaxis while visiting to endemic areas.<br>
+                            2. Clear the breeding, hiding places of vector.<br>
+                            3. IVM approach<br>
+                            4. Larval control (environmental, chemical, biological), adult control, chemical control (indoor residual spray) genetic control
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Secondary Prevention</strong></td>
+                        <td>
+                            1. Early diagnosis by use of RDT.<br>
+                            2. Adequate treatment (1st line, 2nd line) of VL, PKDL based on national guidelines<br>
+                            3. Active surveillance
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tertiary Prevention</strong></td>
+                        <td>
+                            1. Rehabilitation (medical, occupational, social)<br>
+                            2. Friendly programs
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>DENGUE</h2>
+
+            <h3>Past Questions</h3>
+            <ul>
+                <li><strong>1.</strong> Dengue has been reported to be hyperendemic in some of the area of our southern neighbor recently where we share our open border? Describe briefly the strategies adopted by the ministry of health to address the burden of Dengue in nearly a dozen of terai districts for several year and also critically review the importance of cross border collaboration to address the issue. <strong>5+2=7 (2073)</strong></li>
+                <li><strong>2. Write short notes on: (2072)</strong><br>
+                a. Dengue a growing problem in Nepal</li>
+            </ul>
+
+            <p>Dengue is an acute mosquito-borne tropical disease caused by the dengue virus. It is also known as <strong>break bone fever</strong>.</p>
+
+            <h3>Problem Statement</h3>
+
+            <h4>World:</h4>
+            <ul>
+                <li>The dengue virus (DEN) comprises four distinct serotypes (DEN-1, DEN-2, DEN-3 and DEN-4) which belong to the genus <em>Flavivirus</em>, family <em>Flaviviridae</em>.</li>
+                <li>Distinct genotypes have been identified within each serotype, highlighting the extensive genetic variability of the dengue serotypes.</li>
+                <li>Among them, "Asian" genotypes of DEN-2 and DEN-3 are frequently associated with severe disease accompanying secondary dengue infections.</li>
+                <li>One modelling estimate indicates 390 million dengue virus infections per year (95% credible interval 284–528 million), of which 96 million (67–136 million) manifest clinically (with any severity of disease).</li>
+                <li>Another study on the prevalence of dengue estimates that 3.9 billion people are at risk of infection with dengue viruses. Despite a risk of infection existing in 129 countries, 70% of the actual burden is in Asia.</li>
+                <li>The total number of cases seemingly decreased during years 2020 and 2021, as well as for reported deaths.</li>
+                <li>However, the data is not yet complete and COVID-19 pandemic might have also hampered case reporting in several countries.</li>
+                <li>The overall alarming increase in case numbers over the last two decades is partly explained by a change in national practices to record and report dengue to the Ministries of Health, and to the WHO.</li>
+                <li>But it also represents government recognition of the burden, and therefore the pertinence to report dengue disease burden.</li>
+            </ul>
+
+            <h4>Nepal: (Source:DoHS 2079/80)</h4>
+            <ul>
+                <li>Dengue, a mosquito-borne disease transmitted by <em>Aedes aegypti</em> and <em>Aedes albopictus</em>, is endemic in most of the provinces in Nepal. First reported in the country in 2060/61 (2004), cases have steadily risen, particularly in tropical lowlands and subtropical hilly regions, including Kathmandu. Multiple outbreaks occurred between 2062/63 (2006) and 2078/79 (2022) signaling the disease's persistence and expansion in various districts. During the COVID-19 pandemic (2020-2021), only a few cases were reported.</li>
+                <li>The most recent outbreak in 2022 was particularly severe, with 56,338 reported cases and 88 deaths attributed to the disease - more than three times the number of cases in the previous largest outbreak in 2019. Dengue virus has become a major disease of concern in Nepal due to widespread infection detected throughout the year, with cases being reported from all 77 districts in the country. More recent study by VBDRTC has shown that both <em>Aedes aegypti</em> and <em>Aedes albopictus</em> mosquitoes are transmitting the disease in Nepal. Entomological surveillance conducted in three cities (Kathmandu, Lalitpur and Ghorahi) in 2079 (2022) also showed the presence of <em>Aedes aegypti</em> in all three areas and <em>Aedes albopictus</em> in Lalitpur and Ghorahi. However, the density of the albopictus vector was negligible in Kathmandu.</li>
+                <li>In 2079 (2022), dengue virus serotyping conducted by EDCD and NPHL revealed the prevalence of DENV1, followed by DENV3 and DENV2, with no positive samples for DENV4.</li>
+                <li>In FY 2079/80, Dengue cases surged from 733 to 56,338, with the highest reported in Bagmati Province followed by Lumbini Province. Kathmandu Valley reported the most cases, with Kathmandu having 20,367 cases, Lalitpur (3,003) and Bhaktapur (4,481), followed by Chitwan (2,696), Rupandehi (2,254) and Makwanpur (2,124).</li>
+            </ul>
+
+            <div class="note">
+                <strong>Note: Difference b/w EWARS and HMIS/DHIS2 data:</strong><br>
+                EWARS gathers direct hospital data, while HMIS receives consolidated information. The EDCD ensures the accuracy of this data through a line listing report of all cases.
+            </div>
+
+            <h3>Epidemiology</h3>
+
+            <h4>Agent Factor</h4>
+            <ul>
+                <li><strong>1. Agent:</strong> Dengue virus, an arbovirus (flavivirus). Size 40-50nm sphere, having lipopolysaccharide envelope, ssRNA.</li>
+                <li>4 serotypes are present i.e. (DEN-1, DEN-2, DEN-3 and DEN-4).</li>
+                <li>All serotype produces same illness.</li>
+                <li>Multiple infections with different serotypes lead to severe form of dengue: DHF/DSS.</li>
+            </ul>
+
+            <h4>Host Factor</h4>
+            <ul>
+                <li><strong>Age:</strong> Affects all age but children are more affected but children usually have milder disease than adult</li>
+                <li><strong>Sex:</strong> Female are more prone</li>
+                <li>In contrast to other infections it is more common in well nourished children</li>
+            </ul>
+
+            <h4>Environmental Factor</h4>
+            <ul>
+                <li><strong>1. Climate:</strong> Hot climate of tropics region (terai region of Nepal)</li>
+                <li><strong>2. Vector:</strong> Two vectors known:
+                    <ul>
+                        <li><strong>a. Aedes aegypti:</strong> Principal vector, breeds in standing water.</li>
+                        <li><strong>b. Aedes albopictus:</strong> Some Southeast Asian countries</li>
+                    </ul>
+                </li>
+                <li><strong>3.</strong> More clustering in urban and semiurban areas</li>
+            </ul>
+
+            <h3>Mode of Transmission</h3>
+            <ul>
+                <li>Vector transmission through the bite of infected <em>Aedes</em> mosquitoes.</li>
+                <li>The <em>Aedes</em> mosquito becomes infective by feeding on a patient from the day before onset to 5<sup>th</sup> day of illness.</li>
+                <li>An extrinsic Incubation period in mosquito = 8 to 10 days</li>
+                <li>Once a mosquito becomes infective, it remains so for life.</li>
+                <li>Transovarian transmission</li>
+            </ul>
+
+            <h4>Cycle of transmission</h4>
+            <div class="flow-step">Virus transmitted to human in mosquito saliva after mosquito bite.</div>
+            <div class="flow-arrow">&darr;</div>
+            <div class="flow-step">Virus enters the WBCs and lymphatic tissues and reproduce inside the cells while they move throughout the body</div>
+            <div class="flow-arrow">&darr;</div>
+            <div class="flow-step">Virus released and circulation in blood and release chemical/biological mediators causing plasma leakage and bleeding manifestation.</div>
+            <div class="flow-arrow">&darr;</div>
+            <div class="flow-step">Second mosquito ingests virus with blood</div>
+            <div class="flow-arrow">&darr;</div>
+            <div class="flow-step">Virus replicates in mosquito mid gut and other organs, infects salivary glands.</div>
+
+            <div class="note">
+                <strong>Note:</strong><br>
+                - Virus replicates in mosquito salivary glands.<br>
+                - Sequential infection with two of the four serotypes of dengue virus results in severe dengue infection. This happens probably because of cross-reactive enhancing antibodies.<br>
+                - The major pathophysiologic changes that determined severity are:<br>
+                &nbsp;&nbsp;i. Plasma leakage<br>
+                &nbsp;&nbsp;ii. Bleeding manifestations.
+            </div>
+
+            <p><strong>Incubation period:</strong> 2-7 days</p>
+
+            <h3>Clinical Features</h3>
+            <p>Dengue virus causes dengue syndrome, which includes following features:</p>
+            <ul>
+                <li><strong>Asymptomatic</strong></li>
+                <li><strong>Symptomatic:</strong>
+                    <ul>
+                        <li>Undifferentiated Fever</li>
+                        <li>Dengue Fever (without Hemorrhage / with Hemorrhage)</li>
+                        <li>Dengue Haemorrhagic Fever (DHF non-shock / DHF with shock - Dengue shock syndrome [DSS])</li>
+                        <li>Expanded dengue syndrome/Isolated organopathy (unusual)</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h4>1. Undifferentiated fever</h4>
+            <p>Simple fever undifferentiated from other viral infections.</p>
+
+            <h4>2. Classical dengue fever</h4>
+            <ul>
+                <li>Sudden onset of High grade fever with chills and rigor</li>
+                <li>Resulting in bleeding, low levels of blood platelets and blood plasma leakage</li>
+                <li>Intense headache, muscle and joint pain.</li>
+                <li>Retro-orbital pain, Photophobia, extreme weakness, anorexia, constipation, colicky abdominal pain, rashes (may be maculopapular or scarlatiniform)</li>
+                <li>Fever - biphasic curve</li>
+            </ul>
+
+            <h4>3. Dengue hemorrhagic fever</h4>
+            <ul>
+                <li>Infection with more than 1 dengue virus.</li>
+                <li>Double infection with dengue virus - 1st infection sensitize the patient while the second appear to produce immunological catastrophe.</li>
+                <li>Abrupt onset of high grade fever, facial flushing, headache</li>
+                <li>Hemorrhagic manifestation - any of the following may be present:
+                    <ul>
+                        <li>a. Petechiae, purpura, ecchymosis</li>
+                        <li>b. Epistaxis, gum bleeding</li>
+                        <li>c. Haematemesis/Melena</li>
+                    </ul>
+                </li>
+                <li>Positive Tourniquet test is the most common haemorrhagic manifestation.</li>
+                <li>Hepatomegaly</li>
+                <li>Feature of shock (absent)</li>
+            </ul>
+
+            <h4>4. Dengue shock Syndrome</h4>
+            <p>Features of shock present (i.e. rapid and weak pulse, dangerously low blood pressure, cold and clammy skin and restlessness)</p>
+
+            <h3>Clinical Course</h3>
+            <p>The course of infection is divided into three phases: febrile, critical, and recovery.</p>
+
+            <ul>
+                <li><strong>Febrile phase:</strong> The febrile phase involves high fever, potentially over 40°C (104°F), and is associated with generalized pain and a headache; this usually lasts two to seven days. Sudden-onset fever, headache, mouth and nose bleeding, muscle and joint pains, vomiting, rash, diarrhea.</li>
+                <li><strong>Critical phase:</strong> In some people, the disease proceeds to a critical phase as fever resolves. During this period there is leakage of plasma from the blood vessels which typically lasts one to two days. This may result in pleural effusion and ascites as well as depletion of fluid from the circulation and decreased blood supply to vital organs. Potential clinical issues: shock, dehydration, bleeding, fluid overload, organ impairment. Symptoms: hypotension, pleural effusion, ascites, gastrointestinal bleeding.</li>
+                <li><strong>Recovery phase:</strong> The recovery phase occurs next, with resorption of the leaked fluid into the bloodstream. This usually lasts two to three days. Potential clinical issues: reabsorption, fluid overload. Symptoms: altered level of consciousness, seizures, itching, slow heart rate.</li>
+            </ul>
+
+            <h3>WHO classification of Dengue Fever</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>DF/DHF</th>
+                        <th>Grade</th>
+                        <th>Symptoms/Signs</th>
+                        <th>Laboratory Diagnosis</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>DF</strong></td>
+                        <td>—</td>
+                        <td>Fever with two or more of following:<br>Headache, Retro-orbital pain, Myalgia, Arthralgia, Rash, Haemorrhagic manifestations, No evidence of plasma leakage</td>
+                        <td>Leucopenia (WBC&le;5000 cells/cu mm)<br>Thrombocytopenia (platelet count&lt;150,000 cells/cu mm)<br>Rising Hematocrit (5-10%)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>DHF</strong></td>
+                        <td><strong>I</strong></td>
+                        <td>Above criteria for DF and hemorrhagic manifestation + positive tourniquet test, evidence of plasma leakage</td>
+                        <td>Thrombocytopenia (platelet count&lt;100,000/cu.mm.)<br>Hematocrit rise 20% or more</td>
+                    </tr>
+                    <tr>
+                        <td><strong>DHF</strong></td>
+                        <td><strong>II</strong></td>
+                        <td>All above + Some evidence of spontaneous bleeding in skin or other organs + abdominal pain</td>
+                        <td>Thrombocytopenia (platelet count&lt;100,000/cu.mm.)<br>Hematocrit rise 20% or more</td>
+                    </tr>
+                    <tr>
+                        <td><strong>DHF</strong></td>
+                        <td><strong>III</strong></td>
+                        <td>All above + signs of circulatory failure</td>
+                        <td>Thrombocytopenia (platelet count&lt;100,000/cu.mm.)<br>Hematocrit rise 20% or more</td>
+                    </tr>
+                    <tr>
+                        <td><strong>DHF</strong></td>
+                        <td><strong>IV</strong></td>
+                        <td>Same as grade III + profound shock with undetectable blood pressure or pulse</td>
+                        <td>Thrombocytopenia (platelet count&lt;100,000/cu.mm.)<br>Hematocrit rise 20% or more</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Management</h3>
+            <ul>
+                <li>There is no specific treatment but it's important to lessen the fever and keep the patient hydrated</li>
+                <li>On the basis of clinical manifestations, patients are grouped as: group A (DF), B (DHF) and C (DSS)</li>
+            </ul>
+
+            <div class="note">
+                <strong>Note: Also include the following points in Case management</strong><br>
+                1. If there is suspicion of outbreak of Dengue, then public health authority should be notified<br>
+                2. After discharge of the patient, he/she should be monitored continuously at home for 24 hours and if condition deteriorates, then immediately go to hospital.<br>
+                3. Include the outbreak notification, history, examination, investigation, treatment, and prevention advice in the answer of case management of any disease
+            </div>
+
+            <h4>Treatment of Group A cases</h4>
+            <p>These are the patients with:</p>
+            <ul>
+                <li>Uncomplicated disease who may be sent home</li>
+                <li>Able to tolerate adequate volume of oral fluids</li>
+                <li>Do not have any of warning signs</li>
+            </ul>
+            <ul>
+                <li>Oral intake of ORS, fruit juice and fluids containing electrolytes and sugar for dehydration (due to vomiting)</li>
+                <li>Paracetamol for high fever but not aspirin, ibuprofen or other NSAIDs (aggravate gastritis or bleeding)</li>
+            </ul>
+
+            <div class="note">
+                <strong>Note: Warning Signs</strong><br>
+                - Severe abdominal pain or persistent vomiting<br>
+                - Red spots or patches on the skin<br>
+                - Bleeding from nose or gums<br>
+                - Vomiting blood<br>
+                - Black, tarry stools (feces, excrement)<br>
+                - Drowsiness or irritability<br>
+                - Pale, cold, or clammy skin<br>
+                - Difficulty breathing
+            </div>
+
+            <h4>Treatment of Group B cases</h4>
+            <p>These are the patients:</p>
+            <ul>
+                <li>May need to be admitted to a health care centre for close observation</li>
+                <li>With or without warning signs</li>
+            </ul>
+
+            <p><strong>A. Action plan for a patient if he/she has dengue with warning signs:</strong></p>
+            <div class="flow-step">Obtain a reference haematocrit before fluid therapy</div>
+            <div class="flow-arrow">&darr;</div>
+            <div class="flow-step">Give isotonic crystalloid solutions (e.g. 0.9% saline): start with 5-7 ml/kg/hour for 1-2 hours</div>
+            <div class="flow-arrow">&darr;</div>
+            <div class="flow-step">Reduce to 3-5 ml/kg/hour for 2-4 hours and then to 2-3 ml/kg/hour or less acc. to clinical response</div>
+            <div class="flow-arrow">&darr;</div>
+            <ul>
+                <li><strong>i.</strong> If haematocrit remains same: continue with same rate (2-3 ml/kg/hr)</li>
+                <li><strong>ii.</strong> If haematocrit rises rapidly: increase rate to 5-10 ml/kg/hour for 1-2hr</li>
+                <li><strong>iii.</strong> If haematocrit falls: reduce iv fluids gradually and transfuse fresh whole blood</li>
+            </ul>
+
+            <p><strong>B. Action plan for a patient if he/she has dengue without warning signs:</strong></p>
+            <ul>
+                <li>Encourage a patient with oral fluids. If not tolerated, start i.v. fluid therapy of 0.9% saline with/without dextrose at maintenance rate.</li>
+                <li>After few hours of i.v. fluid therapy, patient may be able to take oral fluids</li>
+            </ul>
+
+            <h4>Treatment of Group C cases</h4>
+            <p>These are the patients who:</p>
+            <ul>
+                <li>Require emergency treatment and urgent referral</li>
+                <li>Are in critical phase of disease, i.e. when they have:
+                    <ul>
+                        <li>Severe plasma leakage leading to dengue shock and/or fluid accumulation with respiratory distress</li>
+                        <li>Severe hemorrhages</li>
+                        <li>Severe organ impairment (hepatic/renal impairment, cardiomyopathy, encephalopathy or encephalitis)</li>
+                    </ul>
+                </li>
+            </ul>
+            <p>These patients should be admitted to ICU with access to blood transfusion.</p>
+            <ul>
+                <li><strong>IV fluids:</strong> Is essential to restore consciousness or even life (fluid resuscitation). Plasma losses should be replaced immediately and rapidly with isotonic crystalloid solution. In the case of hypotensive shock, colloid (dextran) solutions is given.</li>
+                <li><strong>Blood transfusion:</strong> There should be continued replacement of further plasma losses to maintain effective circulation for 24-48 hours. Blood transfusion should be given only in case with severe bleeding.</li>
+            </ul>
+            <p>In this strategy larger volumes of fluids are administered for a limited period of time under close monitoring to evaluate the patient's response to avoid the development of pulmonary edema.</p>
+
+            <p><strong>Goals of fluid resuscitation:</strong></p>
+            <ul>
+                <li>Improvement of central and peripheral circulation i.e. tachycardia, improving BP, etc.</li>
+                <li>Improvement of end organ perfusion i.e. stable conscious level (more alert), urine output &ge;0.5 ml/kg/hour, metabolic acidosis.</li>
+            </ul>
+
+            <h4>Treatment of Shock</h4>
+            <ul>
+                <li>Patients with dengue shock should be frequently monitored until the danger period is over</li>
+                <li>Vital signs, peripheral perfusion and urine output should be checked regularly every 15 to 30 minutes until the patient is out of shock</li>
+                <li>Changes in the haematocrit are a useful guide to treatment. Thus haematocrit should be monitored before and after fluid boluses until patient become stable.</li>
+                <li>High haematocrit indicates active plasma leakage and need for further fluid replacement</li>
+                <li>Decrease in haematocrit indicates major haemorrhage and need for urgent blood transfusion</li>
+            </ul>
+
+            <h3>Lab Diagnosis</h3>
+            <p>Laboratory criteria for diagnosis include one or more of the following:</p>
+            <ul>
+                <li><strong>a.</strong> Demonstration of a fourfold or greater change in reciprocal immunoglobulin G (IgG) or immunoglobulin M (IgM) antibody titres to one or more dengue virus antigens in paired serum samples</li>
+                <li><strong>b.</strong> Demonstration of dengue virus antigen in autopsy tissue via immunohistochemistry or immunofluorescence or in serum samples via enzyme immunoassay (MAC-ELISA, IgG ELISA, NS1-ELISA, EIA)</li>
+                <li><strong>c.</strong> Detection of viral genomic sequences in autopsy tissue, serum or cerebral spinal fluid (CSF) samples via reverse-transcriptase polymerase chain reaction (RT-PCR)</li>
+                <li><strong>d.</strong> Less commonly, isolation of dengue virus from serum, plasma, leukocytes, or autopsy samples</li>
+            </ul>
+
+            <p><strong>Other laboratory tests:</strong></p>
+            <ul>
+                <li>Complete blood cell (CBC) count</li>
+                <li>Metabolic panel</li>
+                <li>Serum protein and albumin levels</li>
+                <li>Liver panel</li>
+                <li>Coagulation profile and disseminated intravascular coagulation (DIC) panel</li>
+            </ul>
+
+            <h3>Prevention and Control</h3>
+            <p>National strategies to prevent and control dengue in Nepal or Nepal's Dengue Control Program:</p>
+
+            <h4>Goal:</h4>
+            <p>To reduce the morbidity and mortality due to dengue fever, dengue haemorrhagic fever (DHF) and dengue shock syndrome (DSS).</p>
+
+            <h4>Objectives:</h4>
+            <ul>
+                <li>To develop an integrated vector management (IVM) approach for prevention and control.</li>
+                <li>To develop capacity on diagnosis and case management of dengue fever, DHF and DSS.</li>
+                <li>To intensify health education and IEC activities.</li>
+                <li>To strengthen the surveillance system for prediction, early detection, preparedness and early response to dengue outbreaks.</li>
+            </ul>
+
+            <h4>Strategies:</h4>
+            <ul>
+                <li>Early case detection, diagnosis, management and reporting of dengue fever</li>
+                <li>Regular monitoring of dengue fever surveillance through the EWARS</li>
+                <li>Mosquito vector surveillance in municipalities</li>
+                <li>The integrated vector control approach where a combination of several approaches are directed towards containment and source reduction.</li>
+            </ul>
+
+            <h4>Major activities in FY 2079/80</h4>
+            <ul>
+                <li><strong>1.</strong> Consultative review and planning meeting on Dengue preparedness and response</li>
+                <li><strong>2. MOHP circular for "Every Friday 10 Minute" cleanliness campaign:</strong> Promote a nationwide breeding site 'Search and Destroy' campaign, encouraging citizens to dedicate ten minutes every Friday to eliminate potential breeding grounds for mosquitoes in their homes, offices and public places, aiming to reduce the risk of Dengue transmission.</li>
+                <li><strong>3.</strong> EDCD circular to local levels requesting Dengue prevention and control activities along with action plan.</li>
+                <li><strong>4.</strong> Nepal's participation in meeting of the programme managers and RTAG on Dengue</li>
+                <li><strong>5.</strong> Clinical seminar on Dengue</li>
+                <li><strong>6.</strong> Sensitization meetings on Dengue prevention and control with: Nepal Auto-mechanics Association, Nepal Recollectors' and Recyclers' Association and journalists.</li>
+                <li><strong>7.</strong> High-level advocacy meeting with local levels of Kathmandu Valley</li>
+                <li><strong>8.</strong> Advocacy meeting with local levels of Chitwan district on Dengue prevention and control</li>
+                <li><strong>9.</strong> Routine Dengue surveillance through EWARS across 118 sentinel sites, with EDCD verifying data from these reports.</li>
+                <li><strong>10.</strong> Vector surveillance activities in Bagmati province (Bhaktapur, Chitwan, Kathmandu, Lalitpur, Makwanpur) and some selected sites at Sudurpaschim province.</li>
+                <li><strong>11.</strong> Genome sequencing to study the type of dengue virus circulating in Nepal.</li>
+                <li><strong>12.</strong> Procurement and supply of rapid diagnostic test kits (IgM) to provincial and local government as per need and demand.</li>
+                <li><strong>13.</strong> Regular advocacy and coordination meetings with institutions like Rotary Club, Institute of Engineering, Armed Police Forces, etc.</li>
+                <li><strong>14.</strong> Preparation of daily situation updates of dengue and dissemination through the EDCD website and other stakeholders.</li>
+                <li><strong>15.</strong> Development of SOPs for integrated vector surveillance and disseminated to the concerned stakeholders.</li>
+            </ul>
+
+            <h3>Importance of cross border collaboration [2073]</h3>
+            <ul>
+                <li>Free mobility of people across the border makes it difficult for one person to launch control programs without adequate programs and help by the other country.</li>
+                <li>An outbreak in one country may quickly spread to another and proper control is not possible without collaborative efforts.</li>
+                <li>Through such cross-border collaboration and sharing of dengue information, timely sensing of the dengue situation can improve preparedness within each country in the event of an outbreak.</li>
+                <li>Collaboration may also help to provide lab facilities as well as technical and financial support for one country which might be lacking in such regard.</li>
+            </ul>
+
+            <h3>Prevention of Dengue</h3>
+            <ul>
+                <li><strong>Vaccine:</strong> "Dengvaxia" is the 1st dengue vaccine developed. It is a live attenuated dengue vaccine CYD-TDV and has shown to be efficacious and safe in persons who have had a previous dengue virus infection (seropositive individuals). For countries considering vaccination as part of their dengue control program, pre-vaccination screening is the recommended strategy.</li>
+                <li>WHO recommends that countries should consider introduction of the dengue vaccine only where epidemiological data indicate a high burden of disease.</li>
+                <li>Other tetravalent live attenuated vaccines are under development in phase III clinical trial.</li>
+            </ul>
+
+            <h3>Dengue Prevention and Control</h3>
+            <p>The proximity of mosquito vector breeding sites to human habitation is a significant risk factor for dengue as well as for other diseases that <em>Aedes</em> mosquito transmit. At present, the main method to control or prevent the transmission of dengue virus is to combat the mosquito vectors.</p>
+
+            <h4>Prevention of mosquito breeding:</h4>
+            <ul>
+                <li>Preventing mosquitoes from accessing egg-laying habitats by environmental management and modification;</li>
+                <li>Disposing of solid waste properly and removing artificial man-made habitats that can hold water;</li>
+                <li>Covering, emptying and cleaning of domestic water storage containers on a weekly basis;</li>
+                <li>Applying appropriate insecticides to water storage outdoor containers;</li>
+            </ul>
+
+            <h4>Personal protection from mosquito bites:</h4>
+            <ul>
+                <li>Using of personal household protection measures, such as window screens, repellents, insecticide treated materials, coils and vaporizers. These measures must be observed during the day both inside and outside of the home (e.g.: at work/school) because the primary mosquito vectors bites throughout the day;</li>
+                <li>Wearing clothing that minimizes skin exposure to mosquitoes is advised;</li>
+            </ul>
+
+            <h4>Community engagement:</h4>
+            <ul>
+                <li>Educating the community on the risks of mosquito-borne diseases;</li>
+                <li>Engaging with the community to improve participation and mobilization for sustained vector control;</li>
+            </ul>
+
+            <h4>Active mosquito and virus surveillance:</h4>
+            <ul>
+                <li>Active monitoring and surveillance of vector abundance and species composition should be carried out to determine effectiveness of control interventions;</li>
+                <li>Prospectively monitor prevalence of virus in the mosquito population, with active screening of sentinel mosquito collections;</li>
+                <li>Vector surveillance can be combined with clinical and environment surveillance.</li>
+            </ul>
+            <p>The integration of vector management (IVM) approaches is encouraged by WHO to achieve sustainable, effective locally adapted vector control interventions.</p>
+
+            <h3>Dengue Vector Control</h3>
+            <p>Vector transmission is reduced through the use or combination of these three methods:</p>
+
+            <h4>1. Environmental management</h4>
+            <p>Environmental management seeks to change the environment in order to prevent or minimize vector propagation and human contact with the vector-pathogen by destroying, altering, removing or recycling non-essential containers that provide egg/larval/pupal habitats. Such actions should be the mainstay of dengue vector control.</p>
+            <p>Three types of environmental management are defined:</p>
+            <ul>
+                <li><strong>Environmental modification:</strong> long-lasting physical transformations to reduce vector larval habitats, such as installation of a reliable piped water supply to communities, including household connections.</li>
+                <li><strong>Environmental manipulation:</strong> temporary changes to vector habitats involving the management of "essential" containers, such as frequent emptying and cleaning by scrubbing of water-storage vessels, flower vases and desert room coolers; cleaning of gutters; sheltering stored tyres from rainfall; recycling or proper disposal of discarded containers and tyres; management of plants close to homes that collect water in the leaf axils.</li>
+                <li><strong>Changes to human habitation or behaviour:</strong> actions to reduce human-vector contact such as installing mosquito screening on windows, doors and other entry points, and using mosquito nets while sleeping during daytime.</li>
+            </ul>
+
+            <p><strong>Other important control measures:</strong></p>
+            <ul>
+                <li><strong>Improvement of water supply and water storage systems:</strong> Improving water supplies is a fundamental method of controlling <em>Aedes</em> vectors especially <em>Ae. aegypti</em>. Water piped to households is preferable to water drawn from wells, communal standpipes, rooftop catchments (rain water harvesting) and other water-storage systems. The installation of reliable piped water supplies to houses should be accompanied by a communication strategy that discourages traditional storage practices.</li>
+                <li><strong>Mosquito-proofing of water-storage containers:</strong> Water-storage containers can be designed to prevent mosquitoes from laying eggs on the surface of the water. Containers can be fitted with tight lids or, if rain-filled, tightly-fitted mesh screens can allow for rainwater to be harvested from roofs while keeping mosquitoes out. Removable covers should be replaced every time water is removed and should be well maintained to prevent damage that permits mosquitoes to get in and out. Expanded polystyrene beads used on the surface of water can prevent mosquitoes from laying eggs on the surface. However, these are only applicable in storage containers with an installed pipe to draw water from the bottom.</li>
+                <li><strong>Solid waste management:</strong> Efforts to reduce solid waste should be directed against discarded or non-essential containers, particularly if they have been identified in the community as important mosquito-producing containers. Solid waste should be collected in plastic sacks and disposed of regularly. The frequency of collection is important: twice per week is recommended for housefly and rodent control in warm climates. Integration of <em>Ae. aegypti</em> control with waste management services is possible and should be encouraged.</li>
+                <li><strong>Street cleansing:</strong> A reliable and regular street cleansing system that removes discarded water-bearing containers and cleans drains to ensure they do not become stagnant and breed mosquitoes will both help to reduce larval habitats of <em>Ae. aegypti</em> and remove the origin of other urban pests.</li>
+                <li><strong>Building structures:</strong> During the planning and construction of buildings and other infrastructure, including urban renewal schemes, and through legislation and regulation, opportunities arise to modify or reduce potential larval habitats of urban disease vectors, including <em>Ae. aegypti</em>, <em>Culex quinquefasciatus</em> and <em>An. stephensi</em>.</li>
+            </ul>
+
+            <h4>2. Chemical control</h4>
+            <p>Although chemicals are widely used to treat <em>Ae. aegypti</em> larval habitats, larviciding should be considered as complementary to environmental management and except in emergencies should be restricted to containers that cannot otherwise be eliminated or managed.</p>
+            <ul>
+                <li><strong>Larvicides:</strong> Larvicides in water-storage containers should have low toxicity to other species and should not significantly change the taste, odour or colour of the water.</li>
+                <li><strong>Adulticides:</strong> Methods of chemical control that target adult vectors are intended to impact on mosquito densities, longevity and other transmission parameters. Adulticides are applied either as residual surface treatments or as space treatments.</li>
+                <li><strong>Space Sprays:</strong> Space spraying is recommended for control only in emergency situations to suppress an ongoing epidemic or to prevent an incipient one. The objective of space spraying is the massive, rapid destruction of the adult vector population. Any control method that reduces the number of infective adult mosquitoes, even for a short time, should reduce virus transmission during that time, but it remains unclear whether the transient impact of space treatments is epidemiologically significant in the long run. If space spraying is used early in an epidemic and on a sufficiently large scale, the intensity of transmission may be reduced, which would give time for the application of other vector control measures that provide longer-term control, including larviciding and community-based source reduction. Thus, if disease surveillance is sensitive enough to detect cases in the early stages of an epidemic, and if the resources are available, emergency space spraying can be initiated at the same time as source reduction measures and larviciding are intensified.</li>
+            </ul>
+
+            <h4>3. Biological control</h4>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 MONOLITH. Built to persist.</p>
+    </footer>
+
+</body>
+</html>
