@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monolith — Leishmaniasis</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #e5e5e5;
+            --accent-color: #888888;
+            --border-color: #222222;
+            --hover-color: #ffffff;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-family: var(--font-mono);
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--hover-color);
+        }
+
+        /* Main Container */
+        main {
+            max-width: 800px;
+            margin: 80px auto;
+        }
+
+        /* Header Section */
+        .subject-header {
+            margin-bottom: 60px;
+        }
+
+        .breadcrumb {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--hover-color);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-family: var(--font-mono);
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        /* Typography & Layout Content Elements */
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0px;
+            margin: 50px 0 20px 0;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        h3 {
+            font-size: 1.15rem;
+            font-weight: 500;
+            margin: 25px 0 10px 0;
+            color: var(--hover-color);
+        }
+
+        h4 {
+            font-size: 1.0rem;
+            font-weight: 600;
+            margin: 15px 0 5px 0;
+            color: #d0d0d0;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: var(--text-color);
+            text-align: justify;
+        }
+
+        strong {
+            color: var(--hover-color);
+            font-weight: 600;
+        }
+
+        em {
+            color: #b0b0b0;
+            font-style: italic;
+        }
+
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: square;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        li strong {
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
+        }
+
+        /* Tables matching Minimal Dark theme */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.85rem;
+        }
+
+        th {
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            color: var(--accent-color);
+            text-align: left;
+            padding: 8px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.8rem;
+        }
+
+        td {
+            padding: 8px;
+            border-bottom: 1px dashed var(--border-color);
+            vertical-align: top;
+        }
+
+        tr:hover td {
+            color: var(--hover-color);
+            background-color: #0f0f0f;
+        }
+
+        .note {
+            background-color: #111111;
+            border-left: 2px solid var(--accent-color);
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 0.95rem;
+        }
+
+        .equation {
+            font-family: var(--font-mono);
+            background-color: #111111;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            margin: 10px 0 15px 0;
+            text-align: center;
+        }
+
+        /* Image / Diagram Container */
+        .diagram-container {
+            text-align: center;
+            margin: 30px 0;
+            background-color: #111111;
+            padding: 15px;
+            border: 1px solid var(--border-color);
+        }
+
+        .diagram-container img {
+            max-width: 100%;
+            height: auto;
+            filter: invert(0.9) hue-rotate(180deg); /* Adjust for dark mode aesthetics if necessary */
+        }
+
+        /* Footer */
+        footer {
+            max-width: 800px;
+            margin: 100px auto 40px auto;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Monolith</div>
+        <ul class="nav-links">
+            <li><a href="https://fidelioa.github.io/monolith">Home</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/archives">Archives</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/about">About</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Document Header -->
+        <section class="subject-header">
+            <div class="breadcrumb">
+                <a href="https://fidelioa.github.io/monolith/archives">Archives</a> / 
+                <a href="https://fidelioa.github.io/monolith/archives/commed">Communicable Diseases</a> / Leishmaniasis
+            </div>
+            <h1>LEISHMANIASIS</h1>
+            <div class="subtitle">FAST TRACK CLINICAL SCIENCE MBBS - 3rd YEAR</div>
+        </section>
+
+        <!-- Main Chapter Content -->
+        <section class="content">
+
+            <h3>Past Questions:</h3>
+            <ul>
+                <li><strong>1. Write short notes on:</strong>
+                    <ul>
+                        <li><strong>a. List out the strategies adopted by the Ministry of Health, Nepal to eliminate kala-azar.</strong> <strong>(2073)</strong></li>
+                    </ul>
+                </li>
+                <li><strong>2. Write short notes on:</strong>
+                    <ul>
+                        <li><strong>a. Kala-azar</strong> <strong>(2072)</strong></li>
+                    </ul>
+                </li>
+                <li><strong>3. Describe the principles of case management, prevention and control of visceral leishmaniasis (Kala-azar).</strong> <strong>10 (2068)</strong></li>
+                <li><strong>4. Explain different phases of Kala-azar elimination program in Nepal.</strong> <strong>(2067)</strong></li>
+                <li><strong>5. Classify leishmaniasis. Why there has been recent resurgence of visceral leishmaniasis in terai region? Discuss distribution, reservoir, mode of transmission and control of visceral leishmaniasis.</strong> <strong>16 (2055)</strong></li>
+            </ul>
+
+            <ul>
+                <li>Group of protozoal disease caused by parasite genus <em>Leishmania</em> and transmitted to man by the bite of female phlebotomine sandfly.</li>
+                <li>Following are the various syndromes in humans:
+                    <ul>
+                        <li>Visceral leishmaniasis or kalazar (VL)</li>
+                        <li>Cutaneous leishmaniasis (CL)</li>
+                        <li>Mucocutaneous leishmaniasis (MCL)</li>
+                        <li>Anthroponotic cutaneous Leishmaniasis (ACL)</li>
+                        <li>Zoonotic cutaneous leishmaniasis (ZCL)</li>
+                        <li>Post-Kalazar dermal leishmaniasis (PKDL)</li>
+                    </ul>
+                </li>
+                <li>Majority are zoonoses involving wild or domestic mammals (rodents and canines)</li>
+                <li>Some are non-zoonotic (e.g Indian kala-azar)</li>
+            </ul>
+
+            <h2>Problem Statement</h2>
+
+            <h3>World</h3>
+            <ul>
+                <li>Visceral leishmaniasis is a global problem.</li>
+                <li>More than 90% of visceral leishmaniasis occurs in six countries namely India, Bangladesh, Brazil, Nepal, Ethiopia and Sudan.</li>
+                <li>About 200,000 to 400,000 cases of kala-azar are reported worldwide annually.</li>
+                <li>In SEAR 147 million people are at risk.</li>
+                <li>It often occurs as an opportunistic disease in AIDS.</li>
+                <li>It affects some of the poorest people on the earth, and it is associated with malnutrition, population displacement, poor housing, weak immune system and lack of financial resources.</li>
+            </ul>
+
+            <h3>Problem statement of Kala-azar in Nepal</h3>
+            <p><strong>National</strong><br>
+            2077/78: 212<br>
+            2078/79: 322<br>
+            2079/80: 199</p>
+
+            <p><strong>Province (2079/80)</strong><br>
+            Sudurpashchim: 31<br>
+            Karnali: 68<br>
+            Lumbini: 54<br>
+            Gandaki: 7<br>
+            Bagmati: 12<br>
+            Madhesh: 18<br>
+            Koshi: 9</p>
+
+            <p><em>(Source: DoHS 2079/80)</em></p>
+
+            <div class="note">
+                <strong>Fig: Cases of Kala-azar detected in three FYs and distribution across province in FY 2079/80.</strong>
+            </div>
+
+            <p>The cases of Kala-azar had increased from 212 in FY 2077/78 to 322 in 2078/79 and reduced to 199 in FY 2079/80. There is gradual reduction of the cases across the provinces. In FY 2079/80, Kalikot district reported the highest number of cases (33), followed by Baitadi (10), Achham (9) and Kailali (8) as three most affected districts. Okhaldhunga, Morang, Makwanpur, Doti, Palpa, Banke, Syangja, Surkhet and Bajura are other districts that have reported 5 or more cases.</p>
+
+            <h2>National Kala-azar elimination program</h2>
+            <ul>
+                <li>The program primarily centered on discussing epidemiological, serological, and entomological findings from endemicity assessments. In FY 2079/80, there were 42 districts with endemicity of Kala-azar.</li>
+                <li><strong>District wise Kala-azar Endemicity classification:</strong>
+                    <ul>
+                        <li>Endemic - 42 districts</li>
+                        <li>Endemic doubtful - 25 districts</li>
+                        <li>Non-endemic - 5 districts</li>
+                        <li>Result awaited - 5 districts</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h2>Phases of Kala-azar Elimination Program in Nepal (2063)</h2>
+            <ul>
+                <li>In the last decade, Nepal has made significant progress in Kala-azar diagnosis and treatment.</li>
+                <li>The rK39 dipstick test kit is now available at PHCC level in affected districts, offering a rapid serological test.</li>
+                <li>Essential drugs like liposomal amphotericin B, Miltefosine, and paromomycin are accessible at all treatment centers.</li>
+                <li>EDCD provides free diagnostics and drugs to the patients.</li>
+                <li>Additionally, treatment centers receive an incentive of NPR 5,000 per case, and patients are reimbursed NPR 2,000 to cover transportation costs.</li>
+            </ul>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Year</th>
+                        <th>Milestones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>2061/62 (2005)</strong></td>
+                        <td>EDCD formulated a National Plan for the Elimination of Kalaazar</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2066/67 (2010)</strong></td>
+                        <td>National Plan revised as National Strategic Guideline on Kalazar Elimination - rK39 recommended as rapid diagnostic test kit and Miltefosine as the first line treatment for KA</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2070/71 (2014)</strong></td>
+                        <td>National Strategic Guideline updated to introduce Liposomal Amphotericin B and combination therapy in national treatment protocol</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2075/76 (2019)</strong></td>
+                        <td>National Guideline on KA elimination revised, single dose LAMB, 10mg/kg as 1st line therapy for primary VL along with surveillance system strengthening</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="note">
+                <strong>Fig: Milestones of National Kala-azar elimination program in Nepal</strong>
+            </div>
+
+            <h2>Epidemiological Determinants</h2>
+
+            <h3>Agent Factors</h3>
+            <p><strong>a. Agents</strong> <strong>[2055]</strong><br>
+            Intracellular parasites which infect and divide within macrophages</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Disease</th>
+                        <th>Causative agent</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Kalazar (VL)/PKDL</td>
+                        <td><em>Leishmania donovani</em></td>
+                    </tr>
+                    <tr>
+                        <td>Cutaneous leishmaniasis</td>
+                        <td><em>Leishmania tropica</em></td>
+                    </tr>
+                    <tr>
+                        <td>Muco-cutaneous leishmaniasis</td>
+                        <td><em>Leishmania braziliensis</em></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>Life cycle is completed in two different hosts: A vertebrate (Amastigote form called "Leishmania bodies") and an insect (Promastigote form).</p>
+
+            <p><strong>b. Reservoir</strong></p>
+            <ul>
+                <li>Variety of animal reservoir (dogs, jackals, foxes, rodents and other mammals)</li>
+                <li>Indian kalazar is considered to be non zoonotic infection with man as a sole reservoir</li>
+            </ul>
+
+            <h3>Host Factors</h3>
+            <p><strong>a. Age</strong></p>
+            <ul>
+                <li>Occur in all age group including infants below 1 year age.</li>
+                <li>Indian peak age is 5 to 9 years</li>
+            </ul>
+            <p><strong>b. Sex:</strong> Male affected twice as often as female</p>
+            <p><strong>c. Population movement:</strong> Spread of infection due to movement of population (migrants, labourers, tourist) between endemic and non endemic areas.</p>
+            <p><strong>d. Socio-economic status:</strong></p>
+            <ul>
+                <li>Affects poor group mostly.</li>
+                <li>Major debilitating disease</li>
+            </ul>
+            <p><strong>e. Occupation:</strong> People who work in various farming practices, forestry, mining and fishing have great risk of being bitten by sandflies.</p>
+            <p><strong>f. Immunity:</strong></p>
+            <ul>
+                <li>Recovery from the disease gives long lasting immunity.</li>
+                <li>During the active phase of kalazar, there is impairment of cell mediated immunity which is reflected in the negative skin reaction to leishmanin test.</li>
+            </ul>
+
+            <h3>Environmental Factors</h3>
+            <p><strong>a. Altitude:</strong></p>
+            <ul>
+                <li>Mainly confined to plains</li>
+                <li>Does not occur at an altitude over 2000 ft (600 m)</li>
+            </ul>
+            <p><strong>b. Season:</strong> High prevalence during and after rains</p>
+            <p><strong>c. Rural areas:</strong> Confined to the rural areas where condition for the breeding of sandfly already exist compared to urban areas.</p>
+            <p><strong>d. Vectors:</strong></p>
+            <ul>
+                <li>Sandflies breed in cracks and crevice in the soil and buildings, tree holes, caves, etc.</li>
+                <li>Overcrowding, ill-ventilation and accumulation of organic matter in the environment facilitate transmission.</li>
+                <li>Habit: Nocturnal</li>
+                <li>Only the female bite</li>
+            </ul>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Disease</th>
+                        <th>Species of sandfly</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Kala-azar</td>
+                        <td><em>P. argentipes</em></td>
+                    </tr>
+                    <tr>
+                        <td>Cutaneous leishmaniasis</td>
+                        <td><em>P. papatasi</em><br><em>P. sergenti</em></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p><strong>e. Development Projects:</strong> Forest clearing cultivation projects, large water resource schemes, colonization and resettlement programs bring human into areas of high vector and reservoir concentration.</p>
+
+            <h2>Mode of Transmission</h2>
+            <ul>
+                <li>Transmitted from person to person by bite of female phlebotomine sandfly.</li>
+                <li>Also by contamination of wound or by contact when the insect is crushed during the act of feeding.</li>
+                <li>Also by blood transfusion and contaminated needle and syringes.</li>
+            </ul>
+
+            <h2>Extrinsic Incubation Period</h2>
+            <p>6 to 9 days</p>
+
+            <h2>Incubation Period</h2>
+            <p>1 to 4 month (10 days to 2 years)</p>
+
+            <h2>Clinical Features</h2>
+
+            <h3>1. Kala-azar</h3>
+            <ul>
+                <li>Fever</li>
+                <li>Splenomegaly</li>
+                <li>Hepatomegaly</li>
+                <li>Anemia</li>
+                <li>Weight loss</li>
+                <li>Darkening of the skin in the face, hands, feet and abdomen (So, called as black sickness)</li>
+                <li>Lymphadenopathy (Atypical feature)</li>
+            </ul>
+
+            <p><strong>Post Kala-azar Dermal Leishmaniasis (PKDL)</strong></p>
+            <ul>
+                <li>Caused by <em>Leishmania donovani</em></li>
+                <li>Appears 1 to several years after apparent cure of kala-azar</li>
+                <li>Lesion consists of multiple nodular infiltrations of skin, usually without ulceration.</li>
+                <li>Parasites are numerous in lesion</li>
+            </ul>
+
+            <h3>2. Cutaneous leishmaniasis</h3>
+            <ul>
+                <li><strong>Several forms:</strong> Anthroponotic or urban cutaneous leishmaniasis (ACL), Zoonotic or rural cutaneous leishmaniasis (ZCL), Diffuse cutaneous leishmaniasis (DCL), etc.</li>
+                <li>The disease is characterized by painful ulcers in the parts of body exposed to sandfly bites (e.g. legs, arms or face) reducing the victim's ability to work.</li>
+                <li>The agent is restricted to skin</li>
+                <li>May be mistaken for leprosy</li>
+            </ul>
+
+            <h3>3. Muco-cutaneous leishmaniasis</h3>
+            <ul>
+                <li>Ulcers similar to oriental sore, appear around the mouth and nose</li>
+                <li>Can mutilate the face very badly and victim can be social outcast.</li>
+            </ul>
+
+            <h2>Laboratory Diagnosis</h2>
+
+            <h3>1. Parasitological diagnosis</h3>
+            <ul>
+                <li>Demonstration of Leishmania donovani (LD) bodies in the aspirate of spleen, liver, bone marrow, lymph nodes or in the smear incised of CL</li>
+                <li>The only way to confirm VL/CL conclusively</li>
+                <li>The parasite must be isolated in culture to confirm the identity of the parasite</li>
+            </ul>
+
+            <h3>2. Aldehyde test (of Napier)</h3>
+            <ul>
+                <li>Nonspecific test, requires venous blood</li>
+                <li>A drop or 2 of 40% formalin is added to 1-2 ml of serum from a patient</li>
+                <li><strong>Positive test:</strong> Jellification to milk-white opacity like the white of the hard-boiled egg so that in ordinary light newsprint is invisible through it</li>
+                <li><strong>Strongly positive:</strong> Reaction within 2 to 20 minutes</li>
+                <li><strong>Insignificant:</strong> Reaction after 30 minutes</li>
+                <li>The test usually becomes positive 2 to 3 months after the onset of disease and reverts to negative 6 months after cure.</li>
+                <li>So, good for surveillance but not for diagnosis.</li>
+                <li><strong>False positive:</strong> Chronic infections in which albumin to globulin ratio is reversed.</li>
+            </ul>
+
+            <h3>3. Serological test</h3>
+            <ul>
+                <li>Direct agglutination test (DAT)</li>
+                <li>rK39 dipstick test</li>
+                <li>ELISA</li>
+                <li>Indirect fluorescent antibody test (IFAT)</li>
+            </ul>
+
+            <p><strong>rK39:</strong></p>
+            <ul>
+                <li>Rapid diagnostic test based on k 39 protein.</li>
+                <li>It is an epitope apparently conserved on amastigotes of <em>Leishmania</em> species that cause visceral infection.</li>
+                <li>This test yields result in 5 minutes</li>
+                <li>Test should not be used in Kala-azar relapse cases, Kala-azar reinfection cases and Kala-azar and HIV co-infection cases.</li>
+            </ul>
+
+            <h3>4. Leishmanin (Montenegro) test</h3>
+            <ul>
+                <li>Leishmanin is a preparation of 10<sup>6</sup> per ml washed promastigotes of <em>Leishmania</em> suspended in 0.5 percent phenol-saline or merthiolate</li>
+                <li>An intradermal injection of 0.1 ml on flexor surface of the forearm is given and examined after 48 to 72 hours</li>
+                <li>Skin induration is measured and recorded</li>
+                <li><strong>Positive:</strong> Induration &ge; 5 mm</li>
+                <li>Test is positive after 4 to 6 weeks after onset of a lesion of CL and MCL</li>
+                <li>It is usually negative in active phase of kala-azar and becomes positive in 75% patients within one year of recovery.</li>
+                <li>Test is useful to infer endemicity or epidemicity of the infection and to identify groups at risk of infection.</li>
+            </ul>
+
+            <h3>5. Haematological findings</h3>
+            <ul>
+                <li>Progressive Leukopenia, anemia and reversed albumin-globulin ratio with greatly increased IgG.</li>
+                <li>WBC:RBC ratio is 1:1500 or 1:2000</li>
+                <li>ESR increased</li>
+            </ul>
+
+            <h2>Control Measures</h2>
+
+            <h3>1. Control of reservoir</h3>
+            <ul>
+                <li>Detection and treatment of those found to be infected (including PKDL).</li>
+                <li>House-to-house visit and mass surveys</li>
+                <li><strong>Treatment:</strong>
+                    <ul>
+                        <li>a. First line drug: Oral Miltefosine</li>
+                        <li>b. Second line drug: Liposomal Amphotericin B</li>
+                        <li>Also, sodium stibogluconate (20 mg/kg im or iv for 20 days) can be used as first line drug.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>2. Sandfly control</h3>
+            <ul>
+                <li>DDT (First choice): 2 rounds per year at the rate of 1-2 g per sq. metre</li>
+                <li>Should be sprayed in human dwellings, animal shelters and all other resting places up to the height of 6 feet (2 m) from floor level.</li>
+                <li>BHC (Second line of defence)</li>
+                <li>For long lasting results, insecticide spraying should be combined with sanitation measures.</li>
+                <li>Elimination of breeding site (e.g. cracks in wall, rodent burrows, firewood, bricks, etc.)</li>
+                <li>Location of cattle sheds and poultry far from human dwelling.</li>
+                <li>Improvement in housing standard.</li>
+            </ul>
+
+            <h3>3. Personal prophylaxis</h3>
+            <ul>
+                <li>Health education</li>
+                <li>Use of individual protective measure such as avoid sleeping on floor, using fine mesh nets around bed.</li>
+                <li>Insect repellants (lotion, cream or sticks)</li>
+            </ul>
+
+            <h3>4. Effective disease surveillance:</h3>
+            <p>Prompt data reporting is key to monitor and take action during epidemics.</p>
+
+            <h2>National Kala-azar Elimination Program:</h2>
+            <p>Nepal aims to eliminate Kala-azar by maintaining an annual incidence rate of less than 1 case per 10,000 people at the district level, with a case fatality rate below 1%.</p>
+
+            <p><strong>Goal:</strong><br>
+            The goal of Kala-azar elimination program is to contribute to mitigation of poverty in kala-azar endemic districts of Nepal by reducing the morbidity and mortality of the disease and assisting in the development of equitable health systems.</p>
+
+            <p><strong>Target:</strong><br>
+            Reduce the incidence of Kala-azar to less than 1 case per 10,000 populations at district level.</p>
+
+            <p><strong>Objectives:</strong><br>
+            Reduce the incidence of Kala-azar in endemic communities with special emphasis on poor, vulnerable and unreached populations.<br>
+            Reduce case fatality rate to ZERO.<br>
+            Detect and treat Post-Kala-azar Dermal Leishmaniasis (PKDL) to reduce the parasite reservoir.<br>
+            Prevent and manage Kala-azar HIV-TB co-infections.</p>
+
+            <p><strong>Strategies:</strong><br>
+            Early diagnosis and complete treatment<br>
+            Integrated vector management<br>
+            Effective disease and vector surveillance<br>
+            Social mobilization and partnership<br>
+            Improve programme management<br>
+            Clinical and implementation research</p>
+
+            <p><strong>Major Activities in FY 2079/80:</strong><br>
+            Case detection and treatment<br>
+            RDT scaling up<br>
+            Active case detection (ACD)<br>
+            Insecticidal residual spray (IRS)<br>
+            National stakeholders' consultative meeting on Kala-azar elimination<br>
+            Interaction meeting with medical recorders on NTDs/VBDs including Kala-azar<br>
+            Planning meeting on strengthening National Kala-azar elimination program in Gandaki Province<br>
+            Meeting on endemicity assessment and strategic planning on strengthening National Kala-azar elimination program<br>
+            NTD-VBD review meeting including Kala-azar<br>
+            Joint program review mission for VBDs including Kala-azar<br>
+            Supervision and monitoring</p>
+
+            <h2>Insecticide Resistance</h2>
+            <p>Insecticide resistance is the development of ability in strain of insects to tolerate doses of toxicants which would prove lethal to the majority of individuals in normal population of the same species.</p>
+
+            <p><strong>Resistance may be due to:</strong></p>
+            <ul>
+                <li><strong>Biochemical factor:</strong> Toxicant converted into non-toxicant form in the body of insect by various enzymes</li>
+                <li><strong>Genetic factors:</strong> Resistance transmitted through genes</li>
+            </ul>
+
+            <p><strong>Three types of Organo-chlorine insecticide resistance:</strong></p>
+            <ul>
+                <li>a. Resistance to only DDT and DDT analogues like Methoxychlor</li>
+                <li>b. Resistance to only HCH-dieldrin group</li>
+                <li>c. Resistance to both groups: Double resistance</li>
+            </ul>
+
+            <div class="note">
+                <strong>Note:</strong><br>
+                When double resistance is developed, the only effective insecticides are Organophosphorous and Carbamate insecticides that are costly.<br>
+                Cases of resistance to Organophosphorous and Carbamate insecticides have also been observed.<br>
+                The problem of insecticide resistance is diminishing the choice of effective insecticides for vector control.
+            </div>
+
+            <h2>Integrated Vector Control</h2>
+
+            <div class="note">
+                <strong>Monitoring & Evaluation Wheel:</strong><br>
+                Core: Integration of non-chemical & chemical methods<br>
+                Inner Ring: Advocacy & social mobilization, Capacity building, Legislation & Regulation, Evidence-based decision making, Intra & Intersectoral collaboration<br>
+                Outer Ring: Monitoring & Evaluation
+            </div>
+
+            <p>Integration of various potential methods for control of disease vectors</p>
+
+            <h3>Integrated vector management (IVM)</h3>
+
+            <p><strong>Concept:</strong></p>
+            <ul>
+                <li>IVM is a rational decision-making process for the optimal use of resources for vector control. The approach seeks to improve the efficacy, cost-effectiveness, ecological soundness and sustainability of disease-vector control.</li>
+                <li>The ultimate goal is to prevent the transmission of vector-borne diseases such as malaria, dengue, Japanese encephalitis, leishmaniasis, schistosomiasis and Chagas disease.</li>
+            </ul>
+
+            <p><strong>Five key elements for successful implementation of IVM:</strong></p>
+            <ol>
+                <li>Advocacy, social mobilization, regulatory control for public health and empowerment of communities.</li>
+                <li>Collaboration within the health sector and with other sectors through the optimal use of resources, planning, monitoring and decision-making.</li>
+                <li>Integration of non-chemical and chemical vector control methods, and integration with other disease control measures.</li>
+                <li>Evidence-based decision making guided by operational research and entomological and epidemiological surveillance and evaluation.</li>
+                <li>Development of adequate human resources, training and career structures at national and local level to promote capacity building and manage IVM programmes.</li>
+            </ol>
+
+            <p><strong>Components of IVM includes:</strong></p>
+            <ul>
+                <li><strong>Personal protective measure:</strong>
+                    <ul>
+                        <li>Long lasting insecticidal nets</li>
+                        <li>Wearing of protective clothings</li>
+                        <li>Use of repellants which appears in various forms.</li>
+                    </ul>
+                </li>
+                <li><strong>Chemical control:</strong>
+                    <ul>
+                        <li>Indoor residual spraying</li>
+                        <li>Larviciding</li>
+                        <li>Outdoor spraying</li>
+                    </ul>
+                </li>
+                <li><strong>Environmental control measures</strong></li>
+            </ul>
+
+            <p><strong>Benefits of IVM:</strong></p>
+            <ul>
+                <li>Improved management of insecticides and effective mitigation of potential negative health and environmental impacts of insecticides and other vector control interventions</li>
+                <li>Providing a sound basis for management of insecticide resistance in disease vectors</li>
+                <li>Maximizes utilization of available resources</li>
+                <li>Provides a framework to sustain and maximize the impact of vector control interventions</li>
+                <li>Enhanced intersectoral accountability, leading to responsible actions among wider range of stakeholders</li>
+            </ul>
+
+            <h3>Integrated vector control approach for mosquito</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Anti larval measures</th>
+                        <th>Anti adult measures</th>
+                        <th>Protection against mosquito bites</th>
+                        <th>Legislative control</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1. Environmental control<br>2. Chemical control<br>3. Biological control</td>
+                        <td>1. Space sprays<br>2. Residual sprays<br>3. Genetic control</td>
+                        <td>1. Mosquito nets<br>2. Screening<br>3. Repellents</td>
+                        <td>Civic laws</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 MONOLITH. Built to persist.</p>
+    </footer>
+
+</body>
+</html>
