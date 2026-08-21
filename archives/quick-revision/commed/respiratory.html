@@ -1,48 +1,1094 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Monolith — Communicable Respiratory Diseases</title>
-<style>
-:root{--bg-color:#0a0a0a;--text-color:#e5e5e5;--accent-color:#888;--border-color:#222;--hover-color:#fff;--font-mono:'Courier New',Courier,monospace}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background-color:var(--bg-color);color:var(--text-color);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;padding:0 20px}
-nav{display:flex;justify-content:space-between;align-items:center;max-width:900px;margin:0 auto;padding:30px 0;border-bottom:1px solid var(--border-color)}
-.logo{font-family:var(--font-mono);font-weight:700;letter-spacing:2px;text-transform:uppercase;font-size:1.2rem}
-.nav-links{display:flex;gap:20px;list-style:none}
-.nav-links a{color:var(--accent-color);text-decoration:none;font-size:.9rem;font-family:var(--font-mono);transition:color .2s}
-.nav-links a:hover{color:var(--hover-color)}
-main{max-width:900px;margin:70px auto}
-.subject-header{margin-bottom:55px}
-.breadcrumb{font-family:var(--font-mono);font-size:.8rem;color:var(--accent-color);margin-bottom:10px;text-transform:uppercase}
-.breadcrumb a{color:var(--accent-color);text-decoration:none}
-h1{font-size:2.5rem;font-weight:400;letter-spacing:-1px;text-transform:uppercase;margin-bottom:5px}
-.subtitle{font-family:var(--font-mono);color:var(--accent-color);font-size:.9rem;text-transform:uppercase}
-.page{margin:0 0 42px;padding:0 0 28px;border-bottom:1px solid var(--border-color)}
-.page:last-child{border-bottom:0}
-.page-number{font-family:var(--font-mono);color:var(--accent-color);font-size:.72rem;letter-spacing:1px;margin-bottom:12px;text-transform:uppercase}
-.source-line{margin:0 0 5px;white-space:pre-wrap;overflow-wrap:anywhere}
-.source-line.blank{height:9px}
-.source-line.bullet{padding-left:20px;text-indent:-14px}
-.source-line.major{font-size:1.55rem;font-weight:500;margin-top:22px;margin-bottom:13px;padding-bottom:7px;border-bottom:1px solid var(--border-color)}
-.source-line.section{font-size:1.15rem;font-weight:500;color:var(--hover-color);margin-top:15px}
-.source-line.recall{font-family:var(--font-mono);color:var(--hover-color)}
-footer{max-width:900px;margin:80px auto 40px;text-align:center;font-family:var(--font-mono);font-size:.8rem;color:var(--accent-color);border-top:1px solid var(--border-color);padding-top:20px}
-@media(max-width:650px){body{padding:0 14px}nav{padding:22px 0}.nav-links{gap:10px}main{margin:45px auto}h1{font-size:1.9rem}.source-line.major{font-size:1.3rem}}
-</style></head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monolith — Communicable Respiratory Diseases</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #e5e5e5;
+            --accent-color: #888888;
+            --border-color: #222222;
+            --hover-color: #ffffff;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-family: var(--font-mono);
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--hover-color);
+        }
+
+        /* Main Container */
+        main {
+            max-width: 800px;
+            margin: 80px auto;
+        }
+
+        /* Header Section */
+        .subject-header {
+            margin-bottom: 60px;
+        }
+
+        .breadcrumb {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--hover-color);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-family: var(--font-mono);
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        /* Typography & Layout Content Elements */
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0px;
+            margin: 50px 0 20px 0;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        h3 {
+            font-size: 1.15rem;
+            font-weight: 500;
+            margin: 25px 0 10px 0;
+            color: var(--hover-color);
+        }
+
+        h4 {
+            font-size: 1.0rem;
+            font-weight: 600;
+            margin: 15px 0 5px 0;
+            color: #d0d0d0;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: var(--text-color);
+            text-align: justify;
+        }
+
+        strong {
+            color: var(--hover-color);
+            font-weight: 600;
+        }
+
+        em {
+            color: #b0b0b0;
+            font-style: italic;
+        }
+
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: square;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        li strong {
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
+        }
+
+        /* Tables matching Minimal Dark theme */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.95rem;
+        }
+
+        th {
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            color: var(--accent-color);
+            text-align: left;
+            padding: 10px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.85rem;
+        }
+
+        td {
+            padding: 12px 10px;
+            border-bottom: 1px dashed var(--border-color);
+            vertical-align: top;
+        }
+
+        tr:hover td {
+            color: var(--hover-color);
+            background-color: #0f0f0f;
+        }
+
+        .note {
+            background-color: #111111;
+            border-left: 2px solid var(--accent-color);
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            max-width: 800px;
+            margin: 100px auto 40px auto;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+    </style>
+</head>
 <body>
-<nav><div class="logo">Monolith</div><ul class="nav-links">
-<li><a href="https://fidelioa.github.io/monolith">Home</a></li>
-<li><a href="https://fidelioa.github.io/monolith/archives">Archives</a></li>
-<li><a href="https://fidelioa.github.io/monolith/about">About</a></li>
-</ul></nav>
-<main>
-<section class="subject-header">
-<div class="breadcrumb"><a href="https://fidelioa.github.io/monolith/archives">Archives</a> / <a href="https://fidelioa.github.io/monolith/archives/quick-revision">Quick Revision</a> / <a href="https://fidelioa.github.io/monolith/archives/quick-revision/commed">Community Medicine</a> / Communicable Respiratory Diseases</div>
-<h1>Communicable Respiratory Diseases</h1>
-<div class="subtitle">Fast Track Clinical Science MBBS - 3rd Year | Community Medicine</div>
-</section>
-<section class="content"><section class="page" id="page-1"> </div><div class="source-line major">1. INTRODUCTION </div><div class="source-line ">TB = infectious disease caused by Mycobacterium tuberculosis → mainly lungs, but also </div><div class="source-line ">meninges, intestine, bones/joints, lymph nodes, skin, etc. </div><div class="source-line ">Koch — 1882 | AFB due to mycolic acid | weakly Gram +ve. </div><div class="source-line blank"></div><div class="source-line major">2. WHO CASE DEFINITIONS ⭐ </div><div class="source-line bullet">● Presumptive TB → symptoms/signs suggestive of TB. </div><div class="source-line bullet">● Bacteriologically confirmed → positive smear / culture / WHO-approved rapid test </div><div class="source-line ">(Xpert MTB/RIF). </div><div class="source-line bullet">● Clinically diagnosed → active TB diagnosed clinically/radiologically/histologically </div><div class="source-line ">despite no bacteriological confirmation. </div><div class="source-line section">Classification </div><div class="source-line ">Site: Pulmonary / Extra-pulmonary</div><div class="source-line ">Previous treatment: New / Retreatment → relapse, failure, lost-to-follow-up, other</div><div class="source-line ">Resistance: Mono-R, RR, Hr, MDR, XDR</div><div class="source-line ">HIV: + / − / unknown </div><div class="source-line ">Drug resistance ⭐ </div><div class="source-line bullet">● RR-TB → rifampicin resistant ± other resistance </div><div class="source-line bullet">● Hr-TB → isoniazid resistant, rifampicin sensitive </div><div class="source-line bullet">● MDR-TB → H + R resistant </div><div class="source-line bullet">● XDR-TB → MDR + fluoroquinolone resistance + ≥1 second-line drug (know the </div><div class="source-line ">current definition if specifically asked; don't rely on the older definition in the </div><div class="source-line ">pasted notes). </div><div class="source-line blank"></div><div class="source-line major">3. NEPAL BURDEN — DoHS AHR 2081/82 ⭐⭐⭐ </div><div class="source-line section">Memorize this block: </div></section><section class="page" id="page-2"><div class="page-number">PDF PAGE 2 / 36</div><div class="source-line ">TB notified = 39,151</div><div class="source-line ">CNR = 133/100,000</div><div class="source-line ">New + relapse = 38,606</div><div class="source-line ">98.6% = incident cases</div><div class="source-line ">72.4% = pulmonary TB</div><div class="source-line ">58.3% of pulmonary TB = bacteriologically confirmed</div><div class="source-line ">Xpert-confirmed = 24,475 </div><div class="source-line bullet">➡️ 30 high-notification districts: 18 Terai + 12 Hills. </div><div class="source-line section">One-line recall: </div><div class="source-line ">39,151 → 133/100k → 38,606 incident → 72.4% pulmonary → 58.3% BC → </div><div class="source-line ">24,475 Xpert. </div><div class="source-line ">These are the figures to replace the old Nepal numbers in your notes. (Department of </div><div class="source-line ">Health Service) </div><div class="source-line blank"></div><div class="source-line major">4. EPIDEMIOLOGICAL DETERMINANTS </div><div class="source-line section">Agent </div><div class="source-line ">M. tuberculosis </div><div class="source-line bullet">● Non-motile, non-sporing, non-capsulated </div><div class="source-line bullet">● 2–3 × 0.2–0.4 μm </div><div class="source-line bullet">● AFB → mycolic acid </div><div class="source-line bullet">● Human source → untreated/inadequately treated sputum-positive pulmonary TB </div><div class="source-line bullet">● Bovine source → infected milk </div><div class="source-line bullet">● 1 infectious case → approximately 10–15 persons/year </div><div class="source-line section">Host </div><div class="source-line bullet">● Mainly 15–55 years </div><div class="source-line bullet">● Male &gt; female </div><div class="source-line bullet">● No inherited immunity </div><div class="source-line bullet">● Protection: natural infection / BCG </div><div class="source-line bullet">● Risk ↑ with: </div><div class="source-line bullet">○ Malnutrition </div><div class="source-line bullet">○ HIV </div><div class="source-line bullet">○ Diabetes </div><div class="source-line bullet">○ Alcoholism </div><div class="source-line section">Environment </div></section><section class="page" id="page-3"><div class="page-number">PDF PAGE 3 / 36</div><div class="source-line ">Overcrowding + poor housing + poverty + undernutrition + poor education/awareness </div><div class="source-line blank"></div><div class="source-line major">5. TRANSMISSION ⭐ </div><div class="source-line ">Droplet nuclei from sputum-positive pulmonary TB. </div><div class="source-line bullet">● Coughing → maximum infectious droplets </div><div class="source-line bullet">● Droplet nuclei 1–10 μm → remain suspended for long periods </div><div class="source-line bullet">● NOT spread by fomites such as utensils/personal articles. </div><div class="source-line ">Incubation: ~3–6 weeks </div><div class="source-line section">Clinical </div><div class="source-line ">Fever + weight loss + night sweats + persistent cough + hemoptysis + fatigue + chest </div><div class="source-line ">pain </div><div class="source-line blank"></div><div class="source-line major">6. EPIDEMIOLOGICAL INDICES </div><div class="source-line bullet">● Prevalence of infection → % tuberculin-positive population </div><div class="source-line bullet">● Annual risk/incidence of infection → newly infected among previously </div><div class="source-line ">non-infected/year </div><div class="source-line bullet">● Prevalence of disease → sputum-positive TB burden </div><div class="source-line bullet">● Incidence of new cases → new bacteriologically confirmed cases/population/year </div><div class="source-line bullet">● Case detection rate → notified new + relapse / estimated incidence </div><div class="source-line bullet">● Mortality rate → TB deaths/population/year </div><div class="source-line blank"></div><div class="source-line major">7. CASE FINDING ⭐⭐⭐ </div><div class="source-line ">Sputum examination = main practical method </div><div class="source-line section">Indications: </div><div class="source-line bullet">● Cough &gt;2 weeks </div><div class="source-line bullet">● Chest pain </div><div class="source-line bullet">● Hemoptysis </div><div class="source-line bullet">● Prolonged low-grade fever </div></section><section class="page" id="page-4"><div class="page-number">PDF PAGE 4 / 36</div><div class="source-line section">Samples: 2</div><div class="source-line bullet">→ spot + 1 hour later </div><div class="source-line ">Culture: if smear negative but suspicion remains + for drug sensitivity. </div><div class="source-line ">X-ray: supportive; mass miniature radiography not recommended routinely. </div><div class="source-line ">Mantoux </div><div class="source-line ">1 TU PPD / 0.1 mL ID → forearm → read at 72 h </div><div class="source-line ">Measure INDURATION, NOT ERYTHEMA. </div><div class="source-line bullet">● &gt;10 mm → positive </div><div class="source-line bullet">● 6–9 mm → doubtful </div><div class="source-line bullet">● &lt;6 mm → negative </div><div class="source-line ">Important: Mantoux indicates infection, not necessarily active TB. </div><div class="source-line blank"></div><div class="source-line major">8. DOTS ⭐⭐⭐ </div><div class="source-line ">Directly Observed Treatment Short-course </div><div class="source-line ">5 pillars </div><div class="source-line ">P-C-S-D-M </div><div class="source-line major">1. Political commitment + financing </div><div class="source-line major">2. Case detection by quality-assured bacteriology </div><div class="source-line major">3. Standardized treatment + supervision/support </div><div class="source-line major">4. Drug supply/management </div><div class="source-line major">5. Monitoring + evaluation </div><div class="source-line ">CB-DOTS: brings treatment/adherence support closer to community. </div><div class="source-line blank"></div><div class="source-line major">9. ANTI-TB DRUGS </div><div class="source-line ">First-line </div><div class="source-line ">H R Z E </div><div class="source-line bullet">● Rifampicin </div></section><section class="page" id="page-5"><div class="page-number">PDF PAGE 5 / 36</div><div class="source-line bullet">● Isoniazid </div><div class="source-line bullet">● Pyrazinamide </div><div class="source-line bullet">● Ethambutol </div><div class="source-line section">Old classification: </div><div class="source-line bullet">● Bactericidal → R H Z S </div><div class="source-line bullet">● Bacteriostatic → E </div><div class="source-line ">Standard new TB regimen </div><div class="source-line ">2HRZE / 4HR </div><div class="source-line ">Severe forms such as CNS, pericardial, musculoskeletal, miliary TB → prolonged </div><div class="source-line ">continuation according to national protocol. </div><div class="source-line blank"></div><div class="source-line major">10. DR-TB ⭐ </div><div class="source-line ">MDR = H + R resistance </div><div class="source-line section">Causes: </div><div class="source-line bullet">● Treatment interruption </div><div class="source-line bullet">● Wrong prescription </div><div class="source-line bullet">● Poor adherence </div><div class="source-line bullet">● Drug supply problems </div><div class="source-line ">Xpert MTB/RIF → rapid molecular diagnosis + detects rifampicin resistance. </div><div class="source-line ">Nepal: MDR-TB case management introduced 2005; Xpert introduced around 2011/12. </div><div class="source-line blank"></div><div class="source-line major">11. BCG ⭐⭐⭐ </div><div class="source-line ">Live attenuated bovine vaccine developed by Calmette &amp; Guérin. </div><div class="source-line bullet">● Strain: Danish 1331 </div><div class="source-line bullet">● Nepal: at birth </div><div class="source-line bullet">● Dose: 0.05 mL </div><div class="source-line bullet">● Route: intradermal </div><div class="source-line bullet">● Site: right upper arm </div></section><section class="page" id="page-6"><div class="page-number">PDF PAGE 6 / 36</div><div class="source-line bullet">● Storage: 2–8°C, protect from light </div><div class="source-line bullet">● Mainly protects children against TB meningitis + miliary TB </div><div class="source-line bullet">● Characteristic scar develops after vaccination. </div><div class="source-line section">Contraindications </div><div class="source-line ">Immunocompromised states, leukemia/lymphoma, immunosuppressive therapy, </div><div class="source-line ">generalized eczema/infective dermatitis, pregnancy. </div><div class="source-line blank"></div><div class="source-line major">12. TB–HIV ⭐ </div><div class="source-line ">HIV markedly increases progression from latent → active TB. </div><div class="source-line ">3 I's </div><div class="source-line ">Intensified case finding</div><div class="source-line ">Isoniazid preventive therapy</div><div class="source-line section">Infection control </div><div class="source-line section">Management:</div><div class="source-line ">TB treatment + CPT → ART after ~2–8 weeks depending on clinical situation. </div><div class="source-line blank"></div><div class="source-line major">13. MATERNAL/NEWBORN TB </div><div class="source-line section">If mother is infectious: </div><div class="source-line bullet">● Prompt maternal ATT </div><div class="source-line bullet">● Avoid streptomycin in pregnancy </div><div class="source-line bullet">● If mother is sputum-positive / treated &lt;2 weeks → newborn may require isoniazid </div><div class="source-line ">prophylaxis </div><div class="source-line bullet">● Breastfeeding generally encouraged with appropriate infection-control </div><div class="source-line ">precautions. </div><div class="source-line blank"></div><div class="source-line major">14. CONTROL OF TB </div><div class="source-line section">Main principle: </div><div class="source-line ">Find the case → Treat completely → Stop transmission → Protect susceptible </div></section><section class="page" id="page-7"><div class="page-number">PDF PAGE 7 / 36</div><div class="source-line bullet">● Early detection </div><div class="source-line bullet">● Complete effective treatment </div><div class="source-line bullet">● Contact tracing </div><div class="source-line bullet">● BCG vaccination </div><div class="source-line bullet">● Infection control </div><div class="source-line bullet">● Prevent drug resistance </div><div class="source-line bullet">● HIV/TB integration </div><div class="source-line ">Epidemiological control: prevalence of natural infection among 0–14 yr &lt;1%. </div><div class="source-line blank"></div><div class="source-line major">15. NEPAL NATIONAL TB PROGRAM ⭐ </div><div class="source-line ">National Strategic Plan to End TB 2021/22–2025/26 </div><div class="source-line section">Main goals: </div><div class="source-line bullet">● Reduce TB incidence </div><div class="source-line bullet">● Reduce TB mortality </div><div class="source-line bullet">● Zero catastrophic cost for TB-affected families </div><div class="source-line bullet">● Ultimately End TB by 2035 </div><div class="source-line ">WHO End TB Strategy — 3 Pillars </div><div class="source-line major">1. Integrated, patient-centred care &amp; prevention</div><div class="source-line bullet">→ early diagnosis, DST, screening, treatment, prevention </div><div class="source-line major">2. Bold policies &amp; supportive systems</div><div class="source-line bullet">→ political commitment, UHC, notification, social protection </div><div class="source-line major">3. Research &amp; innovation</div><div class="source-line bullet">→ new diagnostics, drugs, vaccines &amp; implementation </div><div class="source-line blank"></div><div class="source-line recall">🧠 30-SECOND TB RECALL </div><div class="source-line ">TB = M. tuberculosis → AFB → droplet nuclei → 15–55 M&gt;F </div><div class="source-line section">Nepal 2081/82: </div><div class="source-line ">39,151 | 133/100k | 38,606 | 72.4% pulmonary | 58.3% BC | 24,475 Xpert </div><div class="source-line ">Case finding: cough &gt;2 wk → sputum → 2 samples</div><div class="source-line ">Mantoux: 1 TU/0.1 mL ID → 72 h → induration</div><div class="source-line ">DOTS: Political–Case–Standard–Drug–Monitor</div></section><section class="page" id="page-8"><div class="page-number">PDF PAGE 8 / 36</div><div class="source-line ">Treatment: 2HRZE/4HR</div><div class="source-line ">MDR: H + R</div><div class="source-line ">BCG: birth, 0.05 mL ID, right arm</div><div class="source-line ">HIV/TB: 3 I's</div><div class="source-line ">End TB: Patient care → Policies → Research </div></section><section class="page" id="page-9"><div class="page-number">PDF PAGE 9 / 36</div><div class="source-line blank"></div></section><section class="page" id="page-10"><div class="page-number">PDF PAGE 10 / 36</div><div class="source-line major">INFLUENZA, AVIAN FLU &amp; SWINE FLU — </div><div class="source-line ">CHEAT SHEET </div><div class="source-line blank"></div><div class="source-line major">1. INFLUENZA </div><div class="source-line section">Definition </div><div class="source-line ">Acute respiratory infection caused by Influenza virus. </div><div class="source-line ">Types: A, B, C</div><div class="source-line bullet">→ All pandemics = Influenza A </div><div class="source-line ">Classic: sudden C-F-M-C</div><div class="source-line bullet">→ Chills + Fever + Myalgia + Cough </div><div class="source-line section">Epidemiology </div><div class="source-line bullet">● Worldwide; millions affected/year </div><div class="source-line bullet">● Epidemics → rapid spread, sudden onset, many subclinical cases </div><div class="source-line bullet">● Pandemics → antigenic SHIFT </div><div class="source-line bullet">● Epidemic → antigenic DRIFT </div><div class="source-line bullet">● Major pandemics: 1918 Spanish → 1957 Asian → 1968 Hong Kong → 2009 H1N1 </div><div class="source-line ">Nepal — older DoHS 2079/80 figures </div><div class="source-line bullet">● ILI cases = 2,207 </div><div class="source-line bullet">● H1N1 positive = 85 </div><div class="source-line bullet">● H3 positive = 208 </div><div class="source-line bullet">● Influenza B Victoria = 89 </div><div class="source-line bullet">● Positivity = 5.1% </div><div class="source-line bullet">● Highest ILI reporting: Karnali (1,560) </div><div class="source-line blank"></div><div class="source-line major">2. AGENT &amp; TRANSMISSION ⭐ </div></section><section class="page" id="page-11"><div class="page-number">PDF PAGE 11 / 36</div><div class="source-line ">Orthomyxoviridae → A, B, C </div><div class="source-line ">Influenza A antigens </div><div class="source-line bullet">● H = Haemagglutinin → attachment/initiation </div><div class="source-line bullet">● N = Neuraminidase → release/transmission </div><div class="source-line ">Antigenic changes </div><div class="source-line ">SHIFT = major/sudden → reassortment → PANDEMIC</div><div class="source-line ">DRIFT = minor/gradual → point mutation → EPIDEMIC </div><div class="source-line ">Reservoir: humans + animals/birds</div><div class="source-line ">Source: case/subclinical case → respiratory secretions</div><div class="source-line ">Infective: ~1–2 days before → 1–2 days after symptoms </div><div class="source-line ">Transmission: droplets/droplet nuclei</div><div class="source-line ">Entry: respiratory tract</div><div class="source-line ">Incubation: 18–72 h </div><div class="source-line blank"></div><div class="source-line major">3. HOST / ENVIRONMENT </div><div class="source-line bullet">● All ages + both sexes </div><div class="source-line bullet">● High risk: &gt;65, children, DM, cardiac/renal/respiratory disease </div><div class="source-line bullet">● Immunity: subtype-specific; no cross-protection between A/B/C </div><div class="source-line bullet">● Winter → increased transmission </div><div class="source-line bullet">● Overcrowding → ↑ spread </div><div class="source-line bullet">● Closed populations: schools, institutions, ships </div><div class="source-line blank"></div><div class="source-line major">4. CLINICAL </div><div class="source-line ">Sudden fever + chills + myalgia + cough + weakness </div><div class="source-line section">Complications </div><div class="source-line ">Pneumonia = most important </div></section><section class="page" id="page-12"><div class="page-number">PDF PAGE 12 / 36</div><div class="source-line bullet">● Sinusitis </div><div class="source-line bullet">● Otitis media </div><div class="source-line bullet">● Purulent bronchitis </div><div class="source-line bullet">● Reye syndrome → hepatic failure + encephalopathy, especially children </div><div class="source-line section">Diagnosis </div><div class="source-line bullet">● Nasopharyngeal specimen </div><div class="source-line bullet">● Viral detection/isolation </div><div class="source-line bullet">● Serology: HI/ELISA </div><div class="source-line bullet">● 4-fold rise in titre = diagnostic </div><div class="source-line blank"></div><div class="source-line major">5. PREVENTION </div><div class="source-line ">Ventilation + avoid crowds + cough etiquette + stay home </div><div class="source-line ">Vaccine </div><div class="source-line bullet">● Best preventive measure </div><div class="source-line bullet">● Constantly updated because of antigenic variation </div><div class="source-line bullet">● Ideally ≥2 weeks before exposure/epidemic </div><div class="source-line bullet">● Inactivated vaccine → IM/SC </div><div class="source-line bullet">● Live attenuated → intranasal </div><div class="source-line bullet">● Immunity ≈ 6–12 months </div><div class="source-line ">Antivirals ⭐ </div><div class="source-line bullet">● Oseltamivir → 75 mg BD </div><div class="source-line bullet">● Zanamivir → inhaled </div><div class="source-line bullet">● Used for treatment/prophylaxis of influenza A &amp; B. </div><div class="source-line blank"></div><div class="source-line major">6. AVIAN INFLUENZA 🐔 </div><div class="source-line ">Influenza A in birds </div><div class="source-line section">Important strains </div></section><section class="page" id="page-13"><div class="page-number">PDF PAGE 13 / 36</div><div class="source-line ">H5N1, H7N3, H7N7, H7N9, H9N2 </div><div class="source-line ">Reservoir: migratory wild birds</div><div class="source-line bullet">→ domestic poultry can become infected. </div><div class="source-line section">Risk </div><div class="source-line section">People exposed to:</div><div class="source-line ">infected birds + droppings + feathers + contaminated surfaces </div><div class="source-line section">Transmission </div><div class="source-line ">Respiratory entry + contaminated dust/equipment/feed/cages/clothing. </div><div class="source-line ">Incubation: 2–3 days </div><div class="source-line section">Clinical </div><div class="source-line ">Fever + fatigue + sore throat + cough + conjunctivitis + myalgia ± GI symptoms </div><div class="source-line section">Severe:</div><div class="source-line ">viral pneumonia → respiratory failure → renal/multiorgan failure → death </div><div class="source-line section">Treatment </div><div class="source-line ">Oseltamivir 75 mg BD × 5 days, ideally started within 48 h. </div><div class="source-line blank"></div><div class="source-line major">7. SWINE FLU / PANDEMIC H1N1 🐷 </div><div class="source-line ">2009 → Mexico → WHO pandemic declaration: 11 June 2009 </div><div class="source-line ">Why different? </div><div class="source-line bullet">● Population had little/no immunity </div><div class="source-line bullet">● Can cause rapidly progressive lower respiratory disease </div><div class="source-line ">Agent: Influenza A, especially H1N1</div><div class="source-line ">Reservoir: pigs </div><div class="source-line section">High-risk </div></section><section class="page" id="page-14"><div class="page-number">PDF PAGE 14 / 36</div><div class="source-line ">Pregnancy + &lt;2 yr + &gt;65 yr + COPD/asthma + chronic </div><div class="source-line ">cardiac/metabolic/renal/hepatic/neurological disease + immunosuppression + obesity </div><div class="source-line ">Transmission: respiratory</div><div class="source-line ">Incubation: 2–3 days </div><div class="source-line section">Clinical </div><div class="source-line ">ILI: fever + cough + sore throat + rhinorrhea + headache + myalgia + malaise</div><div class="source-line ">± diarrhea/vomiting </div><div class="source-line section">Severe: </div><div class="source-line bullet">● Dyspnea/LRTI </div><div class="source-line bullet">● Encephalitis/encephalopathy </div><div class="source-line bullet">● Dehydration </div><div class="source-line bullet">● Exacerbation of chronic disease </div><div class="source-line blank"></div><div class="source-line major">8. DIAGNOSIS &amp; CONTROL OF H1N1 ⭐ </div><div class="source-line section">Diagnosis </div><div class="source-line ">RT-PCR = most sensitive + timely </div><div class="source-line bullet">● Nasopharyngeal + throat swab </div><div class="source-line bullet">● Lower respiratory specimen if severe LRT disease </div><div class="source-line section">Infection control </div><div class="source-line ">HAND HYGIENE + COUGH ETIQUETTE + MASK + ventilation </div><div class="source-line section">Aerosol-generating procedure:</div><div class="source-line ">respirator + eye protection + gown + adequately ventilated room </div><div class="source-line ">Vaccination </div><div class="source-line bullet">● Does not give 100% protection </div><div class="source-line bullet">● Protection develops after ~14 days </div><div class="source-line bullet">● Priority: </div><div class="source-line major">1. Pregnant women </div><div class="source-line major">2. Children &gt;6 months with chronic disease </div></section><section class="page" id="page-15"><div class="page-number">PDF PAGE 15 / 36</div><div class="source-line major">3. Healthy young adults </div><div class="source-line major">4. Healthy children </div><div class="source-line major">5. Adults </div><div class="source-line major">6. Elderly </div><div class="source-line blank"></div><div class="source-line recall">🧠 30-SECOND RECALL </div><div class="source-line ">INFLUENZA </div><div class="source-line ">A/B/C → A = pandemics</div><div class="source-line ">H = attachment | N = release</div><div class="source-line ">SHIFT = reassortment = pandemic</div><div class="source-line ">DRIFT = mutation = epidemic</div><div class="source-line ">18–72 h incubation</div><div class="source-line ">Droplets → respiratory tract</div><div class="source-line ">Pneumonia = major complication</div><div class="source-line ">Vaccine + Oseltamivir/Zanamivir </div><div class="source-line ">AVIAN </div><div class="source-line ">Bird → H5N1 → human exposure → severe pneumonia → Oseltamivir </div><div class="source-line ">SWINE </div><div class="source-line ">Pig → H1N1 → 2009 pandemic → pregnancy/young/elderly/high-risk → RT-PCR → </div><div class="source-line ">Oseltamivir </div><div class="source-line section">Nepal number to retain for now: </div><div class="source-line ">2079/80: 2,207 ILI | H1N1 85 | H3 208 | B-Victoria 89 | positivity 5.1% </div><div class="source-line blank"></div></section><section class="page" id="page-16"><div class="page-number">PDF PAGE 16 / 36</div><div class="source-line major">🦠 SARS &amp; COVID — COMPACT REVISION </div><div class="source-line ">CHEAT </div><div class="source-line major">1. SARS </div><div class="source-line ">Agent: Novel coronavirus | Reservoir: Horseshoe bat | Incubation: 2–7 d </div><div class="source-line ">Epi: 8,273 cases (2003) | HCWs 21% | children rarely affected | max respiratory shedding </div><div class="source-line ">~day 10 </div><div class="source-line ">Clinical: Fever + cough/SOB + pneumonia/ARDS on CXR + no alternative diagnosis</div><div class="source-line ">CXR: unilateral patch → bilateral/generalized infiltrates → ARDS </div><div class="source-line ">Transmission: respiratory droplets + fomites → eyes/nose/mouth; AGPs amplify hospital </div><div class="source-line ">spread; survives surfaces hours, waste up to 4 d </div><div class="source-line ">Dx: RT-PCR (multiple specimens/repeated testing) ± culture; serology = acute negative → </div><div class="source-line ">convalescent positive OR ≥4× titre rise </div><div class="source-line ">Complications: pneumonia, ARDS, nosocomial infection, tension pneumothorax, </div><div class="source-line ">non-cardiogenic pulmonary edema </div><div class="source-line ">Tx: intensive supportive care ± ribavirin, lopinavir/ritonavir, IFN-1, IVIG, steroids (efficacy </div><div class="source-line ">inconclusive); no classic SARS vaccine </div><div class="source-line ">Prevention: early detection → isolation → contact tracing → HCW protection → hand </div><div class="source-line ">hygiene/masks → travel screening/reporting </div><div class="source-line blank"></div><div class="source-line major">2. COVID-19 </div><div class="source-line ">Agent: SARS-CoV-2 | Host: Humans | Environment: crowding + poor ventilation </div><div class="source-line ">🇳🇵 Nepal </div><div class="source-line ">FY 2079/80: 5,789 EWARS cases</div><div class="source-line ">2022: 56,338 cases + 88 deaths (largest outbreak then)</div><div class="source-line ">Vaccination: 1st 83.1% | 2nd 83.6% </div><div class="source-line section">Transmission </div></section><section class="page" id="page-17"><div class="page-number">PDF PAGE 17 / 36</div><div class="source-line ">Droplets/secretions + fomites → eyes/nose/mouth</div><div class="source-line ">Airborne mainly AGPs + poorly ventilated indoor spaces </div><div class="source-line ">Infectivity: 1–3 d before symptoms → peak viral load around symptom onset → declines.</div><div class="source-line ">Urine/feces: virus detected but transmission unclear; vertical transmission: no strong </div><div class="source-line ">evidence. </div><div class="source-line section">Diagnosis </div><div class="source-line ">RT-PCR (NP/OP/BAL) → ± RDT/GeneXpert, CXR/CT </div><div class="source-line section">Treatment </div><div class="source-line ">Mostly supportive → severe: O₂/high-flow → ventilation</div><div class="source-line ">Drugs: Remdesivir + dexamethasone ± convalescent plasma </div><div class="source-line ">Management = T-I-T-Q-T-S </div><div class="source-line ">Test → Isolate → Trace → Quarantine → Treat → Surveillance </div><div class="source-line ">Prevention = SMS + V </div><div class="source-line ">Social distancing ≥1 m</div><div class="source-line ">Mask</div><div class="source-line ">Sanitization/hand hygiene </div><div class="source-line bullet">● Ventilation + Vaccination + respiratory etiquette + stay home when sick </div><div class="source-line ">HCW: contact/droplet precautions; airborne precautions during AGPs </div><div class="source-line section">Vaccines </div><div class="source-line ">Sinopharm | Covishield | Janssen | Pfizer </div><div class="source-line ">Nepal preparedness </div><div class="source-line section">Preparedness plan + dedicated COVID hospitals + 5T:</div><div class="source-line ">Testing → Tracking → Treatment → Training → Isolation</div><div class="source-line blank"></div></section><section class="page" id="page-18"><div class="page-number">PDF PAGE 18 / 36</div><div class="source-line major">🫁 ARI — COMPACT CHEAT SHEET </div><div class="source-line section">Classification </div><div class="source-line ">AURI: up to pharynx → cold, pharyngitis, otitis media</div><div class="source-line ">ALRI: larynx → alveoli → laryngitis, epiglottitis, bronchitis, bronchiolitis, pneumonia </div><div class="source-line ">🌍 Burden </div><div class="source-line bullet">● U5 children: ~5 ARI episodes/child/year </div><div class="source-line bullet">● 30–50% health-facility visits; 20–40% admissions </div><div class="source-line bullet">● Pneumonia → major cause of U5 mortality </div><div class="source-line ">🇳🇵 Nepal — DoHS AHR 2081/82 </div><div class="source-line bullet">● ARI incidence U5 = 616/1,000 nationally </div><div class="source-line bullet">● Highest: Karnali 992, then Sudurpaschim 857 </div><div class="source-line bullet">● Lowest: Bagmati 468 </div><div class="source-line bullet">● Severe pneumonia = 0.08% of new cases nationally </div><div class="source-line bullet">● Pneumonia cases treated with antibiotics: ~101% nationally (HMIS indicator can </div><div class="source-line ">exceed 100 due to reporting/denominator issues) (HMIS) </div><div class="source-line ">Determinants </div><div class="source-line section">Agents:</div><div class="source-line ">Bacteria → S. pneumoniae, S. pyogenes, H. influenzae, Klebsiella, Bordetella, </div><div class="source-line ">Corynebacterium, Legionella</div><div class="source-line ">Viruses → Influenza, RSV, adenovirus, parainfluenza, rhinovirus, measles, coronavirus </div><div class="source-line ">Host: U5 highest; boys &gt; girls until 3 yr → females &gt; males thereafter </div><div class="source-line ">Environment: overcrowding + indoor air pollution + poor nutrition + low birth weight + </div><div class="source-line ">maternal smoking + low SES </div><div class="source-line ">Transmission: predominantly airborne/respiratory </div><div class="source-line blank"></div><div class="source-line ">👶 CB-IMNCI — EXAM GOLD </div><div class="source-line ">Assess </div><div class="source-line ">Age + cough duration + feeding/drinking + fever + convulsion + cyanosis + </div><div class="source-line ">consciousness + prior treatment </div></section><section class="page" id="page-19"><div class="page-number">PDF PAGE 19 / 36</div><div class="source-line section">Fast breathing </div><div class="source-line ">&lt;2 mo ≥60/min</div><div class="source-line ">2–12 mo ≥50/min</div><div class="source-line ">12 mo–5 yr ≥40/min </div><div class="source-line section">Classification </div><div class="source-line ">Very severe: danger signs → URGENT referral + first antibiotic </div><div class="source-line ">Severe pneumonia: chest indrawing + fast breathing → referral + antibiotics </div><div class="source-line ">Pneumonia: fast breathing WITHOUT chest indrawing → oral antibiotic + home care + </div><div class="source-line ">review </div><div class="source-line ">No pneumonia: cough/cold, no fast breathing/no indrawing → home care </div><div class="source-line ">&lt;2 months: ≥60/min or severe chest indrawing = severe pneumonia; danger signs → very </div><div class="source-line ">severe. </div><div class="source-line ">🔥 Danger signs </div><div class="source-line ">Can't drink/feed | convulsions | lethargic/unconscious | stridor (calm child) | wheeze | </div><div class="source-line ">abnormal temp | severe malnutrition </div><div class="source-line blank"></div><div class="source-line ">🛡️ Prevention </div><div class="source-line ">Nutrition + clean air + better living conditions + immunization + early treatment </div><div class="source-line bullet">● MR: 9 &amp; 15 mo </div><div class="source-line bullet">● Hib: 6, 10, 14 wk </div><div class="source-line bullet">● PCV: 6, 10 wk + 9 mo </div><div class="source-line ">Programs </div><div class="source-line ">GAPPD: PROTECT – PREVENT – TREAT </div><div class="source-line ">Nepal CB-IMNCI → Vision 90 by 2030 </div><div class="source-line bullet">● 90% institutional delivery </div><div class="source-line bullet">● 90% newborn CHX </div><div class="source-line bullet">● 90% U5 diarrhoea → ORS + zinc </div><div class="source-line bullet">● 90% U5 pneumonia → appropriate antibiotics </div></section><section class="page" id="page-20"><div class="page-number">PDF PAGE 20 / 36</div><div class="source-line ">Viral pneumonia </div><div class="source-line ">Agents: influenza, RSV, adenovirus, VZV, coronavirus</div><div class="source-line ">Risk: U2 / ≥65, pregnancy, immunocompromised, chronic disease</div><div class="source-line ">Dx: clinical + CXR ± swab/sputum/blood tests</div><div class="source-line ">Tx: supportive ± specific antivirals</div><div class="source-line ">Prevention: hygiene + influenza vaccination + isolation </div><div class="source-line ">🧠 20-second recall </div><div class="source-line ">ARI = 616/1000 U5 | severe pneumonia 0.08% | Karnali 992 | Sudur 857 | Bagmati 468 </div><div class="source-line ">Fast breathing = 60 / 50 / 40</div><div class="source-line ">Pneumonia = fast breathing</div><div class="source-line ">Severe = chest indrawing</div><div class="source-line ">Very severe = danger signs. </div><div class="source-line blank"></div></section><section class="page" id="page-21"><div class="page-number">PDF PAGE 21 / 36</div><div class="source-line major">🦠 MEASLES — COMPACT REVISION </div><div class="source-line ">CHEAT SHEET </div><div class="source-line major">1. Basics &amp; Epidemiology </div><div class="source-line bullet">● Agent: Measles virus → RNA Paramyxovirus </div><div class="source-line bullet">● Reservoir/source: Humans only; no carriers/animal reservoir </div><div class="source-line bullet">● Transmission: droplets + droplet nuclei → respiratory tract ± conjunctiva </div><div class="source-line bullet">● Incubation: 10 d → fever | 14 d → rash </div><div class="source-line bullet">● Infectious: 4 d before → 4 d after rash </div><div class="source-line bullet">● Immunity: lifelong after infection; single antigenic type </div><div class="source-line bullet">● Season: no fixed season; dry season tropics, winter temperate </div><div class="source-line bullet">● Highly infectious, especially prodrome/rash onset </div><div class="source-line ">🇳🇵 Nepal — DoHS AHR 2081/82 </div><div class="source-line bullet">● 33 measles cases, including 29 laboratory-confirmed </div><div class="source-line bullet">● MR1 coverage: 87% </div><div class="source-line bullet">● MR2 coverage: 96% </div><div class="source-line bullet">● NMNR: 9.4/100,000 → surveillance standard ≥2/100,000 </div><div class="source-line bullet">● All provinces exceeded the NMNR surveillance standard. </div><div class="source-line bullet">● Key concern: MR1 remains below the desired ≥95% level. </div><div class="source-line blank"></div><div class="source-line major">2. Clinical Features ⭐ </div><div class="source-line ">PRODROMAL → ERUPTIVE → POST-MEASLES </div><div class="source-line section">Prodrome: </div><div class="source-line bullet">● Fever </div><div class="source-line bullet">● Coryza + cough + conjunctivitis </div><div class="source-line bullet">● Lacrimation/photophobia </div><div class="source-line bullet">● Koplik spots: 1–2 mm blue-white spots on red buccal mucosa opposite 2nd molar </div><div class="source-line bullet">→ pathognomonic </div><div class="source-line section">🔥 Epidemiological significance:</div><div class="source-line ">Prodromal patient is highly infectious but difficult to clinically recognize as measles → </div><div class="source-line ">not isolated → transmission continues → outbreaks. </div></section><section class="page" id="page-22"><div class="page-number">PDF PAGE 22 / 36</div><div class="source-line section">Eruptive phase: </div><div class="source-line bullet">● Dusky-red maculopapular rash </div><div class="source-line bullet">● Starts hairline/face → neck → trunk → limbs/feet </div><div class="source-line bullet">● Appears ~3–5 d after symptoms </div><div class="source-line bullet">● May coalesce; fades in same direction over 5–7 d </div><div class="source-line bullet">● Fever may spike &gt;104°F </div><div class="source-line ">Post-measles: weight loss + weakness </div><div class="source-line blank"></div><div class="source-line major">3. Host &amp; Risk Factors </div><div class="source-line bullet">● Age: mainly infants/children </div><div class="source-line bullet">● Sex: similar incidence </div><div class="source-line bullet">● Malnutrition → more severe + prolonged viral excretion </div><div class="source-line bullet">● No age immunity if never infected/vaccinated </div><div class="source-line bullet">● Environmental: overcrowding, poor nutrition, low SES </div><div class="source-line blank"></div><div class="source-line major">4. Complications ⭐ </div><div class="source-line ">Pneumonia ⭐</div><div class="source-line ">Otitis media</div><div class="source-line ">Encephalitis → SSPE</div><div class="source-line ">Bronchitis</div><div class="source-line ">Severe diarrhoea</div><div class="source-line ">Blindness</div><div class="source-line ">Thrombocytopenia</div><div class="source-line ">Miscarriage/preterm labour</div><div class="source-line ">Other neurological complications </div><div class="source-line blank"></div><div class="source-line major">5. Diagnosis &amp; Treatment </div><div class="source-line section">Diagnosis </div></section><section class="page" id="page-23"><div class="page-number">PDF PAGE 23 / 36</div><div class="source-line ">Clinical + measles IgM </div><div class="source-line section">Treatment </div><div class="source-line bullet">● Mainly supportive </div><div class="source-line bullet">● Fluids, rest, fever control </div><div class="source-line bullet">● Vitamin A → ↓ morbidity &amp; mortality </div><div class="source-line bullet">● Manage complications </div><div class="source-line bullet">● Immunoglobulin for selected immunocompromised/high-risk exposed children </div><div class="source-line blank"></div><div class="source-line major">6. Prevention </div><div class="source-line ">Vaccination ⭐ </div><div class="source-line ">Live attenuated MR vaccine </div><div class="source-line section">Nepal: </div><div class="source-line bullet">● MR1 → 9 months </div><div class="source-line bullet">● MR2 → 15 months </div><div class="source-line bullet">● Route: SC </div><div class="source-line ">Goal: ≥95% immunization coverage to maintain population immunity. </div><div class="source-line ">Immunoglobulin </div><div class="source-line section">Post-exposure: </div><div class="source-line bullet">● IM within 3–4 d </div><div class="source-line bullet">● High-risk contacts: &lt;1 yr, immunocompromised, severe HIV </div><div class="source-line bullet">● Don't give vaccine + IG simultaneously → vaccinate 8–12 weeks later </div><div class="source-line ">Outbreak control </div><div class="source-line bullet">● Isolate 7 d after rash </div><div class="source-line bullet">● Vaccinate contacts within 2 d </div><div class="source-line bullet">● If vaccine contraindicated → IG within 3–4 d </div><div class="source-line bullet">● Intensify vaccination immediately during outbreak </div><div class="source-line blank"></div></section><section class="page" id="page-24"><div class="page-number">PDF PAGE 24 / 36</div><div class="source-line major">7. MEASLES ELIMINATION STRATEGY </div><div class="source-line ">⭐⭐⭐ </div><div class="source-line ">CATCH-UP → KEEP-UP → FOLLOW-UP </div><div class="source-line section">Catch-up:</div><div class="source-line ">Supplementary immunization targeting all children 9 months–14 years, irrespective of </div><div class="source-line ">previous vaccination history. </div><div class="source-line section">Keep-up:</div><div class="source-line ">Routine immunization aiming for &gt;95% coverage of each successive birth cohort with </div><div class="source-line ">MR1 + MR2. </div><div class="source-line section">Follow-up:</div><div class="source-line ">Nationwide campaigns every 2–4 years, targeting children 9–59 months. </div><div class="source-line ">National strategies </div><div class="source-line bullet">● Achieve &amp; sustain high population immunity </div><div class="source-line bullet">● Achieve &amp; sustain ≥95% MCV-1 coverage </div><div class="source-line bullet">● Investigate all suspected measles-like outbreaks with program response </div><div class="source-line bullet">● Use measles elimination platform for Rubella/CRS control </div><div class="source-line bullet">● Continue case-based measles surveillance </div><div class="source-line blank"></div><div class="source-line major">8. Surveillance ⭐ </div><div class="source-line bullet">● Integrated with AFP surveillance → 2003 </div><div class="source-line bullet">● Case-based surveillance → 2007 </div><div class="source-line bullet">● Suspected case: </div><div class="source-line ">Fever + maculopapular rash + cough/coryza/conjunctivitis </div><div class="source-line ">Surveillance actions </div><div class="source-line ">Notify → investigate → collect blood → laboratory confirmation → manage → outbreak </div><div class="source-line ">response </div><div class="source-line ">District rapid response team investigates suspected outbreaks. </div></section><section class="page" id="page-25"><div class="page-number">PDF PAGE 25 / 36</div><div class="source-line section">Surveillance goal </div><div class="source-line section">Identify: </div><div class="source-line bullet">● Cases/outbreaks by time &amp; place </div><div class="source-line bullet">● Age/vaccination status </div><div class="source-line bullet">● High-risk populations </div><div class="source-line bullet">● Verify outbreaks </div><div class="source-line bullet">● Improve timeliness/completeness </div><div class="source-line bullet">● Provide feedback </div><div class="source-line ">NMNR = 9.4/100,000 in 2081/82 → indicates adequate surveillance sensitivity when </div><div class="source-line ">compared with the ≥2/100,000 standard. </div><div class="source-line blank"></div><div class="source-line recall">🧠 30-SECOND FINAL RECALL </div><div class="source-line section">MEASLES:</div><div class="source-line ">RNA Paramyxovirus → human only → droplets → 10d fever/14d rash → ±4d infectious → </div><div class="source-line ">Koplik → face↓ rash → pneumonia/SSPE → Vitamin A → MR 9m/15m </div><div class="source-line section">Elimination: </div><div class="source-line ">Catch-up → Keep-up → Follow-up </div><div class="source-line ">9m–14y → &gt;95% routine → campaigns 2–4y / 9–59m </div><div class="source-line section">Nepal 2081/82: </div><div class="source-line ">33 cases | 29 lab-confirmed | MR1 87% | MR2 96% | NMNR 9.4/100k </div><div class="source-line blank"></div></section><section class="page" id="page-26"><div class="page-number">PDF PAGE 26 / 36</div><div class="source-line major">🐔 CHICKENPOX (VARICELLA) — </div><div class="source-line ">COMPACT CHEAT SHEET </div><div class="source-line major">1. Basics &amp; Epidemiology </div><div class="source-line bullet">● Agent: VZV = Human α-herpesvirus-3, enveloped dsDNA </div><div class="source-line bullet">● Source: infected person → respiratory secretions + skin/mucosal lesions </div><div class="source-line bullet">● Incubation: 14–17 d (10–21) </div><div class="source-line bullet">● Infectious: 1–2 d before → 4–5 d after rash; crusts not infectious </div><div class="source-line bullet">● Transmission: droplets/droplet nuclei + direct contact; portal = URT/conjunctiva </div><div class="source-line bullet">● Secondary attack rate: up to 90% </div><div class="source-line bullet">● Children &lt;10 yr common; adults → more severe </div><div class="source-line bullet">● Primary infection → lifelong immunity </div><div class="source-line bullet">● Pregnancy → congenital varicella syndrome, especially early pregnancy </div><div class="source-line bullet">● Crowding favors spread; tropics → coolest/driest months </div><div class="source-line blank"></div><div class="source-line major">2. Clinical Features ⭐ </div><div class="source-line section">Prodrome </div><div class="source-line ">Fever + malaise + headache + anorexia </div><div class="source-line section">Rash </div><div class="source-line ">Macule → Papule → Vesicle → Pustule → Crust </div><div class="source-line ">🔥 Centripetal: trunk → face + extremities </div><div class="source-line ">🔥 Crops + pleomorphic rash = pathognomonic</div><div class="source-line bullet">→ lesions at different stages simultaneously </div><div class="source-line section">Other: </div><div class="source-line bullet">● Severe itching </div><div class="source-line bullet">● Mucosal lesions </div><div class="source-line bullet">● Usually heals without scars unless secondarily infected </div><div class="source-line bullet">● Hypo/hyperpigmentation may remain </div><div class="source-line blank"></div></section><section class="page" id="page-27"><div class="page-number">PDF PAGE 27 / 36</div><div class="source-line major">3. Complications </div><div class="source-line ">Secondary bacterial skin infection ⭐</div><div class="source-line ">Pneumonia</div><div class="source-line ">Meningoencephalitis</div><div class="source-line ">Acute cerebellar ataxia</div><div class="source-line ">Transverse myelitis</div><div class="source-line ">GBS </div><div class="source-line blank"></div><div class="source-line major">4. Diagnosis </div><div class="source-line bullet">● Mainly clinical </div><div class="source-line bullet">● PCR = preferred confirmation </div><div class="source-line bullet">● Anti-IgM </div><div class="source-line bullet">● Tzanck smear → multinucleated giant cells </div><div class="source-line blank"></div><div class="source-line major">5. Treatment </div><div class="source-line bullet">● Symptomatic: antipyretic + antipruritic + hygiene </div><div class="source-line bullet">● Isolate </div><div class="source-line bullet">● Acyclovir / valacyclovir / famciclovir × 5 d, ideally started within 24 h </div><div class="source-line bullet">● VZIG for appropriate high-risk exposure </div><div class="source-line blank"></div><div class="source-line ">🛡️ 6. Prevention &amp; Control ⭐ </div><div class="source-line ">Case control </div><div class="source-line bullet">● Isolate ~6 d after rash onset </div><div class="source-line bullet">● Disinfect articles contaminated with respiratory secretions </div><div class="source-line bullet">● Early antiviral therapy </div><div class="source-line ">VZIG </div><div class="source-line ">Give within 96 h (preferably ≤72 h) after exposure. </div><div class="source-line section">Indications: </div></section><section class="page" id="page-28"><div class="page-number">PDF PAGE 28 / 36</div><div class="source-line bullet">● Susceptible immunocompromised </div><div class="source-line bullet">● Pregnant women </div><div class="source-line bullet">● Hospitalized premature infants </div><div class="source-line bullet">● Significant exposure in susceptible individuals </div><div class="source-line ">Repeat dose after 3 weeks where indicated. </div><div class="source-line ">Vaccine </div><div class="source-line ">Live attenuated varicella vaccine </div><div class="source-line bullet">● ≥1 yr, ≤12 yr: single dose (as per your source) </div><div class="source-line bullet">● Seronegative &gt;12 yr: 2 doses, 4–8 weeks apart </div><div class="source-line bullet">● Contraindicated: pregnancy + immunocompromised </div><div class="source-line blank"></div><div class="source-line recall">🧠 20-SECOND RECALL </div><div class="source-line ">VZV = dsDNA herpes | 14–17 d | ±2 d before → +4–5 d after rash | 90% secondary attack </div><div class="source-line ">Rash = CENTRIPETAL + CROPS + PLEOMORPHIC</div><div class="source-line ">Macule → papule → vesicle → pustule → crust </div><div class="source-line ">Complications = skin infection + pneumonia + CNS </div><div class="source-line ">Dx = PCR | Tzanck → giant cells </div><div class="source-line ">Tx = acyclovir ≤24 h </div><div class="source-line ">PEP = VZIG ≤96 h (preferably 72 h) </div><div class="source-line ">Vaccine = live attenuated; avoid pregnancy/immunocompromise. </div><div class="source-line blank"></div></section><section class="page" id="page-29"><div class="page-number">PDF PAGE 29 / 36</div><div class="source-line major">🦠 DIPHTHERIA — COMPACT CHEAT </div><div class="source-line ">SHEET </div><div class="source-line major">1. Basics &amp; Epidemiology </div><div class="source-line bullet">● Agent: Corynebacterium diphtheriae → Gram +, non-motile, non-capsulated, </div><div class="source-line ">club-shaped bacillus </div><div class="source-line bullet">● Toxigenic strains → powerful exotoxin </div><div class="source-line bullet">● Source: cases + carriers → carriers important </div><div class="source-line bullet">● Infective material: nasopharyngeal secretions, skin lesions, contaminated fomites </div><div class="source-line bullet">● Transmission: mainly droplets; also direct contact/fomites </div><div class="source-line bullet">● Portal: respiratory; also skin, umbilicus, eye, ear, genitalia </div><div class="source-line bullet">● Incubation: 2–6 days </div><div class="source-line bullet">● Infectivity: ~14–28 days from disease onset </div><div class="source-line bullet">● Host: traditionally children 1–5 yr, but age distribution can shift toward school age </div><div class="source-line bullet">● Season: all seasons → winter predominance </div><div class="source-line bullet">● Risk: overcrowding + poor sanitation </div><div class="source-line ">🇳🇵 Nepal </div><div class="source-line bullet">● EPI with BCG + DPT began 1979 in Bara, Kaski &amp; Bhaktapur → expanded </div><div class="source-line ">nationwide by 1989. </div><div class="source-line bullet">● Vaccination caused a dramatic decline in diphtheria. </div><div class="source-line bullet">● Your source reports 4 cases in 2023. </div><div class="source-line bullet">● For 2081/82: I could verify the current DoHS AHR publication, but I could not verify </div><div class="source-line ">a directly comparable national diphtheria case total from the indexed report text, </div><div class="source-line ">so I'm deliberately not inventing a number. (HMIS) </div><div class="source-line blank"></div><div class="source-line major">2. Clinical Features ⭐ </div><div class="source-line ">A. Respiratory </div><div class="source-line ">Pharyngotonsillar — commonest </div><div class="source-line bullet">● Sore throat + dysphagia </div><div class="source-line bullet">● Low-grade fever </div><div class="source-line bullet">● Gray/white pseudomembrane </div><div class="source-line bullet">● Membrane bleeds on attempted removal </div></section><section class="page" id="page-30"><div class="page-number">PDF PAGE 30 / 36</div><div class="source-line bullet">● Severe → bull neck </div><div class="source-line ">Laryngotracheal </div><div class="source-line bullet">● Hoarseness + croupy cough </div><div class="source-line bullet">● Stridor/dyspnoea </div><div class="source-line bullet">● Membrane → airway obstruction </div><div class="source-line ">Nasal </div><div class="source-line bullet">● Usually mildest </div><div class="source-line bullet">● Nasal discharge/lesion </div><div class="source-line bullet">● Nasal carriers particularly dangerous </div><div class="source-line ">B. Non-respiratory </div><div class="source-line bullet">● Cutaneous: punched-out ulcers </div><div class="source-line bullet">● Ocular → conjunctivitis/corneal damage </div><div class="source-line bullet">● Intestinal → dysphagia/bloody diarrhoea </div><div class="source-line bullet">● Genital → ulcerative lesions </div><div class="source-line blank"></div><div class="source-line major">3. Complications ⭐ </div><div class="source-line ">Myocarditis ⭐</div><div class="source-line ">Polyneuropathy → post-diphtheritic paralysis ⭐</div><div class="source-line ">Mechanical asphyxia from pseudomembrane</div><div class="source-line ">Pneumonia</div><div class="source-line ">Otitis media </div><div class="source-line ">🧠 Diphtheria toxin = HEART + NERVES </div><div class="source-line blank"></div><div class="source-line major">4. Diagnosis </div><div class="source-line section">Suspect clinically: </div><div class="source-line ">Sore throat + fever + pseudomembrane ± hoarseness/stridor/palatal paralysis </div><div class="source-line section">Confirm: </div></section><section class="page" id="page-31"><div class="page-number">PDF PAGE 31 / 36</div><div class="source-line bullet">● Throat/nasal swab </div><div class="source-line bullet">● Culture of C. diphtheriae </div><div class="source-line bullet">● Loeffler's serum slope → characteristic colonies </div><div class="source-line ">⚠️ Do not wait for laboratory confirmation before treatment if clinically suspected. </div><div class="source-line blank"></div><div class="source-line major">5. Prevention ⭐ </div><div class="source-line ">Vaccination </div><div class="source-line section">Nepal EPI:</div><div class="source-line ">Pentavalent (DPT-HepB-Hib) → 6, 10, 14 weeks </div><div class="source-line section">Boosters: </div><div class="source-line bullet">● After primary series → DT &lt;7 yr </div><div class="source-line bullet">● dT ≥7 yr </div><div class="source-line bullet">● Periodic boosters maintain protection. </div><div class="source-line ">Control of case/carriers </div><div class="source-line ">Early detection → isolate → swab contacts → treat </div><div class="source-line bullet">● Search contacts/family/friends </div><div class="source-line bullet">● Nose + throat swabs </div><div class="source-line bullet">● Isolate suspected cases/carriers </div><div class="source-line bullet">● Diphtheria antitoxin (DAT) immediately </div><div class="source-line bullet">● Antibiotics → erythromycin / penicillin </div><div class="source-line blank"></div><div class="source-line major">6. Contact Management </div><div class="source-line ">Previously adequately immunized + recent: generally no additional action if adequately </div><div class="source-line ">protected. </div><div class="source-line ">Immunized &gt;2 yr ago: → booster diphtheria toxoid </div><div class="source-line section">Unimmunized:</div><div class="source-line bullet">→ prophylactic penicillin/erythromycin</div></section><section class="page" id="page-32"><div class="page-number">PDF PAGE 32 / 36</div><div class="source-line bullet">→ DAT 1,000–2,000 U</div><div class="source-line bullet">→ start/complete active immunization </div><div class="source-line blank"></div><div class="source-line recall">🧠 20-SECOND RECALL </div><div class="source-line ">DIPHTHERIA = C. diphtheriae → exotoxin → pseudomembrane → bull neck → </div><div class="source-line ">myocarditis + neuropathy </div><div class="source-line ">Spread: droplets/fomites</div><div class="source-line ">Incubation: 2–6 d</div><div class="source-line ">Dx: throat swab → Loeffler culture</div><div class="source-line ">Tx: DAT + antibiotics immediately</div><div class="source-line ">Prevention: Pentavalent 6–10–14 wk</div><div class="source-line ">Contacts: swab + prophylactic antibiotic + booster/active immunization as indicated. </div><div class="source-line recall">🔥 Exam trigger </div><div class="source-line section">If asked “Diphtheria control”, write: </div><div class="source-line ">Vaccination → early detection → isolation → contact tracing/swabbing → DAT → </div><div class="source-line ">antibiotics → immunization of contacts. </div><div class="source-line blank"></div></section><section class="page" id="page-33"><div class="page-number">PDF PAGE 33 / 36</div><div class="source-line major">🫁 WHOOPING COUGH (PERTUSSIS) — </div><div class="source-line ">CHEAT SHEET </div><div class="source-line major">1. Basics &amp; Epidemiology </div><div class="source-line bullet">● Agent: Bordetella pertussis </div><div class="source-line bullet">● Reservoir: Humans only; cases = source, no carrier state </div><div class="source-line bullet">● Infective material: nasopharyngeal/bronchial secretions + freshly contaminated </div><div class="source-line ">objects </div><div class="source-line bullet">● Transmission: droplets + direct contact </div><div class="source-line bullet">● Incubation: 7–14 d </div><div class="source-line bullet">● Infectious: mainly catarrhal stage → ~3 wk after paroxysmal stage begins </div><div class="source-line bullet">● Secondary attack rate: ~90% in unimmunized household contacts </div><div class="source-line bullet">● Host: infants &amp; preschool children; fatality higher in females </div><div class="source-line bullet">● Season: year-round → ↑ winter/spring </div><div class="source-line bullet">● Overcrowding + low SES → increased transmission </div><div class="source-line ">🇳🇵 Nepal </div><div class="source-line bullet">● Your source reports 11 cases in 2023. </div><div class="source-line bullet">● Nepal uses whole-cell pertussis vaccine (wP) in the routine programme. </div><div class="source-line bullet">● Don't carry the 11-case figure forward as 2081/82 data unless specifically asked </div><div class="source-line ">for historical data; I couldn't verify a comparable 2081/82 total from the current </div><div class="source-line ">DoHS report. (HMIS) </div><div class="source-line blank"></div><div class="source-line major">2. Clinical Course ⭐⭐⭐ </div><div class="source-line ">1️⃣ CATARRHAL — 7–10 d </div><div class="source-line ">Coryza + low-grade fever + mild cough → progressively worse </div><div class="source-line ">🔥 MOST INFECTIOUS STAGE </div><div class="source-line ">2️⃣ PAROXYSMAL — 1–6 wk </div><div class="source-line bullet">● Repeated rapid paroxysms of cough </div><div class="source-line bullet">● Thick mucus difficult to expel </div><div class="source-line bullet">● Inspiratory whoop ⭐ </div></section><section class="page" id="page-34"><div class="page-number">PDF PAGE 34 / 36</div><div class="source-line bullet">● Cyanosis </div><div class="source-line bullet">● Post-tussive vomiting </div><div class="source-line bullet">● Exhaustion </div><div class="source-line bullet">● Often worse at night </div><div class="source-line bullet">● ~15 attacks/day on average </div><div class="source-line ">3️⃣ CONVALESCENT — 7–10 d </div><div class="source-line bullet">● Gradual recovery </div><div class="source-line bullet">● Paroxysms decrease → disappear over 2–3 wk </div><div class="source-line bullet">● Cough may recur with subsequent respiratory infections for months </div><div class="source-line ">🧠 Classic sequence </div><div class="source-line ">Coryza → cough → paroxysm → WHOOP → vomiting </div><div class="source-line blank"></div><div class="source-line major">3. Complications </div><div class="source-line ">Bronchopneumonia ⭐</div><div class="source-line ">Bronchitis</div><div class="source-line ">Bronchiectasis</div><div class="source-line ">Subconjunctival haemorrhage</div><div class="source-line ">Epistaxis</div><div class="source-line ">Punctate cerebral haemorrhage </div><div class="source-line blank"></div><div class="source-line major">4. Diagnosis </div><div class="source-line bullet">● Nasopharyngeal culture → highly specific </div><div class="source-line bullet">● PCR → rapid + highly sensitive </div><div class="source-line bullet">● Serology / fluorescent antibody staining </div><div class="source-line ">🔥 During suspected outbreak: PCR + obtain culture confirmation of at least one </div><div class="source-line ">suspected case. </div><div class="source-line blank"></div></section><section class="page" id="page-35"><div class="page-number">PDF PAGE 35 / 36</div><div class="source-line major">5. Prevention ⭐ </div><div class="source-line section">Active immunization </div><div class="source-line ">Best prevention = vaccination </div><div class="source-line ">Nepal → whole-cell pertussis (wP), usually as DTwP/pentavalent </div><div class="source-line section">Primary series:</div><div class="source-line ">6 wk → 10 wk → 14 wk </div><div class="source-line bullet">● WHO: 3-dose primary series </div><div class="source-line bullet">● Protection declines over time </div><div class="source-line bullet">● Booster 1–6 yr after primary series, preferably 2nd year </div><div class="source-line bullet">● Some countries give adolescent/adult booster, especially HCWs/young parents. </div><div class="source-line section">Passive </div><div class="source-line bullet">● Hyperimmune globulin → benefit not established </div><div class="source-line blank"></div><div class="source-line major">6. Control of Cases &amp; Contacts </div><div class="source-line section">Case </div><div class="source-line ">Early diagnosis → isolation → treatment → disinfect discharges </div><div class="source-line bullet">● Isolate until non-infectious </div><div class="source-line bullet">● Erythromycin = drug of choice </div><div class="source-line bullet">● Alternatives: ampicillin etc. </div><div class="source-line bullet">● Antibiotics during paroxysmal phase don't significantly alter clinical course, but </div><div class="source-line ">eliminate bacteria → reduce transmission </div><div class="source-line section">Contacts </div><div class="source-line bullet">● Keep infants/young children away from case </div><div class="source-line bullet">● Erythromycin/ampicillin × 10 d prophylaxis </div><div class="source-line bullet">● Ensure DPT vaccination </div><div class="source-line blank"></div></section><section class="page" id="page-36"><div class="page-number">PDF PAGE 36 / 36</div><div class="source-line recall">🧠 20-SECOND RECALL </div><div class="source-line ">PERTUSSIS = B. pertussis | 7–14 d | droplets | 90% attack rate </div><div class="source-line ">CATARRHAL → PAROXYSMAL → CONVALESCENT </div><div class="source-line ">Coryza → paroxysmal cough → WHOOP → vomiting </div><div class="source-line ">Diagnosis: nasopharyngeal culture/PCR</div><div class="source-line ">Treatment: erythromycin</div><div class="source-line ">Prevention: wP vaccine 6–10–14 wk</div><div class="source-line ">Control: isolate + antibiotics + contact prophylaxis </div><div class="source-line recall">Exam killer:</div><div class="source-line bullet">👉 Most infectious = catarrhal stage</div><div class="source-line bullet">👉 Classic symptom = inspiratory whoop</div><div class="source-line bullet">👉 Most important complication = bronchopneumonia </div><div class="source-line blank"></div></section></section>
-</main>
-<footer><p>&copy; 2026 MONOLITH. Built to persist.</p></footer>
-</body></html>
+
+    <nav>
+        <div class="logo">Monolith</div>
+        <ul class="nav-links">
+            <li><a href="https://fidelioa.github.io/monolith">Home</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/archives">Archives</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/about">About</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Document Header -->
+        <section class="subject-header">
+            <div class="breadcrumb">
+                <a href="https://fidelioa.github.io/monolith/archives">Archives</a> / 
+                <a href="https://fidelioa.github.io/monolith/archives/quick-revision">Quick Revision</a> / 
+                <a href="https://fidelioa.github.io/monolith/archives/commed">Community Medicine</a> / Communicable Respiratory Diseases
+            </div>
+            <h1>Communicable Respiratory Diseases Epidemiology</h1>
+            <div class="subtitle">Fast Track Clinical Science MBBS - 3rd Year | Revision Page</div>
+        </section>
+
+        <!-- Main Chapter Content -->
+        <section class="content">
+
+            <!-- TUBERCULOSIS -->
+            <h2>TB - Applied Epidemiology</h2>
+
+            <h3>1. INTRODUCTION</h3>
+            <ul>
+                <li>TB = infectious disease caused by <em>Mycobacterium tuberculosis</em> mainly lungs, but also meninges, intestine, bones/joints, lymph nodes, skin, etc.</li>
+                <li>Koch 1882 | AFB due to mycolic acid | weakly Gram +ve.</li>
+            </ul>
+
+            <h3>2. WHO CASE DEFINITIONS</h3>
+            <ul>
+                <li><strong>Presumptive TB</strong> &rarr; symptoms/signs suggestive of TB.</li>
+                <li><strong>Bacteriologically confirmed</strong> &rarr; positive smear / culture / WHO-approved rapid test (Xpert MTB/RIF).</li>
+                <li><strong>Clinically diagnosed</strong> &rarr; active TB diagnosed clinically/radiologically/histologically despite no bacteriological confirmation.</li>
+                <li><strong>Site:</strong> Pulmonary / Extra-pulmonary</li>
+                <li><strong>Previous treatment:</strong> New / Retreatment &rarr; relapse, failure, lost-to-follow-up, other</li>
+                <li><strong>Resistance:</strong> Mono-R, RR, Hr, MDR, XDR</li>
+                <li><strong>HIV:</strong> + / - / unknown</li>
+                <li><strong>RR-TB</strong> &rarr; rifampicin resistant &plusmn; other resistance</li>
+                <li><strong>Hr-TB</strong> &rarr; isoniazid resistant, rifampicin sensitive</li>
+                <li><strong>MDR-TB</strong> &rarr; H + R resistant</li>
+                <li><strong>XDR-TB</strong> &rarr; MDR + fluoroquinolone resistance + &ge;1 second-line drug (know the current definition if specifically asked; don't rely on the older definition in the pasted notes).</li>
+            </ul>
+
+            <h3>3. NEPAL BURDEN - DoHS AHR 2081/82</h3>
+            <ul>
+                <li>TB notified = 39,151</li>
+                <li>CNR = 133/100,000</li>
+                <li>New + relapse = 38,606</li>
+                <li>98.6% incident cases</li>
+                <li>72.4% = pulmonary TB</li>
+                <li>58.3% of pulmonary TB = bacteriologically confirmed</li>
+                <li>Xpert-confirmed = 24,475</li>
+                <li>30 high-notification districts: 18 Terai + 12 Hills.</li>
+                <li><strong>One-line recall:</strong> 39,151 &rarr; 133/100k &rarr; 38,606 incident &rarr; 72.4% pulmonary &rarr; 58.3% BC &rarr; 24,475 Xpert.</li>
+            </ul>
+            <p>These are the figures to replace the old Nepal numbers in your notes. (Department of Health Service)</p>
+
+            <h3>4. EPIDEMIOLOGICAL DETERMINANTS</h3>
+            <ul>
+                <li><strong>Agent:</strong> <em>M. tuberculosis</em>
+                    <ul>
+                        <li>Non-motile, non-sporing, non-capsulated</li>
+                        <li>2-3 &times; 0.2-0.4 &mu;m</li>
+                        <li>AFB &rarr; mycolic acid</li>
+                    </ul>
+                </li>
+                <li><strong>Human source:</strong> untreated/inadequately treated sputum-positive pulmonary TB</li>
+                <li><strong>Bovine source:</strong> infected milk</li>
+                <li><strong>Transmission capacity:</strong> 1 infectious case &rarr; approximately 10-15 persons/year</li>
+                <li><strong>Host factors:</strong>
+                    <ul>
+                        <li>Mainly 15-55 years</li>
+                        <li>Male &gt; female</li>
+                        <li>No inherited immunity</li>
+                        <li>Protection: natural infection / BCG</li>
+                    </ul>
+                </li>
+                <li><strong>Risk &uarr; with:</strong> Malnutrition, HIV, Diabetes, Alcoholism</li>
+                <li><strong>Environmental factors:</strong> Overcrowding + poor housing + poverty + undernutrition + poor education/awareness</li>
+            </ul>
+
+            <h3>5. TRANSMISSION</h3>
+            <ul>
+                <li>Droplet nuclei from sputum-positive pulmonary TB.</li>
+                <li>Coughing maximum infectious droplets</li>
+                <li>Droplet nuclei 1-10 &mu;m remain suspended for long periods</li>
+                <li>NOT spread by fomites such as utensils/personal articles.</li>
+                <li><strong>Incubation:</strong> ~3-6 weeks</li>
+                <li><strong>Clinical features:</strong> Fever + weight loss + night sweats + persistent cough + hemoptysis + fatigue + chest pain</li>
+            </ul>
+
+            <h3>6. EPIDEMIOLOGICAL INDICES</h3>
+            <ul>
+                <li><strong>Prevalence of infection:</strong> % tuberculin-positive population</li>
+                <li><strong>Annual risk/incidence of infection:</strong> newly infected among previously non-infected/year</li>
+                <li><strong>Prevalence of disease:</strong> &rarr; sputum-positive TB burden</li>
+                <li><strong>Incidence of new cases:</strong> new bacteriologically confirmed cases/population/year</li>
+                <li><strong>Case detection rate:</strong> notified new + relapse / estimated incidence</li>
+                <li><strong>Mortality rate:</strong> TB deaths/population/year</li>
+            </ul>
+
+            <h3>7. CASE FINDING</h3>
+            <ul>
+                <li><strong>Indications:</strong> Cough &gt;2 weeks, Chest pain, Hemoptysis, Prolonged low-grade fever</li>
+                <li><strong>Samples:</strong> 2 &rarr; spot + 1 hour later</li>
+                <li><strong>Culture:</strong> if smear negative but suspicion remains + for drug sensitivity.</li>
+                <li><strong>X-ray:</strong> supportive; mass miniature radiography not recommended routinely.</li>
+                <li><strong>Mantoux test:</strong> 1 TU PPD/0.1 mL ID &rarr; forearm &rarr; read at 72 h
+                    <ul>
+                        <li>Measure INDURATION, NOT ERYTHEMA.</li>
+                        <li>&gt;10 mm &rarr; positive</li>
+                        <li>6-9 mm &rarr; doubtful</li>
+                        <li>&lt;6 mm &rarr; negative</li>
+                        <li>Important: Mantoux indicates infection, not necessarily active TB.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>8. DOTS</h3>
+            <p>Directly Observed Treatment Short-course</p>
+            <p><strong>P-C-S-D-M:</strong></p>
+            <ol>
+                <li>Political commitment + financing</li>
+                <li>Case detection by quality-assured bacteriology</li>
+                <li>Standardized treatment + supervision/support</li>
+                <li>Drug supply/management</li>
+                <li>Monitoring + evaluation</li>
+            </ol>
+            <p><strong>CB-DOTS:</strong> brings treatment/adherence support closer to community.</p>
+
+            <h3>9. ANTI-TB DRUGS</h3>
+            <ul>
+                <li><strong>HRZE:</strong> Rifampicin, Isoniazid, Pyrazinamide, Ethambutol</li>
+                <li><strong>Old classification:</strong>
+                    <ul>
+                        <li>Bactericidal &rarr; RHZS</li>
+                        <li>Bacteriostatic &rarr; E</li>
+                    </ul>
+                </li>
+                <li><strong>Standard regimen:</strong> 2HRZE/4HR</li>
+                <li>Severe forms such as CNS, pericardial, musculoskeletal, miliary TB &rarr; prolonged continuation according to national protocol.</li>
+            </ul>
+
+            <h3>10. DR-TB</h3>
+            <ul>
+                <li><strong>MDR</strong> = H + R resistance</li>
+                <li><strong>Causes:</strong> Treatment interruption, Wrong prescription, Poor adherence, Drug supply problems</li>
+                <li><strong>Xpert MTB/RIF</strong> &rarr; rapid molecular diagnosis + detects rifampicin resistance.</li>
+                <li><strong>Nepal:</strong> MDR-TB case management introduced 2005; Xpert introduced around 2011/12.</li>
+            </ul>
+
+            <h3>11. BCG</h3>
+            <ul>
+                <li>Live attenuated bovine vaccine developed by Calmette &amp; Gu&eacute;rin.</li>
+                <li><strong>Strain:</strong> Danish 1331</li>
+                <li><strong>Nepal:</strong> at birth</li>
+                <li><strong>Dose:</strong> 0.05 mL</li>
+                <li><strong>Route:</strong> intradermal</li>
+                <li><strong>Site:</strong> right upper arm</li>
+                <li><strong>Storage:</strong> 2-8&deg;C, protect from light</li>
+                <li>Mainly protects children against TB meningitis + miliary TB</li>
+                <li>Characteristic scar develops after vaccination.</li>
+                <li><strong>Contraindications:</strong> Immunocompromised states, leukemia/lymphoma, immunosuppressive therapy, generalized eczema/infective dermatitis, pregnancy.</li>
+            </ul>
+
+            <h3>12. TB-HIV</h3>
+            <ul>
+                <li>HIV markedly increases progression from latent &rarr; active TB.</li>
+                <li><strong>Strategy (3 I's):</strong>
+                    <ul>
+                        <li>Intensified case finding</li>
+                        <li>Isoniazid preventive therapy</li>
+                        <li>Infection control</li>
+                    </ul>
+                </li>
+                <li><strong>Management:</strong> TB treatment + CPT &rarr; ART after ~2-8 weeks depending on clinical situation.</li>
+            </ul>
+
+            <h3>13. MATERNAL/NEWBORN TB</h3>
+            <ul>
+                <li>If mother is infectious: Prompt maternal ATT, Avoid streptomycin in pregnancy</li>
+                <li>If mother is sputum-positive / treated &lt;2 weeks &rarr; newborn may require isoniazid prophylaxis</li>
+                <li>Breastfeeding generally encouraged with appropriate infection-control precautions.</li>
+            </ul>
+
+            <h3>14. CONTROL OF TB</h3>
+            <p>Find the case &rarr; Treat completely &rarr; Stop transmission &rarr; Protect susceptible</p>
+            <ul>
+                <li>Early detection</li>
+                <li>Complete effective treatment</li>
+                <li>Contact tracing</li>
+                <li>BCG vaccination</li>
+                <li>Infection control</li>
+                <li>Prevent drug resistance</li>
+                <li>HIV/TB integration</li>
+                <li><strong>Epidemiological control:</strong> prevalence of natural infection among 0-14 yr &lt;1%.</li>
+            </ul>
+
+            <h3>15. NEPAL NATIONAL TB PROGRAM</h3>
+            <p><strong>Main goals:</strong></p>
+            <ul>
+                <li>Reduce TB incidence</li>
+                <li>Reduce TB mortality</li>
+                <li>Zero catastrophic cost for TB-affected families</li>
+                <li>Ultimately End TB by 2035</li>
+            </ul>
+            <p><strong>3 Pillars:</strong></p>
+            <ol>
+                <li><strong>Integrated, patient-centred care &amp; prevention</strong> &rarr; early diagnosis, DST, screening, treatment, prevention</li>
+                <li><strong>Bold policies &amp; supportive systems</strong> &rarr; political commitment, UHC, notification, social protection</li>
+                <li><strong>Research &amp; innovation</strong> &rarr; new diagnostics, drugs, vaccines &amp; implementation</li>
+            </ol>
+
+            <div class="note">
+                <strong>30-SECOND TB RECALL</strong><br>
+                TB = M. tuberculosis &rarr; AFB &rarr; droplet nuclei 15-55 M&gt;F<br>
+                Nepal 2081/82: Case finding: cough &gt;2 wk &rarr; sputum &rarr; 2 samples<br>
+                Mantoux: 1 TU/0.1 mL ID 72 h induration<br>
+                DOTS: Political-Case-Standard-Drug-Monitor<br>
+                Treatment: 2HRZE/4HR<br>
+                MDR: H + R<br>
+                BCG: birth, 0.05 mL ID, right arm<br>
+                HIV/TB: 3 I's<br>
+                End TB: Patient care &rarr; Policies &rarr; Research
+            </div>
+
+            <!-- INFLUENZA, AVIAN FLU & SWINE FLU -->
+            <h2>INFLUENZA, AVIAN FLU &amp; SWINE FLU</h2>
+
+            <h3>1. INFLUENZA</h3>
+            <ul>
+                <li><strong>Definition:</strong> Acute respiratory infection caused by Influenza virus.</li>
+                <li><strong>Types:</strong> A, B, C &rarr; All pandemics = Influenza A</li>
+                <li><strong>Classic presentation:</strong> sudden C-F-M-C &rarr; Chills + Fever + Myalgia + Cough</li>
+            </ul>
+            <h4>Epidemiology</h4>
+            <ul>
+                <li>Worldwide; millions affected/year</li>
+                <li>Epidemics &rarr; rapid spread, sudden onset, many subclinical cases</li>
+                <li>Pandemics &rarr; antigenic SHIFT</li>
+                <li>Epidemic &rarr; antigenic DRIFT</li>
+                <li>Major pandemics: 1918 Spanish &rarr; 1957 Asian &rarr; 1968 Hong Kong &rarr; 2009 H1N1</li>
+            </ul>
+            <h4>Nepal — older DoHS 2079/80 figures</h4>
+            <ul>
+                <li>ILI cases = 2,207</li>
+                <li>H1N1 positive = 85</li>
+                <li>H3 positive = 208</li>
+                <li>Influenza B Victoria = 89</li>
+                <li>Positivity = 5.1%</li>
+                <li>Highest ILI reporting: Karnali (1,560)</li>
+            </ul>
+
+            <h3>2. AGENT &amp; TRANSMISSION &#11088;</h3>
+            <ul>
+                <li><strong>Family:</strong> Orthomyxoviridae &rarr; A, B, C</li>
+                <li><strong>Influenza A antigens:</strong>
+                    <ul>
+                        <li>H = Haemagglutinin &rarr; attachment/initiation</li>
+                        <li>N = Neuraminidase &rarr; release/transmission</li>
+                    </ul>
+                </li>
+                <li><strong>Antigenic changes:</strong>
+                    <ul>
+                        <li>SHIFT = major/sudden &rarr; reassortment &rarr; PANDEMIC</li>
+                        <li>DRIFT = minor/gradual &rarr; point mutation &rarr; EPIDEMIC</li>
+                    </ul>
+                </li>
+                <li><strong>Reservoir:</strong> humans + animals/birds</li>
+                <li><strong>Source:</strong> case/subclinical case respiratory secretions</li>
+                <li><strong>Infective:</strong> ~1-2 days before to 1-2 days after symptoms</li>
+                <li><strong>Transmission:</strong> droplets/droplet nuclei</li>
+                <li><strong>Entry:</strong> respiratory tract</li>
+                <li><strong>Incubation:</strong> 18-72 h</li>
+            </ul>
+
+            <h3>3. HOST / ENVIRONMENT</h3>
+            <ul>
+                <li>All ages + both sexes</li>
+                <li><strong>High risk:</strong> &gt;65, children, DM, cardiac/renal/respiratory disease</li>
+                <li><strong>Immunity:</strong> subtype-specific; no cross-protection between A/B/C</li>
+                <li>Winter &rarr; increased transmission</li>
+                <li>Overcrowding &rarr; &uarr; spread</li>
+                <li>Closed populations: schools, institutions, ships</li>
+            </ul>
+
+            <h3>4. CLINICAL</h3>
+            <ul>
+                <li>Sudden fever + chills + myalgia + cough + weakness</li>
+                <li><strong>Complications:</strong>
+                    <ul>
+                        <li>Pneumonia = most important</li>
+                        <li>Sinusitis</li>
+                        <li>Otitis media</li>
+                        <li>Purulent bronchitis</li>
+                        <li>Reye syndrome &rarr; hepatic failure + encephalopathy, especially children</li>
+                    </ul>
+                </li>
+                <li><strong>Diagnosis:</strong> Nasopharyngeal specimen, Viral detection/isolation, Serology: HI/ELISA (4-fold rise in titre = diagnostic)</li>
+            </ul>
+
+            <h3>5. PREVENTION</h3>
+            <ul>
+                <li>Ventilation + avoid crowds + cough etiquette + stay home</li>
+                <li><strong>Vaccine:</strong>
+                    <ul>
+                        <li>Best preventive measure</li>
+                        <li>Constantly updated because of antigenic variation</li>
+                        <li>Ideally &ge;2 weeks before exposure/epidemic</li>
+                        <li>Inactivated vaccine &rarr; IM/SC</li>
+                        <li>Live attenuated &rarr; intranasal</li>
+                        <li>Immunity &rarr; 6-12 months</li>
+                    </ul>
+                </li>
+                <li><strong>Antivirals:</strong> Oseltamivir &rarr; 75 mg BD; Zanamivir &rarr; inhaled. Used for treatment/prophylaxis of influenza A &amp; B.</li>
+            </ul>
+
+            <h3>6. AVIAN INFLUENZA</h3>
+            <ul>
+                <li>Influenza A in birds</li>
+                <li><strong>Important strains:</strong> H5N1, H7N3, H7N7, H7N9, H9N2</li>
+                <li><strong>Reservoir:</strong> migratory wild birds &rarr; domestic poultry can become infected.</li>
+                <li><strong>Risk:</strong> People exposed to infected birds + droppings + feathers + contaminated surfaces</li>
+                <li><strong>Transmission:</strong> Respiratory entry + contaminated dust/equipment/feed/cages/clothing.</li>
+                <li><strong>Incubation:</strong> 2–3 days</li>
+                <li><strong>Clinical:</strong> Fever + fatigue + sore throat + cough + conjunctivitis + myalgia &plusmn; GI symptoms. Severe: viral pneumonia &rarr; respiratory failure &rarr; renal/multiorgan failure &rarr; death</li>
+                <li><strong>Treatment:</strong> Oseltamivir 75 mg BD &times; 5 days, ideally started within 48 h.</li>
+            </ul>
+
+            <h3>7. SWINE FLU / PANDEMIC H1N1 &#128055;</h3>
+            <ul>
+                <li>2009 &rarr; Mexico &rarr; WHO pandemic declaration: 11 June 2009</li>
+                <li><strong>Why different?</strong> Population had little/no immunity; Can cause rapidly progressive lower respiratory disease</li>
+                <li><strong>Agent:</strong> Influenza A, especially H1N1</li>
+                <li><strong>Reservoir:</strong> pigs</li>
+                <li><strong>High-risk:</strong> Pregnancy + &lt;2 yr + &gt;65 yr + COPD/asthma + chronic cardiac/metabolic/renal/hepatic/neurological disease + immunosuppression + obesity</li>
+                <li><strong>Transmission:</strong> respiratory</li>
+                <li><strong>Incubation:</strong> 2-3 days</li>
+                <li><strong>Clinical:</strong> ILI: fever + cough + sore throat + rhinorrhea + headache + myalgia + malaise &plusmn; diarrhea/vomiting. Severe: Dyspnea/LRTI, Encephalitis/encephalopathy, Dehydration, Exacerbation of chronic disease</li>
+            </ul>
+
+            <h3>8. DIAGNOSIS &amp; CONTROL OF H1N1</h3>
+            <ul>
+                <li><strong>Diagnosis:</strong> RT-PCR = most sensitive + timely. Nasopharyngeal + throat swab. Lower respiratory specimen if severe LRT disease.</li>
+                <li><strong>Infection control:</strong> HAND HYGIENE + COUGH ETIQUETTE + MASK + ventilation. Aerosol-generating procedure: respirator + eye protection + gown + adequately ventilated room.</li>
+                <li><strong>Vaccination:</strong> Does not give 100% protection. Protection develops after ~14 days.
+                    <ol>
+                        <li>Pregnant women</li>
+                        <li>Children &gt;6 months with chronic disease</li>
+                        <li>Healthy young adults</li>
+                        <li>Healthy children</li>
+                        <li>Adults</li>
+                        <li>Elderly</li>
+                    </ol>
+                </li>
+            </ul>
+
+            <div class="note">
+                <strong>30-SECOND RECALL</strong><br>
+                INFLUENZA: A/B/C A = pandemics | H = attachment | N = release | SHIFT = reassortment = pandemic | DRIFT = mutation = epidemic | 18-72 h incubation | Droplets &rarr; respiratory tract | Pneumonia = major complication | Vaccine + Oseltamivir/Zanamivir<br>
+                AVIAN: Bird H5N1 human exposure severe pneumonia &rarr; Oseltamivir<br>
+                SWINE: Pig H1N1 2009 pandemic | pregnancy/young/elderly/high-risk | RT-PCR &rarr; Oseltamivir<br>
+                Nepal number to retain for now: 2079/80: 2,207 ILI | H1N1 85 | H3 208 | B-Victoria 89 | positivity 5.1%
+            </div>
+
+            <!-- SARS & COVID -->
+            <h2>&#129440; SARS &amp; COVID — COMPACT REVISION</h2>
+
+            <h3>1. SARS</h3>
+            <ul>
+                <li><strong>Agent:</strong> Novel coronavirus | <strong>Reservoir:</strong> Horseshoe bat | <strong>Incubation:</strong> 2–7 d</li>
+                <li><strong>Epi:</strong> 8,273 cases (2003) | HCWs 21% | children rarely affected | max respiratory shedding ~day 10</li>
+                <li><strong>Clinical:</strong> Fever + cough/SOB + pneumonia/ARDS on CXR + no alternative diagnosis</li>
+                <li><strong>CXR:</strong> unilateral patch &rarr; bilateral/generalized infiltrates &rarr; ARDS</li>
+                <li><strong>Transmission:</strong> respiratory droplets + fomites &rarr; eyes/nose/mouth; AGPs amplify hospital spread; survives surfaces hours, waste up to 4 d</li>
+                <li><strong>Dx:</strong> RT-PCR (multiple specimens/repeated testing) &plusmn; culture; serology = acute negative &rarr; convalescent positive OR &ge;4&times; titre rise</li>
+                <li><strong>Complications:</strong> pneumonia, ARDS, nosocomial infection, tension pneumothorax, non-cardiogenic pulmonary edema</li>
+                <li><strong>Tx:</strong> intensive supportive care &plusmn; ribavirin, lopinavir/ritonavir, IFN-1, IVIG, steroids (efficacy inconclusive); no classic SARS vaccine</li>
+                <li><strong>Prevention:</strong> early detection &rarr; isolation &rarr; contact tracing &rarr; HCW protection &rarr; hand hygiene/masks &rarr; travel screening/reporting</li>
+            </ul>
+
+            <h3>2. COVID-19</h3>
+            <ul>
+                <li><strong>Agent:</strong> SARS-CoV-2 | <strong>Host:</strong> Humans | <strong>Environment:</strong> crowding + poor ventilation</li>
+                <li><strong>Nepal Stats:</strong>
+                    <ul>
+                        <li>FY 2079/80: 5,789 EWARS cases</li>
+                        <li>2022: 56,338 cases + 88 deaths (largest outbreak then)</li>
+                        <li>Vaccination: 1st 83.1% | 2nd 83.6%</li>
+                    </ul>
+                </li>
+                <li><strong>Transmission:</strong>
+                    <ul>
+                        <li>Droplets/secretions + fomites eyes/nose/mouth</li>
+                        <li>Airborne mainly AGPs + poorly ventilated indoor spaces</li>
+                    </ul>
+                </li>
+                <li><strong>Infectivity:</strong> 1-3 d before symptoms; peak viral load around symptom onset; declines thereafter.</li>
+                <li><strong>Urine/feces:</strong> virus detected but transmission unclear; <strong>vertical transmission:</strong> no strong evidence.</li>
+                <li><strong>Diagnosis:</strong> RT-PCR (NP/OP/BAL) &rarr; &plusmn; RDT/GeneXpert, CXR/CT</li>
+                <li><strong>Treatment:</strong> Mostly supportive; severe: O2/high-flow ventilation. Drugs: Remdesivir + dexamethasone &plusmn; convalescent plasma</li>
+                <li><strong>Management = T-I-T-Q-T-S:</strong> Test, Isolate, Trace, Quarantine, Treat, Surveillance</li>
+                <li><strong>Prevention = SMS + V:</strong> Social distancing &ge;1 m, Mask, Sanitization/hand hygiene + Ventilation + Vaccination + respiratory etiquette + stay home when sick</li>
+                <li><strong>HCW:</strong> contact/droplet precautions; airborne precautions during AGPs</li>
+                <li><strong>Vaccines:</strong> Sinopharm | Covishield | Janssen | Pfizer</li>
+                <li><strong>Nepal preparedness:</strong> Preparedness plan + dedicated COVID hospitals + 5T: Testing &rarr; Tracking &rarr; Treatment &rarr; Training &rarr; Isolation</li>
+            </ul>
+
+            <!-- ARI -->
+            <h2>&#129401; ARI — COMPACT REVISION</h2>
+
+            <h3>Classification</h3>
+            <ul>
+                <li><strong>AURI:</strong> up to pharynx &rarr; cold, pharyngitis, otitis media</li>
+                <li><strong>ALRI:</strong> larynx &rarr; alveoli &rarr; laryngitis, epiglottitis, bronchitis, bronchiolitis, pneumonia</li>
+            </ul>
+
+            <h3>&#127757; Burden</h3>
+            <ul>
+                <li>U5 children: ~5 ARI episodes/child/year</li>
+                <li>30–50% health-facility visits; 20–40% admissions</li>
+                <li>Pneumonia &rarr; major cause of U5 mortality</li>
+            </ul>
+
+            <h3>Nepal — DoHS AHR 2081/82</h3>
+            <ul>
+                <li>ARI incidence U5 = 616/1,000 nationally</li>
+                <li>Highest: Karnali 992, then Sudurpaschim 857</li>
+                <li>Lowest: Bagmati 468</li>
+                <li>Severe pneumonia = 0.08% of new cases nationally</li>
+                <li>Pneumonia cases treated with antibiotics: ~101% nationally (HMIS indicator can exceed 100 due to reporting/denominator issues) (HMIS)</li>
+            </ul>
+
+            <h3>Determinants</h3>
+            <ul>
+                <li><strong>Agents:</strong>
+                    <ul>
+                        <li>Bacteria &rarr; <em>S. pneumoniae</em>, <em>S. pyogenes</em>, <em>H. influenzae</em>, <em>Klebsiella</em>, <em>Bordetella</em>, <em>Corynebacterium</em>, <em>Legionella</em></li>
+                        <li>Viruses &rarr; Influenza, RSV, adenovirus, parainfluenza, rhinovirus, measles, coronavirus</li>
+                    </ul>
+                </li>
+                <li><strong>Host:</strong> U5 highest; boys &gt; girls until 3 yr &rarr; females &gt; males thereafter</li>
+                <li><strong>Environment:</strong> overcrowding + indoor air pollution + poor nutrition + low birth weight + maternal smoking + low SES</li>
+                <li><strong>Transmission:</strong> predominantly airborne/respiratory</li>
+            </ul>
+
+            <h3>&#128095; CB-IMNCI — EXAM GOLD</h3>
+            <p><strong>Assess:</strong> Age + cough duration + feeding/drinking + fever + convulsion + cyanosis + consciousness + prior treatment</p>
+            <p><strong>Fast breathing thresholds:</strong></p>
+            <ul>
+                <li>&lt;2 mo: &ge;60/min</li>
+                <li>2-12 mo: &ge;50/min</li>
+                <li>12 mo-5 yr: &ge;40/min</li>
+            </ul>
+
+            <h4>Classification &amp; Action</h4>
+            <ul>
+                <li><strong>Very severe:</strong> danger signs &rarr; URGENT referral + first antibiotic</li>
+                <li><strong>Severe pneumonia:</strong> chest indrawing + fast breathing &rarr; referral + antibiotics</li>
+                <li><strong>Pneumonia:</strong> fast breathing WITHOUT chest indrawing &rarr; oral antibiotic + home care + review</li>
+                <li><strong>No pneumonia:</strong> cough/cold, no fast breathing/no indrawing &rarr; home care</li>
+            </ul>
+            <p><em>Note for &lt;2 months:</em> &ge;60/min or severe chest indrawing = severe pneumonia; danger signs &rarr; very severe.</p>
+
+            <p><strong>Danger signs:</strong> Can't drink/feed | convulsions | lethargic/unconscious | stridor (calm child) | wheeze | abnormal temp | severe malnutrition</p>
+
+            <p><strong>Prevention:</strong> Nutrition + clean air + better living conditions + immunization + early treatment</p>
+            <ul>
+                <li>MR: 9 &amp; 15 mo</li>
+                <li>Hib: 6, 10, 14 wk</li>
+                <li>PCV: 6, 10 wk + 9 mo</li>
+            </ul>
+
+            <p><strong>Programs:</strong> GAPPD: PROTECT - PREVENT - TREAT</p>
+            <p><strong>Nepal CB-IMNCI &rarr; Vision 90 by 2030:</strong></p>
+            <ul>
+                <li>90% institutional delivery</li>
+                <li>90% newborn CHX</li>
+                <li>90% U5 diarrhoea &rarr; ORS + zinc</li>
+                <li>90% U5 pneumonia &rarr; appropriate antibiotics</li>
+            </ul>
+
+            <h3>Viral pneumonia</h3>
+            <ul>
+                <li><strong>Agents:</strong> influenza, RSV, adenovirus, VZV, coronavirus</li>
+                <li><strong>Risk:</strong> U2 / &ge;65, pregnancy, immunocompromised, chronic disease</li>
+                <li><strong>Dx:</strong> clinical + CXR &plusmn; swab/sputum/blood tests</li>
+                <li><strong>Tx:</strong> supportive &plusmn; specific antivirals</li>
+                <li><strong>Prevention:</strong> hygiene + influenza vaccination + isolation</li>
+            </ul>
+
+            <div class="note">
+                <strong>20-second recall</strong><br>
+                ARI = 616/1000 U5 | severe pneumonia 0.08% | Karnali 992 | Sudur 857 | Bagmati 468<br>
+                Fast breathing = 60/50/40<br>
+                Pneumonia = fast breathing<br>
+                Severe = chest indrawing<br>
+                Very severe = danger signs.
+            </div>
+
+            <!-- MEASLES -->
+            <h2>MEASLES — COMPACT REVISION</h2>
+
+            <h3>1. Basics &amp; Epidemiology</h3>
+            <ul>
+                <li><strong>Agent:</strong> Measles virus &rarr; RNA Paramyxovirus</li>
+                <li><strong>Reservoir/source:</strong> Humans only; no carriers/animal reservoir</li>
+                <li><strong>Transmission:</strong> droplets + droplet nuclei &rarr; respiratory tract &plusmn; conjunctiva</li>
+                <li><strong>Incubation:</strong> 10 d fever | 14 d &rarr; rash</li>
+                <li><strong>Infectious:</strong> 4 d before to 4 d after rash</li>
+                <li><strong>Immunity:</strong> lifelong after infection; single antigenic type</li>
+                <li><strong>Season:</strong> no fixed season; dry season tropics, winter temperate</li>
+                <li>Highly infectious, especially prodrome/rash onset</li>
+            </ul>
+
+            <h4>Nepal - DoHS AHR 2081/82</h4>
+            <ul>
+                <li>33 measles cases, including 29 laboratory-confirmed</li>
+                <li>MR1 coverage: 87%</li>
+                <li>MR2 coverage: 96%</li>
+                <li>NMNR: 9.4/100,000 (surveillance standard &ge;2/100,000)</li>
+                <li>All provinces exceeded the NMNR surveillance standard.</li>
+                <li>Key concern: MR1 remains below the desired &ge;95% level.</li>
+            </ul>
+
+            <h3>2. Clinical Features</h3>
+            <p><strong>PRODROMAL &rarr; ERUPTIVE &rarr; POST-MEASLES</strong></p>
+            <ul>
+                <li><strong>Prodrome:</strong>
+                    <ul>
+                        <li>Fever</li>
+                        <li>Coryza + cough + conjunctivitis</li>
+                        <li>Lacrimation/photophobia</li>
+                        <li><strong>Koplik spots:</strong> 1-2 mm blue-white spots on red buccal mucosa opposite 2nd molar &rarr; pathognomonic</li>
+                    </ul>
+                </li>
+                <li><strong>Epidemiological significance:</strong> Prodromal patient is highly infectious but difficult to clinically recognize as measles &rarr; not isolated &rarr; transmission continues &rarr; outbreaks.</li>
+                <li><strong>Eruptive phase:</strong>
+                    <ul>
+                        <li>Dusky-red maculopapular rash</li>
+                        <li>Starts hairline/face &rarr; neck &rarr; trunk &rarr; limbs/feet</li>
+                        <li>Appears ~3–5 d after symptoms</li>
+                        <li>May coalesce; fades in same direction over 5–7 d</li>
+                        <li>Fever may spike &gt;104&deg;F</li>
+                    </ul>
+                </li>
+                <li><strong>Post-measles:</strong> weight loss + weakness</li>
+            </ul>
+
+            <h3>3. Host &amp; Risk Factors</h3>
+            <ul>
+                <li><strong>Age:</strong> mainly infants/children</li>
+                <li><strong>Sex:</strong> similar incidence</li>
+                <li><strong>Malnutrition:</strong> &rarr; more severe + prolonged viral excretion</li>
+                <li>No age immunity if never infected/vaccinated</li>
+                <li><strong>Environmental:</strong> overcrowding, poor nutrition, low SES</li>
+            </ul>
+
+            <h3>4. Complications &#11088;</h3>
+            <ul>
+                <li>Pneumonia &#11088;</li>
+                <li>Otitis media</li>
+                <li>Encephalitis &rarr; SSPE</li>
+                <li>Bronchitis</li>
+                <li>Severe diarrhoea</li>
+                <li>Blindness</li>
+                <li>Thrombocytopenia</li>
+                <li>Miscarriage/preterm labour</li>
+                <li>Other neurological complications</li>
+            </ul>
+
+            <h3>5. Diagnosis &amp; Treatment</h3>
+            <ul>
+                <li><strong>Diagnosis:</strong> Clinical + measles IgM</li>
+                <li><strong>Treatment:</strong> Mainly supportive (Fluids, rest, fever control), Vitamin A (&darr; morbidity &amp; mortality), Manage complications, Immunoglobulin for selected immunocompromised/high-risk exposed children</li>
+            </ul>
+
+            <h3>6. Prevention</h3>
+            <ul>
+                <li><strong>Vaccination:</strong> Live attenuated MR vaccine. Nepal: MR1 at 9 months, MR2 at 15 months. Route: SC. Goal: &ge;95% immunization coverage to maintain population immunity.</li>
+                <li><strong>Immunoglobulin:</strong> Post-exposure IM within 3-4 d. High-risk contacts: &lt;1 yr, immunocompromised, severe HIV. Don't give vaccine + IG simultaneously.</li>
+                <li><strong>Outbreak control:</strong> Isolate 7 d after rash, Vaccinate contacts within 2 d (if vaccine contraindicated &rarr; IG within 3-4 d, vaccinate 8-12 weeks later). Intensify vaccination immediately during outbreak.</li>
+            </ul>
+
+            <h3>7. MEASLES ELIMINATION STRATEGY</h3>
+            <p><strong>CATCH-UP &rarr; KEEP-UP &rarr; FOLLOW-UP</strong></p>
+            <ul>
+                <li><strong>Catch-up:</strong> Supplementary immunization targeting all children 9 months-14 years, irrespective of previous vaccination history.</li>
+                <li><strong>Keep-up:</strong> Routine immunization aiming for &gt;95% coverage of each successive birth cohort with MR1 + MR2.</li>
+                <li><strong>Follow-up:</strong> Nationwide campaigns every 2-4 years, targeting children 9-59 months.</li>
+            </ul>
+            <p><strong>National strategies:</strong> Achieve &amp; sustain high population immunity; Achieve &amp; sustain &ge;95% MCV-1 coverage; Investigate all suspected measles-like outbreaks with program response; Use measles elimination platform for Rubella/CRS control; Continue case-based measles surveillance.</p>
+
+            <h3>8. Surveillance</h3>
+            <ul>
+                <li>Integrated with AFP surveillance &rarr; 2003</li>
+                <li>Case-based surveillance &rarr; 2007</li>
+                <li><strong>Suspected case:</strong> Fever + maculopapular rash + cough/coryza/conjunctivitis</li>
+                <li><strong>Surveillance actions:</strong> Notify &rarr; investigate &rarr; collect blood &rarr; laboratory confirmation &rarr; manage outbreak response</li>
+                <li>District rapid response team investigates suspected outbreaks.</li>
+                <li><strong>Surveillance goal:</strong> Identify cases/outbreaks by time &amp; place, age/vaccination status, high-risk populations; Verify outbreaks; Improve timeliness/completeness; Provide feedback.</li>
+                <li>NMNR = 9.4/100,000 in 2081/82 compared with the &ge;2/100,000 standard indicates adequate surveillance sensitivity.</li>
+            </ul>
+
+            <div class="note">
+                <strong>30-SECOND FINAL RECALL</strong><br>
+                MEASLES: RNA Paramyxovirus &rarr; human only &rarr; droplets &rarr; 10d fever/14d rash &rarr; &plusmn;4d infectious &rarr; Koplik spots &rarr; face rash &rarr; pneumonia/SSPE &rarr; Vitamin A &rarr; MR 9m/15m<br>
+                Elimination: Catch-up &rarr; Keep-up &rarr; Follow-up | 9m-14y &rarr; &gt;95% routine &rarr; campaigns 2-4y/9-59m<br>
+                Nepal 2081/82: 33 cases | 29 lab-confirmed | MR1 87% | MR2 96% | NMNR 9.4/100k
+            </div>
+
+            <!-- CHICKENPOX -->
+            <h2>CHICKENPOX (VARICELLA) — COMPACT REVISION</h2>
+
+            <h3>1. Basics &amp; Epidemiology</h3>
+            <ul>
+                <li><strong>Agent:</strong> VZV = Human &alpha;-herpesvirus-3, enveloped dsDNA</li>
+                <li><strong>Source:</strong> infected person respiratory secretions + skin/mucosal lesions</li>
+                <li><strong>Incubation:</strong> 14-17 d (range 10-21)</li>
+                <li><strong>Infectious:</strong> 1-2 d before to 4-5 d after rash; crusts not infectious</li>
+                <li><strong>Transmission:</strong> droplets/droplet nuclei + direct contact; portal = URT/conjunctiva</li>
+                <li><strong>Secondary attack rate:</strong> up to 90%</li>
+                <li>Children &lt;10 yr common; adults more severe</li>
+                <li>Primary infection &rarr; lifelong immunity</li>
+                <li>Pregnancy &rarr; congenital varicella syndrome, especially early pregnancy</li>
+                <li>Crowding favors spread; tropics coolest/driest months</li>
+            </ul>
+
+            <h3>2. Clinical Features</h3>
+            <ul>
+                <li><strong>Prodrome:</strong> Fever + malaise + headache + anorexia</li>
+                <li><strong>Rash evolution:</strong> Macule &rarr; Papule &rarr; Vesicle &rarr; Pustule &rarr; Crust</li>
+                <li>Centripetal distribution: trunk &rarr; face + extremities</li>
+                <li>Crops + pleomorphic rash = pathognomonic &rarr; lesions at different stages simultaneously</li>
+                <li>Severe itching, mucosal lesions</li>
+                <li>Usually heals without scars unless secondarily infected; hypo/hyperpigmentation may remain</li>
+            </ul>
+
+            <h3>3. Complications</h3>
+            <ul>
+                <li>Secondary bacterial skin infection &#11088;</li>
+                <li>Pneumonia</li>
+                <li>Meningoencephalitis</li>
+                <li>Acute cerebellar ataxia</li>
+                <li>Transverse myelitis</li>
+                <li>GBS</li>
+            </ul>
+
+            <h3>4. Diagnosis</h3>
+            <ul>
+                <li>Mainly clinical</li>
+                <li>PCR = preferred confirmation</li>
+                <li>Anti-IgM</li>
+                <li>Tzanck smear &rarr; multinucleated giant cells</li>
+            </ul>
+
+            <h3>5. Treatment</h3>
+            <ul>
+                <li>Symptomatic: antipyretic + antipruritic + hygiene</li>
+                <li>Isolate</li>
+                <li>Acyclovir / valacyclovir / famciclovir &times; 5 d, ideally started within 24 h</li>
+                <li>VZIG for appropriate high-risk exposure</li>
+            </ul>
+
+            <h3>6. Prevention &amp; Control &#11088;</h3>
+            <ul>
+                <li><strong>Case control:</strong> Isolate ~6 d after rash onset; Disinfect articles contaminated with respiratory secretions; Early antiviral therapy</li>
+                <li><strong>VZIG:</strong> Give within 96 h (preferably &le;72 h) after exposure. Indications: Susceptible immunocompromised, Pregnant women, Hospitalized premature infants, Significant exposure in susceptible individuals. Repeat dose after 3 weeks where indicated.</li>
+                <li><strong>Vaccine:</strong> Live attenuated varicella vaccine. &ge;1 yr, &le;12 yr: single dose (as per source). Seronegative &gt;12 yr: 2 doses, 4-8 weeks apart. Contraindicated: pregnancy + immunocompromised.</li>
+            </ul>
+
+            <div class="note">
+                <strong>20-SECOND RECALL</strong><br>
+                VZV = dsDNA herpes | 14-17 d | &plusmn;2 d before &rarr; +4-5 d after rash | 90% secondary attack<br>
+                Rash = CENTRIPETAL + CROPS + PLEOMORPHIC<br>
+                Macule &rarr; papule &rarr; vesicle &rarr; pustule &rarr; crust<br>
+                Complications = skin infection + pneumonia + CNS<br>
+                Dx = PCR | Tzanck giant cells<br>
+                Tx = acyclovir &le;24 h<br>
+                PEP = VZIG &le;96 h (preferably 72 h)<br>
+                Vaccine = live attenuated; avoid pregnancy/immunocompromise.
+            </div>
+
+            <!-- DIPHTHERIA -->
+            <h2>DIPHTHERIA — COMPACT REVISION</h2>
+
+            <h3>1. Basics &amp; Epidemiology</h3>
+            <ul>
+                <li><strong>Agent:</strong> <em>Corynebacterium diphtheriae</em> Gram +, non-motile, non-capsulated, club-shaped bacillus. Toxigenic strains produce powerful exotoxin.</li>
+                <li><strong>Source:</strong> cases + carriers (carriers important)</li>
+                <li><strong>Infective material:</strong> nasopharyngeal secretions, skin lesions, contaminated fomites</li>
+                <li><strong>Transmission:</strong> mainly droplets; also direct contact/fomites</li>
+                <li><strong>Portal:</strong> respiratory; also skin, umbilicus, eye, ear, genitalia</li>
+                <li><strong>Incubation:</strong> 2-6 days</li>
+                <li><strong>Infectivity:</strong> ~14-28 days from disease onset</li>
+                <li><strong>Host:</strong> traditionally children 1-5 yr, but age distribution can shift toward school age</li>
+                <li><strong>Season:</strong> all seasons; winter predominance</li>
+                <li><strong>Risk:</strong> overcrowding + poor sanitation</li>
+                <li><strong>Nepal:</strong> EPI with BCG + DPT began 1979 in Bara, Kaski &amp; Bhaktapur &rarr; expanded nationwide by 1989. Vaccination caused a dramatic decline in diphtheria. Source reports 4 cases in 2023. (For 2081/82: comparable national total not directly verified). (HMIS)</li>
+            </ul>
+
+            <h3>2. Clinical Features</h3>
+            <h4>A. Respiratory</h4>
+            <ul>
+                <li><strong>Pharyngotonsillar (commonest):</strong> Sore throat + dysphagia, Low-grade fever, Gray/white pseudomembrane, Membrane bleeds on attempted removal, Severe bull neck</li>
+                <li><strong>Laryngotracheal:</strong> Hoarseness + croupy cough, Stridor/dyspnoea, Membrane &rarr; airway obstruction</li>
+                <li><strong>Nasal:</strong> Usually mildest, Nasal discharge/lesion, Nasal carriers particularly dangerous</li>
+            </ul>
+            <h4>B. Non-respiratory</h4>
+            <ul>
+                <li><strong>Cutaneous:</strong> punched-out ulcers</li>
+                <li><strong>Ocular:</strong> conjunctivitis/corneal damage</li>
+                <li><strong>Intestinal:</strong> dysphagia/bloody diarrhoea</li>
+                <li><strong>Genital:</strong> ulcerative lesions</li>
+            </ul>
+
+            <h3>3. Complications</h3>
+            <ul>
+                <li>Myocarditis</li>
+                <li>Polyneuropathy &rarr; post-diphtheritic paralysis</li>
+                <li>Mechanical asphyxia from pseudomembrane</li>
+                <li>Pneumonia</li>
+                <li>Otitis media</li>
+                <li>Diphtheria toxin = HEART + NERVES</li>
+            </ul>
+
+            <h3>4. Diagnosis</h3>
+            <ul>
+                <li><strong>Suspect clinically:</strong> Sore throat + fever + pseudomembrane &plusmn; hoarseness/stridor/palatal paralysis</li>
+                <li><strong>Confirm:</strong> Throat/nasal swab &rarr; Culture of <em>C. diphtheriae</em> on Loeffler's serum slope &rarr; characteristic colonies</li>
+                <li>Do not wait for laboratory confirmation before treatment if clinically suspected.</li>
+            </ul>
+
+            <h3>5. Prevention</h3>
+            <ul>
+                <li><strong>Vaccination:</strong> Nepal EPI: Pentavalent (DPT-HepB-Hib) &rarr; 6, 10, 14 weeks. Boosters: After primary series DT &lt;7 yr, dT &ge;7 yr. Periodic boosters maintain protection.</li>
+                <li><strong>Control of case/carriers:</strong> Early detection &rarr; isolate &rarr; swab contacts &rarr; treat. Search contacts/family/friends &rarr; Nose + throat swabs &rarr; Isolate suspected cases/carriers. Diphtheria antitoxin (DAT) immediately. Antibiotics: erythromycin / penicillin.</li>
+            </ul>
+
+            <h3>6. Contact Management</h3>
+            <ul>
+                <li><strong>Previously adequately immunized + recent:</strong> generally no additional action if adequately protected.</li>
+                <li><strong>Immunized &gt;2 yr ago:</strong> &rarr; booster diphtheria toxoid</li>
+                <li><strong>Unimmunized:</strong> &rarr; prophylactic penicillin/erythromycin &rarr; DAT 1,000-2,000 U &rarr; start/complete active immunization</li>
+            </ul>
+
+            <div class="note">
+                <strong>20-SECOND RECALL</strong><br>
+                DIPHTHERIA = C. diphtheriae exotoxin &rarr; pseudomembrane bull neck &rarr; myocarditis + neuropathy<br>
+                Spread: droplets/fomites | Incubation: 2-6 d<br>
+                Dx: throat swab &rarr; Loeffler culture<br>
+                Tx: DAT + antibiotics immediately<br>
+                Prevention: Pentavalent 6-10-14 wk<br>
+                Contacts: swab + prophylactic antibiotic + booster/active immunization as indicated.<br><br>
+                <strong>Exam trigger:</strong> If asked "Diphtheria control", write: Vaccination &rarr; early detection &rarr; isolation &rarr; contact tracing/swabbing &rarr; DAT &rarr; antibiotics &rarr; immunization of contacts.
+            </div>
+
+            <!-- WHOOPING COUGH -->
+            <h2>&#127870; WHOOPING COUGH (PERTUSSIS)</h2>
+
+            <h3>1. Basics &amp; Epidemiology</h3>
+            <ul>
+                <li><strong>Agent:</strong> <em>Bordetella pertussis</em></li>
+                <li><strong>Reservoir:</strong> Humans only; cases = source, no carrier state</li>
+                <li><strong>Infective material:</strong> nasopharyngeal/bronchial secretions + freshly contaminated objects</li>
+                <li><strong>Transmission:</strong> droplets + direct contact</li>
+                <li><strong>Incubation:</strong> 7–14 d</li>
+                <li><strong>Infectious:</strong> mainly catarrhal stage &rarr; ~3 wk after paroxysmal stage begins</li>
+                <li><strong>Secondary attack rate:</strong> ~90% in unimmunized household contacts</li>
+                <li><strong>Host:</strong> infants &amp; preschool children; fatality higher in females</li>
+                <li><strong>Season:</strong> year-round &rarr; &uarr; winter/spring</li>
+                <li>Overcrowding + low SES &rarr; increased transmission</li>
+                <li><strong>Nepal:</strong> Source reports 11 cases in 2023. Nepal uses whole-cell pertussis vaccine (wP) in the routine programme. Don't carry the 11-case figure forward as 2081/82 data unless specifically asked for historical data; couldn't verify a comparable 2081/82 total from current DoHS report. (HMIS)</li>
+            </ul>
+
+            <h3>2. Clinical Course &#11088;&#11088;&#11088;</h3>
+            <ol>
+                <li><strong>1. CATARRHAL — 7–10 d</strong><br>
+                    Coryza + low-grade fever + mild cough &rarr; progressively worse.<br>
+                    &#128293; <strong>MOST INFECTIOUS STAGE</strong>
+                </li>
+                <li><strong>2. PAROXYSMAL — 1–6 wk</strong>
+                    <ul>
+                        <li>Repeated rapid paroxysms of cough</li>
+                        <li>Thick mucus difficult to expel</li>
+                        <li>Inspiratory whoop &#11088;</li>
+                        <li>Cyanosis</li>
+                        <li>Post-tussive vomiting</li>
+                        <li>Exhaustion</li>
+                        <li>Often worse at night</li>
+                        <li>~15 attacks/day on average</li>
+                    </ul>
+                </li>
+                <li><strong>3. CONVALESCENT — 7–10 d</strong>
+                    <ul>
+                        <li>Gradual recovery</li>
+                        <li>Paroxysms decrease &rarr; disappear over 2–3 wk</li>
+                        <li>Cough may recur with subsequent respiratory infections for months</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <p><strong>&#129504; Classic sequence:</strong> Coryza &rarr; cough &rarr; paroxysm &rarr; WHOOP &rarr; vomiting</p>
+
+            <h3>3. Complications</h3>
+            <ul>
+                <li>Bronchopneumonia &#11088;</li>
+                <li>Bronchitis</li>
+                <li>Bronchiectasis</li>
+                <li>Subconjunctival haemorrhage</li>
+                <li>Epistaxis</li>
+                <li>Punctate cerebral haemorrhage</li>
+            </ul>
+
+            <h3>4. Diagnosis</h3>
+            <ul>
+                <li><strong>Nasopharyngeal culture</strong> &rarr; highly specific</li>
+                <li><strong>PCR</strong> &rarr; rapid + highly sensitive</li>
+                <li>Serology / fluorescent antibody staining</li>
+                <li>&#128293; <strong>During suspected outbreak:</strong> PCR + obtain culture confirmation of at least one suspected case.</li>
+            </ul>
+
+            <h3>5. Prevention &#11088;</h3>
+            <h4>Active Immunization</h4>
+            <ul>
+                <li>Best prevention = vaccination</li>
+                <li>Nepal &rarr; whole-cell pertussis (wP), usually as DTwP/pentavalent</li>
+                <li>Primary series: 6 wk &rarr; 10 wk &rarr; 14 wk</li>
+                <li>WHO: 3-dose primary series</li>
+                <li>Protection declines over time</li>
+                <li>Booster 1–6 yr after primary series, preferably 2nd year</li>
+                <li>Some countries give adolescent/adult booster, especially HCWs/young parents.</li>
+            </ul>
+            <h4>Passive</h4>
+            <ul>
+                <li>Hyperimmune globulin &rarr; benefit not established</li>
+            </ul>
+
+            <h3>6. Control of Cases &amp; Contacts</h3>
+            <ul>
+                <li><strong>Case:</strong> Early diagnosis &rarr; isolation &rarr; treatment &rarr; disinfect discharges. Isolate until non-infectious. Erythromycin = drug of choice (Alternatives: ampicillin etc.). Antibiotics during paroxysmal phase don't significantly alter clinical course, but eliminate bacteria &rarr; reduce transmission.</li>
+                <li><strong>Contacts:</strong> Keep infants/young children away from case. Erythromycin/ampicillin &times; 10 d prophylaxis. Ensure DPT vaccination.</li>
+            </ul>
+
+            <div class="note">
+                <strong>20-SECOND RECALL</strong><br>
+                PERTUSSIS = B. pertussis | 7-14 d | droplets | 90% attack rate<br>
+                CATARRHAL &rarr; PAROXYSMAL &rarr; CONVALESCENT<br>
+                Coryza &rarr; paroxysmal cough &rarr; WHOOP &rarr; vomiting<br>
+                Diagnosis: nasopharyngeal culture/PCR<br>
+                Treatment: erythromycin<br>
+                Prevention: wP vaccine 6-10-14 wk<br>
+                Control: isolate + antibiotics + contact prophylaxis<br><br>
+                <strong>Exam killer:</strong><br>
+                Most infectious = catarrhal stage<br>
+                Classic symptom = inspiratory whoop<br>
+                Most important complication = bronchopneumonia
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 MONOLITH. Built to persist.</p>
+    </footer>
+
+</body>
+</html>
