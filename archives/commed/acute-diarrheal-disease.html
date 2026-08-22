@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monolith — Acute Diarrheal Disease</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #e5e5e5;
+            --accent-color: #888888;
+            --border-color: #222222;
+            --hover-color: #ffffff;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-family: var(--font-mono);
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--hover-color);
+        }
+
+        /* Main Container */
+        main {
+            max-width: 800px;
+            margin: 80px auto;
+        }
+
+        /* Header Section */
+        .subject-header {
+            margin-bottom: 60px;
+        }
+
+        .breadcrumb {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--hover-color);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-family: var(--font-mono);
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        /* Typography & Layout Content Elements */
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0px;
+            margin: 50px 0 20px 0;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        h3 {
+            font-size: 1.15rem;
+            font-weight: 500;
+            margin: 25px 0 10px 0;
+            color: var(--hover-color);
+        }
+
+        h4 {
+            font-size: 1.0rem;
+            font-weight: 600;
+            margin: 15px 0 5px 0;
+            color: #d0d0d0;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: var(--text-color);
+            text-align: justify;
+        }
+
+        strong {
+            color: var(--hover-color);
+            font-weight: 600;
+        }
+
+        em {
+            color: #b0b0b0;
+            font-style: italic;
+        }
+
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: square;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        li strong {
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
+        }
+
+        /* Tables matching Minimal Dark theme */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.95rem;
+        }
+
+        th {
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            color: var(--accent-color);
+            text-align: left;
+            padding: 10px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.85rem;
+        }
+
+        td {
+            padding: 12px 10px;
+            border-bottom: 1px dashed var(--border-color);
+            vertical-align: top;
+        }
+
+        tr:hover td {
+            color: var(--hover-color);
+            background-color: #0f0f0f;
+        }
+
+        .note {
+            background-color: #111111;
+            border-left: 2px solid var(--accent-color);
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 0.95rem;
+        }
+
+        /* Flowchart / Box Styling */
+        .flow-step {
+            background-color: #111111;
+            border: 1px solid var(--border-color);
+            padding: 12px 15px;
+            margin: 8px 0;
+            border-radius: 4px;
+        }
+
+        .flow-arrow {
+            text-align: center;
+            color: var(--accent-color);
+            font-weight: bold;
+            margin: 4px 0;
+        }
+
+        /* Footer */
+        footer {
+            max-width: 800px;
+            margin: 100px auto 40px auto;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Monolith</div>
+        <ul class="nav-links">
+            <li><a href="https://fidelioa.github.io/monolith">Home</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/archives">Archives</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/about">About</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Document Header -->
+        <section class="subject-header">
+            <div class="breadcrumb">
+                <a href="https://fidelioa.github.io/monolith/archives">Archives</a> / 
+                <a href="https://fidelioa.github.io/monolith/archives/commed">Communicable Diseases</a> / Acute Diarrhoeal Disease
+            </div>
+            <h1>Applied Epidemiology: Intestinal Infection &amp; Acute Diarrhoeal Disease</h1>
+            <div class="subtitle">FAST TRACK CLINICAL SCIENCE MBBS - 3rd YEAR</div>
+        </section>
+
+        <!-- Main Chapter Content -->
+        <section class="content">
+
+            <h2>Intestinal Infection: Acute Diarrhoeal Disease</h2>
+
+            <h3>Past Questions</h3>
+            <ul>
+                <li><strong>1.</strong> Describe epidemiology and socio-economic determinants of viral gastro-enteritis and its management. <strong>12 (2065)</strong></li>
+                <li><strong>2. Write short notes on: (2061)</strong><br>a. Food based ORS <strong>5</strong></li>
+                <li><strong>3. Write short notes on: (2053)</strong><br>a. Persistent diarrhea <strong>4</strong><br>b. Over hydration <strong>4</strong></li>
+            </ul>
+
+            <h3>Definition &amp; Overview</h3>
+            <p>Diarrhoea is defined as the passage of loose, liquid or watery stool usually more than three times a day.</p>
+            <p>However, important is the recent change in consistency and character of stools rather than the number of stools.</p>
+
+            <h3>Clinical Types of Diarrhoeal Disease</h3>
+            <ul>
+                <li>
+                    <strong>i. Acute watery diarrhea</strong>
+                    <ul>
+                        <li>Lasts several hours to days</li>
+                        <li><strong>Dangers:</strong> Dehydration, weight loss</li>
+                        <li><strong>Pathogens:</strong> Caused by <em>V. cholerae</em> or <em>E. coli</em> bacteria as well as rotavirus</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>ii. Acute bloody diarrhea</strong>
+                    <ul>
+                        <li>Also called dysentery</li>
+                        <li><strong>Dangers:</strong> Damage of intestinal mucosa, sepsis, malnutrition, dehydration</li>
+                        <li><strong>Causative pathogen:</strong> <em>Shigella</em></li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>iii. Persistent diarrhoea</strong>
+                    <ul>
+                        <li>Lasts for 14 days or longer</li>
+                        <li><strong>Dangers:</strong> Malnutrition, non-intestinal infection, dehydration</li>
+                        <li>Patients with other illness such as AIDS are more likely to develop persistent diarrhoea.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>iv. Diarrhoea with severe malnutrition (marasmus and kwashiorkor)</strong>
+                    <ul>
+                        <li><strong>Dangers:</strong> Severe systemic infection, dehydration, heart failure, vitamin and mineral deficiency</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h2>Problem Statement</h2>
+
+            <h3>Global</h3>
+            <ul>
+                <li>Diarrheal disease is a major public health problem in all the developing countries like Asia, Africa, and Latin America.</li>
+                <li>It is estimated that nearly 750 million children below 5 years of age suffer from diarrheal diseases every year.</li>
+                <li>Nearly 5 million children under-fives die from diarrheal disease every year, at the rate of 10 per minute.</li>
+                <li>9% of the global mortality rate under 5 is accounted to diarrhoea and 9 million hospitalizations occur annually.</li>
+            </ul>
+
+            <h3>Nepal (Source: DoHS 2079/80)</h3>
+            <ul>
+                <li>In FY 2079/80, incidence of diarrhoea was 115.1 per 1,000 under 5 children with a threefold decrease from previous fiscal years.</li>
+                <li>Karnali Province had the highest incidence (216), followed by Lumbini Province (161.6), and the lowest incidence was reported in Bagmati Province (78.8).</li>
+                <li>There were four diarrhoeal deaths: one death each was recorded in Bagmati, Madhesh, Karnali, and Sudurpaschim Provinces, with no reported diarrhoeal deaths in Lumbini, Koshi, and Gandaki Provinces.</li>
+                <li>The proportion of diarrhoeal cases treated with ORS and Zinc as per IMNCI national protocol at national level was 93.6%, which was similar to the previous year trend, with more than 90% of diarrheal cases treated with Zinc and ORS in all provinces.</li>
+                <li>There were 0.6% of diarrheal cases treated with intravenous (IV) fluid.</li>
+            </ul>
+
+            <h3>Table: Incidence, deaths and management of diarrhoea under 5 children by province FY 2077/78 - 2079/80</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Indicators</th>
+                        <th>Year</th>
+                        <th>Koshi</th>
+                        <th>Madhesh</th>
+                        <th>Bagmati</th>
+                        <th>Gandaki</th>
+                        <th>Lumbini</th>
+                        <th>Karnali</th>
+                        <th>Sudurpaschim</th>
+                        <th>Total / National</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="3"><strong>Estimated 5 years population prone to Diarrhoea</strong></td>
+                        <td>2077/78</td>
+                        <td>497,208</td>
+                        <td>634,058</td>
+                        <td>652,626</td>
+                        <td>251,527</td>
+                        <td>514,162</td>
+                        <td>183,461</td>
+                        <td>295,726</td>
+                        <td>5,028,589</td>
+                    </tr>
+                    <tr>
+                        <td>2078/79</td>
+                        <td>435,078</td>
+                        <td>652,567</td>
+                        <td>430,599</td>
+                        <td>195,210</td>
+                        <td>475,002</td>
+                        <td>183,658</td>
+                        <td>249,611</td>
+                        <td>2,621,925</td>
+                    </tr>
+                    <tr>
+                        <td>2079/80</td>
+                        <td>427,512</td>
+                        <td>650,000</td>
+                        <td>424,617</td>
+                        <td>191,859</td>
+                        <td>470,407</td>
+                        <td>182,776</td>
+                        <td>249,515</td>
+                        <td>2,596,686</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="3"><strong>Incidence of Diarrhoea / 1000 U5 Population</strong></td>
+                        <td>2077/78</td>
+                        <td>295</td>
+                        <td>339</td>
+                        <td>215</td>
+                        <td>235</td>
+                        <td>357</td>
+                        <td>653</td>
+                        <td>547</td>
+                        <td>339</td>
+                    </tr>
+                    <tr>
+                        <td>2078/79</td>
+                        <td>310</td>
+                        <td>325</td>
+                        <td>311</td>
+                        <td>263</td>
+                        <td>347</td>
+                        <td>595</td>
+                        <td>601</td>
+                        <td>—</td>
+                    </tr>
+                    <tr>
+                        <td>2079/80</td>
+                        <td>79</td>
+                        <td>129</td>
+                        <td>79</td>
+                        <td>83</td>
+                        <td>110</td>
+                        <td>216</td>
+                        <td>102</td>
+                        <td>115</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="3"><strong>Diarrhoeal Deaths</strong></td>
+                        <td>2077/78</td>
+                        <td>14</td>
+                        <td>3</td>
+                        <td>28</td>
+                        <td>—</td>
+                        <td>3</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>50</td>
+                    </tr>
+                    <tr>
+                        <td>2078/79</td>
+                        <td>9</td>
+                        <td>3</td>
+                        <td>10</td>
+                        <td>4</td>
+                        <td>0</td>
+                        <td>2</td>
+                        <td>6</td>
+                        <td>34</td>
+                    </tr>
+                    <tr>
+                        <td>2079/80</td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="3"><strong>Diarrheal treated with Zinc ORS (HF-ORC / FCHV)</strong></td>
+                        <td>2077/78</td>
+                        <td>132,243</td>
+                        <td>194,054</td>
+                        <td>128,793</td>
+                        <td>59,206</td>
+                        <td>175,177</td>
+                        <td>110,516</td>
+                        <td>152,475</td>
+                        <td>950,484</td>
+                    </tr>
+                    <tr>
+                        <td>2078/79</td>
+                        <td>29,712</td>
+                        <td>69,893</td>
+                        <td>28,245</td>
+                        <td>14,510</td>
+                        <td>47,977</td>
+                        <td>37,081</td>
+                        <td>42,667</td>
+                        <td>249,125</td>
+                    </tr>
+                    <tr>
+                        <td>2079/80</td>
+                        <td>29,655</td>
+                        <td>73,995</td>
+                        <td>30,950</td>
+                        <td>15,449</td>
+                        <td>51,684</td>
+                        <td>38,516</td>
+                        <td>39,669</td>
+                        <td>279,941</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="3"><strong>Diarrhoeal cases provided intravenous Fluid (HF)</strong></td>
+                        <td>2077/78</td>
+                        <td>265</td>
+                        <td>496</td>
+                        <td>109</td>
+                        <td>25</td>
+                        <td>269</td>
+                        <td>232</td>
+                        <td>215</td>
+                        <td>1,611</td>
+                    </tr>
+                    <tr>
+                        <td>2078/79</td>
+                        <td>467</td>
+                        <td>422</td>
+                        <td>177</td>
+                        <td>33</td>
+                        <td>244</td>
+                        <td>275</td>
+                        <td>269</td>
+                        <td>1,887</td>
+                    </tr>
+                    <tr>
+                        <td>2079/80</td>
+                        <td>351</td>
+                        <td>469</td>
+                        <td>158</td>
+                        <td>69</td>
+                        <td>35</td>
+                        <td>269</td>
+                        <td>272</td>
+                        <td>1,623</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Epidemiological Determinants</h2>
+
+            <h3>1. Agent Factors</h3>
+
+            <h4>i. Viruses</h4>
+            <ul>
+                <li>Rotaviruses (Leading cause of severe dehydrating diarrhea in children aged &lt;5 years; reinfection is common)</li>
+                <li>Astroviruses</li>
+                <li>Adenoviruses</li>
+                <li>Calciviruses</li>
+                <li>Coronaviruses</li>
+                <li>Norwalk group viruses</li>
+                <li>Enteroviruses</li>
+                <li>Cytomegaloviruses</li>
+            </ul>
+
+            <h4>ii. Bacteria</h4>
+            <ul>
+                <li><em>Campylobacter jejuni</em></li>
+                <li>Enterotoxigenic <em>Escherichia coli</em> (ETEC)</li>
+                <li><em>Shigella</em></li>
+                <li><em>Vibrio cholerae</em></li>
+                <li><em>Vibrio parahaemolyticus</em></li>
+                <li><em>Bacillus cereus</em></li>
+                <li><em>Staphylococcus aureus</em></li>
+                <li><em>Clostridium perfringens</em></li>
+                <li><em>Clostridium difficile</em></li>
+                <li><em>Aeromonas</em>, <em>Yersinia</em>, <em>Chlamydia</em>, <em>N. gonorrhoeae</em></li>
+            </ul>
+
+            <div class="note">
+                <strong>Note:</strong><br>
+                - Enterotoxigenic <em>E. coli</em> is the most common cause of traveler's diarrhea. It produces Heat-labile (LT) and Heat-stable (ST) toxins.<br>
+                - <em>Campylobacter</em> is the commonest cause of enteritis.<br>
+                - <em>Salmonella</em> causes inflammation of bowel epithelium.<br>
+                - Heat-labile toxin (LT) of Enterotoxigenic <em>E. coli</em> resembles cholera toxin. However, cholera toxin is 100 times more powerful.
+            </div>
+
+            <h4>iii. Others</h4>
+            <ul>
+                <li><em>E. histolytica</em></li>
+                <li><em>Giardia intestinalis</em></li>
+                <li>Trichuriasis</li>
+                <li><em>Cryptosporidium</em> spp.</li>
+                <li>Intestinal worms</li>
+                <li>Malnutrition leads to kwashiorkor, sprue, celiac disease, and pellagra—all associated with diarrhoea.</li>
+            </ul>
+
+            <h3>Reservoir of Infection</h3>
+            <ul>
+                <li><strong>Man:</strong> Principal reservoir in ETEC, <em>Shigella</em> spp., <em>V. cholerae</em>, <em>Giardia lamblia</em>, <em>E. histolytica</em>.</li>
+                <li><strong>Animals:</strong> Important reservoir in <em>Campylobacter jejuni</em>, <em>Salmonella</em> spp., and <em>Yersinia enterocolitica</em>.</li>
+            </ul>
+
+            <h3>Host Factors</h3>
+            <ul>
+                <li>Common in children between 6 months and 2 years. Highest incidence in age group 6–11 months.</li>
+                <li>Common in babies under 6 months of age fed on cow's milk or commercial formulas.</li>
+                <li><strong>Contributing factors:</strong> Poverty, prematurity, reduced gastric acidity, immunodeficiency, lack of personal and domestic hygiene, and incorrect feeding practices.</li>
+            </ul>
+
+            <h3>Environmental Factors</h3>
+            <ul>
+                <li><strong>Temperate climate:</strong> Bacterial diarrhea common during warm season; viral diarrhoea common during winter.</li>
+                <li><strong>Tropical area:</strong> Bacterial diarrhoea peaks during warmer, rainy season; Rotavirus diarrhoea occurs throughout the year.</li>
+            </ul>
+
+            <h3>Mode of Transmission</h3>
+            <ul>
+                <li>Faeco-oral route</li>
+                <li>Water-borne</li>
+                <li>Food-borne</li>
+                <li>Direct transmission</li>
+            </ul>
+
+            <h4>Fecal-Oral Transmission Routes (F-Diagram)</h4>
+            <div class="flow-step"><strong>Feces (of reservoir)</strong></div>
+            <div class="flow-arrow">&darr;</div>
+            <div class="flow-step">
+                Fluids (water, milk) | Food | Fruits &amp; Vegetables | Fomites (utensils, spoons, etc.) | Fingers | Flies
+            </div>
+            <div class="flow-arrow">&darr;</div>
+            <div class="flow-step"><strong>Mouth (of susceptible host)</strong></div>
+
+            <p><strong>Incubation period:</strong> Varies from a few hours to a few days.</p>
+
+            <h2>Clinical Features</h2>
+            <p>Clinical features are mainly due to dehydration:</p>
+            <ul>
+                <li><strong>Early features:</strong> Child is irritable, thirsty, and drinks water eagerly.</li>
+                <li><strong>Next phase:</strong> Child becomes more irritable, develops a pinched look due to dry and sunken eyes, anterior fontanelle is depressed in an infant, tongue becomes dry, abdomen becomes scaphoid, passes urine at longer intervals.</li>
+                <li><strong>Progressive stage:</strong> Child develops shock characterized by all features of peripheral circulatory failure (hypothermia, rapid and thready pulse, drowsiness or even unconsciousness, hypotension).</li>
+                <li>Kussmaul type of respiration and anuria.</li>
+            </ul>
+
+            <h2>Degree of Dehydration</h2>
+            <p>Necessary for management purposes. Done by looking and feeling for signs of dehydration, including three key signs (*):</p>
+            <ol>
+                <li>General condition of child</li>
+                <li>Thirst</li>
+                <li>Skin pinch</li>
+            </ol>
+
+            <h3>Assessment Table for Degree of Dehydration</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Assessment</th>
+                        <th>A: No Dehydration</th>
+                        <th>B: Some Dehydration</th>
+                        <th>C: Severe Dehydration</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>a. Look for:</strong><br>General condition*<br><br>Eyes<br>Tears on cry<br>Mouth &amp; tongue<br>Thirst*</td>
+                        <td>Well, alert<br><br>Normal<br>Present<br>Moist<br>Not thirsty (drinks normally)</td>
+                        <td>Restless, irritable<br><br>Sunken<br>Absent<br>Dry<br>Thirsty (drinks eagerly)</td>
+                        <td>Lethargic, floppy, unconscious<br><br>Deeply sunken &amp; dry<br>Absent<br>Very dry<br>Very thirsty (drinks poorly or unable to drink)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>b. Feel for:</strong><br>Skin pinch*</td>
+                        <td>Goes back quickly within a second</td>
+                        <td>Goes back slowly, takes 1 to 2 seconds</td>
+                        <td>Goes back very slowly (&gt;2 seconds)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>c. Decide:</strong></td>
+                        <td>Patient has no signs of dehydration</td>
+                        <td>If patient has 2 or more signs including at least 1 key sign*</td>
+                        <td>If patient has 2 or more signs including at least 1 key sign*</td>
+                    </tr>
+                    <tr>
+                        <td><strong>d. Treatment Plan:</strong></td>
+                        <td><strong>Plan A:</strong> With home available fluids to prevent dehydration</td>
+                        <td><strong>Plan B:</strong> With WHO recommended ORS solution to correct some dehydration</td>
+                        <td><strong>Plan C:</strong> With IV infusion urgently to correct severe dehydration and prevent death</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fluid Deficit:</strong></td>
+                        <td>&lt;5% of body weight</td>
+                        <td>5–10% of body weight</td>
+                        <td>&gt;10% of body weight</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Management of Diarrhoeal Diseases</h2>
+            <p><strong>General Principle:</strong> Give extra fluid for diarrhoea and continue feeding.</p>
+
+            <h3>PLAN A: Treat Diarrhoea at Home</h3>
+            <p>Counsel the mother on the 4 Rules of Home Treatment:</p>
+            <ol>
+                <li>Give Extra Fluid</li>
+                <li>Give Zinc Supplements (age 2 months up to 5 years)</li>
+                <li>Continue Feeding</li>
+                <li>When to Return</li>
+            </ol>
+
+            <h4>1. Give Extra Fluid (as much as the child will take)</h4>
+            <p><strong>Tell the mother:</strong></p>
+            <ul>
+                <li>Breastfeed frequently and for longer at each feed.</li>
+                <li>If exclusively breastfed, give ORS or clean water in addition to breast milk.</li>
+                <li>If not exclusively breastfed, give one or more of: ORS solution, food-based fluids (soup, rice water, yoghurt drinks), or clean water.</li>
+            </ul>
+            <p><strong>Especially important to give ORS at home when:</strong></p>
+            <ul>
+                <li>Child has been treated with Plan B or Plan C during this visit.</li>
+                <li>Child cannot return to a clinic if diarrhoea gets worse.</li>
+            </ul>
+            <ul>
+                <li>Teach mother how to mix and give ORS. Give her 2 packets of ORS to use at home.</li>
+            </ul>
+
+            <p><strong>Fluid volume in addition to usual intake:</strong></p>
+            <ul>
+                <li><strong>Up to 2 years:</strong> 50 to 100 ml after each loose stool</li>
+                <li><strong>2 years or more:</strong> 100 to 200 ml after each loose stool</li>
+            </ul>
+            <p><strong>Instructions for administration:</strong></p>
+            <ul>
+                <li>Give frequent small sips from a cup.</li>
+                <li>If child vomits, wait 10 minutes, then continue more slowly.</li>
+                <li>Continue giving extra fluid until diarrhoea stops.</li>
+            </ul>
+
+            <h4>2. Give Zinc (age 2 months up to 5 years)</h4>
+            <p>Tell the mother how much zinc to give (20 mg tablet):</p>
+            <ul>
+                <li><strong>2 months up to 6 months:</strong> ½ tablet (10 mg) daily for 14 days</li>
+                <li><strong>6 months or more:</strong> 1 tablet (20 mg) daily for 14 days</li>
+            </ul>
+            <p><strong>How to give:</strong></p>
+            <ul>
+                <li><strong>Infants:</strong> Dissolve tablet in small amount of expressed breast milk, ORS, or clean water in a cup.</li>
+                <li><strong>Older children:</strong> Tablets can be chewed or dissolved in a small amount of water.</li>
+            </ul>
+
+            <h4>3. Continue Feeding</h4>
+            <p>Exclusive breastfeeding if age is less than 6 months.</p>
+
+            <h4>4. When to Return</h4>
+
+            <h3>PLAN B: Treat Some Dehydration with ORS</h3>
+            <p>In the clinic, give recommended amount of ORS over a 4-hour period.</p>
+
+            <h4>Determine Amount of ORS to Give During First 4 Hours</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Weight</th>
+                        <th>&lt;6 kg</th>
+                        <th>6 to &lt;10 kg</th>
+                        <th>10 to 12 kg</th>
+                        <th>12 to 19 kg</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Age*</strong></td>
+                        <td>Up to 4 Months</td>
+                        <td>4 to 12 Months</td>
+                        <td>12 Months to 2 Years</td>
+                        <td>2 Years to 5 Years</td>
+                    </tr>
+                    <tr>
+                        <td><strong>In ml</strong></td>
+                        <td>200 – 450</td>
+                        <td>450 – 800</td>
+                        <td>800 – 960</td>
+                        <td>960 – 1600</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><em>*Use child's age only when weight is unknown. Approximate ORS volume (ml) = Weight (kg) × 75.</em></p>
+            <ul>
+                <li>If the child wants more ORS than shown, give more.</li>
+                <li>For non-breastfed infants &lt;6 months using standard ORS, give 100–200 ml clean water during this period (not needed with low osmolarity ORS).</li>
+            </ul>
+
+            <h4>Show Mother How to Give ORS Solution</h4>
+            <ul>
+                <li>Give frequent small sips from a cup.</li>
+                <li>If child vomits, wait 10 minutes, then continue more slowly.</li>
+                <li>Continue breastfeeding whenever child wants.</li>
+            </ul>
+
+            <h4>After 4 Hours</h4>
+            <ul>
+                <li>Reassess child and classify for dehydration.</li>
+                <li>Select appropriate plan (A, B, or C) to continue treatment.</li>
+                <li>Begin feeding child in clinic.</li>
+            </ul>
+
+            <h4>If Mother Must Leave Before Completing Treatment</h4>
+            <ul>
+                <li>Show her how to prepare ORS solution at home.</li>
+                <li>Show her how much ORS to give to finish 4-hour treatment.</li>
+                <li>Give enough ORS packets to complete rehydration + 2 additional packets (Plan A).</li>
+                <li>Explain 4 Rules of Home Treatment.</li>
+            </ul>
+
+            <h3>PLAN C: Treat Severe Dehydration Quickly</h3>
+            <p><em>Follow the algorithm decision tree:</em></p>
+
+            <div class="flow-step">
+                <strong>START HERE: Can you give intravenous (IV) fluid immediately?</strong>
+            </div>
+
+            <p><strong>IF YES:</strong></p>
+            <div class="flow-step">
+                Start IV fluid immediately. If child can drink, give ORS by mouth while drip is set up.<br>
+                Give 100 ml/kg Ringer's Lactate Solution (or Normal Saline), divided as follows:
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Age</th>
+                            <th>First give 30 ml/kg in:</th>
+                            <th>Then give 70 ml/kg in:</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Infants (&lt;12 months)</strong></td>
+                            <td>1 hour*</td>
+                            <td>5 hours</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Children (12 months to 5 years)</strong></td>
+                            <td>30 minutes*</td>
+                            <td>2 ½ hours</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p><em>*Repeat once if radial pulse is still very weak or not detectable.</em></p>
+                <ul>
+                    <li>Reassess child every 1–2 hours. If hydration status is not improving, give IV drip more rapidly.</li>
+                    <li>Also give ORS (about 5 ml/kg/hour) as soon as child can drink (usually after 3–4 hours in infants, 1–2 hours in children).</li>
+                    <li>Reassess infant after 6 hours and child after 3 hours. Classify dehydration and choose Plan A, B, or C.</li>
+                </ul>
+            </div>
+
+            <p><strong>IF NO IV IMMEDIATELY: Is IV treatment available nearby (within 30 minutes)?</strong></p>
+            <ul>
+                <li><strong>YES:</strong> Refer URGENTLY to hospital for IV treatment. If child can drink, provide mother with ORS solution to give frequent sips during transport.</li>
+                <li><strong>NO:</strong> Check if trained to use a naso-gastric (NG) tube for rehydration.</li>
+            </ul>
+
+            <p><strong>IF NG TUBE AVAILABLE:</strong></p>
+            <div class="flow-step">
+                Start rehydration by tube or mouth with ORS solution: give 20 ml/kg/hour for 6 hours (total 120 ml/kg).<br>
+                Reassess child every 1–2 hours while waiting for transfer.<br>
+                If repeated vomiting or abdominal distension occurs, give fluid more slowly.<br>
+                If hydration status is not improving after 3 hours, send child for IV therapy.<br>
+                After 6 hours, reassess child and classify dehydration to select plan (A, B, or C).
+            </div>
+
+            <p><strong>IF CANNOT DRINK &amp; NO NG/IV AVAILABLE:</strong></p>
+            <div class="flow-step">
+                Refer URGENTLY to hospital for IV or NG treatment.
+            </div>
+
+            <div class="note">
+                <strong>Note:</strong> If child is not referred to hospital, observe child at least 6 hours after rehydration to ensure mother can maintain hydration using ORS by mouth.
+            </div>
+
+            <h2>Prevention and Control</h2>
+            <ol>
+                <li>
+                    <strong>Elimination of reservoirs:</strong>
+                    <ul>
+                        <li>Prevention of dehydration (Treatment Plan A)</li>
+                        <li>Correction of moderate and severe dehydration (Treatment Plans B and C)</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Sanitation:</strong>
+                    <ul>
+                        <li>Safe water supply</li>
+                        <li>Excreta disposal</li>
+                        <li>Food sanitation</li>
+                        <li>Disinfection</li>
+                        <li>Health education</li>
+                        <li>Fly control</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Chemoprophylaxis:</strong>
+                    <ul>
+                        <li>Tetracycline BID × 3 days</li>
+                        <li><strong>Not to give:</strong> Neomycin, purgatives, opium, steroids, charcoal, atropine, etc.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Vaccination:</strong>
+                    <ul>
+                        <li><strong>For Cholera:</strong> Killed vaccine, 2 doses s/c</li>
+                        <li>
+                            <strong>Rotavirus vaccine:</strong>
+                            <ul>
+                                <li>
+                                    <strong>i. Rotarix:</strong> Live, oral, monovalent, human.<br>
+                                    3 doses: 1st dose at 6–12 weeks; 2nd dose after 4 weeks (10th week); 3rd dose at 14th week.
+                                </li>
+                                <li>
+                                    <strong>ii. RotaTeq:</strong> Live, oral, bovine-human, pentavalent.<br>
+                                    3 doses: 1st dose at 2 months; 2nd dose at 4 months; 3rd dose at 6 months.
+                                </li>
+                                <li>Vaccination should not be initiated for infants aged &gt;12 weeks.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><strong>Appropriate feeding</strong></li>
+            </ol>
+
+            <div class="note">
+                <strong>Composition of Reduced Osmolarity ORS (WHO/UNICEF recommended since 2001)</strong>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Constituents</th>
+                            <th>Grams / Litre</th>
+                            <th>Mmol / Litre</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Sodium chloride</td>
+                            <td>2.6</td>
+                            <td>Sodium: 75, Chloride: 65</td>
+                        </tr>
+                        <tr>
+                            <td>Glucose anhydrous</td>
+                            <td>13.5</td>
+                            <td>75</td>
+                        </tr>
+                        <tr>
+                            <td>Potassium chloride</td>
+                            <td>1.5</td>
+                            <td>20</td>
+                        </tr>
+                        <tr>
+                            <td>Trisodium citrate, dihydrate</td>
+                            <td>2.9</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Total Weight / Osmolarity</strong></td>
+                            <td><strong>20.5</strong></td>
+                            <td><strong>245</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Diarrheal Disease Control Program in Nepal [2015]</h2>
+            <p>Integral part of Primary Health Care (PHC) program.</p>
+
+            <h3>Objectives</h3>
+            <ul>
+                <li>To reduce morbidity and mortality due to diarrhea and dehydration.</li>
+                <li>To reduce morbidity from 3.3 episodes/child/year to minimum.</li>
+            </ul>
+
+            <h3>Targets</h3>
+            <ul>
+                <li>To reduce &lt;5 mortality rate by 50%.</li>
+                <li>To reduce &lt;5 morbidity by 20%.</li>
+                <li>To increase accessibility of the population to ORS.</li>
+                <li>To raise public awareness about ORS to 100%.</li>
+                <li>To increase number of providers of low osmolarity ORS.</li>
+            </ul>
+
+            <h3>Strategies</h3>
+            <ul>
+                <li>To establish functioning ORT corners.</li>
+                <li>To increase access through FCHV, PHC, HPs, SHPs.</li>
+                <li>To raise public awareness.</li>
+                <li>Apply IMCI package including EPI, Nutrition, ARI, Malaria control programs.</li>
+                <li>Promote specific preventive measures: Breastfeeding, proper weaning.</li>
+            </ul>
+
+            <h3>Achievements</h3>
+            <ul>
+                <li>Low Osmolarity ORS and Zinc tablets treatment now covers 27 and 37 districts of Nepal.</li>
+                <li>100% ORS supply during 2007–2008.</li>
+                <li>100% Zinc tablets purchase.
+                    <ul>
+                        <li><strong>Dose:</strong> Daily 10 mg for &lt;6 months; Daily 20 mg for &gt;6 months for 10–14 days.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h2>Water-borne Epidemics VS Milk-borne Epidemics</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Water-borne Epidemics</th>
+                        <th>Milk-borne Epidemics</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Outbreak</strong></td>
+                        <td>Explosive only if contamination is heavy</td>
+                        <td>Sudden in onset</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Common source</strong></td>
+                        <td>Continuous exposure epidemic</td>
+                        <td>Single exposure epidemic</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tracing of source</strong></td>
+                        <td>May not be traced if too many cases are present</td>
+                        <td>Common source of milk is traceable</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Isolation of disease agent</strong></td>
+                        <td>May not always be isolated</td>
+                        <td>Relatively easy to isolate</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Age involved</strong></td>
+                        <td>Affects people of all ages</td>
+                        <td>Children and elderly are more affected</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Epidemic subsides</strong></td>
+                        <td>After purification of affected water supply</td>
+                        <td>After treatment of affected persons and animals</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Limitation of epidemics</strong></td>
+                        <td>Epidemics not limited to primary cases only</td>
+                        <td>Epidemics limited to only those who drink the particular contaminated milk</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Place of distribution</strong></td>
+                        <td>Distribution may be large if river water is involved</td>
+                        <td>Distribution is restricted to the area of distribution of contaminated milk</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 MONOLITH. Built to persist.</p>
+    </footer>
+
+</body>
+</html>
