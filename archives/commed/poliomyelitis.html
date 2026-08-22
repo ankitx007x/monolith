@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monolith — Poliomyelitis</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #e5e5e5;
+            --accent-color: #888888;
+            --border-color: #222222;
+            --hover-color: #ffffff;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-family: var(--font-mono);
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--hover-color);
+        }
+
+        /* Main Container */
+        main {
+            max-width: 800px;
+            margin: 80px auto;
+        }
+
+        /* Header Section */
+        .subject-header {
+            margin-bottom: 60px;
+        }
+
+        .breadcrumb {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--hover-color);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-family: var(--font-mono);
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        /* Typography & Layout Content Elements */
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0px;
+            margin: 50px 0 20px 0;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        h3 {
+            font-size: 1.15rem;
+            font-weight: 500;
+            margin: 25px 0 10px 0;
+            color: var(--hover-color);
+        }
+
+        h4 {
+            font-size: 1.0rem;
+            font-weight: 600;
+            margin: 15px 0 5px 0;
+            color: #d0d0d0;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: var(--text-color);
+            text-align: justify;
+        }
+
+        strong {
+            color: var(--hover-color);
+            font-weight: 600;
+        }
+
+        em {
+            color: #b0b0b0;
+            font-style: italic;
+        }
+
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: square;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        li strong {
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
+        }
+
+        /* Tables matching Minimal Dark theme */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.95rem;
+        }
+
+        th {
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            color: var(--accent-color);
+            text-align: left;
+            padding: 10px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.85rem;
+        }
+
+        td {
+            padding: 12px 10px;
+            border-bottom: 1px dashed var(--border-color);
+            vertical-align: top;
+        }
+
+        tr:hover td {
+            color: var(--hover-color);
+            background-color: #0f0f0f;
+        }
+
+        .note {
+            background-color: #111111;
+            border-left: 2px solid var(--accent-color);
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 0.95rem;
+        }
+
+        /* Flowchart / Box Styling */
+        .flow-step {
+            background-color: #111111;
+            border: 1px solid var(--border-color);
+            padding: 12px 15px;
+            margin: 8px 0;
+            border-radius: 4px;
+        }
+
+        .flow-arrow {
+            text-align: center;
+            color: var(--accent-color);
+            font-weight: bold;
+            margin: 4px 0;
+        }
+
+        /* Footer */
+        footer {
+            max-width: 800px;
+            margin: 100px auto 40px auto;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Monolith</div>
+        <ul class="nav-links">
+            <li><a href="https://fidelioa.github.io/monolith">Home</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/archives">Archives</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/about">About</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Document Header -->
+        <section class="subject-header">
+            <div class="breadcrumb">
+                <a href="https://fidelioa.github.io/monolith/archives">Archives</a> / 
+                <a href="https://fidelioa.github.io/monolith/archives/commed">Communicable Diseases</a> / Poliomyelitis
+            </div>
+            <h1>Applied Epidemiology: Poliomyelitis</h1>
+            <div class="subtitle">FAST TRACK CLINICAL SCIENCE MBBS - 3rd YEAR</div>
+        </section>
+
+        <!-- Main Chapter Content -->
+        <section class="content">
+
+            <h2>POLIOMYELITIS</h2>
+
+            <h3>Past Questions</h3>
+            <ul>
+                <li><strong>1. Write short notes on:</strong><br>
+                a. Polio eradication <strong>4 (2071)</strong></li>
+                <li><strong>2.</strong> List the vaccine preventable diseases. What are the strategies adopted for pulse polio immunization in Nepal. <strong>9 (2059)</strong></li>
+                <li><strong>3.</strong> State the national guidelines and strategy for control and eradication programme of poliomyelitis. <strong>12 (2058)</strong></li>
+                <li><strong>4.</strong> List six immunisable diseases in Nepal. What strategy would you adopt to end poliomyelitis by 2000 AD from Nepal? <strong>8 (2053)</strong></li>
+            </ul>
+
+            <p>Poliomyelitis is an acute viral infection caused by an RNA virus, which primarily affects human alimentary tract, but may infect CNS resulting in residual paralysis and possibly death.</p>
+
+            <h2>Problem Statement</h2>
+
+            <h3>World:</h3>
+            <ul>
+                <li>It was found in all parts of the world prior to pre vaccination era and extensive use of vaccines since 1954 eliminated the disease in developed countries.</li>
+                <li>In 1988, World Health Assembly resolved to eradicate poliomyelitis globally. Since then implementation of the eradication strategies has reduced the number of polio endemic countries from more than 125 in 1988 to 2 in 2018; Afghanistan, Pakistan.</li>
+                <li>Wild poliovirus cases have decreased by over 99% since 1988, from an estimated 350,000 cases in more than 125 endemic countries then to 22 reported cases in 2017.</li>
+                <li>Of the 3 strains of wild poliovirus (type 1, type 2, and type 3), wild poliovirus type 2 was eradicated in 1999 and no case of wild poliovirus type 3 has been found since the last reported case in Nigeria in November 2012.</li>
+                <li>The <strong>Polio Eradication and Endgame Strategic Plan 2013-2018</strong> represents a major milestone in polio eradication and describes specific steps to take to successfully achieve eradication.</li>
+                <li>The plan was developed by the Global Polio Eradication Initiative (GPEI) in consultation with national health authorities, global health initiatives, scientific experts, donors and other stakeholders, in response to a directive of the World Health Assembly. The Plan has four objectives:
+                    <ul>
+                        <li><strong>a.</strong> Virus detection and interruption</li>
+                        <li><strong>b.</strong> Strengthening immunization system and oral polio vaccine withdrawal</li>
+                        <li><strong>c.</strong> Containment and certification</li>
+                        <li><strong>d.</strong> Legacy planning</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>Nepal:</h3>
+            <ul>
+                <li>Nepal eliminated indigenous polio in 2000 and controlled outbreaks caused by polio importations between 2005 and 2010. The country participated in the certification of wild poliovirus elimination in the World Health Organization (WHO) South-East Asia Region in 2014, 27th March.</li>
+                <li>Nepal switched to bivalent OPV from 2016.</li>
+            </ul>
+
+            <h2>Polio Surveillance</h2>
+            <div class="subtitle" style="margin-bottom: 15px;">AFP and Environmental surveillance status in Nepal (Source: DoHS 2079/80)</div>
+            <p>Surveillance is the most important part of the whole polio eradication Initiative. Without surveillance, it would be impossible to pinpoint where and how wild poliovirus is still circulating or to verify that the virus has been eradicated. Surveillance identifies is still circulating importation of wild poliovirus.</p>
+
+            <h3>Acute flaccid paralysis (AFP) surveillance</h3>
+            <p>There are 4 steps of AFP surveillance:</p>
+            <ul>
+                <li><strong>a. Finding and reporting children with AFP:</strong> Every case of AFP in any child under 15 years should be reported.
+                    <ul>
+                        <li>The number of AFP cases reported each year is used as an indicator of country's ability to detect polio, even in countries where the disease no longer occurs.</li>
+                        <li>A country's surveillance system needs to be sensitive enough to detect at least one case of AFP for every 50,000 children under 15 years, even in the absence of polio.</li>
+                    </ul>
+                </li>
+                <li><strong>b. Transporting stool sample for analysis:</strong>
+                    <ul>
+                        <li>All children (&lt;15 years) with AFP should be reported and tested for wild poliovirus within 48 hours of onset.</li>
+                        <li>Two stool specimens, taken 24-48 hours apart are required.</li>
+                        <li>Specimens are transported in cold box at 4-8°C (reverse cold chain).</li>
+                        <li>Specimen should arrive at laboratory within 72 hours of collection.</li>
+                    </ul>
+                </li>
+                <li><strong>c. Isolating polio virus:</strong> Polio virus should be isolated and should be distinguished between wild and vaccine-derived virus.</li>
+                <li><strong>d. Mapping the virus:</strong> Tests are carried out to determine where the strain may have originated.</li>
+            </ul>
+
+            <h3>Acute flaccid paralysis (AFP) surveillance in Nepal</h3>
+            <p>To maintain sensitive polio surveillance, two cardinal indicators are:</p>
+            <ul>
+                <li>A non-polio AFP rate of at least 2 per 100,000 (SEAR standard) among the under-15 populations, and</li>
+                <li>An adequate stool collection rate of 80% or more.</li>
+            </ul>
+            <p>In FY 2079/80, a total of 266 AFP cases were reported across 58 districts.</p>
+            <p>The national non-polio AFP rate was 2.54 per 100,000 under-15-year populations, surpassing the required rate of at least 2 per 100,000.</p>
+            
+            <div class="note">
+                <strong>In FY 2079/80:</strong><br>
+                - Non-polio AFP rate = 2.54<br>
+                - Non-polio AFP cases = 220<br><br>
+                <strong>Note:</strong><br>
+                - Among the reporting districts, 44 have achieved the target rate of 2 or more, 10 districts have a non-polio AFP rate between 1 and 1.9, and 4 districts have a rate below 1 per 100,000 under-15-year populations.<br>
+                - The national AFP adequate sample stool specimen collection rate is 93%, which exceeded the target of 80%.<br>
+                - Among 58 districts reporting AFP cases, 49 have achieved targeted stool collection rate of 80% or higher.<br>
+                - The 19 districts (Taplejung, Terathum, Dhankuta, Bhojpur, Khotang, Okhaldhunga, Ramechap, Sindhuli, Solukhumbu, Sindhupalchowk, Dolakha, Syangja, Palpa, Manang, Mustang, Rukum-west, Dailekh, Mugu, Humla) that have reported no Acute Flaccid Paralysis (AFP) cases. Most of these districts are sparsely populated, with a relatively smaller number of individuals under 15 years.<br>
+                - For quality AFP surveillance, at least one case per year is expected from any district with a population under 15 years of 50,000 or more.
+            </div>
+
+            <h3>Polio environmental surveillance:</h3>
+            <ul>
+                <li>Environmental Surveillance (ES) for poliovirus analyzes composite human faecal samples from wastewater downstream of high-risk populations.</li>
+                <li>It complements AFP surveillance, confirming the absence of indigenous wild poliovirus, monitoring international virus importations, and detecting vaccine-derived poliovirus.</li>
+            </ul>
+
+            <h3>Surveillance Indicators</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Indicators</th>
+                        <th>Minimum levels for certification standard surveillance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Completeness of reporting</strong></td>
+                        <td>At least 80% of expected routine (weekly or monthly) AFP surveillance reports should be received on AFP cases are seen.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sensitivity of surveillance</strong></td>
+                        <td>At least one case of non-polio AFP should be detected annually per 50,000 population aged less than 15 years. In endemic regions, to ensure even higher sensitivity, this rate should be two per 100,000.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Completeness of case investigation</strong></td>
+                        <td>All AFP cases should have a full clinical and virological investigation with at least 80% of AFP cases having 'adequate' stool specimens collected.<br><br>Adequate stool specimens are two stool specimens of sufficient quantity for laboratory analysis, collected at least 24 hours apart, within 14 days after the onset of paralysis, and arriving in the laboratory by reverse cold chain and with proper documentation.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Completeness of follow-up</strong></td>
+                        <td>At least 80% of AFP cases should have a follow-up examination for residual paralysis at 60 days after the onset of paralysis.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Laboratory performance</strong></td>
+                        <td>All AFP case specimens must be processed in a WHO accredited laboratory within the global polio laboratory network (GPLN).</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Environmental surveillance status of Polio in Nepal:</h3>
+            <ul>
+                <li>Since Mangsir 2074 (November 2017), NPHL has been conducting ES at the seven permanent Environmental Surveillance sites are Sewer Inlet Chamber- Chabahil, Bagmati Manahara Confluence, Bagmati/Dhobikhola confluence, Tukucha, and Shovabagawati in Kathmandu and one each in Morang and Dhanusha districts.</li>
+            </ul>
+
+            <div class="note">
+                <strong>Note:</strong><br>
+                - No Wild Polio Virus have been reported from Nepal since 2010.<br>
+                - Environmental surveillance for polio virus has expanded from Poush 2079 to PPHL Biratnagar, and PPHL Janakpur.
+            </div>
+
+            <h3>Sustaining polio-free status</h3>
+            <p>Nepal has been polio free since August 2010 and remained polio free through 2072/73 as per the non-polio AFP rate and stool collection rate achievements.</p>
+
+            <h2>Epidemiological Determinants</h2>
+
+            <h3>Agent factors</h3>
+            <ul>
+                <li><strong>a. Agent:</strong>
+                    <ul>
+                        <li>i. Polio virus serotype 1, 2 and 3</li>
+                        <li>ii. Polio virus 1 causes most of the outbreak</li>
+                        <li>iii. Can survive for long periods in the external environment (in cold environment in water for 4 months and in feces for 6 months)</li>
+                        <li>iv. Can be inactivated by pasteurization and variety of physical and chemical agents</li>
+                    </ul>
+                </li>
+                <li><strong>b. Reservoir of infection:</strong>
+                    <ul>
+                        <li>i. Man is the only known reservoir of infection</li>
+                        <li>ii. Most of the infection are subclinical</li>
+                        <li>iii. It is estimated that for every clinical cases there may be 1000 subclinical cases in children and 75 in adults</li>
+                    </ul>
+                </li>
+                <li><strong>c. Infectious material:</strong> Virus found in feces and oropharyngeal secretions of an infected person</li>
+                <li><strong>d. Period of communicability:</strong> 7-10 days before and after onset of symptoms</li>
+            </ul>
+
+            <h3>Host factors</h3>
+            <ul>
+                <li><strong>a. Age:</strong> occurs in all age groups, but children are more susceptible than adults</li>
+                <li><strong>b. Sex:</strong> male:female = 3:1</li>
+                <li><strong>c. Risk factors:</strong> fatigue, trauma, intramuscular injections, operative procedures</li>
+                <li><strong>d. Immunity:</strong>
+                    <ul>
+                        <li>i. Maternal antibodies during first 6 months of life</li>
+                        <li>ii. Solid immunity for a serotype after infection but no cross immunity for other serotypes</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>Environmental factors</h3>
+            <ul>
+                <li><strong>a.</strong> Most likely to occur during rainy season</li>
+                <li><strong>b. Environmental sources:</strong> contaminated water, food, flies</li>
+                <li><strong>c.</strong> Overcrowding and poor sanitation provides opportunities for exposure to infection</li>
+            </ul>
+
+            <h2>Mode of Transmission</h2>
+            <ul>
+                <li><strong>a. Fecal-oral route:</strong> main route of spread in developing countries
+                    <ul>
+                        <li>i. Direct: contaminated fingers</li>
+                        <li>ii. Indirect: contaminated food, water, flies and articles used daily</li>
+                    </ul>
+                </li>
+                <li><strong>b. Droplet infection:</strong>
+                    <ul>
+                        <li>i. May occur in acute phase of the disease</li>
+                        <li>ii. Close contact with infected person facilitated droplet infection</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h2>Clinical Features: Spectrum of Poliomyelitis</h2>
+            <ul>
+                <li><strong>a. Inapparent / subclinical infection:</strong> Only seroconversion in 91 to 96% of infections</li>
+                <li><strong>b. Abortive poliomyelitis:</strong>
+                    <ul>
+                        <li>Due to primary viremia</li>
+                        <li>Fever, malaise, sore throat, anorexia, myalgia and headache</li>
+                        <li>Resolves in 3 days</li>
+                    </ul>
+                </li>
+                <li><strong>c. Non-paralytic poliomyelitis (aseptic meningitis) (1%):</strong>
+                    <ul>
+                        <li>Headache, nausea, vomiting</li>
+                        <li>Pain, stiffness of neck</li>
+                        <li>Neck rigidity</li>
+                        <li>Tripod sign</li>
+                        <li>Head drop</li>
+                        <li>Decreased CSF, lymphocytic pleocytosis, normal glucose level, normal or slight increase in proteins</li>
+                    </ul>
+                </li>
+                <li><strong>d. Paralytic poliomyelitis:</strong>
+                    <ul>
+                        <li>Occurs in &lt;1% of infections</li>
+                        <li>Predominant sign is asymmetrical flaccid paralysis</li>
+                        <li>History of fever at the time of onset of paralysis is suggestive of polio</li>
+                        <li>Proximal distal i.e. descending paralysis</li>
+                        <li>Urinary retention</li>
+                        <li>Bulbar paralysis</li>
+                        <li>Respiratory insufficiency</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h2>Diagnosis</h2>
+            <ul>
+                <li><strong>a. Stool culture:</strong>
+                    <ul>
+                        <li>1st week: 80%</li>
+                        <li>2nd week: 50%</li>
+                        <li>3rd week: 25%</li>
+                        <li>Fecal sample collected on two different days</li>
+                    </ul>
+                </li>
+                <li><strong>b. CSF examination, throat and blood examination:</strong> not recommended for purpose of surveillance</li>
+            </ul>
+
+            <h2>Primary Prevention</h2>
+            
+            <h3>1. Vaccination:</h3>
+            <p>Two types of vaccine are available: oral Sabin vaccine is mostly used in endemic countries and injectable Salk vaccine used in developed countries.</p>
+            <p>Nepal has recently included injectable polio vaccine in EPI schedule as a single dose at 14 weeks while continuing oral vaccine as an add-on to gradually stop oral vaccine.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Salk polio vaccine (Injectable Polio Vaccine - IPV)</th>
+                        <th>Sabin polio vaccine (Oral Polio Vaccine - OPV)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. Content</strong></td>
+                        <td>All 3 types of polio viruses inactivated by formalin</td>
+                        <td>Live attenuated virus (all 3 types) grown in primary monkey kidney or human diploid cell culture</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. Dose</strong></td>
+                        <td>SC/IM: 3 doses 4-6 weeks apart (1 dose after 6 months, booster dose 4-6 months later every 3-5 years)</td>
+                        <td>2 drops on 6th, 10th, and 14th weeks</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. Immunity</strong></td>
+                        <td>Humoral immunity, therefore prevents paralysis but does not prevent infection with wild polio infection</td>
+                        <td>Both humoral and intestinal immunity. Prevents paralysis as well as intestinal reinfection. Provides herd immunity, protects community as well. To natural infection lifelong immunity.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. Epidemics</strong></td>
+                        <td>Not useful</td>
+                        <td>Can be effectively used in controlling epidemics</td>
+                    </tr>
+                    <tr>
+                        <td><strong>5. Safety</strong></td>
+                        <td>100% safe</td>
+                        <td>Risk of vaccine derived polio (1 in 2.5 million). More common in immunocompromised.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>6. Manufacture and storage</strong></td>
+                        <td>More difficult. Virus content: 10000 times more than OPV; costlier. Has a longer shelf life. Does not require stringent conditions during storage and transportation.</td>
+                        <td>Cheaper and easier to administer. Requires to be stored and transported at subzero temperature unless stabilized. Failure of vaccine related to storage.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>2. Safe drinking water</h3>
+            <h3>3. Environmental sanitation</h3>
+            <h3>4. Food and personal hygienic practices</h3>
+            <h3>5. Surveillance on acute flaccid paralysis</h3>
+
+            <h2>Treatment</h2>
+            <p>Treatment of the disease is only symptomatic.</p>
+
+            <h2>Rehabilitation Program</h2>
+            <ul>
+                <li><strong>Physical Therapy:</strong>
+                    <ul>
+                        <li>Physical therapy plays an important role in rehabilitation for patients with poliomyelitis.</li>
+                        <li>Patients with muscle paralysis benefit from frequent passive range of motion (PROM) and splinting of joints to prevent contracture and joint ankylosis.</li>
+                        <li>Chest physical therapy (CPT) helps patients with bulbar involvement prevent any pulmonary complications, such as atelectasis.</li>
+                        <li>Frequent repositioning of paralyzed patients helps to prevent bedsores.</li>
+                    </ul>
+                </li>
+                <li><strong>Occupational Therapy:</strong>
+                    <ul>
+                        <li>Patients with paralysis of the extremities may benefit from hand or arm splints, knee or trochanter rolls, a footboard, or Multi-Podus boots to prevent foot drop, ulcers, and other deformities.</li>
+                        <li>Hot packs also are helpful to relieve the muscle pain.</li>
+                    </ul>
+                </li>
+                <li><strong>Speech Therapy:</strong>
+                    <ul>
+                        <li>Patients with cranial nerve involvement may develop swallowing dysfunction.</li>
+                        <li>To protect the airway and prevent aspiration pneumonia, a speech therapist needs to be involved early to perform an evaluation of the safety of swallowing.</li>
+                    </ul>
+                </li>
+                <li><strong>Recreational Therapy:</strong>
+                    <ul>
+                        <li>Patients may attend leisure activities to reduce stress and learn how to get involved in group activities.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h2>Summary Strategies &amp; Plans</h2>
+
+            <h3>Polio Eradication &amp; Endgame Strategic Plan 2013-2018</h3>
+            <div class="flow-step">
+                1. Detect and interrupt all poliovirus transmission<br>
+                2. Strengthen immunization systems and withdraw oral polio vaccine<br>
+                3. Contain poliovirus and certify eradication<br>
+                4. Plan polio's legacy
+            </div>
+
+            <h3>The Polio Endgame Strategy 2019-2023</h3>
+            <ul>
+                <li><strong>Goal 1: Eradication</strong>
+                    <ul>
+                        <li>Continue immunization campaigns, stockpile monovalent OPV, AFP &amp; environmental surveillance</li>
+                        <li>Improve community engagement, accountability &amp; supportive management, surge capacity, expand environmental surveillance network, communication for eradication</li>
+                        <li>Innovate: Regional partnership support to endemic country teams, expanded age groups for SIAs, engagement of development &amp; humanitarian actors for basic community needs, rapid response team for outbreaks, invest in nOPV2 &amp; new IPVs, joint accountability framework with GPEI communication partners for sustained emergency response</li>
+                    </ul>
+                </li>
+                <li><strong>Goal 2: Integration</strong>
+                    <ul>
+                        <li>bOPV &amp; IPV delivered as part of national immunization schedules</li>
+                        <li>Integration of polio surveillance with VPDs, engagement with CSOs to better reach communities, joint delivery and/or enhanced coordination between polio &amp; other VPDs SIAs, WHO emergency programme &amp; GPEI to harmonize outbreak &amp; emergency response</li>
+                        <li>Immunization system recovery/strengthening included in all outbreak response, harmonized data systems (POLIS &amp; WII)</li>
+                        <li>Introduce genetically stable vaccine strains to eliminate the need to use and retain oral vaccines</li>
+                    </ul>
+                </li>
+                <li><strong>Goal 3: Certification &amp; Containment</strong>
+                    <ul>
+                        <li>Certification processes, containment process, national containment inventories and global inventories, containment guidance</li>
+                    </ul>
+                </li>
+                <li><strong>Enabling Areas:</strong>
+                    <ul>
+                        <li>Communications (including VDPV plans), data quality metrics, increase female workers and leaders at all levels, promote staff rotations and incentive packages, establish focused support to polio transition activities</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>Polio Post-Certification Strategy</h3>
+            <ul>
+                <li><strong>Detect and respond:</strong> Promptly detect any re-emergent poliovirus in a human or in the environment and respond to prevent transmission.</li>
+                <li><strong>Protect population:</strong> With the withdrawal of live attenuated polio vaccine (OPV) from national schedules, protect populations with inactivated polio vaccine (IPV) against possible re-emergence of poliovirus.</li>
+                <li><strong>Contain poliovirus:</strong> Ensure potential sources of poliovirus are properly contained according to WHO standards.</li>
+            </ul>
+
+            <h2>Polio Eradication</h2>
+            <p>WHO defines polio eradication as <em>'zero incidence of wild poliovirus transmission anywhere in the world'</em>.</p>
+            <p>As humans are thought to be the only host for the poliovirus, poliovirus survival in the environment is limited and vaccination can interrupt the transmission of the polio virus so the eradication of this disease is possible and launched.</p>
+            
+            <p>The eradication strategy is based on the multifaceted approach involving:</p>
+            <ul>
+                <li>Routine immunization of young children to high coverage of OPV</li>
+                <li>National immunization days in countries where disease is endemic to interrupt transmission of wild virus</li>
+                <li>Surveillance of new cases of polio through reporting of all cases of acute flaccid paralysis, the primary symptom of polio</li>
+                <li><strong>Mop-up campaigns:</strong> These are intensive, house to house campaigns that are conducted as 2 rounds of polio immunization 4-6 weeks apart to limit the transmission of wild polio virus during the final stage of polio eradication. Mop up is conducted when the polio virus is confined in a limited geographical area, where all children below 5 years of age are tracked and vaccinated reaching each household, even after successful implementation of NIDs and routine immunization.
+                    <ul>
+                        <li>Last stage in polio eradication</li>
+                        <li>Basically, these districts were Terai districts, bordering with India</li>
+                        <li>Coverage of mop up have always recorded more than 95%</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h2>Pulse Polio Immunization</h2>
+            <ul>
+                <li>It is a health program in which all children under 5 years of age in the country are vaccinated against polio in a single day regardless of previous immunization status.</li>
+                <li>PPI occur as 2 rounds about 4-6 weeks apart during low transmission season of polio.</li>
+                <li>The dose of OPV during PPI are extra doses which supplement and do not replace the dose received during routine immunization schedule.</li>
+                <li><strong>Intensive pulse polio immunization (IPPI):</strong> Intensification of PPI by adding additional rounds at fixed booths followed by "house to house search and vaccine" component.</li>
+            </ul>
+
+            <h2>Polio Eradication Strategy 2022-2026</h2>
+            <ul>
+                <li>Interrupt wild poliovirus type 1 transmission in Afghanistan and Pakistan, the remaining two endemic countries</li>
+                <li>Stop outbreaks of circulating vaccine-derived polioviruses (cVDPVs), which can occur in under- or unimmunized communities</li>
+            </ul>
+
+            <div class="note">
+                <strong>Note:</strong> Polio was eliminated from Nepal from 27 March 2014. Since it is still a problem in countries like Pakistan, Afghanistan, and Nigeria due to war and conflict.
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 MONOLITH. Built to persist.</p>
+    </footer>
+
+</body>
+</html>
