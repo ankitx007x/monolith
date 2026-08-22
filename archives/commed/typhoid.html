@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monolith — Typhoid Fever, Polio &amp; Viral Hepatitis</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #e5e5e5;
+            --accent-color: #888888;
+            --border-color: #222222;
+            --hover-color: #ffffff;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-family: var(--font-mono);
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--hover-color);
+        }
+
+        /* Main Container */
+        main {
+            max-width: 800px;
+            margin: 80px auto;
+        }
+
+        /* Header Section */
+        .subject-header {
+            margin-bottom: 60px;
+        }
+
+        .breadcrumb {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--hover-color);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-family: var(--font-mono);
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        /* Typography & Layout Content Elements */
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0px;
+            margin: 50px 0 20px 0;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        h3 {
+            font-size: 1.15rem;
+            font-weight: 500;
+            margin: 25px 0 10px 0;
+            color: var(--hover-color);
+        }
+
+        h4 {
+            font-size: 1.0rem;
+            font-weight: 600;
+            margin: 15px 0 5px 0;
+            color: #d0d0d0;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: var(--text-color);
+            text-align: justify;
+        }
+
+        strong {
+            color: var(--hover-color);
+            font-weight: 600;
+        }
+
+        em {
+            color: #b0b0b0;
+            font-style: italic;
+        }
+
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: square;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        li strong {
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
+        }
+
+        /* Tables matching Minimal Dark theme */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.95rem;
+        }
+
+        th {
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            color: var(--accent-color);
+            text-align: left;
+            padding: 10px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.85rem;
+        }
+
+        td {
+            padding: 12px 10px;
+            border-bottom: 1px dashed var(--border-color);
+            vertical-align: top;
+        }
+
+        tr:hover td {
+            color: var(--hover-color);
+            background-color: #0f0f0f;
+        }
+
+        .note {
+            background-color: #111111;
+            border-left: 2px solid var(--accent-color);
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 0.95rem;
+        }
+
+        /* Flowchart / Box Styling */
+        .flow-step {
+            background-color: #111111;
+            border: 1px solid var(--border-color);
+            padding: 12px 15px;
+            margin: 8px 0;
+            border-radius: 4px;
+        }
+
+        .flow-arrow {
+            text-align: center;
+            color: var(--accent-color);
+            font-weight: bold;
+            margin: 4px 0;
+        }
+
+        /* Footer */
+        footer {
+            max-width: 800px;
+            margin: 100px auto 40px auto;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Monolith</div>
+        <ul class="nav-links">
+            <li><a href="https://fidelioa.github.io/monolith">Home</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/archives">Archives</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/about">About</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Document Header -->
+        <section class="subject-header">
+            <div class="breadcrumb">
+                <a href="https://fidelioa.github.io/monolith/archives">Archives</a> / 
+                <a href="https://fidelioa.github.io/monolith/archives/commed">Communicable Diseases</a> / Typhoid Fever
+            </div>
+            <h1>Applied Epidemiology: Typhoid Fever, Poliomyelitis &amp; Viral Hepatitis</h1>
+            <div class="subtitle">FAST TRACK CLINICAL SCIENCE MBBS - 3rd YEAR</div>
+        </section>
+
+        <!-- Main Chapter Content -->
+        <section class="content">
+
+            <!-- Introductory / Global Roadmap & WASH -->
+            <p>Successful implementation of the Global Roadmap may allow up to 50 percent cost savings compared with the ongoing average yearly cost of continuously responding to emerging cholera outbreaks. Most importantly, the proposed long-term cholera control investments will also significantly reduce the impact of all water-related diseases, while contributing to improvements in poverty, malnutrition, and education, thereby representing a significant step toward the achievement of the Sustainable Development Goals (SDGs) for the world's poorest people and toward a world free from the threat of cholera.</p>
+
+            <h3>In Nepal</h3>
+            <ul>
+                <li>There is establishment of anti-microbial sentinel surveillance system across the country that includes identification of cholera along with plans for use of WHO stockpile cholera vaccine.</li>
+                <li><strong>Nepal has improved strengthening outbreak preparedness by:</strong>
+                    <ul>
+                        <li>Strengthening early warning and response team</li>
+                        <li>Expanding health education</li>
+                        <li>Ensuring adequate distribution of ORS</li>
+                        <li>Giving consideration to the provision of oral cholera vaccine in high risk communities (DOVE: delivering oral cholera vaccine effectively)</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="note">
+                <strong>Note:</strong> In any water borne disease like cholera, typhoid, WASH strategy is applied during floods. WASH stands for Water, Sanitation and Hygiene and Health Education. These three points are a must in preventing any water borne diseases.
+            </div>
+
+            <h3>WASH Strategy</h3>
+            <p>WASH Strategy is a critical survival intervention. Provisions of WASH are key to prevent Cholera outbreak. In Cholera prone areas there has been significant effort to water supply disinfection and water quality monitoring, safe excreta disposal in home and community areas.</p>
+
+            <!-- TYPHOID FEVER -->
+            <h2>TYPHOID FEVER</h2>
+
+            <h3>Past Questions</h3>
+            <ul>
+                <li><strong>1. Write short notes on:</strong> Management of typhoid at the population level — <strong>3 (2073)</strong></li>
+                <li><strong>2.</strong> Describe the epidemiological triad for typhoid infection and also elaborate the prevention and treatment for typhoid fever. — <strong>8 (2072)</strong></li>
+                <li><strong>3.</strong> Explain the underlying reasons why enteric fever remains a public health problem in Nepal. Describe preventive measures of enteric fever. — <strong>10 (2069)</strong></li>
+                <li><strong>4.</strong> Give an account of epidemiology and prevention of enteric fevers (typhoid &amp; paratyphoid) in Nepal. — <strong>8 (2064), 8 (2062)</strong></li>
+                <li><strong>5.</strong> Give an account of Epidemiology and Prevention of Enteric fever.</li>
+                <li><strong>6.</strong> Describe the epidemiology of multidrug resistant typhoid fever. How do you proceed to investigate an epidemic of typhoid fever? — <strong>10 (2061)</strong></li>
+                <li><strong>7.</strong> Make a list of water-borne diseases seen in Kathmandu. Describe risk factors and measures for prevention of any one of them. — <strong>8 (2055)</strong></li>
+                <li><strong>8.</strong> Why do you think typhoid is still a public health problem in resource limited areas like Nepal? Describe the ways to break the chain of infection of typhoid with the help of a figure. — <strong>8 (2079)</strong></li>
+            </ul>
+
+            <p>The term <strong>enteric fever</strong> includes both typhoid and paratyphoid fevers.</p>
+            <p>Typhoid fever is clinically characterized by a typical continuous fever for 3-4 weeks, relative bradycardia with involvement of lymphoid tissue and considerable constitutional symptoms.</p>
+            <p><strong>Occurrence:</strong> Sporadically, epidemically or endemically.</p>
+
+            <h3>Problem Statement</h3>
+            <ul>
+                <li>Typhoid was a global problem in the beginning of 20th century.</li>
+                <li>Typhoid occurs in all parts of the world where water supplies and sanitation are substandard; a major public health problem in developing countries.</li>
+                <li>25–27 million cases occur globally with 200,000 to 600,000 deaths.</li>
+                <li>Annual incidence is higher in South Central and South East Asia.</li>
+            </ul>
+
+            <h4>Nepal: (source: DoHS 2079/80)</h4>
+            <ul>
+                <li>In FY 2081/82, 9,795 cases of Typhoid fever have been identified across the country through SORMAS.</li>
+                <li>A total of 301 Typhoidal <em>Salmonella</em> isolates were reported: 6-fold increase in last 3 years.</li>
+                <li>No MDR isolates were encountered but fluoroquinolones resistance was significantly high.</li>
+                <li>Strains of <em>S. typhi</em> and <em>S. paratyphi</em> producing extended spectrum beta-lactamases have emerged recently, primarily in India and Nepal.</li>
+            </ul>
+
+            <h3>Epidemiological Determinants</h3>
+
+            <h4>Agent Factor</h4>
+            <ul>
+                <li><strong>a. Agent:</strong> <em>Salmonella typhi</em> (major cause); <em>S. paratyphi A</em> and <em>S. paratyphi B</em> (infrequent) [TU 2062]</li>
+                <li><em>S. typhi</em> has 3 major antigens: O, H and Vi and a number of phage types (at least 80).</li>
+                <li><em>S. typhi</em> survives intracellularly in the tissues of various organs.</li>
+                <li><strong>Killed by:</strong> Drying, pasteurization and common disinfectants.</li>
+                <li><strong>Factors influencing onset of disease in man:</strong> Infecting dose and virulence of the organism.</li>
+                <li><strong>b. Reservoir of infection:</strong> Man is the only reservoir of infection (viz cases and carriers)
+                    <ul>
+                        <li><strong>1. Cases:</strong> May be mild, moderate and severe. Infectious as long as bacilli appear in stool or urine.</li>
+                        <li><strong>2. Carriers:</strong> May be temporary (incubatory, convalescent) or chronic.
+                            <ul>
+                                <li><em>Convalescent carriers:</em> Excrete bacilli for 6 to 8 weeks then decrease in number. (By 3 months, &lt;4% excrete organism; By 1 year 3% carrier rate)</li>
+                                <li><em>Chronic carriers:</em> Persons who excrete bacilli for more than a year (as long as 50 years) either continuously or intermittently after a clinical attack (2 to 5% of cases).</li>
+                                <li>Organism persists in gall bladder and biliary tract.</li>
+                                <li>Fecal carriers more frequent than urinary carriers.</li>
+                                <li>Urinary carrier state is often associated with abnormalities of urinary tract.</li>
+                                <li><em>Typhoid Mary</em> — Gave rise to &gt;1,300 cases.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><strong>c. Source of infection:</strong>
+                    <ul>
+                        <li>Primary source: Feces and urine of cases and carriers</li>
+                        <li>Secondary source: Contaminated water, food, fingers and flies.</li>
+                        <li>No evidence of excretion in sputum and milk.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="note">
+                <strong>Applied Epidemiology:</strong><br>
+                Phage typing serves as a useful epidemiological tool for tracing the source of epidemics.
+            </div>
+
+            <h4>Host Factors</h4>
+            <ul>
+                <li><strong>a. Age:</strong> May occur at any age but highest incidence in 5–19 years of age. In some areas, incidence in pre-school age (&lt;5 yrs) is similar to incidence in school age. Incidence decreases after 20 years age due to acquisition of immunity from clinical or subclinical infection.</li>
+                <li><strong>b. Sex:</strong> Cases: More in males. Carrier rate: More in females.</li>
+                <li><strong>c. Immunity:</strong> Intracellular and cell mediated immunity. Host factors that contribute to resistance to infection include gastric acidity and local intestinal immunity.</li>
+            </ul>
+
+            <h4>Environment and Social Factors</h4>
+            <ul>
+                <li>Observed all through the year but peak incidence in July–September (rainy season and increase in fly population).</li>
+                <li><strong>Outside human body, the bacilli is found in:</strong>
+                    <ul>
+                        <li><em>Water:</em> Do not multiply in water; many perish within 48 hours, maximum 7 days.</li>
+                        <li><em>Ice:</em> Survive for a month in ice and ice-cream.</li>
+                        <li><em>Food:</em> As it is a bad conductor of heat, it provides environment for survival and multiplication.</li>
+                        <li><em>Milk:</em> Bacilli grow in milk without altering the taste or appearance.</li>
+                        <li><em>Soil:</em> Bacilli survive for up to 70 days in soil irrigated with sewage under moist winter conditions and for half that period in drier summer conditions.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h4>Social Factors</h4>
+            <ul>
+                <li>Pollution of drinking water supply</li>
+                <li>Open defecation and urination</li>
+                <li>Low standard of food and personal hygiene</li>
+                <li>Health ignorance</li>
+                <li>Typhoid may be regarded as an index of general sanitation in a country</li>
+            </ul>
+
+            <h3>Incubation Period</h3>
+            <p>10 to 14 days (3 days to 3 weeks depending upon the dose of bacilli ingested).</p>
+
+            <h3>Modes of Transmission</h3>
+            <p>Feco-oral route, either:</p>
+            <ul>
+                <li><strong>Directly:</strong> Through soiled hands contaminated with feces or urine of cases or carriers.</li>
+                <li><strong>Indirectly:</strong> Ingestion of contaminated water, milk and/or food, or through flies.</li>
+            </ul>
+
+            <h4>Feco-Oral Route Diagram / Transmission Chain</h4>
+            <div class="flow-step">Feces (of reservoir) &rarr; Fluids (water, milk) &rarr; Mouth (of susceptibles)</div>
+            <div class="flow-step">Feces (of reservoir) &rarr; Food &rarr; Mouth (of susceptibles)</div>
+            <div class="flow-step">Feces (of reservoir) &rarr; Fruits and vegetables &rarr; Mouth (of susceptibles)</div>
+            <div class="flow-step">Feces (of reservoir) &rarr; Fomites (utensils, spoons, etc.) &rarr; Mouth (of susceptibles)</div>
+            <div class="flow-step">Feces (of reservoir) &rarr; Fingers &rarr; Mouth (of susceptibles)</div>
+            <div class="flow-step">Feces (of reservoir) &rarr; Flies &rarr; Mouth (of susceptibles)</div>
+
+            <h3>Clinical Features</h3>
+            <p>Usually insidious, but in children onset may be abrupt with chills and high fever.</p>
+            <ul>
+                <li><strong>Prodromal stage:</strong>
+                    <ul>
+                        <li>Malaise</li>
+                        <li>Headache</li>
+                        <li>Cough</li>
+                        <li>Sore throat</li>
+                        <li>Abdominal pain</li>
+                        <li>Constipation</li>
+                    </ul>
+                </li>
+                <li>After about 7 to 10 days, fever reaches a plateau and patient looks toxic, appearing exhausted and prostrated.</li>
+                <li>Marked constipation or "pea soup" diarrhea.</li>
+                <li>Marked abdominal distention and leukopenia.</li>
+                <li>Blood, urine and stool culture: Positive for <em>S. typhi</em>.</li>
+                <li>In absence of complication: patient improves over 7 to 10 days; Relapse may occur up to 2 weeks after termination of therapy.</li>
+                <li><strong>Late findings:</strong>
+                    <ul>
+                        <li>Splenomegaly</li>
+                        <li>Abdominal distention and tenderness</li>
+                        <li>Relative bradycardia</li>
+                        <li>Dicrotic pulse</li>
+                        <li>Meningismus</li>
+                        <li><strong>Rose spots:</strong> An individual spot (rash), a pink papule 2–3 mm in diameter that fades on pressure, found on the trunk during the second week of disease. It disappears in 3–4 days.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>Complications</h3>
+            <ul>
+                <li><strong>Bowel:</strong>
+                    <ul>
+                        <li>a. Perforation</li>
+                        <li>b. Hemorrhage</li>
+                    </ul>
+                </li>
+                <li><strong>Septicemic foci:</strong>
+                    <ul>
+                        <li>a. Bone and joint infection</li>
+                        <li>b. Cholecystitis</li>
+                        <li>c. Meningitis</li>
+                    </ul>
+                </li>
+                <li><strong>Toxic phenomena:</strong>
+                    <ul>
+                        <li>a. Myocarditis</li>
+                        <li>b. Nephritis</li>
+                    </ul>
+                </li>
+                <li><strong>Chronic carriage:</strong> Persistent gallbladder carriage.</li>
+            </ul>
+
+            <h3>Laboratory Diagnosis</h3>
+
+            <h4>1. Microbiological procedures [TU 2062]</h4>
+            <p>Isolation of <em>S. typhi</em> from blood, bone marrow and stool (Definitive diagnosis). Blood culture is the mainstay of diagnosis.</p>
+
+            <div class="note">
+                <strong>Diagnostic Schedule by Week (BASU):</strong>
+                <ul>
+                    <li><strong>1st Week:</strong> Blood culture (B)</li>
+                    <li><strong>2nd Week:</strong> Antibodies / Widal test (A)</li>
+                    <li><strong>3rd Week:</strong> Stool culture (S)</li>
+                    <li><strong>4th Week:</strong> Urine culture (U)</li>
+                </ul>
+            </div>
+
+            <h4>2. Serological procedures</h4>
+            <p><strong>Felix Widal test:</strong> Measures agglutinating antibody level against O and H antigens. O antibodies appear after 6–8 days and H antigen appears after 10–12 days after onset of disease. This test is performed on an acute serum (at first contact with the patient). Moderate sensitivity and specificity. Negative in 30% cases (due to prior antibiotic therapy that has blunted antibody response). <em>S. typhi</em> shares O and H antigens with other salmonella serotypes and has cross-reacting epitopes with other Enterobacteriaceae (False positive results).</p>
+
+            <h4>3. New diagnostic tests</h4>
+            <ul>
+                <li><strong>IDL Tubex test:</strong> detects IgM09 antibody within a few minutes.</li>
+                <li><strong>Typhidot test:</strong> detects IgM and IgG antibodies against 50 kD antigens.</li>
+                <li><strong>Typhidot-M test:</strong> detects specific IgM only.</li>
+            </ul>
+
+            <h3>Control of Typhoid</h3>
+
+            <h4>1. Control of reservoir</h4>
+
+            <h5>a. Case</h5>
+            <ul>
+                <li><strong>i. Early diagnosis:</strong> Vital importance as early symptoms are non-specific. Culture of blood and stool.</li>
+                <li><strong>ii. Notification:</strong> Should be done where such notification is mandatory.</li>
+                <li><strong>iii. Isolation:</strong> Cases should be isolated till 3 bacteriologically negative stool and urine samples are obtained on 3 separate days.</li>
+                <li><strong>iv. Treatment:</strong> Fluoroquinolones (Drug of Choice). Hydrocortisone 100 mg IV daily for 3 to 4 days should be given in profoundly toxic patients.</li>
+            </ul>
+
+            <!-- Treatment Guidelines Table -->
+            <h3>Antibiotic Treatment Guidelines for Typhoid Fever</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th rowspan="2">Susceptibility</th>
+                        <th colspan="3">Optimal Therapy</th>
+                        <th colspan="3">Alternative Effective Drugs</th>
+                    </tr>
+                    <tr>
+                        <th>Antibiotic</th>
+                        <th>Daily dose (mg/kg)</th>
+                        <th>Days</th>
+                        <th>Antibiotic</th>
+                        <th>Daily dose (mg/kg)</th>
+                        <th>Days</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Fully sensitive</strong></td>
+                        <td>Fluoroquinolone e.g. ofloxacin or ciprofloxacin</td>
+                        <td>15</td>
+                        <td>5–7</td>
+                        <td>Chloramphenicol<br>Amoxicillin<br>TMP-SMX</td>
+                        <td>50–70<br>75<br>8–40</td>
+                        <td>14–21<br>14<br>14</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Multidrug resistance</strong></td>
+                        <td>Fluoroquinolone or cefixime</td>
+                        <td>15<br>15–20</td>
+                        <td>5–7<br>7–14</td>
+                        <td>Azithromycin<br>Cefixime</td>
+                        <td>8–10<br>15–20</td>
+                        <td>7<br>7–14</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Quinolone resistance</strong></td>
+                        <td>Azithromycin or Ceftriaxone</td>
+                        <td>8–10<br>75</td>
+                        <td>7<br>10–14</td>
+                        <td>Cefixime</td>
+                        <td>20</td>
+                        <td>7–14</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <ul>
+                <li><strong>v. Disinfection:</strong> Stool and urine should be received in closed containers and disinfected with 5% cresol for at least 2 hours. All soiled clothes and linen should be soaked in a solution of 2% chlorine and steam sterilized. Nurses and doctors should not forget to disinfect their hands.</li>
+                <li><strong>vi. Follow up:</strong> Should be done for 3–4 months after discharge of the patient and again after 12 months to prevent development of carrier state.</li>
+            </ul>
+
+            <h5>b. Carriers</h5>
+            <p>One of the most radical ways of control as they are the ultimate source of typhoid fever.</p>
+            <ul>
+                <li><strong>i. Identification:</strong> Culture and serology. Duodenal drainage establishes presence of salmonella in biliary tract in carriers. In 80%, Vi antigen is found.</li>
+                <li><strong>ii. Treatment:</strong> Intensive course of Ampicillin and Amoxicillin (4–6 g a day) together with Probenecid (2 g/day) for 6 weeks. These drugs are concentrated in bile and eradicate disease in 70% of carriers.</li>
+                <li><strong>iii. Surgery:</strong> Cholecystectomy with concomitant ampicillin therapy. Refractory urinary carriers need nephrectomy when one kidney is damaged and the other is healthy.</li>
+                <li><strong>iv. Surveillance:</strong> Carriers should be prevented from handling food, milk or water for others.</li>
+                <li><strong>v. Health education:</strong> Health education regarding washing hands with soap, after defecation or urination or before preparing food.</li>
+            </ul>
+
+            <div class="note">
+                <strong>Breaking the Chain of Transmission (Sanitation Barrier):</strong><br>
+                Placing a sanitation barrier between Feces and the vectors/vehicles (Fluids, Food, Fruits &amp; Vegetables, Fomites, Fingers, Flies) blocks the transmission path to susceptible hosts.
+            </div>
+
+            <h4>2. Control of sanitation</h4>
+            <ul>
+                <li>Protection and purification of drinking water supplies</li>
+                <li>Improvement of basic sanitation</li>
+                <li>Promotion of food hygiene</li>
+            </ul>
+
+            <h4>3. Immunization</h4>
+            <ul>
+                <li>The only specific preventive measure likely to yield highest benefit for money spent.</li>
+                <li>Does not give 100% protection but lowers the incidence and seriousness of the infection.</li>
+                <li>It can be given at any age &gt; 2 years.</li>
+                <li><strong>It is recommended to:</strong>
+                    <ul>
+                        <li>a. Those living in endemic areas</li>
+                        <li>b. Household contacts</li>
+                        <li>c. Groups at risk of infection (School children and hospital staff)</li>
+                        <li>d. Travelers proceeding to endemic areas</li>
+                        <li>e. Those attending melas and yatras</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>Anti-Typhoid Vaccines</h3>
+
+            <h4>a. Vi polysaccharide vaccine</h4>
+            <ul>
+                <li>Sub-unit vaccine prepared from purified Vi capsular polysaccharide strain.</li>
+                <li>Elicits T-cell independent response, not boosted by additional doses.</li>
+                <li>Administered subcutaneously or intramuscularly.</li>
+                <li>For individuals age &ge; 2 years. Revaccination every 3 years.</li>
+                <li>Minimal local side effects. Contraindication: previous hypersensitivity.</li>
+                <li><strong>TCV Vaccine (Typhoid Conjugate Vaccine):</strong>
+                    <ul>
+                        <li>Contains Vi capsular polysaccharide conjugated to a carrier protein.</li>
+                        <li>Can be given from 6 months of age.</li>
+                        <li>Provides longer lasting protection &amp; works well in young children.</li>
+                        <li>Preferred by WHO.</li>
+                        <li>Introduced into Nepal's National Routine Immunization programme in 2022. A nationwide catch-up campaign vaccinated children 15 months–15 years of age.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h4>b. Ty21a vaccine (TYPHORAL vaccine)</h4>
+            <ul>
+                <li>Orally administered, live attenuated vaccine.</li>
+                <li>For individuals age &ge; 5 years.</li>
+                <li>Administered every other day on day 1, 3 and 5th day with booster doses of 3 doses every 3 years.</li>
+                <li><strong>Safety and Precaution:</strong> Proguanil and antibacterial drugs should be stopped 3 days before and 3 days after giving the vaccine (may harm live bacterial vaccines).</li>
+            </ul>
+
+            <h3>Prevention of Enteric Fever at Population Level</h3>
+            <ul>
+                <li><strong>1. Control of sanitation:</strong>
+                    <ul>
+                        <li>a. Protection and purification of drinking water supplies</li>
+                        <li>b. Improvement of basic water sanitation</li>
+                        <li>c. Promotion of food hygiene</li>
+                    </ul>
+                </li>
+                <li><strong>2. Immunization:</strong> Recommended to those living in endemic areas, travelers proceeding to endemic areas.</li>
+                <li><strong>3. Health education:</strong> Regarding washing hands with soap after defecation, urination or before preparing foods.</li>
+            </ul>
+
+            <h3>Prevention at the Individual Level</h3>
+            <ul>
+                <li>1. Healthy hygiene practices</li>
+                <li>2. Immunization</li>
+                <li>3. Control of cases</li>
+                <li>4. Control of carriers</li>
+                <li>5. Chemoprophylaxis to contact households</li>
+            </ul>
+
+            <h3>MDR Typhoid</h3>
+            <p>MDR strains of <em>S. typhi</em> emerged in 1989 in China and Southeast Asia and have since disseminated widely. These strains contain plasmids encoding resistance to chloramphenicol, ampicillin and trimethoprim.</p>
