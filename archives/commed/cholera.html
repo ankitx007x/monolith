@@ -3,21 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Applied Epidemiology - Cholera</title>
+    <title>Monolith — Cholera</title>
     <style>
         :root {
-            --primary-color: #1a365d;
-            --secondary-color: #2b6cb0;
-            --accent-color: #c53030;
-            --bg-color: #f7fafc;
-            --card-bg: #ffffff;
-            --text-color: #2d3748;
-            --text-muted: #718096;
-            --border-color: #e2e8f0;
-            --header-bg: #2c5282;
-            --sidebar-bg: #edf2f7;
-            --highlight-bg: #fffaf0;
-            --highlight-border: #dd6b20;
+            --bg-color: #0a0a0a;
+            --text-color: #e5e5e5;
+            --accent-color: #888888;
+            --border-color: #222222;
+            --hover-color: #ffffff;
+            --font-mono: 'Courier New', Courier, monospace;
         }
 
         * {
@@ -27,703 +21,684 @@
         }
 
         body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-            padding: 20px;
+            padding: 0 20px;
         }
 
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            background: var(--card-bg);
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        header {
-            border-bottom: 3px solid var(--primary-color);
-            padding-bottom: 20px;
-            margin-bottom: 30px;
+        /* Navigation */
+        nav {
             display: flex;
             justify-content: space-between;
-            align-items: flex-end;
-            flex-wrap: wrap;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-color);
         }
 
-        .header-title h1 {
-            color: var(--primary-color);
-            font-size: 2.2rem;
+        .logo {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .header-title h2 {
-            color: var(--secondary-color);
             font-size: 1.2rem;
-            font-weight: 500;
-            margin-top: 5px;
         }
 
-        .header-meta {
-            text-align: right;
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--accent-color);
+            text-decoration: none;
             font-size: 0.9rem;
-            color: var(--text-muted);
-            font-weight: 600;
+            font-family: var(--font-mono);
+            transition: color 0.2s ease;
         }
 
-        .section-title {
-            background-color: var(--header-bg);
-            color: white;
-            padding: 8px 15px;
-            font-size: 1.2rem;
-            font-weight: 600;
-            border-radius: 4px;
-            margin: 30px 0 15px 0;
-            letter-spacing: 0.5px;
+        .nav-links a:hover {
+            color: var(--hover-color);
         }
 
-        .subsection-title {
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--secondary-color);
-            padding-bottom: 5px;
-            margin: 20px 0 10px 0;
-            font-size: 1.1rem;
+        /* Main Container */
+        main {
+            max-width: 800px;
+            margin: 80px auto;
         }
 
-        .questions-card {
-            background-color: #f0f4f8;
-            border-left: 4px solid var(--secondary-color);
-            padding: 20px;
-            margin-bottom: 25px;
-            border-radius: 0 6px 6px 0;
+        /* Header Section */
+        .subject-header {
+            margin-bottom: 60px;
         }
 
-        .questions-card h3 {
-            color: var(--primary-color);
-            margin-bottom: 12px;
-            font-size: 1.1rem;
+        .breadcrumb {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
         }
 
-        .question-item {
-            margin-bottom: 15px;
-            padding-bottom: 12px;
-            border-bottom: 1px dashed #cbd5e0;
+        .breadcrumb a {
+            color: var(--accent-color);
+            text-decoration: none;
         }
 
-        .question-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
+        .breadcrumb a:hover {
+            color: var(--hover-color);
         }
 
-        .question-marks {
-            float: right;
-            font-weight: bold;
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-family: var(--font-mono);
             color: var(--accent-color);
             font-size: 0.9rem;
+            text-transform: uppercase;
         }
 
-        ul, ol {
-            padding-left: 20px;
-            margin-bottom: 15px;
+        /* Typography & Layout Content Elements */
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0px;
+            margin: 50px 0 20px 0;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
         }
 
-        li {
-            margin-bottom: 6px;
+        h3 {
+            font-size: 1.15rem;
+            font-weight: 500;
+            margin: 25px 0 10px 0;
+            color: var(--hover-color);
+        }
+
+        h4 {
+            font-size: 1.0rem;
+            font-weight: 600;
+            margin: 15px 0 5px 0;
+            color: #d0d0d0;
         }
 
         p {
-            margin-bottom: 12px;
+            margin-bottom: 15px;
+            color: var(--text-color);
             text-align: justify;
         }
 
-        .highlight-box {
-            background-color: var(--highlight-bg);
-            border: 1px solid var(--highlight-border);
-            padding: 15px;
-            border-radius: 6px;
-            margin: 20px 0;
+        strong {
+            color: var(--hover-color);
+            font-weight: 600;
         }
 
+        em {
+            color: #b0b0b0;
+            font-style: italic;
+        }
+
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: square;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        li strong {
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
+        }
+
+        /* Tables matching Minimal Dark theme */
         table {
             width: 100%;
             border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.95rem;
+        }
+
+        th {
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            color: var(--accent-color);
+            text-align: left;
+            padding: 10px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.85rem;
+        }
+
+        td {
+            padding: 12px 10px;
+            border-bottom: 1px dashed var(--border-color);
+            vertical-align: top;
+        }
+
+        tr:hover td {
+            color: var(--hover-color);
+            background-color: #0f0f0f;
+        }
+
+        .note {
+            background-color: #111111;
+            border-left: 2px solid var(--accent-color);
+            padding: 15px;
             margin: 20px 0;
             font-size: 0.95rem;
         }
 
-        th, td {
+        /* Flowchart / Box Styling */
+        .flow-step {
+            background-color: #111111;
             border: 1px solid var(--border-color);
-            padding: 10px 12px;
-            text-align: left;
+            padding: 12px 15px;
+            margin: 8px 0;
+            border-radius: 4px;
         }
 
-        th {
-            background-color: var(--primary-color);
-            color: white;
-            font-weight: 600;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f7fafc;
+        .flow-arrow {
+            text-align: center;
+            color: var(--accent-color);
+            font-weight: bold;
+            margin: 4px 0;
         }
 
         .diagram-container {
-            text-align: center;
-            margin: 25px 0;
-            padding: 15px;
-            background: #fff;
+            background-color: #111111;
             border: 1px solid var(--border-color);
-            border-radius: 6px;
-        }
-
-        .diagram-svg {
-            max-width: 100%;
-            height: auto;
-        }
-
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        @media (max-width: 768px) {
-            .grid-2 {
-                grid-template-columns: 1fr;
-            }
-            .header-meta {
-                text-align: left;
-                margin-top: 10px;
-            }
-            .container {
-                padding: 20px;
-            }
-        }
-
-        .badge {
-            display: inline-block;
-            background: var(--secondary-color);
-            color: white;
-            padding: 2px 8px;
+            padding: 20px;
+            margin: 25px 0;
             border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: bold;
+            text-align: center;
         }
 
-        .page-footer {
-            margin-top: 40px;
-            padding-top: 15px;
+        .diagram-title {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            margin-top: 15px;
+            text-transform: uppercase;
+        }
+
+        /* Footer */
+        footer {
+            max-width: 800px;
+            margin: 100px auto 40px auto;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
             border-top: 1px solid var(--border-color);
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.85rem;
-            color: var(--text-muted);
+            padding-top: 20px;
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <header>
-        <div class="header-title">
-            <h2>Applied Epidemiology</h2>
-            <h1>CHOLERA</h1>
-        </div>
-        <div class="header-meta">
-            FAST TRACK CLINICAL SCIENCE<br>
-            MBBS - 3rd YEAR<br>
-            Communicable Diseases
-        </div>
-    </header>
+    <nav>
+        <div class="logo">Monolith</div>
+        <ul class="nav-links">
+            <li><a href="https://fidelioa.github.io/monolith">Home</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/archives">Archives</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/about">About</a></li>
+        </ul>
+    </nav>
 
-    <!-- Past Questions Section -->
-    <div class="questions-card">
-        <h3>Past Questions</h3>
-        <div class="question-item">
-            <span class="question-marks">3+4=7 (2073)</span>
-            <p><strong>1.</strong> We often read and review the history how cholera was controlled in mid nineteenth century in the resource rich countries, since then no cases have been reported. However, in low income countries like ours we, time and again witness plenty of cholera cases in 21st century. How do you see this problem in Nepal and what public health approach did the resource rich countries adopted to redress the issue and also describe the stakeholder responsible with robust solution to bring down the cases to minimum in context to Nepal.</p>
-        </div>
-        <div class="question-item">
-            <span class="question-marks">10 (2068)</span>
-            <p><strong>2.</strong> Discuss why cholera remains a public health problem in Nepal and in other developing countries despite several national efforts to prevent it?</p>
-        </div>
-        <div class="question-item">
-            <span class="question-marks">8 (2064)</span>
-            <p><strong>3.</strong> Describe the epidemiological situation of cholera and its determinants in Nepal. Illustrate the principles of case management, prevention and control of cholera.</p>
-        </div>
-        <div class="question-item">
-            <span class="question-marks">8 (2054)</span>
-            <p><strong>4.</strong> Write short notes on:<br>
-            a. Killed oral cholera vaccine</p>
-        </div>
-    </div>
+    <main>
+        <!-- Document Header -->
+        <section class="subject-header">
+            <div class="breadcrumb">
+                <a href="https://fidelioa.github.io/monolith/archives">Archives</a> / 
+                <a href="https://fidelioa.github.io/monolith/archives/commed">Communicable Diseases</a> / Cholera
+            </div>
+            <h1>Applied Epidemiology: Cholera</h1>
+            <div class="subtitle">FAST TRACK CLINICAL SCIENCE MBBS - 3rd YEAR</div>
+        </section>
 
-    <!-- Overview / Introduction -->
-    <div class="section-title">Overview & Key Concepts</div>
-    <ul>
-        <li>Cholera is an acute, infectious, diarrhoeal disease of the small intestine, caused by the bacteriae <em>Vibrio cholerae</em> O1 (classic or El Tor) transmitted usually by the fecal contamination of food and water.</li>
-        <li>Cholera is a disease of inequity—an ancient illness that today sickens and kills only the poorest and most vulnerable people.</li>
-        <li>The map of cholera is essentially the same as a map of poverty. Every death from cholera is preventable with the tools we have today, putting the goal of ending its public health impact within our reach.</li>
-        <li>Cholera can be controlled with a multi-sector approach—including basic water, sanitation, and hygiene (WASH) services, and oral cholera vaccines (OCV).</li>
-    </ul>
+        <!-- Main Chapter Content -->
+        <section class="content">
 
-    <!-- Problem Statement -->
-    <div class="section-title">Problem Statement</div>
-    
-    <h3 class="subsection-title">World</h3>
-    <p>While safe drinking water and advanced sanitation systems have made Europe and North America cholera free for decades, the disease still affects at least 47 countries across the globe, resulting in an estimated <strong>2.9 million cases</strong> and <strong>95,000 deaths</strong> per year worldwide.</p>
-    <p>In 2017, cholera continues to hit communities already made vulnerable by tragedies such as conflicts and famines. Yemen currently faces the world's largest cholera outbreak, with over 600,000 suspected cases and more than 2,000 deaths reported since April 2017. Over 800 people have died of cholera in Somalia since the beginning of the year, and over 500 in the DRC. Haiti has now reported over 1 million cases with over 10,000 deaths since the beginning of the 2010 outbreak.</p>
+            <h2>Cholera</h2>
 
-    <h3 class="subsection-title">Nepal (FY 2079/80)</h3>
-    <p>In FY 2079/80, 44 cases of cholera have been reported in EWARS (Source: EoMS/EDCD/DOHS). There were 42 cases of Cholera reported from Bagmati Province while Madhesh, Gandaki, Lumbini, and Karnali Provinces reported zero cases.</p>
-    <p>Reactive Oral Cholera Vaccination (OCV) was done among 44.64% of the target population (n=92,815) in two phases of campaigning. Nine <em>V. cholerae</em> isolates were reported for bacterial diarrhoea. Two isolates of <em>V. cholerae</em> were resistant to ampicillin and one to tetracycline.</p>
-
-    <h4>Table: Oral cholera vaccination campaign in Kathmandu (FY 2079/80)</h4>
-    <table>
-        <thead>
-            <tr>
-                <th>Campaign phase</th>
-                <th>Total population that received OCV</th>
-                <th>Target population</th>
-                <th>Coverage rate (%)</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>First</td>
-                <td>37,108</td>
-                <td>92,185</td>
-                <td>40.25%</td>
-            </tr>
-            <tr>
-                <td>Second</td>
-                <td>45,215</td>
-                <td>92,185</td>
-                <td>49.04%</td>
-            </tr>
-            <tr>
-                <td><strong>Total</strong></td>
-                <td><strong>82,323</strong></td>
-                <td><strong>92,185</strong></td>
-                <td><strong>44.64%</strong></td>
-            </tr>
-        </tbody>
-    </table>
-
-    <!-- Epidemiology Section -->
-    <div class="section-title">Epidemiology</div>
-
-    <h3 class="subsection-title">Agent Factors</h3>
-    <ul>
-        <li><strong>Causative organism:</strong> <em>Vibrio cholerae</em></li>
-        <li><strong>Two serogroups:</strong>
-            <ol type="i">
-                <li><em>V. cholerae</em> O1: Two biotypes (Classic type and El Tor).</li>
-                <li><em>V. cholerae</em> O139 (confined to South East Asia).</li>
-            </ol>
-        </li>
-        <li>Classical and El Tor varieties can be further classified into serotypes: <strong>Inaba, Ogawa</strong> (most common in our region), and <strong>Hikojima</strong>.</li>
-        <li><strong>Morphology & Characteristics:</strong>
+            <h3>Past Questions</h3>
             <ul>
-                <li>Comma shaped, minute bacillus, size (1–5 mm) &times; (0.3–0.4 mm).</li>
-                <li>Gram-negative, aerobic, non-spore forming, actively motile (Darting or Scintillating movement), and flagellated bacillus.</li>
+                <li><strong>1.</strong> We often read and review the history how cholera was controlled in mid nineteenth century in the resource rich countries, since then no cases have been reported. However, in low income countries like ours we, time and again witness plenty of cholera cases in 21st century. How do you see this problem in Nepal and what public health approach did the resource rich countries adopted to redress the issue and also describe the stakeholder responsible with robust solution to bring down the cases to minimum in context to Nepal. <strong>3+4=7 (2073)</strong></li>
+                <li><strong>2.</strong> Discuss why cholera remains a public health problem in Nepal and in other developing countries despite several national efforts to prevent it? <strong>10 (2068)</strong></li>
+                <li><strong>3.</strong> Describe the epidemiological situation of cholera and its determinants in Nepal. Illustrate the principles of case management, prevention and control of cholera. <strong>8 (2064)</strong></li>
+                <li><strong>4. Write short notes on: (2054)</strong><br>
+                a. Killed oral cholera vaccine <strong>8</strong></li>
             </ul>
-        </li>
-        <li><strong>Resistance:</strong>
+
+            <p>Cholera is an acute, infectious, diarrhoeal disease of the small intestine, caused by the bacteriae <em>Vibrio cholerae</em> O1 (classic or El Tor) transmitted usually by the fecal contamination of food and water.</p>
+            <p>Cholera is a disease of inequity—an ancient illness that today sickens and kills only the poorest and most vulnerable people.</p>
+            <p>The map of cholera is essentially the same as a map of poverty. Every death from cholera is preventable with the tools we have today, putting the goal of ending its public health impact within our reach. Cholera can be controlled with a multi-sector approach—including basic water, sanitation, and hygiene (WASH) services, and oral cholera vaccines (OCV).</p>
+
+            <h3>Problem Statement</h3>
+
+            <h4>World:</h4>
             <ul>
-                <li>Killed within 30 minutes by heating at 56°C or within a few seconds by boiling.</li>
-                <li>Destroyed by coal tar disinfectants (cresol).</li>
+                <li>While safe drinking water and advanced sanitation systems have made Europe and North America cholera free for decades, the disease still affects at least 47 countries across the globe, resulting in an estimated 2.9 million cases and 95,000 deaths per year worldwide.</li>
+                <li>In 2017, cholera continues to hit communities already made vulnerable by tragedies such as conflicts and famines. Yemen currently faces the world's largest cholera outbreak, with over 600,000 suspected cases and more than 2,000 deaths reported since April. Over 800 people have died of cholera in Somalia since the beginning of the year, and over 500 in the DRC. Haiti has now reported over 1 million cases with over 10,000 deaths since the beginning of the 2010 outbreak.</li>
             </ul>
-        </li>
-        <li><strong>Toxin Production:</strong>
+
+            <h4>Nepal: (Source: EoMS/EDCD/DoHS)</h4>
             <ul>
-                <li><strong>Endotoxin:</strong> Lipopolysaccharide O antigen (cell wall).</li>
-                <li><strong>Exotoxin (Enterotoxin):</strong> Contains two subunits A and B:
+                <li>In FY 2079/80, 44 cases of cholera have been reported in EWARS. There were 42 cases of Cholera reported from Bagmati Province while Madhesh, Gandaki, Lumbini, and Karnali Provinces reported zero cases.</li>
+                <li>Reactive Oral Cholera Vaccination (OCV) was done among 44.64% of the target population (n=92,815) in two phases of campaigning. Nine <em>V. cholerae</em> isolates were reported for bacterial diarrhoea. Two isolates of <em>V. cholerae</em> were resistant to ampicillin and one to tetracycline.</li>
+            </ul>
+
+            <p><strong>Table: Oral cholera vaccination campaign in Kathmandu FY 2079/80</strong></p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Campaign phase</th>
+                        <th>Total population that received OCV</th>
+                        <th>Target population</th>
+                        <th>Coverage rate (%)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>First</strong></td>
+                        <td>37,108</td>
+                        <td>92,185</td>
+                        <td>40.25</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Second</strong></td>
+                        <td>45,215</td>
+                        <td>92,185</td>
+                        <td>49.04</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total</strong></td>
+                        <td>82,323</td>
+                        <td>92,185</td>
+                        <td>44.64</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Epidemiology</h3>
+
+            <h4>Agent Factors</h4>
+            <ul>
+                <li><strong>Agent:</strong> Causative organism: <em>Vibrio cholerae</em></li>
+                <li><strong>Two serogroups:</strong>
                     <ul>
-                        <li><strong>B unit:</strong> Adheres organism to mucosal membrane of jejunal epithelial cells.</li>
-                        <li><strong>A unit:</strong> Enzyme moiety consisting of A1 and A2. Subunit A1 activates adenylate cyclase via cAMP pathway, resulting in secretion of water and electrolytes into the intestinal lumen, causing massive purging and watery diarrhea. Subunit A2 links A1 and B.</li>
+                        <li><strong>i. V. cholerae O1:</strong> Two biotypes (Classic type and El Tor).</li>
+                        <li><strong>ii. V. cholerae O139:</strong> Confined to South East Asia.</li>
+                    </ul>
+                </li>
+                <li>Classical and El Tor varieties can be further classified into: <strong>Inaba</strong>, <strong>Ogawa</strong> (most common in our region), <strong>Hikojima</strong>.</li>
+                <li>Vibrio is comma shaped, minute, bacillus, with size (1–5 mm) &times; (0.3–0.4 mm).</li>
+                <li>It is Gram -ve, aerobic, non-spore forming, actively motile (Darting or Scintillating movement) and flagellated bacillus.</li>
+                <li><strong>Resistance:</strong> <em>V. cholerae</em> are killed within 30 minutes by heating at 56&deg;C or within a few seconds by boiling. Destroyed by coal tar disinfectants (cresol).</li>
+                <li><strong>Toxin Production:</strong>
+                    <ul>
+                        <li><strong>Endotoxin:</strong> lipopolysaccharide O antigen (cell wall)</li>
+                        <li><strong>Exotoxin (enterotoxin):</strong> Two units A and B are present.
+                            <ul>
+                                <li>B unit adheres organism to mucosal membrane of jejunal epithelial cells</li>
+                                <li>A unit is enzyme moiety and consists of A1 and A2 where A1 activates adenyl cyclase &rarr; cAMP pathway as a result water and electrolytes are secreted into intestinal lumen causing massive purging and watery diarrhea and A2 unit links A1 and B.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><strong>Reservoir of infection:</strong> Human being is only known reservoir (Case and carrier). Carriers can be pre-clinical, convalescent, healthy or chronic carriers.</li>
+                <li><strong>Infective materials:</strong> Stools and vomit of case and carrier.</li>
+                <li><strong>Infective dose:</strong> 10<sup>11</sup> organisms is required to produce clinical disease in normal person.</li>
+                <li><strong>Period of communicability:</strong> 7–10 days (cases). For convalescent carrier: 2–3 weeks. For chronic carrier: Up to 10 years or more.</li>
+            </ul>
+
+            <div class="note">
+                <strong>Cholera carriers (4 types):</strong><br>
+                - <strong>a. Preclinical carrier:</strong> short duration (1–5 days)<br>
+                - <strong>b. Convalescent carrier:</strong> 2–3 weeks; who have not received effective antibiotic treatment<br>
+                - <strong>c. Contact or healthy carriers:</strong> subclinical infection, gallbladder not infected, &lt;10 days<br>
+                - <strong>d. Chronic carriers:</strong> have infected gallbladder; antibody titre against <em>V. cholerae</em> O1 remains positive as long as person harbors organism
+            </div>
+
+            <h4>Host Factors</h4>
+            <ul>
+                <li><strong>Gastric acidity:</strong> Destroys <em>V. cholerae</em> at pH &lt; 5; increases risk of infection in achlorhydric persons and those taking antacids.</li>
+                <li><strong>Population mobility:</strong> Increases exposure to infection.</li>
+                <li><strong>Economic status:</strong> Highest in low socio-economic groups.</li>
+                <li><strong>Immunity:</strong> Natural infection and vaccination.</li>
+            </ul>
+
+            <h4>Environmental Factors</h4>
+            <ul>
+                <li><strong>Season:</strong> High in May and June months.</li>
+                <li><strong>Climate:</strong> Cholera tends to occur only when the absolute humidity exceeds 10 mmHg vapor pressure.</li>
+                <li>Poor environmental sanitation.</li>
+                <li>Contaminated water and food.</li>
+                <li>Flies.</li>
+            </ul>
+
+            <h3>Modes of Transmission</h3>
+            <ul>
+                <li>Feco-oral route, not only through water, but also through contaminated food, fruits and vegetables.</li>
+                <li>House flies act as mechanical vectors.</li>
+                <li>Contaminated fingers and fomites also transmit the disease.</li>
+            </ul>
+
+            <h3>Predisposing Factors</h3>
+            <p>Poverty, illiteracy, ignorance, poor standard of living with lack of sanitation.</p>
+
+            <p><strong>Incubation Period:</strong> Varies from a few hours to a few days (Average 1–2 days).</p>
+
+            <p><strong>Nature of Stool:</strong></p>
+            <ul>
+                <li>'Rice-watery' stools in cholera, caused by classical vibrios.</li>
+                <li>Watery by El Tor vibrios.</li>
+            </ul>
+
+            <h3>Clinical Features</h3>
+            <p>Majority of cases are mild or asymptomatic and typical features seen in severe cases are as follows:</p>
+
+            <h4>a. Stage of Evacuation</h4>
+            <p>There is sudden onset of painless, profuse, effortless, watery diarrhea followed by vomiting. Rice water stools pass as many as 40 stools per day.</p>
+
+            <h4>b. Stage of Collapse</h4>
+            <p>There will be rapid onset of dehydration and collapse characterized by sunken eyes, hollow cheeks, scaphoid abdomen, hypotension, hypothermia, rapid, feeble and thready pulse, loss of skin elasticity and hurried respirations.</p>
+            <p>Decreased output of urine indicates anuria and renal failure. Kussmaul's type of respiration indicates acidosis. Thus dehydration leads to acidosis, renal failure and death.</p>
+
+            <h4>c. Stage of Recovery</h4>
+            <p>Patient may show signs of clinical improvement.</p>
+
+            <h3>Laboratory Investigations</h3>
+            <p>This consists mainly of examination of stools of a cholera patient and water sample of the suspected source, vomitus and food samples.</p>
+
+            <h4>Methods of Collection of Stool</h4>
+            <ul>
+                <li><strong>i. Rubber catheter method (Best method):</strong> A sterile rubber catheter of no. 26 to 28 is lubricated with liquid paraffin and passed into the rectum for about 5 cm and stool is collected in a sterile McCartney bottle of 30mL capacity containing holding (or transport) media (Venkataraman-Ramakrishnan medium or Alkaline Peptone water).</li>
+                <li><strong>ii. Rectal swab method:</strong> A sterile rectal swab is dipped into the holding medium and then inserted into the rectum and a swab is taken, placed in the sterile plastic bag, tightly sealed and sent to the laboratory.</li>
+            </ul>
+
+            <h4>Method of Collection of Water</h4>
+            <p>About 1 to 3 liters of water is collected from the suspected source and mixed with 10 percent of alkaline-peptone (A-P) water in the ratio of 9 volumes of water with 1 volume of A-P water, sealed and sent to the laboratory by the quickest mode of transport.</p>
+
+            <h4>Culture</h4>
+            <p>In the laboratory, the stool specimen is inoculated into the enrichment medium, i.e. potassium tellurite and incubated for 6 hours and then inoculated into the Bile Salt Agar or Meat Extract Agar and incubated for 24 to 48 hours.</p>
+            <p>If the stool sample is collected by rectal swab method, the culture media used is Cary-Blair media.</p>
+            <p><em>V. cholerae</em> usually appear as translucent, moist, smooth, raised and easily emulsifiable colonies of about 1 mm diameter. The colonies are picked up and tested as follows:</p>
+            <ul>
+                <li><strong>i. Gm staining:</strong> They are Gm -ve rods.</li>
+                <li><strong>ii. Hanging drop preparation:</strong> Characteristic scintillating movements.</li>
+                <li><strong>iii. Dark field illumination:</strong> Look like shooting stars in a dark sky.</li>
+                <li><strong>iv. Serological test</strong></li>
+                <li><strong>v. Biochemical examination:</strong> Fermentation with production of acid in sucrose and mannose but not arabinose is characteristic of <em>V. cholerae</em>.</li>
+                <li><strong>vi. Other tests:</strong> Hemolytic test, Voges-Proskauer (V-P) test, Polymyxin B sensitivity test, Agglutination test.</li>
+            </ul>
+
+            <h3>Prevention and Control</h3>
+
+            <h4>1. Elimination of Reservoirs</h4>
+            <ul>
+                <li><strong>i. Cases:</strong>
+                    <ul>
+                        <li>Isolation in the hospital, till 2 to 3 consecutive stool culture reports come as negative.</li>
+                        <li>Concurrent and terminal disinfection: Stools and vomitus to be disinfected with cresol.</li>
+                        <li>Chemotherapy: Erythromycin and azithromycin are drug of choice (tetracycline and ciprofloxacin may be used in susceptible areas).</li>
+                        <li>Rehydration therapy (Orally or IV depending upon the degree of dehydration).</li>
+                    </ul>
+                </li>
+                <li><strong>ii. Carriers:</strong> They are detected only by stool culture report and are treated accordingly.</li>
+            </ul>
+
+            <h4>2. Blocking the Channel of Transmission</h4>
+            <p>Since the disease cholera is transmitted by feco-oral route, the best way of blocking the channel is by construction of a 'Sanitation barrier'.</p>
+
+            <div class="diagram-container">
+                <div class="flow-step">Feces &rarr; Sanitation Barrier | &rarr; Fluids</div>
+                <div class="flow-step">Feces &rarr; Sanitation Barrier | &rarr; Food</div>
+                <div class="flow-step">Feces &rarr; Sanitation Barrier | &rarr; Fruits and vegetables</div>
+                <div class="flow-step">Feces &rarr; Sanitation Barrier | &rarr; Fomites</div>
+                <div class="flow-step">Feces &rarr; Sanitation Barrier | &rarr; Fingers</div>
+                <div class="flow-step">Feces &rarr; Sanitation Barrier | &rarr; Flies</div>
+                <div class="diagram-title">Sanitation Barrier</div>
+            </div>
+
+            <h4>3. Protection of Susceptibles</h4>
+
+            <p><strong>Immunization:</strong> Two types of vaccines are available against cholera—parenteral and oral vaccines.</p>
+
+            <ul>
+                <li><strong>a. Parenteral vaccine:</strong>
+                    <ul>
+                        <li>Heat killed, phenol preserved vaccine.</li>
+                        <li>Each dose of 0.5 mL contains 3000 million killed organisms each of Inaba and Ogawa serotypes of classical vibrios O1, providing cross immunity against El Tor vibrios also.</li>
+                        <li>Primary immunization consists of 2 doses, each of 0.5 mL deep IM with an interval of 4 to 6 weeks. Half of this dose for children below 10 years. Infants need not be immunized.</li>
+                        <li>Immunity is developed after about 15 days and lasts for hardly 5 to 6 months.</li>
+                        <li><em>Limitations:</em> Use of this vaccine after the outbreak of cholera does not serve the purpose to control the epidemic because the individual develops antibodies after 15 days of immunization and since the incubation period of cholera is very short, the individual may develop the disease much before developing immunity.</li>
+                    </ul>
+                </li>
+                <li><strong>b. Oral vaccine:</strong> These are two types:
+                    <ul>
+                        <li><strong>1. Killed whole cell V. cholerae O1 in combination with a recombinant B-subunit of cholera toxin:</strong> For &ge;6 years old, given orally in 2 doses &ge;7 days apart; for &lt;6 years 3 doses are given. It confers 50 to 60 percent protection. Immunity lasts for 3 years.</li>
+                        <li><strong>2. Live attenuated CVD 103-HgR vaccine:</strong> It is a single dose vaccine. Confers 80 percent protection. Oral antibiotics are avoided for one week before and one week after the administration of live vaccine. (It is no longer produced).</li>
                     </ul>
                 </li>
             </ul>
-        </li>
-        <li><strong>Reservoir of infection:</strong> Human being is the only known reservoir (Cases and carriers).</li>
-        <li><strong>Infective materials:</strong> Stools and vomit of case and carrier.</li>
-        <li><strong>Infective dose:</strong> 10<sup>11</sup> organisms required to produce clinical disease in a normal person.</li>
-        <li><strong>Period of communicability:</strong> 7–10 days for cases; 2–3 weeks for convalescent carriers; up to 10 years or more for chronic carriers.</li>
-    </ul>
 
-    <div class="highlight-box">
-        <h4>Cholera Carriers (4 Types)</h4>
-        <ol type="a">
-            <li><strong>Preclinical carrier:</strong> Short duration (1–5 days).</li>
-            <li><strong>Convalescent carrier:</strong> 2–3 weeks (those who have not received effective antibiotic treatment).</li>
-            <li><strong>Contact or healthy carriers:</strong> Subclinical infection, gallbladder not infected, duration &lt; 10 days.</li>
-            <li><strong>Chronic carriers:</strong> Have infected gallbladder; antibody titre against <em>V. cholerae</em> O1 remains positive as long as person harbors organism.</li>
-        </ol>
-    </div>
+            <div class="note">
+                <strong>Note:</strong> Mass prophylaxis is not recommended.
+            </div>
 
-    <h3 class="subsection-title">Host Factors</h3>
-    <ul>
-        <li><strong>Gastric acidity:</strong> Destroys <em>V. cholerae</em> at pH &lt; 5; increased risk of infection in achlorhydric persons and those taking antacids.</li>
-        <li><strong>Population mobility:</strong> Increases exposure to infection.</li>
-        <li><strong>Economic status:</strong> Highest incidence in low socio-economic groups.</li>
-        <li><strong>Immunity:</strong> Conferred by natural infection and vaccination.</li>
-    </ul>
-
-    <h3 class="subsection-title">Environmental Factors</h3>
-    <ul>
-        <li><strong>Season:</strong> High in May and June months.</li>
-        <li><strong>Climate:</strong> Cholera tends to occur only when the absolute humidity exceeds 10 mmHg vapor pressure.</li>
-        <li><strong>Sanitation & Hygiene:</strong> Poor environmental sanitation, contaminated water and food, and high fly population.</li>
-    </ul>
-
-    <h3 class="subsection-title">Modes of Transmission</h3>
-    <p>Feco-oral route, not only through water, but also through contaminated food, fruits, and vegetables. House flies act as mechanical vectors. Contaminated fingers and fomites also transmit the disease.</p>
-
-    <h3 class="subsection-title">Predisposing Factors</h3>
-    <p>Poverty, illiteracy, ignorance, poor standard of living with lack of sanitation.</p>
-
-    <h3 class="subsection-title">Incubation Period & Nature of Stool</h3>
-    <ul>
-        <li><strong>Incubation Period:</strong> Varies from a few hours to a few days (Average 1–2 days).</li>
-        <li><strong>Nature of Stool:</strong> "Rice-watery" stools caused by classical vibrios; watery stools by El Tor vibrios.</li>
-    </ul>
-
-    <!-- Clinical Features -->
-    <div class="section-title">Clinical Features</div>
-    <p>The majority of cases are mild or asymptomatic. Typical severe features present in three distinct stages:</p>
-    
-    <ol type="a">
-        <li><strong>Stage of Evacuation:</strong> Sudden onset of painless, profuse, effortless, watery diarrhea followed by vomiting. Rice water stools passed as many as 40 times per day.</li>
-        <li><strong>Stage of Collapse:</strong> Rapid onset of dehydration and collapse characterized by sunken eyes, hollow cheeks, scaphoid abdomen, hypotension, hypothermia, rapid, feeble, and thready pulse, loss of skin elasticity, and hurried respirations.
+            <p><strong>Health Education:</strong> This is the most effective prophylactic measure. The community is educated about the following points:</p>
             <ul>
-                <li>Decreased output of urine indicates anuria and renal failure.</li>
-                <li>Kussmaul's type of respiration indicates acidosis.</li>
-                <li>Dehydration leads to acidosis, renal failure, and death.</li>
+                <li>i. Routes of transmission of cholera and consequences of dehydration</li>
+                <li>ii. To avoid open-air defecation and to use sanitary latrines</li>
+                <li>iii. To use boiled and cooled water for drinking purposes</li>
+                <li>iv. To use ORT with the onset of diarrhea</li>
+                <li>v. To take prompt treatment for diarrhea</li>
+                <li>vi. To adopt personal hygiene by washing hands with soap and water before handling food and after using toilet</li>
+                <li>vii. To control house flies, by keeping the premises clean in and around the houses</li>
             </ul>
-        </li>
-        <li><strong>Stage of Recovery:</strong> Patient shows signs of clinical improvement as fluid balance is restored.</li>
-    </ol>
 
-    <!-- Laboratory Investigations -->
-    <div class="section-title">Laboratory Investigations</div>
-    <p>Consists mainly of examination of stools of a cholera patient, water sample of the suspected source, vomitus, and food samples.</p>
-
-    <h3 class="subsection-title">Methods of Collection of Stool</h3>
-    <ol type="i">
-        <li><strong>Rubber catheter method (Best method):</strong> A sterile rubber catheter (no. 26 to 28) is lubricated with liquid paraffin and passed into the rectum for about 5 cm. Stool is collected into a sterile container / McCartney bottle (30 mL) containing holding/transport media (Venkataraman-Ramakrishnan medium or Alkaline Peptone Water).</li>
-        <li><strong>Rectal swab method:</strong> A sterile rectal swab is dipped into holding medium, inserted into the rectum, swabbed, placed in a sterile plastic bag, tightly sealed, and sent to the lab.</li>
-    </ol>
-
-    <h3 class="subsection-title">Collection of Water Samples</h3>
-    <p>About 1 to 3 liters of water collected from suspected source mixed with 10% alkaline-peptone (A-P) water in a ratio of 9:1 (9 volumes water to 1 volume A-P water), sealed, and sent by quickest transport.</p>
-
-    <h3 class="subsection-title">Culture & Identification</h3>
-    <p>Stool specimen is inoculated into enrichment medium (potassium tellurite) and incubated for 6 hours, then inoculated onto Bile Salt Agar (BSA) or Meat Extract Agar and incubated for 24–48 hours. (Cary-Blair media is used if collected via rectal swab).</p>
-    <p>Colonies appear as translucent, moist, smooth, raised, and easily emulsifiable colonies (~1 mm diameter).</p>
-    <ul>
-        <li><strong>Gram Staining:</strong> Gram-negative curved rods.</li>
-        <li><strong>Hanging Drop Preparation:</strong> Characteristic scintillating/darting movements.</li>
-        <li><strong>Dark Field Illumination:</strong> Look like "shooting stars in a dark sky".</li>
-        <li><strong>Serological Tests:</strong> Agglutination with specific antisera.</li>
-        <li><strong>Biochemical Examination:</strong> Fermentation with acid production in sucrose and mannose, but NOT arabinose.</li>
-        <li><strong>Other Tests:</strong> Hemolytic test, Voges-Proskauer (V-P) test, Polymyxin B sensitivity test.</li>
-    </ul>
-
-    <!-- Prevention and Control -->
-    <div class="section-title">Prevention and Control</div>
-
-    <h3 class="subsection-title">1. Elimination of Reservoirs</h3>
-    <ul>
-        <li><strong>Cases:</strong> Isolation in hospital until 2 to 3 consecutive stool cultures are negative. Concurrent and terminal disinfection of stools and vomitus using cresol. Chemotherapy: Erythromycin and azithromycin are drugs of choice (Tetracycline and Ciprofloxacin used in susceptible areas). Rehydration therapy (Oral/IV depending on degree of dehydration).</li>
-        <li><strong>Carriers:</strong> Detected by stool culture and treated accordingly.</li>
-    </ul>
-
-    <h3 class="subsection-title">2. Blocking the Channel of Transmission (Sanitation Barrier)</h3>
-    <p>Since cholera is transmitted via the feco-oral route, establishing a <strong>Sanitation Barrier</strong> is essential to block transmission vectors:</p>
-
-    <!-- Sanitation Barrier Diagram -->
-    <div class="diagram-container">
-        <svg class="diagram-svg" width="500" height="260" viewBox="0 0 500 260" xmlns="http://www.w3.org/2000/svg">
-            <!-- Feces Source -->
-            <rect x="20" y="90" width="80" height="50" rx="5" fill="#e53e3e" />
-            <text x="60" y="120" font-family="sans-serif" font-size="16" fill="white" font-weight="bold" text-anchor="middle">Feces</text>
-            
-            <!-- Sanitation Barrier Line -->
-            <line x1="140" y1="20" x2="140" y2="240" stroke="#2b6cb0" stroke-width="8" stroke-linecap="round" />
-            <text x="140" y="255" font-family="sans-serif" font-size="12" fill="#2b6cb0" font-weight="bold" text-anchor="middle">Sanitation Barrier</text>
-
-            <!-- Arrows passing through -->
-            <!-- Line 1: Fluids -->
-            <line x1="100" y1="105" x2="140" y2="40" stroke="#a0aec0" stroke-width="2" />
-            <line x1="140" y1="40" x2="260" y2="40" stroke="#2d3748" stroke-width="2" marker-end="url(#arrow)" />
-            <text x="270" y="45" font-family="sans-serif" font-size="14" fill="#2d3748" font-weight="bold">Fluids</text>
-
-            <!-- Line 2: Food -->
-            <line x1="100" y1="110" x2="140" y2="75" stroke="#a0aec0" stroke-width="2" />
-            <line x1="140" y1="75" x2="260" y2="75" stroke="#2d3748" stroke-width="2" marker-end="url(#arrow)" />
-            <text x="270" y="80" font-family="sans-serif" font-size="14" fill="#2d3748" font-weight="bold">Food</text>
-
-            <!-- Line 3: Fruits and vegetables -->
-            <line x1="100" y1="115" x2="140" y2="110" stroke="#a0aec0" stroke-width="2" />
-            <line x1="140" y1="110" x2="260" y2="110" stroke="#2d3748" stroke-width="2" marker-end="url(#arrow)" />
-            <text x="270" y="115" font-family="sans-serif" font-size="14" fill="#2d3748" font-weight="bold">Fruits &amp; Vegetables</text>
-
-            <!-- Line 4: Fomites -->
-            <line x1="100" y1="120" x2="140" y2="145" stroke="#a0aec0" stroke-width="2" />
-            <line x1="140" y1="145" x2="260" y2="145" stroke="#2d3748" stroke-width="2" marker-end="url(#arrow)" />
-            <text x="270" y="150" font-family="sans-serif" font-size="14" fill="#2d3748" font-weight="bold">Fomites</text>
-
-            <!-- Line 5: Fingers -->
-            <line x1="100" y1="125" x2="140" y2="180" stroke="#a0aec0" stroke-width="2" />
-            <line x1="140" y1="180" x2="260" y2="180" stroke="#2d3748" stroke-width="2" marker-end="url(#arrow)" />
-            <text x="270" y="185" font-family="sans-serif" font-size="14" fill="#2d3748" font-weight="bold">Fingers</text>
-
-            <!-- Line 6: Flies -->
-            <line x1="100" y1="130" x2="140" y2="215" stroke="#a0aec0" stroke-width="2" />
-            <line x1="140" y1="215" x2="260" y2="215" stroke="#2d3748" stroke-width="2" marker-end="url(#arrow)" />
-            <text x="270" y="220" font-family="sans-serif" font-size="14" fill="#2d3748" font-weight="bold">Flies</text>
-
-            <defs>
-                <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#2d3748"/>
-                </marker>
-            </defs>
-        </svg>
-    </div>
-
-    <h3 class="subsection-title">3. Protection of Susceptibles (Immunization)</h3>
-    <div class="grid-2">
-        <div style="background: #f8fafc; padding: 15px; border: 1px solid #e2e8f0; border-radius: 6px;">
-            <h4>a. Parenteral Vaccine</h4>
-            <ul>
-                <li>Heat killed, phenol preserved vaccine.</li>
-                <li>Each 0.5 mL dose contains 3000 million killed organisms of Inaba and Ogawa serotypes (classical <em>V. cholerae</em> O1), providing cross-immunity against El Tor.</li>
-                <li><strong>Schedule:</strong> 2 doses deep IM, 0.5 mL each, 4–6 weeks apart. (Half dose for children &lt; 10 yrs; infants not immunized).</li>
-                <li>Immunity develops after ~15 days and lasts only 5–6 months.</li>
-                <li><strong>Limitations:</strong> Outbreak response usage is ineffective due to 15-day delay in antibody production relative to short incubation period.</li>
-            </ul>
-        </div>
-        <div style="background: #f8fafc; padding: 15px; border: 1px solid #e2e8f0; border-radius: 6px;">
-            <h4>b. Oral Vaccines (OCV)</h4>
+            <h3>WHO guidelines for control of cholera</h3>
             <ol>
-                <li><strong>Killed whole cell V. cholerae O1 + recombinant B-subunit:</strong>
+                <li>Verification of the diagnosis</li>
+                <li>Notification</li>
+                <li>Early case findings</li>
+                <li>Establishment of treatment centers</li>
+                <li>Rehydration Therapy</li>
+                <li>Adjuncts to Therapy:
                     <ul>
-                        <li>For &ge; 6 years old: 2 oral doses &ge; 7 days apart.</li>
-                        <li>For &lt; 6 years old: 3 doses given.</li>
-                        <li>Confers 50–60% protection lasting up to 3 years.</li>
+                        <li>a. Adult: Doxycycline</li>
+                        <li>b. Children: TMP-SMX/Co-trimoxazole</li>
+                        <li>c. Pregnancy: Furazolidone</li>
+                        <li>d. Prophylaxis: Tetracycline</li>
                     </ul>
                 </li>
-                <li><strong>Live attenuated CVD 103-HgR vaccine:</strong>
-                    <ul>
-                        <li>Single dose vaccine conferring 80% protection.</li>
-                        <li>Avoid oral antibiotics 1 week before and after administration.</li>
-                        <li><em>Note: No longer produced. Mass prophylaxis not recommended.</em></li>
-                    </ul>
-                </li>
+                <li>Epidemiological investigations</li>
+                <li>Sanitation measures</li>
+                <li>Chemoprophylaxis (DOC Tetracycline 500mg BD for 3 days, for children 125 mg)</li>
+                <li>Immunization</li>
+                <li>Health Education</li>
             </ol>
-        </div>
-    </div>
 
-    <h3 class="subsection-title">4. Health Education</h3>
-    <p>Most effective prophylactic measure. Key educational messages:</p>
-    <ul>
-        <li>Routes of transmission and consequences of dehydration.</li>
-        <li>Avoiding open-air defecation and using sanitary latrines.</li>
-        <li>Drinking boiled and cooled water.</li>
-        <li>Immediate initiation of ORT at diarrhea onset.</li>
-        <li>Prompt medical treatment for severe diarrhea.</li>
-        <li>Hand hygiene with soap and water before handling food and after toilet use.</li>
-        <li>Fly control through clean domestic surroundings.</li>
-    </ul>
+            <h3>Comparative Tables</h3>
 
-    <!-- WHO Guidelines -->
-    <div class="section-title">WHO Guidelines for Control of Cholera</div>
-    <ol>
-        <li>Verification of diagnosis</li>
-        <li>Notification</li>
-        <li>Early case finding</li>
-        <li>Establishment of treatment centers</li>
-        <li>Rehydration Therapy</li>
-        <li>Adjuncts to Therapy:
+            <p><strong>Differences between cholera and food poisoning</strong></p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Cholera</th>
+                        <th>Food Poisoning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Diarrhoea</strong></td>
+                        <td>Precedes vomiting</td>
+                        <td>Follows vomiting</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tenesmus</strong></td>
+                        <td>Absent</td>
+                        <td>Present</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Stools</strong></td>
+                        <td>Watery and not offensive</td>
+                        <td>Offensive but never watery</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Vomiting</strong></td>
+                        <td>Follows diarrhea</td>
+                        <td>Violent and distressing, precedes diarrhea</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Vomitus</strong></td>
+                        <td>Watery</td>
+                        <td>Never watery</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Urine</strong></td>
+                        <td>Secretion suppressed</td>
+                        <td>Never suppressed</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Muscular cramps</strong></td>
+                        <td>Constant and severe</td>
+                        <td>Occurs only in severe cases</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fever</strong></td>
+                        <td>Is sub-normal</td>
+                        <td>Is increased</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Headache</strong></td>
+                        <td>Is absent</td>
+                        <td>Is present</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Complication</strong></td>
+                        <td>Leads to Acidosis</td>
+                        <td>Leads to Alkalosis</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p><strong>Comparison of Cholera and Shigella</strong></p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Cholera</th>
+                        <th>Shigella</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Diarrhea</strong></td>
+                        <td>Acute watery diarrhea</td>
+                        <td>Acute bloody diarrhea</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fever</strong></td>
+                        <td>No</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Abdominal cramps</strong></td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Vomiting</strong></td>
+                        <td>Yes</td>
+                        <td>No</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Rectal pain</strong></td>
+                        <td>No</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Stool</strong></td>
+                        <td>&gt;3 loose stools per day, watery like rice water</td>
+                        <td>&gt;3 stools per day with blood or pus</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Treatment</strong></td>
+                        <td>Doxycycline, tetracycline</td>
+                        <td>Ciprofloxacin</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Cholera Control</h3>
+            <p>Cholera control is both a matter of emergency response in the case of outbreaks, and a matter of development when the disease is endemic in high-risk areas.</p>
+            <p>Effective cholera prevention and control interventions are well known and rely to a great extent on the implementation of integrated and comprehensive approaches that involve activities both inside and outside of the health sector, including:</p>
             <ul>
-                <li>Adult: Doxycycline</li>
-                <li>Children: TMP-SMX / Co-trimoxazole</li>
-                <li>Pregnancy: Furazolidone</li>
-                <li>Prophylaxis: Tetracycline</li>
+                <li>a. Enhanced epidemiological and laboratory surveillance to identify endemic areas and detect, confirm, and quickly respond to outbreaks</li>
+                <li>b. Universal use of safe water and basic sanitation</li>
+                <li>c. Community engagement for behavioural changes and improved hygiene practices</li>
+                <li>d. Quick access to treatment (Oral Rehydration Solution (ORS), which can successfully treat most cases, and intravenous fluids and antibiotics for severe cases)</li>
+                <li>e. Protection with safe and effective OCV</li>
             </ul>
-        </li>
-        <li>Epidemiological investigations</li>
-        <li>Sanitation measures</li>
-        <li>Chemoprophylaxis (DOC: Tetracycline 500 mg BD for 3 days; Children: 125 mg)</li>
-        <li>Immunization</li>
-        <li>Health Education</li>
-    </ol>
 
-    <!-- Comparison Tables -->
-    <div class="section-title">Comparative Analysis</div>
+            <p><strong>Cholera elimination:</strong> Any country that reports no confirmed cases with evidence of local transmission for at least three consecutive years and has a well-functioning epidemiologic and laboratory surveillance system able to detect and confirm cases.</p>
 
-    <h3>Table 1: Differences Between Cholera and Food Poisoning</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>Feature</th>
-                <th>Cholera</th>
-                <th>Food Poisoning</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><strong>Diarrhoea</strong></td>
-                <td>Precedes vomiting</td>
-                <td>Follows vomiting</td>
-            </tr>
-            <tr>
-                <td><strong>Tenesmus</strong></td>
-                <td>Absent</td>
-                <td>Present</td>
-            </tr>
-            <tr>
-                <td><strong>Stools</strong></td>
-                <td>Watery ("rice-water"), not offensive</td>
-                <td>Offensive, but never watery</td>
-            </tr>
-            <tr>
-                <td><strong>Vomiting</strong></td>
-                <td>Follows diarrhea, projectile</td>
-                <td>Violent and distressing, precedes diarrhea</td>
-            </tr>
-            <tr>
-                <td><strong>Vomitus</strong></td>
-                <td>Watery</td>
-                <td>Never watery</td>
-            </tr>
-            <tr>
-                <td><strong>Urine</strong></td>
-                <td>Secretion suppressed (Anuria)</td>
-                <td>Never suppressed</td>
-            </tr>
-            <tr>
-                <td><strong>Muscular Cramps</strong></td>
-                <td>Constant and severe</td>
-                <td>Occurs only in severe cases</td>
-            </tr>
-            <tr>
-                <td><strong>Fever</strong></td>
-                <td>Sub-normal</td>
-                <td>Increased</td>
-            </tr>
-            <tr>
-                <td><strong>Headache</strong></td>
-                <td>Absent</td>
-                <td>Present</td>
-            </tr>
-            <tr>
-                <td><strong>Acid-Base Balance</strong></td>
-                <td>Leads to Acidosis</td>
-                <td>Leads to Alkalosis</td>
-            </tr>
-        </tbody>
-    </table>
+            <h3>Strategies for cholera elimination</h3>
+            <p><strong>Ending Cholera: A Global Roadmap to 2030</strong> operationalises the new global strategy for cholera control at the country level and provides a concrete path toward a world in which cholera is no longer a threat to public health.</p>
 
-    <h3>Table 2: Comparison of Cholera and Shigella</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>Feature</th>
-                <th>Cholera</th>
-                <th>Shigella</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><strong>Diarrhea</strong></td>
-                <td>Acute watery diarrhea</td>
-                <td>Acute bloody diarrhea (Dysentery)</td>
-            </tr>
-            <tr>
-                <td><strong>Fever</strong></td>
-                <td>No</td>
-                <td>Yes</td>
-            </tr>
-            <tr>
-                <td><strong>Abdominal Cramps</strong></td>
-                <td>Yes</td>
-                <td>Yes</td>
-            </tr>
-            <tr>
-                <td><strong>Vomiting</strong></td>
-                <td>Yes</td>
-                <td>No</td>
-            </tr>
-            <tr>
-                <td><strong>Rectal Pain</strong></td>
-                <td>No</td>
-                <td>Yes</td>
-            </tr>
-            <tr>
-                <td><strong>Stool Characteristics</strong></td>
-                <td>&gt;3 loose stools/day, watery like rice-water</td>
-                <td>&ge;3 stools/day with blood or pus</td>
-            </tr>
-            <tr>
-                <td><strong>Treatment</strong></td>
-                <td>Doxycycline, Tetracycline</td>
-                <td>Ciprofloxacin</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <!-- Cholera Control & Elimination -->
-    <div class="section-title">Cholera Control & Global Elimination Roadmap</div>
-    <p>Cholera control requires both emergency response during outbreaks and long-term development strategies in endemic areas. Key integrated approaches include:</p>
-    <ul>
-        <li><strong>Enhanced surveillance:</strong> Epidemiological and laboratory surveillance to identify endemic areas and respond rapidly.</li>
-        <li><strong>Universal safe WASH:</strong> Universal access to safe drinking water and basic sanitation.</li>
-        <li><strong>Community engagement:</strong> Behavioral change communication and improved hygiene practices.</li>
-        <li><strong>Quick access to treatment:</strong> Oral Rehydration Solution (ORS), IV fluids, and antibiotics for severe cases.</li>
-        <li><strong>Vaccination:</strong> Oral Cholera Vaccines (OCV) in target groups.</li>
-    </ul>
-
-    <div class="highlight-box">
-        <h4>Cholera Elimination Definition</h4>
-        <p>Any country that reports <strong>no confirmed cases with evidence of local transmission for at least three consecutive years</strong> and maintains a well-functioning epidemiologic and laboratory surveillance system capable of detecting and confirming cases.</p>
-    </div>
-
-    <h3 class="subsection-title">Ending Cholera: A Global Roadmap to 2030</h3>
-    <ol>
-        <li><strong>Early detection and quick response to contain outbreaks:</strong> Focuses on rapid containment via community engagement, early warning surveillance, laboratory capacity building, health system readiness, and rapid response teams (RRTs).</li>
-        <li><strong>Targeted multi-sectoral approach to prevent cholera recurrence:</strong> Focuses on "cholera hotspots"—small geographic areas with ongoing/seasonal transmission (40 to 80 million people live in cholera hotspots in Africa alone). Stopped via WASH and OCV interventions.</li>
-        <li><strong>Effective mechanism of coordination:</strong> Supported by the Global Task Force on Cholera Control (GTFCC) to coordinate technical assistance, advocacy, resource mobilization, and cross-sectoral partnerships.</li>
-    </ol>
-    <p><em>Implementing the Global Roadmap can save up to 50% in response costs while accelerating progress toward the Sustainable Development Goals (SDGs).</em></p>
-
-    <!-- Context in Nepal -->
-    <div class="section-title">Cholera Control Context in Nepal</div>
-    <ul>
-        <li>Establishment of anti-microbial sentinel surveillance systems nationwide to identify cholera and deploy WHO stockpile vaccines.</li>
-        <li>Strengthening outbreak preparedness via:
             <ul>
-                <li>Early Warning and Reporting System (EWARS) and rapid response teams.</li>
-                <li>Expanded community health education.</li>
-                <li>Adequate stockpiling and distribution of ORS.</li>
-                <li>Implementation of OCV in high-risk communities (e.g., DOVE: Delivering Oral Cholera Vaccine Effectively).</li>
+                <li><strong>1. Early detection and quick response to contain outbreaks:</strong> The strategy focuses on containing outbreaks—wherever they may occur—through early detection and rapid response, which are critical elements for reducing the global burden of cholera. Through interventions like robust community engagement, strengthening early warning surveillance and laboratory capacities, health systems and supply readiness, and establishing rapid response teams, we can drastically reduce the number of deaths from cholera even in fragile settings.</li>
+                <li><strong>2. A targeted multi-sectoral approach to prevent cholera recurrence:</strong> The strategy also calls on countries and partners to focus on cholera "hotspots", the relatively small areas most heavily affected by cholera, which experience cases on an ongoing or seasonal basis and play an important role in the spread of cholera to other regions and areas. Cholera transmission can be stopped in these areas through measures including improved water, sanitation, and hygiene (WASH) and through use of oral cholera vaccines (OCV). In Africa alone, 40 to 80 million people live in cholera hotspots.</li>
+                <li><strong>3. An effective mechanism of coordination for technical support, advocacy, resource mobilization, and partnership at local and global levels:</strong> The GTFCC provides a strong framework to support countries in intensifying efforts to control cholera, building upon country-led cross-sectoral cholera control programs, and supporting them through human, technical and financial resources. As a global network of organizations, the GTFCC is positioned to bring together partners from across all sectors, and offers an effective country-driven platform to support advocacy, communications, fundraising, inter-sectoral coordination, and technical assistance.</li>
             </ul>
-        </li>
-    </ul>
 
-    <div class="highlight-box">
-        <h4>WASH Strategy in Disaster / Flood Settings</h4>
-        <p>In waterborne diseases (cholera, typhoid), the <strong>WASH strategy</strong> (Water, Sanitation, Hygiene, and Health Education) is critical during floods and emergencies. Key interventions include water supply disinfection, water quality monitoring, and safe excreta disposal in homes and communities.</p>
-    </div>
+            <p>Successful implementation of the Global Roadmap may allow up to 50 percent cost savings compared with the ongoing average yearly cost of continuously responding to emerging cholera outbreaks. Most importantly, the proposed long-term cholera control investments will also significantly reduce the impact of all water-related diseases, while contributing to improvements in poverty, malnutrition, and education, thereby representing a significant step toward the achievement of the Sustainable Development Goals (SDGs) for the world's poorest people and toward a world free from the threat of cholera.</p>
 
+            <h3>In Nepal</h3>
+            <ul>
+                <li>There is establishment of anti-microbial sentinel surveillance system across the country that includes identification of cholera along with plans for use of WHO stockpile cholera vaccine.</li>
+                <li>Nepal has improved strengthening outbreak preparedness by:
+                    <ul>
+                        <li>Strengthening early warning and response team</li>
+                        <li>Expanding health education</li>
+                        <li>Ensuring adequate distribution of ORS</li>
+                        <li>Giving consideration to the provision of oral cholera vaccine in high risk communities (DOVE: delivering oral cholera vaccine effectively)</li>
+                    </ul>
+                </li>
+            </ul>
 
-    </div>
-</div>
+            <div class="note">
+                <strong>Note:</strong> In any water borne disease like cholera, typhoid, WASH strategy is applied during floods. WASH stands for Water, Sanitation and Hygiene and Health Education. These three points are must in preventing any water borne diseases.
+            </div>
+
+            <h3>WASH Strategy</h3>
+            <p>WASH Strategy is a critical survival intervention. Provisions of WASH are key to prevent Cholera outbreak. In Cholera prone areas there have been significant efforts toward water supply disinfection and water quality monitoring, safe excreta disposal in home and community areas.</p>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 MONOLITH. Built to persist.</p>
+    </footer>
 
 </body>
 </html>
