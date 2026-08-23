@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monolith — Typhus Fever</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #e5e5e5;
+            --accent-color: #888888;
+            --border-color: #222222;
+            --hover-color: #ffffff;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-family: var(--font-mono);
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--hover-color);
+        }
+
+        /* Main Container */
+        main {
+            max-width: 800px;
+            margin: 80px auto;
+        }
+
+        /* Header Section */
+        .subject-header {
+            margin-bottom: 60px;
+        }
+
+        .breadcrumb {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--hover-color);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-family: var(--font-mono);
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        /* Typography & Layout Content Elements */
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0px;
+            margin: 50px 0 20px 0;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        h3 {
+            font-size: 1.15rem;
+            font-weight: 500;
+            margin: 25px 0 10px 0;
+            color: var(--hover-color);
+        }
+
+        h4 {
+            font-size: 1.0rem;
+            font-weight: 600;
+            margin: 15px 0 5px 0;
+            color: #d0d0d0;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: var(--text-color);
+            text-align: justify;
+        }
+
+        strong {
+            color: var(--hover-color);
+            font-weight: 600;
+        }
+
+        em {
+            color: #b0b0b0;
+            font-style: italic;
+        }
+
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: square;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        li strong {
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
+        }
+
+        .note {
+            background-color: #111111;
+            border-left: 2px solid var(--accent-color);
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 0.95rem;
+        }
+
+        .page-number {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        /* Footer */
+        footer {
+            max-width: 800px;
+            margin: 100px auto 40px auto;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Monolith</div>
+        <ul class="nav-links">
+            <li><a href="https://fidelioa.github.io/monolith">Home</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/archives">Archives</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/about">About</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Document Header -->
+        <section class="subject-header">
+            <div class="breadcrumb">
+                <a href="https://fidelioa.github.io/monolith/archives">Archives</a> / 
+                <a href="https://fidelioa.github.io/monolith/archives/commed">Communicable Diseases</a> / Typhus Fever
+            </div>
+            <h1>Typhus Fever</h1>
+            <div class="subtitle">FAST TRACK CLINICAL SCIENCE MBBS - 3rd YEAR</div>
+        </section>
+
+        <!-- Main Chapter Content -->
+        <section class="content">
+
+            <p>Typhus, also known as typhus fever, is a group of infectious diseases that include epidemic typhus, scrub typhus and murine typhus.</p>
+            <p>When the term "typhus" is used without clarification, Epidemic louse-borne typhus is usually the condition described.</p>
+
+            <h2>Epidemic Louse-borne Typhus</h2>
+            <p>Epidemic typhus is a form of typhus is named such as it often causes epidemics following wars and natural disasters.</p>
+
+            <ul>
+                <li><strong>Agent:</strong> <em>Rickettsia prowazekii</em></li>
+                <li><strong>Vector:</strong> Human body louse (<em>Pediculus humanus humanus</em>)</li>
+                <li><strong>Reservoir:</strong> Human, Flying squirrel</li>
+            </ul>
+
+            <h3>Symptoms</h3>
+            <p>Symptoms include severe headache, a sustained high fever, cough, rash, severe muscle pain, chills, falling blood pressure, stupor, sensitivity to light, delirium and death.</p>
+
+            <h3>Transmission Mechanism</h3>
+            <p>Feeding on a human who carries the bacterium infects the louse. <em>R. prowazekii</em> grows in the louse's gut and is excreted in its feces. The disease is then transmitted to an uninfected human who scratches the louse bite (which itches) and rubs the feces into the wound.</p>
+
+            <p><strong>Incubation period:</strong> 1-2 weeks</p>
+
+            <h3>Treatment</h3>
+            <p>Antibiotics like Chloramphenicol, Doxycycline.</p>
+
+            <h3>Prevention</h3>
+            <p>Mainly by preventing infestation with lice by:</p>
+            <ul>
+                <li>Dusting infested clothing with a powder consisting of 10% DDT, 1% malathion, or 1% permethrin.</li>
+                <li>Complete change of clothing, washing the infested clothing in hot water, and treating recently used bedsheets.</li>
+            </ul>
+
+            <div class="page-number">-143-</div>
+
+            <h2>Scrub Typhus</h2>
+            <ul>
+                <li>Globally 1 million cases occur and 1 billion population are at risk.</li>
+                <li>Although scrub typhus was not given important in Nepal a total of 101 cases were reported from 16 districts in 2015. 2016 reported 831 cases and 15 deaths. Focal point being Chitwan.</li>
+                <li>Caused by the intracellular parasite <em>Orientia tsutsugamushi</em>.</li>
+                <li>Scrub typhus occurs: South Asia and the Western Pacific.</li>
+                <li>Most cases are reported from the margins of agricultural lands and forests.</li>
+                <li>Scrub typhus is endemic to a part of the world known as the "tsutsugamushi triangle".</li>
+                <li><strong>Agent:</strong> <em>Orientia tsutsugamushi</em></li>
+                <li><strong>Reservoir:</strong> Trombiculid mite</li>
+            </ul>
+
+            <h3>Clinical Features</h3>
+            <p>Similar in presentation to other typhus. More virulent strains of <em>O. tsutsugamushi</em> can cause hemorrhaging and intravascular coagulation. Morbilliform rash, eschar, splenomegaly, and lymphadenopathies are typical signs.</p>
+
+            <h3>Treatment</h3>
+            <p>Tetracycline, Doxycycline, Azithromycin.</p>
+
+            <h3>Prevention</h3>
+            <h4>a. Vector control:</h4>
+            <ul>
+                <li>Clearing the vegetation where rats and mice live</li>
+                <li>Application of insecticide: lindane or chlordane</li>
+            </ul>
+
+            <h4>b. Personal prophylaxis:</h4>
+            <ul>
+                <li>Application of mite repellents (diethyltoluamide) on exposed surface</li>
+                <li>Impregnating clothes and blanket: benzyl benzoate</li>
+            </ul>
+
+            <div class="note">
+                <strong>Note:</strong> No scrub vaccine is available at present.
+            </div>
+
+            <h2>Murine Typhus</h2>
+            <ul>
+                <li>Also called endemic or flea-borne typhus</li>
+                <li>Found in areas of high rat infestation</li>
+                <li>More prevalent in South East Asia and Western Pacific Countries</li>
+                <li><strong>Agent:</strong> <em>Rickettsia typhi</em></li>
+                <li><strong>Vector:</strong> Flea (<em>Xenopsylla cheopis</em>)</li>
+                <li><strong>Reservoir:</strong> Rat (<em>Rattus rattus</em>)</li>
+            </ul>
+
+            <h3>Clinical Features</h3>
+            <p>Clinical features include Fever and chills, body aches and muscle pain, loss of appetite, nausea, vomiting, stomach pain, cough and rash (which typically occurs around day 5 of illness).</p>
+
+            <p><strong>Incubation period:</strong> 1 to 2 weeks</p>
+
+            <h3>Treatment</h3>
+            <p>Treatment is mostly with Tetracycline.</p>
+
+            <h3>Prevention</h3>
+            <p>Control of flea through:</p>
+            <ul>
+                <li>Residual insecticides (BHC, malathion)</li>
+                <li>Rodent control measures should be taken</li>
+            </ul>
+
+            <div class="note">
+                <strong>Note:</strong> No murine vaccine is currently available. Notably there is chance of outbreak after events such as earthquake.
+            </div>
+
+            <div class="page-number">-144-</div>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 MONOLITH. Built to persist.</p>
+    </footer>
+
+</body>
+</html>
