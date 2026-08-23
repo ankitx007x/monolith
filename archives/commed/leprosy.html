@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monolith — Leprosy</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #e5e5e5;
+            --accent-color: #888888;
+            --border-color: #222222;
+            --hover-color: #ffffff;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-family: var(--font-mono);
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--hover-color);
+        }
+
+        /* Main Container */
+        main {
+            max-width: 800px;
+            margin: 80px auto;
+        }
+
+        /* Header Section */
+        .subject-header {
+            margin-bottom: 60px;
+        }
+
+        .breadcrumb {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--hover-color);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-family: var(--font-mono);
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        /* Typography & Layout Content Elements */
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0px;
+            margin: 50px 0 20px 0;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        h3 {
+            font-size: 1.15rem;
+            font-weight: 500;
+            margin: 25px 0 10px 0;
+            color: var(--hover-color);
+        }
+
+        h4 {
+            font-size: 1.0rem;
+            font-weight: 600;
+            margin: 15px 0 5px 0;
+            color: #d0d0d0;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: var(--text-color);
+            text-align: justify;
+        }
+
+        strong {
+            color: var(--hover-color);
+            font-weight: 600;
+        }
+
+        em {
+            color: #b0b0b0;
+            font-style: italic;
+        }
+
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: square;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        li strong {
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
+        }
+
+        /* Tables matching Minimal Dark theme */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.95rem;
+        }
+
+        th {
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            color: var(--accent-color);
+            text-align: left;
+            padding: 10px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.85rem;
+        }
+
+        td {
+            padding: 12px 10px;
+            border-bottom: 1px dashed var(--border-color);
+            vertical-align: top;
+        }
+
+        tr:hover td {
+            color: var(--hover-color);
+            background-color: #0f0f0f;
+        }
+
+        .note {
+            background-color: #111111;
+            border-left: 2px solid var(--accent-color);
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            max-width: 800px;
+            margin: 100px auto 40px auto;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Monolith</div>
+        <ul class="nav-links">
+            <li><a href="https://fidelioa.github.io/monolith">Home</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/archives">Archives</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/about">About</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Document Header -->
+        <section class="subject-header">
+            <div class="breadcrumb">
+                <a href="https://fidelioa.github.io/monolith/archives">Archives</a> / 
+                <a href="https://fidelioa.github.io/monolith/archives/commed">Communicable Diseases</a> / Leprosy
+            </div>
+            <h1>Applied Epidemiology: Leprosy</h1>
+            <div class="subtitle">FAST TRACK CLINICAL SCIENCE MBBS - 3rd YEAR</div>
+        </section>
+
+        <!-- Main Chapter Content -->
+        <section class="content">
+
+            <h2>Leprosy</h2>
+
+            <h3>Past Questions</h3>
+            <ul>
+                <li><strong>1.</strong> Explain the phases of leprosy elimination program of Ministry of Health, Nepal. <strong>8 (2070)</strong></li>
+                <li><strong>2. Write briefly:</strong><br>
+                a. Multidrug therapy (MDT) followed under the Nepal Leprosy Control Programme (NLCP) <strong>4 (2059)</strong></li>
+                <li><strong>3. Write briefly:</strong><br>
+                a. Multi drug therapy (MDT) followed under the Nepal Leprosy Control Programme (NLCP) <strong>9 (2058)</strong></li>
+                <li><strong>4.</strong> How would you classify leprosy with a view to detect cases and trace? What is the treatment schedule and follow up strategy for MDT for leprosy control. <strong>8 (2053)</strong></li>
+            </ul>
+
+            <h3>Definition</h3>
+            <ul>
+                <li>Leprosy is a chronic infectious granulomatous disease caused by <em>Mycobacterium leprae</em> clinically characterized by hypopigmented patches over skin with total or partial loss of cutaneous sensation.</li>
+                <li>Also known as Hansen's disease.</li>
+            </ul>
+
+            <h3>Cardinal Features</h3>
+            <p>Clinically characterised by one or more of the following features:</p>
+            <ul>
+                <li>Hypopigmented patches</li>
+                <li>AFB in skin and nasal smears</li>
+                <li>Thickened Nerves</li>
+                <li>Partial or total loss of cutaneous Sensation</li>
+            </ul>
+
+            <h3>Signs of Advanced Disease</h3>
+            <ul>
+                <li>Presence of nodules/lumps especially on the skin of face and ears</li>
+                <li>Plantar ulcers</li>
+                <li>Loss of fingers or toes</li>
+                <li>Nasal depression</li>
+                <li>Foot drop</li>
+                <li>Claw toes</li>
+                <li>Other deformities</li>
+            </ul>
+
+            <div class="note">
+                <strong>Some Terminologies:</strong><br>
+                - <strong>Case:</strong> A "case" of leprosy is a person showing clinical signs of leprosy with or without bacteriological confirmation of diagnosis and who has not yet completed a full course of treatment with MDT.<br>
+                - <strong>Paucibacillary Leprosy:</strong> A person having 1-5 skin lesions and/or only one nerve involvement.<br>
+                - <strong>Multibacillary Leprosy:</strong> A person having 6 or more skin lesions and/or more than one nerve involvement.<br>
+                - <strong>Newly diagnosed case:</strong> A person who has been diagnosed as a leprosy case, and who has not taken MDT in past.<br>
+                - <strong>Defaulter case:</strong> A defaulter is a leprosy patient on MDT who has not collected treatment for 12 consecutive months.<br>
+                - <strong>Relapsed case:</strong> A patient whose therapy was terminated, having successfully completed an adequate course of MDT but who subsequently develops new signs and symptoms of disease either during surveillance or thereafter.
+            </div>
+
+            <h3>Problem Statement</h3>
+
+            <h4>a. Global Burden</h4>
+            <ul>
+                <li>WHO introduced multidrug regimen in 1981.</li>
+                <li>MDT treatment has been made available by WHO free of charge to all patients worldwide since 1995 (initiated by the Nippon foundation).</li>
+                <li>Elimination of leprosy globally was achieved in year 2000 (i.e. Prevalence rate of less than 1 per 10,000).</li>
+                <li>At end of 2015, globally 210,758 cases were detected.</li>
+                <li>95% of these new cases were reported from 14 countries (SEAR 86.41% of global cases).</li>
+                <li>Proportion of females was 38.8%, children less than 15 years was 8.9%, new cases with grade II disability was 6.7% in 2015.</li>
+                <li>Over past 20 years, more than 14 million patients have been cured.</li>
+                <li>Leprosy has been eliminated from 119 countries out of 122 countries where the disease was considered as a public health problem in 1985.</li>
+                <li>The global leprosy strategy 2016-2020 states "Accelerating towards a leprosy free world".</li>
+            </ul>
+
+            <h4>b. National burden of leprosy: 2409 (DoHS 2079/80)</h4>
+            <ul>
+                <li>In FY 2079/80, a total of 2,523 new leprosy cases and 2,510 leprosy cases on Multidrug Therapy (MDT) were reported.</li>
+                <li>There has been a slight increase in the new case detection rate (NCDR) compared to the previous fiscal year due to intensified active case detection activities at the field level.</li>
+                <li>National NCDR was per 100,000 population, and the prevalence rate (PR) was 0.8 per 10,000 population (National elimination achieved by Nepal in 2010; 16 districts show prevalence >1/10,000, main being Nawalparasi West with 2.2/10,000).</li>
+                <li>Madhesh province and Lumbini province exhibited the highest NCDR and PR.</li>
+                <li>Multi Bacillary (MB) cases comprised 76.9% of new cases, with 7.2% child proportion and 7.5% having grade 2 disability (G2D).</li>
+                <li>Females constituted 41.6% of new cases.</li>
+            </ul>
+
+            <div class="note">
+                <strong>Leprosy Prevalence Rate in FY 2079/80:</strong><br>
+                - Nine districts (Taplejung, Sankhuwasabha, Khotang, Bhojpur, Ilam, Dolakha, Sindhupalchowk, Manang and Mustang) reported zero new leprosy cases.<br>
+                - Seven districts (Manang, Rasuwa, Solukhumbu, Khotang, Bhojpur, Taplejung, Ilam) reported zero prevalence.<br>
+                - 56 districts had PR below 1, and 14 districts exceeded PR more than 1.<br>
+                - Among the 16 high prevalence districts for leprosy, Kapilvastu district in Lumbini Province and Kailali district of Sudurpaschim province had the highest prevalence rate of more than 2.
+            </div>
+
+            <h3>Disability in Leprosy</h3>
+            <ul>
+                <li>In 2079/80 (2022/23), 189 visible disability cases (Grade 2 Disability - G2D) were recorded nationally, constituting 7.5% among new cases.</li>
+                <li>Untreated leprosy cases can lead to disabilities, emphasizing the importance of early detection and complete treatment.</li>
+                <li>Monitoring indicators, including the Proportion of G2D among new cases and the rate per 100,000 populations, highlight the significance of early case detection.</li>
+                <li>In 2079/80, 181 new child cases were diagnosed, constituting 7.2% of new cases—a significant increase from the previous year's fluctuating trend.</li>
+                <li>Additionally, 1,049 female cases were detected, making up 41.6% of new female cases.</li>
+                <li>In FY 2079/80, eight G2D new child leprosy cases were recorded.</li>
+            </ul>
+
+            <p><strong>Leprosy treatment status in FY 2079/80:</strong></p>
+            <ul>
+                <li>In FY 2079/80, 2,523 new leprosy cases received multi-drug therapy, with 2,424 cases under treatment by year-end.</li>
+                <li>Of these, 1,939 patients completed the MDT regime and were released.</li>
+            </ul>
+
+            <h3>Epidemiological Determinants</h3>
+
+            <h4>A. Agent Factor</h4>
+            <ul>
+                <li><strong>1. Agent:</strong> Caused by <em>Mycobacterium leprae</em>.
+                    <ul>
+                        <li><em>M. leprae</em> is Acid Fast (weak) but not alcohol fast [<em>M. tuberculosis</em> is both acid and alcohol fast].</li>
+                        <li>Occur in human host both intracellularly and extracellularly.</li>
+                        <li>Have affinity for schwann cells and cells of RE system.</li>
+                        <li>Arranged singly or in parallel bundles (like rolls of cigarettes in packet) or in globular masses in clumps called globi.</li>
+                        <li>Antigen specific to <em>M. leprae</em> is Phenolic Glycolipid (PGL).</li>
+                        <li><em>M. leprae</em> is the only pathogenic bacteria of man that has not been convincingly cultured <em>in vitro</em>, but large quantities have been produced on 9-banded armadillo and nude mouse.</li>
+                        <li>Once stained with carbol-fuchsin, these bacteria due to presence of mycolic acid in cell wall resist decolorisation with acid so they are called acid fast.</li>
+                    </ul>
+                </li>
+                <li><strong>2. Source of infection:</strong> Multibacillary cases (lepromatous and borderline lepromatous) are important source of infection. Infection from tuberculoid form is not clear. Few evidence of natural infection in wild animals has been found but it is not yet known if leprosy in wild animals is a threat to public health.</li>
+                <li><strong>3. Portal of exit:</strong> Mainly from nose while sneezing or blowing of nose. May also exit through ulcerated or broken skin of bacteriologically positive cases.</li>
+                <li><strong>4. Infectivity:</strong> Leprosy is a highly infectious disease but of low pathogenicity. Infectious patients become non infectious after Dapsone for 90 days or Rifampicin for 3 weeks.</li>
+                <li><strong>5. Attack rates:</strong> 4.4% to 12% within 5 years among household contacts.</li>
+            </ul>
+
+            <h4>B. Host Factors</h4>
+            <ul>
+                <li><strong>1. Age:</strong> Infection can take place at any age depending upon opportunities of exposure. In endemic areas disease is commonly acquired in childhood. In areas where leprosy is rare, first contact may not take place early in life and disease may appear late.</li>
+                <li><strong>2. Sex:</strong> Both incidence and prevalence is higher in male than female.</li>
+                <li><strong>3. Immunity:</strong> There exists a high degree of innate immunity in man so only minority of contact develop clinical disease. Cell mediated immunity (CMI) plays major role. CMI is adequate in Tuberculoid leprosy and is completely broken down in Lepromatous leprosy. But, absence of CMI does not exclude participation of humoral response. Actually, Antibodies (IgG, IgM) are more pronounced at lepromatous end. CMI in an individual determines spectrum of illness.</li>
+                <li><strong>4. The prevalence pool in the community:</strong> It is in constant flux with "inflow" from new cases, relapsed cases and immigration of cases and "outflow" from cure, inactivation, death or emigration.</li>
+                <li><strong>5. Inactivation of disease:</strong> By specific treatment, or spontaneously without treatment in majority of cases.</li>
+            </ul>
+
+            <h4>C. Environmental Factors</h4>
+            <ul>
+                <li>Humidity favours survival of <em>M. leprae</em> in environment.</li>
+                <li>Overcrowding and lack of ventilation within households favours transmission.</li>
+            </ul>
+
+            <h3>Mode of Transmission</h3>
+            <ul>
+                <li>Droplet infection</li>
+                <li>Contact transmission</li>
+                <li>Other like insect vectors, tattooing needles</li>
+            </ul>
+
+            <p><strong>Incubation Period:</strong> 3-5 years in average. Tuberculoid leprosy is thought to have shorter incubation period than lepromatous leprosy.</p>
+
+            <h3>Classification</h3>
+
+            <h4>1. Indian Classification</h4>
+            <ul>
+                <li><strong>Indeterminate:</strong> 1-2 vague flat hypopigmented macules; Definite sensory impairment; Bacteriologically negative.</li>
+                <li><strong>Tuberculoid:</strong> 1-2 well defined lesion (flat or raised; Hypopigmented or Erythematous); Anesthetic; Bacteriologically negative.</li>
+                <li><strong>Borderline:</strong> 4 or more lesions; Bacteriologically negative or positive.</li>
+                <li><strong>Lepromatous:</strong> Numerous lesions shiny, smooth and symmetrically distributed; Bacteriologically positive.</li>
+                <li><strong>Pure Neuritic:</strong> Only nerve involvement; No lesions in skin; Bacteriologically Positive.</li>
+            </ul>
+
+            <h4>2. WHO &amp; Ridley-Jopling Classification</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>WHO Classification</th>
+                        <th>Ridley-Jopling Classification</th>
+                        <th>Features</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Paucibacillary</strong></td>
+                        <td>
+                            • Tuberculoid (TT)<br>
+                            • Borderline Tuberculoid (BT)
+                        </td>
+                        <td>1-5 skin lesions<br>Bacteriological Index &lt; 2</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Multibacillary</strong></td>
+                        <td>
+                            • Borderline (BB)<br>
+                            • Borderline Lepromatous (BL)<br>
+                            • Lepromatous (LL)
+                        </td>
+                        <td>6 or more skin lesions<br>Bacteriological Index &ge; 2<br><em>All patients with smear positive are treated as multibacillary.</em></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Diagnosis</h3>
+
+            <h4>1. Clinical examination / "Case taking"</h4>
+            <p><strong>a. History:</strong></p>
+            <ul>
+                <li>Patient particulars</li>
+                <li>Presenting complaint</li>
+                <li>Details of previous history of treatment of leprosy if any</li>
+                <li>History of contact with leprosy cases</li>
+                <li>Family history of leprosy</li>
+            </ul>
+
+            <p><strong>b. Physical Examination:</strong></p>
+            <ul>
+                <li>A thorough inspection of body surface in good natural light for presence of suggestive or evidence of leprosy.</li>
+                <li>Palpation of commonly palpable peripheral and cutaneous nerves (Ulnar, greater auricular, lateral popliteal, dorsal branch of radial) for presence of thickening and/or tenderness.</li>
+                <li>Testing for loss of sensation for heat, cold, pain and light touch in skin patches.</li>
+                <li>Testing for paresis or paralysis of muscles of hands and feet.</li>
+            </ul>
+
+            <h4>2. Bacteriological Examination</h4>
+            <p><strong>a. Sample:</strong></p>
+            <ul>
+                <li><strong>i. Skin smear:</strong> 2 sites are examined; tissue pulp below the epidermis is transferred on glass slide.</li>
+                <li><strong>ii. Nasal Smear:</strong> Best prepared from early morning mucus material; used for assessing patient's infectivity.</li>
+                <li><strong>iii. Nasal Scraping</strong></li>
+            </ul>
+            <p><strong>b. Fixing of smear:</strong> Skin or nasal smear is immediately fixed by lightly passing underside of slide over spirit lamp flame.</p>
+            <p><strong>c. Staining:</strong> Stained by Ziehl-Neelsen method.</p>
+            <p><strong>d. Microscopy / Bacteriological Index (BI):</strong> Stained smear is carefully examined by microscope using oil-immersion objective. BI indicates density of bacilli in smear by oil immersion objective and includes both living (solid staining) and dead (fragmented/granular) bacilli.</p>
+            <ul>
+                <li><strong>0:</strong> No bacilli in any of 100 oil-immersion fields</li>
+                <li><strong>1+:</strong> 1-10 bacilli in 100 oil-immersion fields</li>
+                <li><strong>2+:</strong> 1-10 bacilli in 10 oil-immersion fields</li>
+                <li><strong>3+:</strong> 1-10 bacilli in each oil-immersion field</li>
+                <li><strong>4+:</strong> 10-100 bacilli in each oil-immersion field</li>
+                <li><strong>5+:</strong> 100-1000 bacilli in each oil-immersion field</li>
+                <li><strong>6+:</strong> >1000 bacilli in each oil-immersion field</li>
+            </ul>
+
+            <div class="note">
+                <strong>Note:</strong><br>
+                - If smear is taken from different sites, Bacteriological index is calculated by taking average of all sites.<br>
+                - To declare negative, at least 200 fields should be examined.<br>
+                - For BI 1+, 2+ at least 100 fields should be examined.<br>
+                - For BI 3+, 4+, 5+, 6+ at least 25 fields should be examined.
+            </div>
+
+            <h4>3. Morphological Index (MI)</h4>
+            <p>The percentage of solid staining bacteria in a stained smear is referred to as morphological index. Calculated after evaluating 200 pink stained free standing bacilli.</p>
+            <p>Criteria for calling bacilli solid stained are:</p>
+            <ul>
+                <li>Uniform staining of entire organism</li>
+                <li>Parallel sides</li>
+                <li>Rounded ends</li>
+                <li>Length 5 times that of width</li>
+            </ul>
+            <p>It is believed that only solid staining organisms are viable. Thus, it is useful in assessing prognosis and response of treatment. Can be expressed as SFG%.</p>
+
+            <h4>4. Foot Pad Culture</h4>
+            <ul>
+                <li>The only certain way to identify <em>M. leprae</em> is to inoculate the material into foot-pads of mice and demonstrate its multiplication.</li>
+                <li>Mouse foot-pad inoculation is 10 times more sensitive at detecting <em>M. leprae</em> than are slit-skin smear.</li>
+                <li>Drawback of this technique is that it is time consuming and requires 6 to 9 months before results are obtained.</li>
+            </ul>
+
+            <h4>5. Histamine Test</h4>
+            <ul>
+                <li>Very reliable method for detecting early stage peripheral nerve damage.</li>
+                <li>0.1 ml of 1:1000 solution of histamine phosphate or chlorhydrate is injected intradermally into hypopigmented patches or in areas of anaesthesia.</li>
+                <li>In normal person, wheal surrounded by erythematous flare develop within few minutes.</li>
+                <li>But in case of leprosy, flare response is lost as nerve supply is destroyed.</li>
+            </ul>
+
+            <h4>6. Biopsy</h4>
+            <ul>
+                <li>Histopathological examination confirms leprosy.</li>
+                <li>It also allows accurate classification of disease.</li>
+                <li>It also gives information about bacterial content of skin.</li>
+            </ul>
+
+            <h4>7. Immunological Tests</h4>
+            <p><strong>a. Test for CMI (Lepromin Test):</strong> 0.1 ml of lepromin containing 40 million dead lepra bacilli is injected into inner aspect of forearm intradermally.</p>
+            <ul>
+                <li><strong>Early reaction / Fernandez reaction:</strong> Redness and induration develop at site of inoculation within 24 to 48 hrs and tends to disappear at 3-4 days. If diameter of red area is more than 10mm at end of 48 hrs, the test is considered positive (indicates person has been previously sensitized to leprosy bacilli).</li>
+                <li><strong>Late Reaction / Mitsuda reaction:</strong> A nodule begins to appear at 7-10 days and reaches maximum in 3 or 4 weeks. At end of 21 days, if there is a nodule more than 5 mm diameter, reaction is said to be positive.</li>
+                <li><strong>LTT and LMT</strong></li>
+            </ul>
+
+            <div class="note">
+                <strong>Note:</strong><br>
+                - Lepromin test is not a diagnostic test but it is useful in classification of leprosy.<br>
+                - Early reaction is induced by soluble constituents of leprosy bacilli and is much superior to late reaction.<br>
+                - Late reaction is by bacillary component of antigen.<br>
+                - Lepromin test is usually strongly positive in typical tuberculoid cases and positivity gets weaker as one passes through the spectrum to the lepromatous end, the typical lepromatous case being negative.<br>
+                - Paucibacillary cases are positive in lepromin test whereas multibacillary cases are negative.
+            </div>
+
+            <p><strong>b. Test for humoral antibodies:</strong></p>
+            <ul>
+                <li>FLA-ABS</li>
+                <li>Monoclonal antibodies</li>
+                <li>ELISA</li>
+            </ul>
+
+            <h3>Lepra Reaction</h3>
+            <p>These are immunologically mediated episodes of acute or subacute inflammation during the course of leprosy. Can occur before, during, or after MDT therapy. Prompt treatment is necessary as such episodes may result in permanent deformities.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Type I (Reversal Reaction)</th>
+                        <th>Type II (ENL - Erythema Nodosum Leprosum)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Mechanism</strong></td>
+                        <td>Delayed hypersensitivity</td>
+                        <td>Antigen-antibody reaction</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Occurrence</strong></td>
+                        <td>Seen both in PB and MB in unstable types like BT, BB, BL.</td>
+                        <td>Seen in MB cases only (BL and LL).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Skin Lesions</strong></td>
+                        <td>Initial skin lesions themselves become inflamed, red, swollen, tender and painful. Other new lesions may also appear.</td>
+                        <td>New inflamed, red, painful, tender subcutaneous nodules known as ENL (1-2cm) appear while original skin patches remain as they were. ENLs are commonly seen on face, arms, legs, and are bilaterally symmetrical.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Organ Involvement</strong></td>
+                        <td>Other organs are not affected.</td>
+                        <td>Other organs like eye, testis, kidney may be affected.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Systemic Symptoms</strong></td>
+                        <td>Systemic symptoms are not so common.</td>
+                        <td>Fever, joint pain, red eye with watering may be associated.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Nerve Involvement</strong></td>
+                        <td>Nerves may be enlarged, tender, painful (neuritis) with loss of functions which may appear suddenly.</td>
+                        <td>Nerves are less commonly involved and severity is also low.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="note">
+                <strong>Note on Reaction Management:</strong><br>
+                - If a patient develops lepra reaction during MDT therapy, <strong>do not stop MDT</strong>.<br>
+                - If a patient develops lepra reaction after completion of treatment, <strong>do not start MDT again</strong>.
+            </div>
+
+            <h4>Treatment of Lepra Reaction</h4>
+            <ul>
+                <li><strong>Mild case:</strong> Aspirin 600 mg 6 hrly</li>
+                <li><strong>Moderate to severe cases:</strong> Prednisolone regimen (DOC)
+                    <ul>
+                        <li>40 mg daily for first 2 weeks</li>
+                        <li>30 mg daily for weeks 3 and 4</li>
+                        <li>20 mg daily for weeks 5 and 6</li>
+                        <li>15 mg daily for weeks 7 and 8</li>
+                        <li>10 mg daily for weeks 9 and 10</li>
+                        <li>5 mg daily for weeks 11 and 12</li>
+                    </ul>
+                </li>
+                <li><strong>Add Clofazimine in ENL:</strong>
+                    <ul>
+                        <li>One capsule (100 mg) 3 times a day for 4 weeks</li>
+                        <li>One capsule (100 mg) 2 times a day for next 4 weeks</li>
+                        <li>One capsule (100 mg) once a day for 3rd month</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="note">
+                <strong>Dose of Prednisolone in case of pregnancy:</strong><br>
+                - <strong>PB case:</strong> Start with 30 mg daily and course for 10 weeks.<br>
+                - <strong>MB case:</strong> Start with 30 mg daily and course for 20 weeks.
+            </div>
+
+            <h3>Leprosy Control</h3>
+
+            <h4>1. Medical Measures</h4>
+
+            <p><strong>a. Estimation of Problem:</strong></p>
+            <ul>
+                <li>Random sample survey is good enough to collect base-line data.</li>
+                <li>Rough estimate of prevalence can be determined by examining all school-age children; total prevalence will be about 4 times the number of cases found.</li>
+            </ul>
+
+            <p><strong>b. Early Case Detection:</strong></p>
+            <p>Main aim of case detection is to identify and to register all cases of leprosy as soon as possible. Case finding methods include:</p>
+            <ul>
+                <li><strong>Contact survey:</strong> In areas where prevalence of leprosy is generally low (&lt;1), technique of choice is examination of all contacts (e.g. household contacts, especially children and persons reported to suspected cases).</li>
+                <li><strong>Group survey:</strong> When prevalence is about 1 per 1000 or higher, additional methods such as screening of preschool and school children, people living in slum, military recruits, industrial labour and other selected groups.</li>
+                <li><strong>Mass survey:</strong> When prevalence is about 10 or more per 1000, examination of each and every individual, family by family by house-to-house visits are recommended.</li>
+            </ul>
+
+            <p><strong>c. Multidrug Therapy (MDT) as recommended by WHO [2059, 2058]:</strong></p>
+
+            <p><strong>i. Multibacillary leprosy:</strong></p>
+            <ul>
+                <li><strong>For Adults:</strong>
+                    <ul>
+                        <li>Rifampicin: 600 mg once monthly given under supervision</li>
+                        <li>Dapsone: 100 mg daily, self administered</li>
+                        <li>Clofazimine: 300 mg once monthly supervised and 50 mg daily self administered</li>
+                    </ul>
+                </li>
+                <li><strong>For Children (10-14 Years):</strong>
+                    <ul>
+                        <li>Rifampicin: 450 mg once monthly given under supervision</li>
+                        <li>Dapsone: 50 mg daily, self administered</li>
+                        <li>Clofazimine: 150 mg once monthly supervised and 50 mg every other day self administered</li>
+                    </ul>
+                </li>
+                <li><strong>Duration of treatment:</strong> 12 months</li>
+            </ul>
+
+            <p><strong>ii. Paucibacillary leprosy:</strong></p>
+            <ul>
+                <li><strong>For Adults:</strong>
+                    <ul>
+                        <li>Rifampicin: 600 mg once monthly given under supervision</li>
+                        <li>Dapsone: 100 mg daily, self administered</li>
+                    </ul>
+                </li>
+                <li><strong>For Children (10-14 years):</strong>
+                    <ul>
+                        <li>Rifampicin: 450 mg once monthly given under supervision</li>
+                        <li>Dapsone: 50 mg daily, self administered</li>
+                    </ul>
+                </li>
+                <li><strong>Duration of treatment:</strong> 6 months</li>
+            </ul>
+
+            <p><strong>d. Surveillance:</strong> Clinical surveillance of cases after completion of treatment is recommended.</p>
+            <ul>
+                <li>Paucibacillary cases should be examined clinically at least once a year for minimum of 2 years.</li>
+                <li>Multibacillary cases should be examined clinically at least once a year for minimum of 5 years.</li>
+            </ul>
+
+            <p><strong>e. Other Measures:</strong></p>
+            <ul>
+                <li>Immunoprophylaxis (BCG vaccine coverage)</li>
+                <li>Chemoprophylaxis to immediate contacts in multi-bacillary leprosy</li>
+                <li>Deformities management &amp; Rehabilitation</li>
+                <li>Health education &amp; Social support</li>
+                <li>Programme management &amp; Evaluation</li>
+            </ul>
+
+            <h3>Indicators of Leprosy</h3>
+            <p>There are two main types of indicators:</p>
+
+            <h4>1. Epidemiological Indicators</h4>
+            <ul>
+                <li>Incidence</li>
+                <li>Prevalence</li>
+            </ul>
+
+            <h4>2. Main or Core Indicators</h4>
+            <ul>
+                <li><strong>Indicators for monitoring progress:</strong>
+                    <ul>
+                        <li>Rate of new cases detected per 100,000 per year</li>
+                        <li>Rate of new cases with grade 2 disabilities per 100,000 per year</li>
+                        <li>Treatment completion / cure rate</li>
+                    </ul>
+                </li>
+                <li><strong>Indicators for evaluating case detection:</strong>
+                    <ul>
+                        <li>Proportion of new cases presenting with grade-2 disabilities</li>
+                        <li>Proportion of child cases among new cases</li>
+                        <li>Proportion of female cases among new cases</li>
+                        <li>Proportion of multibacillary cases among new cases</li>
+                    </ul>
+                </li>
+                <li><strong>Indicators for assessing quality of service:</strong>
+                    <ul>
+                        <li>Proportion of new cases verified as correctly diagnosed</li>
+                        <li>Proportion of treatment defaulters</li>
+                        <li>Number of relapses</li>
+                        <li>Proportion of patients who develop new/additional disability during MDT</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>National Leprosy Elimination Program (NLEP)</h3>
+            <p>The National Leprosy Elimination Program of Nepal is guided by National Roadmap for Zero Leprosy (2021-30) and National Leprosy Strategy (2021-25).</p>
+
+            <p><strong>Vision:</strong> Leprosy free Nepal</p>
+
+            <p><strong>Goal:</strong> Elimination of leprosy (interruption of transmission of leprosy) at the subnational level (municipality). Interruption of transmission is defined as zero new autochthonous child leprosy cases for consecutive five years at the municipality level.</p>
+
+            <h4>Objectives:</h4>
+            <ul>
+                <li><strong>1.</strong> To eliminate leprosy transmission at the subnational level (province, district, local level).</li>
+                <li><strong>2.</strong> To strengthen clinical case management at district and municipal levels and improve referral system.</li>
+                <li><strong>3.</strong> To enhance capacity building through training of health staff particularly at the peripheral health facilities.</li>
+                <li><strong>4.</strong> To enhance prevention of leprosy.</li>
+                <li><strong>5.</strong> Reduction of stigma and discrimination.</li>
+                <li><strong>6.</strong> To strengthen leprosy surveillance system and regular monitoring, supervision, and periodic evaluation at all level.</li>
+                <li><strong>7.</strong> To strengthen partnerships among different stakeholders.</li>
+                <li><strong>8.</strong> To strengthen management of leprosy complications like reactions and disability prevention and rehabilitation.</li>
+                <li><strong>9.</strong> To coordinate with neighboring states of India in management, reporting and referral of cases from border areas.</li>
+                <li><strong>10.</strong> To promote research and innovations.</li>
+            </ul>
+
+            <h4>Four Strategic Pillars of NLEP:</h4>
+            <ul>
+                <li><strong>Pillar 1:</strong> Implement the national leprosy roadmap for zero leprosy across all levels—national, provincial, and local.</li>
+                <li><strong>Pillar 2:</strong> Scale up leprosy prevention alongside integrated active case detection.</li>
+                <li><strong>Pillar 3:</strong> Manage leprosy and its complications and prevent new disability.</li>
+                <li><strong>Pillar 4:</strong> Combat stigma and ensure human rights are respected.</li>
+            </ul>
+
+            <h3>SWOT Analysis of Nepal Leprosy Elimination Program</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Strengths</strong></td>
+                        <td>
+                            • Free MDT transportation for released cases, and additional services for treating complications.<br>
+                            • Evidence-based planning aligned with the National Leprosy Strategy and Action Plan 2021-2025.<br>
+                            • Pilot of case-based surveillance system.<br>
+                            • Leprosy services accessible at grassroot levels.<br>
+                            • Continuous supply of MDT.<br>
+                            • Effective communication and collaboration among supporting partners.<br>
+                            • Increased participation of leprosy-affected individuals in the national program.<br>
+                            • Operational research in high-endemic districts for quality services.<br>
+                            • Intensification of vocational education and income generation for people affected by leprosy.<br>
+                            • Resource mobilization, partnerships, collaboration with local government and new partners.<br>
+                            • Regular meetings of steering, coordination, and technical committees.<br>
+                            • Leprosy Post-Exposure Prophylaxis in use as preventive chemoprophylaxis.<br>
+                            • Active case detection, contact examination, and surveillance of patients, family, and neighbours.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Weaknesses</strong></td>
+                        <td>
+                            • Inadequate institutional setup and human resources.<br>
+                            • Limited activities for early case detection and management.<br>
+                            • Low priority for leprosy program at the periphery.<br>
+                            • Poor motivation of health workers.<br>
+                            • Limited rehabilitation activities.<br>
+                            • Insufficient training for newly recruited health workers and lack of refresher trainings in reaction and complication management at the periphery.<br>
+                            • Poor result-based output, recording, and reporting of contact examination activities.<br>
+                            • Issues with under and over reporting of leprosy data.<br>
+                            • Low coverage of contact examination and LPEP.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Opportunities</strong></td>
+                        <td>
+                            • Expansion and continuation of Leprosy Post-Exposure Prophylaxis in high-endemic districts.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Threats / Challenges</strong></td>
+                        <td>
+                            • Addressing cross-border mobility.<br>
+                            • High G2D proportion.<br>
+                            • Increasing new cases of leprosy.<br>
+                            • Ongoing high community transmission, high child cases.<br>
+                            • Retaining trained human resources.<br>
+                            • Stigma and discrimination related to leprosy.<br>
+                            • Maintaining access and quality of services in low-endemic mountain and hill districts.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Phases / Milestones of Leprosy Elimination in Nepal [2070]</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Year BS (AD)</th>
+                        <th>Milestones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1913/14 (1857)</strong></td>
+                        <td>Establishment of Khokana Leprosarium</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2016/17 (1960)</strong></td>
+                        <td>Leprosy survey by Government of Nepal in collaboration with WHO</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2022/25 (1966)</strong></td>
+                        <td>Pilot project to control leprosy launched with Dapsone monotherapy</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2038/39 (1982)</strong></td>
+                        <td>Introduction of multi-drug therapy (MDT) in leprosy control programme</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2043/44 (1987)</strong></td>
+                        <td>Integration of vertical leprosy control programme into general basic health services</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2047/48 (1991)</strong></td>
+                        <td>National leprosy elimination goal set</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2051/53 (1995)</strong></td>
+                        <td>Focal persons (TB and leprosy assistants (TLAs)) appointed for districts and regions</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2052/53 (1996)</strong></td>
+                        <td>All 75 districts were brought into MDT programme</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2055-2057 (1999/2000-2001/02)</strong></td>
+                        <td>Two rounds of National Leprosy Elimination Campaign (NLEC) implemented</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2064/65 (2008)</strong></td>
+                        <td>Intensive efforts made for achieving elimination at the national level</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2065/66 (2009 and 2010)</strong></td>
+                        <td>Leprosy elimination achieved and declared at the national level</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2067/68 (2011)</strong></td>
+                        <td>Developed and endorsed National Leprosy Strategy (2011-2015)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2068/69 (2012-2015)</strong></td>
+                        <td>Elimination sustained at national level and national guidelines, 2013 (2070) revised</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2069/70 (2013-2014)</strong></td>
+                        <td>Mid-term evaluation of implementation of National Leprosy Strategy (2011-2015)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2070/71 (2014-2015)</strong></td>
+                        <td>Ministry of Health designated Leprosy Control Division as the Disability Focal Unit</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2070/71-2074/75 (2015-2016)</strong></td>
+                        <td>Piloting of Leprosy Post Exposure Prophylaxis in Jhapa, Morang and Parsa</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2074/75 (2017)</strong></td>
+                        <td>Policy, Strategy and 10 Years Action Plan on Disability Management (Prevention, Treatment and Rehabilitation) 2075-2082 developed and disseminated</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2074 (2018)</strong></td>
+                        <td>National Leprosy Strategy 2073-2077 (2016-2020) developed and endorsed. Revised leprosy guideline in line with national leprosy strategy and global leprosy strategy.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2075/76 (2019)</strong></td>
+                        <td>In-depth Review of National Leprosy Programme and Envisioning Roadmap to Zero Leprosy</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2076/77 (2020)</strong></td>
+                        <td>Development of Leprosy Post Exposure Prophylaxis Guideline</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2077/78 (2021)</strong></td>
+                        <td>Endorsement of National Roadmap for Zero Leprosy-Nepal 2077/78-2087/88 (2021-2030) &amp; Endorsement of National Leprosy Strategy 2077/78-2081/82 (2021-2025)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 MONOLITH. Built to persist.</p>
+    </footer>
+
+</body>
+</html>
