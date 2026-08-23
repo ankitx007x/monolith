@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monolith — Japanese Encephalitis, Chikungunya &amp; Leptospirosis</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #e5e5e5;
+            --accent-color: #888888;
+            --border-color: #222222;
+            --hover-color: #ffffff;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-family: var(--font-mono);
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--hover-color);
+        }
+
+        /* Main Container */
+        main {
+            max-width: 800px;
+            margin: 80px auto;
+        }
+
+        /* Header Section */
+        .subject-header {
+            margin-bottom: 60px;
+        }
+
+        .breadcrumb {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--hover-color);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-family: var(--font-mono);
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        /* Typography & Layout Content Elements */
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0px;
+            margin: 50px 0 20px 0;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        h3 {
+            font-size: 1.15rem;
+            font-weight: 500;
+            margin: 25px 0 10px 0;
+            color: var(--hover-color);
+        }
+
+        h4 {
+            font-size: 1.0rem;
+            font-weight: 600;
+            margin: 15px 0 5px 0;
+            color: #d0d0d0;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: var(--text-color);
+            text-align: justify;
+        }
+
+        strong {
+            color: var(--hover-color);
+            font-weight: 600;
+        }
+
+        em {
+            color: #b0b0b0;
+            font-style: italic;
+        }
+
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: square;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        li strong {
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
+        }
+
+        /* Tables matching Minimal Dark theme */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.95rem;
+        }
+
+        th {
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            color: var(--accent-color);
+            text-align: left;
+            padding: 10px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.85rem;
+        }
+
+        td {
+            padding: 12px 10px;
+            border-bottom: 1px dashed var(--border-color);
+            vertical-align: top;
+        }
+
+        tr:hover td {
+            color: var(--hover-color);
+            background-color: #0f0f0f;
+        }
+
+        .note {
+            background-color: #111111;
+            border-left: 2px solid var(--accent-color);
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 0.95rem;
+        }
+
+        /* Flowchart / Box Styling */
+        .flow-step {
+            background-color: #111111;
+            border: 1px solid var(--border-color);
+            padding: 12px 15px;
+            margin: 8px 0;
+            border-radius: 4px;
+        }
+
+        .flow-arrow {
+            text-align: center;
+            color: var(--accent-color);
+            font-weight: bold;
+            margin: 4px 0;
+        }
+
+        /* Footer */
+        footer {
+            max-width: 800px;
+            margin: 100px auto 40px auto;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Monolith</div>
+        <ul class="nav-links">
+            <li><a href="https://fidelioa.github.io/monolith">Home</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/archives">Archives</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/about">About</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Document Header -->
+        <section class="subject-header">
+            <div class="breadcrumb">
+                <a href="https://fidelioa.github.io/monolith/archives">Archives</a> / 
+                <a href="https://fidelioa.github.io/monolith/archives/commed">Communicable Diseases</a> / Japanese Encephalitis
+            </div>
+            <h1>Applied Epidemiology: Vector Borne Diseases — JE, Chikungunya, Leptospirosis &amp; Plague</h1>
+            <div class="subtitle">FAST TRACK CLINICAL SCIENCE MBBS - 3rd YEAR</div>
+        </section>
+
+        <!-- Main Chapter Content -->
+        <section class="content">
+
+            <div class="note">
+                <strong>WHO Surveillance Note:</strong> WHO uses "Aedes aegypti index" for surveillance. It is a house index and should be less than 1% in urban and seaport areas.
+            </div>
+
+            <h2>JAPANESE ENCEPHALITIS</h2>
+
+            <h3>Past Questions</h3>
+            <ul>
+                <li><strong>1. Write short notes on: (2070)</strong><br>
+                a. Japanese Encephalitis Vaccination <strong>[4]</strong></li>
+                <li><strong>2. Write short notes on: (2064)</strong><br>
+                a. Japanese Encephalitis <strong>[4]</strong></li>
+                <li><strong>3.</strong> Describe the epidemiological situation of Japanese Encephalitis and its determinants in Nepal. Illustrate the principles of case management, prevention and control of Japanese Encephalitis (JE). <strong>8 (2062)</strong></li>
+                <li><strong>4.</strong> "Japanese encephalitis is a killer disease in Nepal". Justify this saying. Describe its control measures. <strong>8 (2055)</strong></li>
+            </ul>
+
+            <h3>Introduction</h3>
+            <ul>
+                <li>Caused by Japanese Encephalitis Virus, a flavivirus related to dengue, yellow fever, and West Nile virus.</li>
+                <li>One of the main causes of viral Encephalitis.</li>
+                <li>Zoonotic disease, infecting mainly animals and incidentally man.</li>
+                <li>Although rarely symptomatic, the case fatality rate is around 30% (ranges from 0.3 to 60% depending on population and age). Also, there might be permanent neurologic or psychiatric sequelae in 30-50%.</li>
+                <li>Till now there is no cure for JE. Treatment is only focused on relieving severe clinical signs and supporting the patient to overcome infection.</li>
+                <li>Safe and effective vaccine is available to prevent JE.</li>
+            </ul>
+
+            <h3>Problem Statement</h3>
+            <ul>
+                <li>24 countries in WHO South East Asia and Western Pacific regions are endemic to JE.</li>
+                <li>It is the leading cause of viral encephalitis in Asia, with up to 70,000 cases reported annually.</li>
+                <li>Globally 68,000 cases per year and 20,400 deaths per year.</li>
+                <li>Major outbreaks of JE occur every 2-15 years.</li>
+            </ul>
+
+            <h3>Acute encephalitis syndrome (AES) surveillance in JE</h3>
+            <ul>
+                <li>As a concentrated Japanese encephalitis (JE) control measure, phase-wise mass vaccination campaigns started in 2006 and were completed in 31 high-risk districts by 2011. JE vaccine was introduced in a phase-wise manner in the routine immunization to these 31 districts by 2012. After these measures were taken, the JE burden was reduced significantly in Nepal. However, over the years, as identified by surveillance, JE was reported from other districts of Nepal as well. Following a mass-vaccination campaign in the remaining districts in 2016, the JE vaccine was introduced in the routine immunization of all remaining 44 districts in July 2016. The JE burden in Nepal has reduced significantly in 2019 compared to the initial years when surveillance was started.</li>
+                <li>In FY 2079/80, 758 AES cases were reported of which 76 (10.0%) were laboratory confirmed for JE.</li>
+                <li>Though the cases have increased in number from last FY (79 cases were confirmed JE), the confirmatory percentage among reported cases (12.4%) has decreased. JE cases were present in all provinces.</li>
+                <li>Only 10 districts reported zero cases.</li>
+                <li>In FY 2078/79, Out of the total districts, Kathmandu district reported a higher number of AES cases between 51-100, Kaski district reported AES cases between 31-50, and thirteen districts (Jhapa, Morang, Sankhuwasabha, Siraha, Ramechhap, Lalitpur, Bhaktapur, Sindhupalchok, Parsa, Chitwan, Tanahu, Syangja, Kailali) have reported AES cases between 11-30.</li>
+            </ul>
+
+            <h3>Epidemiological Factors</h3>
+
+            <h4>Agent Factors</h4>
+            <ul>
+                <li><strong>i. Causative agent:</strong> Flavivirus (Group B virus)</li>
+                <li><strong>ii. Transmitted by:</strong>
+                    <ul>
+                        <li><em>Culex tritaeniorhynchus</em></li>
+                        <li><em>Culex vishnuii</em></li>
+                        <li><em>Culex gelidus</em></li>
+                        <li>Also by some anopheline mosquitoes</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h4>Host Factors</h4>
+            <ul>
+                <li><strong>i. Animal hosts:</strong>
+                    <ul>
+                        <li><strong>a. Pigs:</strong> Major vertebrate host. Up to 100% of pigs may be infected with JE. Pigs do not show any symptoms but circulate them. Pigs &rarr; Amplifier.</li>
+                        <li><strong>b. Horse:</strong> The only vertebrate showing symptoms.</li>
+                        <li><strong>c. "Mosquitoes attractant":</strong> Cattle and buffaloes.</li>
+                    </ul>
+                </li>
+                <li><strong>ii. Bird host:</strong> Pond herons, cattle egrets, poultry, and ducks.</li>
+            </ul>
+
+            <h4>Basic cycle of transmission</h4>
+            <ul>
+                <li>a. Pig &rarr; Mosquito &rarr; Pig</li>
+                <li>b. Ardeid bird &rarr; Mosquito &rarr; Ardeid bird</li>
+                <li>Man is a dead end host.</li>
+            </ul>
+
+            <ul>
+                <li><strong>iii. Human host:</strong> JE usually affects children less than 15 years of age and provides natural immunity after childhood infection, but any age may be affected. This disease is also associated with poor personal hygiene, poor sanitation, poor housing, and rearing of poultry near household.</li>
+            </ul>
+
+            <h4>Environmental Factors</h4>
+            <ul>
+                <li>Rainy season (July to September)</li>
+                <li>Vectors generally breed in irrigated rice fields.</li>
+                <li>Vector not found in altitude above 2500 m.</li>
+            </ul>
+
+            <h3>JE in Man</h3>
+            <p><strong>Incubation period:</strong> 5 - 15 days</p>
+            <p><strong>Overt disease:</strong> Inapparent infections = 1:250</p>
+
+            <h3>Clinical Features</h3>
+
+            <h4>a. Prodromal stage: Acute (1-6 days)</h4>
+            <ul>
+                <li>Fever, headache, Gastrointestinal disturbance</li>
+                <li>Lethargy &amp; malaise</li>
+                <li>1-6 days duration</li>
+            </ul>
+
+            <h4>b. Acute encephalitic stage:</h4>
+            <ul>
+                <li>High fever (38-40.7°C)</li>
+                <li>Nuchal rigidity, Focal CNS signs, convulsions</li>
+                <li>Difficulty of speech, dystonia</li>
+                <li>Hemiplegia, coarse tremors</li>
+                <li>Altered sensorium, coma</li>
+            </ul>
+
+            <h4>c. Late stage &amp; sequelae:</h4>
+            <ul>
+                <li><strong>i. If patient recovers:</strong> Temperature normalizes, ESR in normal range, Active inflammation ends.</li>
+                <li><strong>ii. If disease persists:</strong> Gastric hemorrhage, Diathesis, Pulmonary edema, Death within 9 days from onset, case fatality rate 20-40%.</li>
+            </ul>
+
+            <h3>Diagnosis</h3>
+            <ul>
+                <li><strong>Suspected case:</strong> Individuals who live in or have travelled to a JE endemic region and experience encephalitic signs.</li>
+                <li><strong>Confirmation:</strong> By lab tests: Serology using IgM-capture ELISA which detects specific IgM in CSF or blood within 7 days of onset.</li>
+            </ul>
+
+            <h4>Diagnostic criteria of JE at national level:</h4>
+            <ul>
+                <li>"Any case having elevated temperature (&gt;38°C), altered consciousness or unconsciousness, possible meningitis/encephalitis and be referred for lumbar puncture".</li>
+                <li>"If the suspected case has between 5 and 1000 cells (predominantly lymphocytes per mm³) probable viral encephalitis."</li>
+                <li>"If a case of probable viral encephalitis as defined above presents positive specific anti-JE IgM in the CSF or serum at the time of illness: confirmed case of encephalitis due to Japanese encephalitis virus."</li>
+            </ul>
+
+            <h3>Prevention</h3>
+            <p>3 types of vaccines are available against JE:</p>
+
+            <h4>1. Mouse brain derived killed vaccines</h4>
+            <ul>
+                <li>a. Nakayama or Beijing strains are used</li>
+                <li>b. Widely used vaccine in the past</li>
+                <li>c. 0.5 ml &lt; 3 yrs and 1 ml &gt; 3 yrs subcutaneously</li>
+                <li>d. 2 primary doses 4 weeks apart, booster dose after 1 year and subsequently 3 yearly interval until 10-15 years</li>
+                <li>e. Has severe adverse effect</li>
+                <li>f. Banned from 2007 in India</li>
+            </ul>
+
+            <h4>2. Cell culture derived killed vaccine</h4>
+            <ul>
+                <li>Beijing P-3 strain</li>
+            </ul>
+
+            <h4>3. Cell culture derived live attenuated vaccine</h4>
+            <ul>
+                <li>a. Also called SA 14-14-2 vaccine</li>
+                <li>b. Widely used nowadays</li>
+                <li>c. Equally good childhood protection is obtained by a single primary dose followed by a single booster dose after 1 year</li>
+                <li>d. Safer up to 15 years of age</li>
+                <li>e. 0.5 ml subcutaneously</li>
+                <li>f. Not recommended for adult</li>
+                <li>g. Highly effective for use during mass campaign</li>
+            </ul>
+
+            <h3>Control Measures for JE</h3>
+            <p>Control measures involve 2 strategies:</p>
+
+            <h4>a. Control of Reservoir</h4>
+            <ul>
+                <li>Birds and various vertebrate animals act as reservoirs so practically it is impossible to take care of them.</li>
+                <li>Pigs act as amplifying hosts, so pig rearing should be discouraged in areas where rice cultivation is widespread.</li>
+                <li>Inactivated vaccines or modified live vaccines can be used for vaccinating Swine.</li>
+            </ul>
+
+            <h4>b. Control of Vector</h4>
+            <ul>
+                <li>Insecticide spraying should be done in breeding places such as paddy fields.</li>
+                <li>Eco-management of paddy fields can be done.</li>
+                <li>Ultra low volume insecticide spraying by fogging has been found helpful to some extent.</li>
+                <li>Sterile male technique is a novel approach.</li>
+            </ul>
+
+            <h2>CHIKUNGUNYA FEVER</h2>
+            <ul>
+                <li>It is a dengue-like disease caused by a group A virus: Chikungunya virus.</li>
+                <li>First isolated from patients and mosquitoes during an epidemic in Tanzania in 1952.</li>
+                <li>Chikungunya, meaning "doubling up" owing to excruciating pain in joints.</li>
+            </ul>
+
+            <h3>Problem Statement</h3>
+            <ul>
+                <li>Occurs widely in sub-Saharan Africa, India, and in many areas in Asia.</li>
+                <li>2005-2006: More than 272,000 people were infected in Indian Ocean islands.</li>
+                <li>Outbreak in India: More than 1.39 million chikungunya cases reported.</li>
+                <li>Return of infected people introduced the virus to a coastal village in Italy. This outbreak confirmed that mosquito-borne transmission took place locally.</li>
+            </ul>
+
+            <h3>Epidemiological Factors</h3>
+
+            <h4>Agent Factor</h4>
+            <ul>
+                <li>Group A virus (Chikungunya virus)</li>
+            </ul>
+
+            <h4>Vector</h4>
+            <ul>
+                <li><em>Aedes aegypti</em> mosquito</li>
+            </ul>
+
+            <h4>Clinical Factors &amp; Features</h4>
+            <ul>
+                <li>Incubation period: 2-4 days</li>
+                <li>Excruciating pain in limbs &amp; spinal column</li>
+                <li>Joint swelling and stiffness</li>
+                <li>Sudden onset of chills, cephalgia (headache), fever, and rash</li>
+                <li>Maculopapular eruption</li>
+                <li>Hemorrhagic manifestation with purpura on trunk</li>
+                <li>Epistaxis and petechiae</li>
+            </ul>
+
+            <h4>Mode of Transmission</h4>
+            <ul>
+                <li>Transmitted by mosquito bite</li>
+                <li>Intracerebral inoculation in mice could be the main diagnostic tool</li>
+                <li>CNS involvement may occur</li>
+            </ul>
+
+            <h3>Prevention &amp; Control</h3>
+            <ul>
+                <li><strong>a. Vector control:</strong> Temephos, Abate is used for treating large quantities of stored water.</li>
+                <li><strong>b. Vaccine:</strong> No vaccine available.</li>
+            </ul>
+
+            <h2>LEPTOSPIROSIS</h2>
+
+            <h3>Past Questions</h3>
+            <ul>
+                <li><strong>1. Write short notes on: (2068)</strong><br>
+                a. Leptospirosis <strong>[4]</strong></li>
+            </ul>
+
+            <h3>Introduction</h3>
+            <ul>
+                <li>Also called field fever, rat catcher's yellows, Weil's disease (Icteric), and pretibial fever.</li>
+                <li>Essentially an animal infection by several serotypes of <em>Leptospira</em> (spirochaetes).</li>
+                <li>Ranges from mild febrile illness to severe disease.</li>
+                <li>Fatal cases may involve liver and kidney.</li>
+                <li>Weil's disease is one of many manifestations.</li>
+                <li>If it causes lots of bleeding from the lungs, it is known as severe "pulmonary hemorrhage syndrome".</li>
+            </ul>
+
+            <h3>Problem Statement</h3>
+            <ul>
+                <li>It is estimated that 7-10 million people are infected by leptospirosis annually.</li>
+                <li>Annual rates of infection vary from 0.02 per 100,000 in temperate climates to 10 to 100 per 100,000 in tropical climates.</li>
+                <li>Linked with extreme weather events (heavy rainfall and flooding).</li>
+            </ul>
+
+            <h3>Epidemiological Factors</h3>
+
+            <h4>Agent Factor</h4>
+            <ul>
+                <li><strong>a. Agent:</strong> <em>Leptospira</em>, thin, light motile spirochetes. <em>L. interrogans</em> — only pathogenic species. Visible by dark field illumination and silver staining.</li>
+                <li><strong>b. Source of infection:</strong> Excreted in urine of infected animals.</li>
+                <li><strong>c. Animal reservoir:</strong> Wild &amp; domestic animals (rats, mice, voles, cattle, sheep, goats while grazing in areas contaminated by urine of carrier host).</li>
+            </ul>
+
+            <div class="note">
+                <strong>Note: Cycle of transmission:</strong> Wild animals (e.g., rats and small rodents) &rarr; Domestic animals (e.g., dogs and cattle) &rarr; Human (especially children).
+            </div>
+
+            <h4>Host Factors</h4>
+            <ul>
+                <li><strong>a. Age:</strong> Children (Human infection is accidental)</li>
+                <li><strong>b. Occupations:</strong> Agricultural &amp; livestock farmers</li>
+                <li><strong>c. Immunity:</strong> A solid serovar-specific immunity follows infection.</li>
+            </ul>
+
+            <h4>Environmental Factors</h4>
+            <ul>
+                <li>Poor housing, limited water supply</li>
+                <li>Inadequate waste disposal</li>
+                <li>Warm humid tropical climate</li>
+                <li>Seasonal flooding</li>
+            </ul>
+
+            <h3>Mode of Transmission</h3>
+            <ul>
+                <li><strong>a. Direct contact:</strong> Through skin abrasion or through intact mucous membrane by direct contact with urine.</li>
+                <li><strong>b. Indirect contact:</strong> Through contact of broken skin with soil or through ingestion of contaminated food or water.</li>
+                <li><strong>c. Droplet infection</strong></li>
+            </ul>
+
+            <p><strong>Incubation period:</strong> 4 - 20 days</p>
+
+            <h3>Clinical Features</h3>
+            <ul>
+                <li><strong>a. Bacteraemic leptospirosis:</strong> High fever, weakness, muscle pain and tenderness, intense headache and photophobia, and sometimes diarrhea and vomiting.</li>
+                <li><strong>b. Aseptic meningitis:</strong> Similar to viral meningitis with conjunctival congestion.</li>
+                <li><strong>c. Icteric Leptospirosis (Weil's disease):</strong> Fever, hemorrhages, jaundice, and renal impairment. Thrombocytopenia may be present.</li>
+                <li><strong>d. Pulmonary Syndrome:</strong> Hemoptysis, patchy lung infiltrates on chest X-ray, and respiratory failure.</li>
+            </ul>
+
+            <h3>Diagnosis</h3>
+            <ul>
+                <li>Isolation of leptospires during acute illness from blood &amp; urine after first week.</li>
+                <li>Dark field examination of blood and culture on semisolid medium (1-6 weeks).</li>
+                <li>Microscopic Agglutination Test (MAT), ELISA.</li>
+                <li>Leptodipstick test available.</li>
+            </ul>
+
+            <h3>Control</h3>
+            <ul>
+                <li><strong>a. Antibiotics:</strong>
+                    <ul>
+                        <li>Penicillin — drug of choice</li>
+                        <li>Doxycycline</li>
+                    </ul>
+                </li>
+                <li><strong>b. Environmental measures:</strong>
+                    <ul>
+                        <li>Reducing contamination by rodent control</li>
+                        <li>Protection of workers in hazardous occupations</li>
+                    </ul>
+                </li>
+                <li><strong>c. Vaccination:</strong> Immunization of farmers and pets prevents disease.</li>
+            </ul>
+
+            <h2>PLAGUE</h2>
+            <ul>
+                <li>Primarily and basically a zoonosis, caused by <em>Yersinia pestis</em>, involving rodents and fleas.</li>
+                <li>Plague occurs in many forms: Enzootically, epizootically, sporadically, and in epidemics of all types.</li>
+            </ul>
+
+            <h3>Epidemiological Determinants</h3>
+
+            <h4>Agent Factors</h4>
+            <ul>
+                <li><strong>a. Agent:</strong> <em>Yersinia pestis</em>
+                    <ul>
+                        <li>Gram-negative, non-motile, coccobacilli</li>
+                        <li>Bipolar staining with Wayson's stain</li>
+                        <li>Produces exotoxins and endotoxins</li>
+                        <li>Abundantly found in buboes, spleen, liver &amp; other viscera, and sputum in case of pneumonic plague</li>
+                    </ul>
+                </li>
+                <li><strong>b. Reservoir of infection:</strong> Wild rodents (field mice, gerbils, skunks)</li>
+                <li><strong>c. Source of infection:</strong> Infected rodents &amp; fleas &amp; cases of pneumonic plague</li>
+            </ul>
+
+            <h4>Host Factors</h4>
+            <ul>
+                <li><strong>a. Age &amp; sex:</strong> All ages &amp; sexes</li>
+                <li><strong>b. Human activities:</strong> Hunting, grazing, cultivation, harvesting, construction activities, war</li>
+                <li><strong>c. Movement of people:</strong> Associated with movement of people and cargo by sea or land</li>
+                <li><strong>d. Immunity:</strong> Relative</li>
+            </ul>
+
+            <h4>Environmental Factors</h4>
+            <ul>
+                <li><strong>a. Season:</strong> September until May</li>
+                <li><strong>b. Temperature &amp; Humidity:</strong> 20–25°C, Humidity &gt;60%</li>
+                <li><strong>c. Rainfall:</strong> Diminishes transmission by filling rat burrows</li>
+                <li><strong>d. Geography:</strong> Urban &amp; rural areas</li>
+                <li><strong>e. Dwellings:</strong> Human dwellings</li>
+            </ul>
+
+            <h3>Vector of Plague</h3>
+            <ul>
+                <li>Rat flea (<em>Xenopsylla cheopis</em>)</li>
+                <li>Human flea (<em>Pulex irritans</em>)</li>
+                <li>Both sexes of flea bite and transmit the pathogen.</li>
+            </ul>
+
+            <h4>Blocked Flea Mechanism</h4>
+            <div class="flow-step">A flea can ingest up to 0.5 cu mm of blood which contains as many as 5,000 plague bacilli.</div>
+            <div class="flow-arrow">&darr;</div>
+            <div class="flow-step">Bacilli multiply enormously in the gut of the rat flea and block the proventriculus so that no food can pass through such a flea — Blocked Flea.</div>
+            <div class="flow-arrow">&darr;</div>
+            <div class="flow-step">In an effort to bite and suck blood, it injects (regurgitates) plague bacilli into the biting site every time it bites.</div>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 MONOLITH. Built to persist.</p>
+    </footer>
+
+</body>
+</html>
