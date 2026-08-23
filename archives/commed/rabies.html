@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monolith — Rabies &amp; Zoonoses</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #e5e5e5;
+            --accent-color: #888888;
+            --border-color: #222222;
+            --hover-color: #ffffff;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-family: var(--font-mono);
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--hover-color);
+        }
+
+        /* Main Container */
+        main {
+            max-width: 800px;
+            margin: 80px auto;
+        }
+
+        /* Header Section */
+        .subject-header {
+            margin-bottom: 60px;
+        }
+
+        .breadcrumb {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--hover-color);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-family: var(--font-mono);
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        /* Typography & Layout Content Elements */
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0px;
+            margin: 50px 0 20px 0;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        h3 {
+            font-size: 1.15rem;
+            font-weight: 500;
+            margin: 25px 0 10px 0;
+            color: var(--hover-color);
+        }
+
+        h4 {
+            font-size: 1.0rem;
+            font-weight: 600;
+            margin: 15px 0 5px 0;
+            color: #d0d0d0;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: var(--text-color);
+            text-align: justify;
+        }
+
+        strong {
+            color: var(--hover-color);
+            font-weight: 600;
+        }
+
+        em {
+            color: #b0b0b0;
+            font-style: italic;
+        }
+
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: square;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        li strong {
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
+        }
+
+        /* Tables matching Minimal Dark theme */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.95rem;
+        }
+
+        th {
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            color: var(--accent-color);
+            text-align: left;
+            padding: 10px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.85rem;
+        }
+
+        td {
+            padding: 12px 10px;
+            border-bottom: 1px dashed var(--border-color);
+            vertical-align: top;
+        }
+
+        tr:hover td {
+            color: var(--hover-color);
+            background-color: #0f0f0f;
+        }
+
+        .note {
+            background-color: #111111;
+            border-left: 2px solid var(--accent-color);
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 0.95rem;
+        }
+
+        /* Flowchart / Box Styling */
+        .flow-step {
+            background-color: #111111;
+            border: 1px solid var(--border-color);
+            padding: 12px 15px;
+            margin: 8px 0;
+            border-radius: 4px;
+        }
+
+        .flow-arrow {
+            text-align: center;
+            color: var(--accent-color);
+            font-weight: bold;
+            margin: 4px 0;
+        }
+
+        /* Footer */
+        footer {
+            max-width: 800px;
+            margin: 100px auto 40px auto;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Monolith</div>
+        <ul class="nav-links">
+            <li><a href="https://fidelioa.github.io/monolith">Home</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/archives">Archives</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/about">About</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Document Header -->
+        <section class="subject-header">
+            <div class="breadcrumb">
+                <a href="https://fidelioa.github.io/monolith/archives">Archives</a> / 
+                <a href="https://fidelioa.github.io/monolith/archives/commed">Communicable Diseases</a> / Rabies
+            </div>
+            <h1>Applied Epidemiology: Zoonotic Diseases &amp; Rabies</h1>
+            <div class="subtitle">FAST TRACK CLINICAL SCIENCE MBBS - 3rd YEAR</div>
+        </section>
+
+        <!-- Main Chapter Content -->
+        <section class="content">
+
+            <h2>Applied Epidemiology</h2>
+
+            <h3>Past Questions:</h3>
+            <ul>
+                <li><strong>1. What is zoonosis.</strong> Also known as Zoonoses. <strong>2 (2055)</strong></li>
+            </ul>
+
+            <h2>ZOONOTIC DISEASE</h2>
+
+            <p><strong>Definition:</strong> "Those diseases and infections (the agents of which are naturally transmitted between (other) vertebrates animals and man."</p>
+
+            <h3>Classification of Zoonoses</h3>
+
+            <h4>1. Based on transmission: reservoir and direction of transmission</h4>
+            <ul>
+                <li><strong>a. Anthropo-zoonoses:</strong> Infections transmitted to man from lower vertebrate animals.</li>
+                <li><strong>b. Zoo-anthroponoses:</strong> Infections transmitted from man to lower vertebrate animals.</li>
+                <li><strong>c. Amphixenoses:</strong> Infections maintained in both man and lower vertebrate animals that may be transmitted in either direction.</li>
+            </ul>
+
+            <h4>2. Based on the type of life cycle of infecting organisms, divided into four categories</h4>
+            <ul>
+                <li><strong>A. Direct zoonoses:</strong> e.g. rabies, brucellosis, Trichinosis
+                    <ul>
+                        <li>Transmitted from an infected vertebrate host to a susceptible host by direct contact, by contact with fomite or by mechanical vector</li>
+                        <li>The agent doesn't undergo any propagative or developmental changes during transmission</li>
+                    </ul>
+                </li>
+                <li><strong>B. Cyclo - Zoonoses:</strong> e.g. Taeniasis, echinococcosis
+                    <ul>
+                        <li>Require more than one vertebrate host but no invertebrate host in order to complete development cycle of the agent.</li>
+                    </ul>
+                </li>
+                <li><strong>C. Meta - Zoonoses:</strong> e.g. Plague, schistosomiasis, Arbovirus infection such as JE.
+                    <ul>
+                        <li>Transmitted biologically via invertebrates vectors</li>
+                        <li>In the invertebrates, the agent multiplies or develop or both and there is always an extrinsic incubation (pre patent) period before transmission in other host is possible.</li>
+                    </ul>
+                </li>
+                <li><strong>D. Sapro- Zoonoses:</strong> e.g. Mycoses
+                    <ul>
+                        <li>Both vertebrate host and a non-animal (e.g. organic matter, soil, plants) developmental site or reservoir.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>National Plan for Zoonoses</h3>
+
+            <h4>Goal</h4>
+            <ul>
+                <li>No Nepalese will die of rabies and poisonous snake bites due to unavailability of ARV/ASVS as well as timely health care services;</li>
+                <li>To prevent, control and manage outbreaks and epidemics of zoonoses.</li>
+            </ul>
+
+            <h4>Objectives</h4>
+            <ol>
+                <li>To strengthen the response and capacity of health care service providers for prevention and control of zoonoses</li>
+                <li>To improve coordination among/between the key stakeholders at different level for prevention and control of zoonoses</li>
+                <li>To enhance judicious use of tissue culture ARV/ASVS in the Hospitals/PHC/HP</li>
+                <li>To reduce burden of zoonotic diseases (especially rabies and other six priorities zoonoses) through public awareness programs</li>
+                <li>To provide tissue culture ARV as a post exposure treatment to all victims, bitten by suspicious or rabid animals</li>
+                <li>To reduce mortality rate in human by providing ASVS/ARV</li>
+                <li>To train medical officers and paramedics on snake bite management</li>
+                <li>To reduce the number of rabid and other suspicious animals' bite</li>
+                <li>To reduce the death rate due to rabies per annum</li>
+            </ol>
+
+            <h2>RABIES</h2>
+
+            <h3>Past Questions:</h3>
+            <ul>
+                <li><strong>1.</strong> Rabies is a major zoonotic disease in Nepal. How do you address the problem of rabies? <strong>8 (2071)</strong></li>
+                <li><strong>2. Write short notes on: (2064)</strong><br>a. Prevention &amp; control of rabies <strong>5</strong></li>
+                <li><strong>3.</strong> What is Zoonosis? Describe the epidemiology, prevention and recent trend in immunology of Rabies. <strong>16 (2055)</strong></li>
+                <li><strong>4. Write short notes on: (2054)</strong><br>a. Antirabies serum <strong>8</strong></li>
+                <li><strong>5. Write short notes on:</strong><br>a. Prevention of Rabies as a public health problem <strong>5 (2078)</strong><br>b. Anti- rabies vaccines (ARV) <strong>4 (2080)</strong></li>
+            </ul>
+
+            <ul>
+                <li>Rabies, also known as <strong>hydrophobia</strong>.</li>
+                <li>Acute, highly fatal disease of CNS caused by <em>Lyssavirus type 1</em></li>
+                <li>Primarily a zoonotic disease of warm blooded animal such as cats, dogs, jackals and wolves</li>
+                <li>It is the only communicable disease in man that is always fatal.</li>
+                <li>One of the neglected tropical diseases that predominantly affects the poor, usually in rural setting. It is because, although vaccines and immunoglobulins exist, they are not readily available for those in need.</li>
+                <li>WHO along with its partners have established a global collaboration i.e. "United Against Rabies" to provide a common strategy to achieve "Zero Human Rabies Death by 2030".</li>
+            </ul>
+
+            <h3>Problem Statement</h3>
+
+            <h4>World:</h4>
+            <ul>
+                <li>Kills tens of thousands of people each year</li>
+                <li>Approximately 99% are acquired from the bite of an infected dog</li>
+                <li>Estimated to cause 59,000 human deaths annually in over 150 countries</li>
+                <li>95% of cases occur in Africa and Asia</li>
+                <li>Burden of disease is disproportionately borne by rural poor populations</li>
+            </ul>
+
+            <h4>Nepal: As per DoHS 2079/80</h4>
+            <ul>
+                <li>In FY 2079/80, 1,19,392 cases of animal bites reported and 456,978 ARV vials consumed. The incidence has increased by two-fold as compared to FY 2077/78.</li>
+                <li>Children represent 40% of dog bite cases, with approximately half of Nepal's population at high risk and a quarter at moderate risk.</li>
+                <li>Annually, Nepal witnesses hundred human rabies cases, with the Terai region facing the highest risk.</li>
+                <li>Over 96% of bite cases in Nepal are attributed to dogs, and 99% of human rabies cases result from dog bites.</li>
+                <li>Vaccinating 70% of dogs is crucial to break the rabies transmission cycle, making it a priority at EDCD.</li>
+            </ul>
+
+            <p><strong>Table: Animal bites and consumption of the ARV vials in FY 2077/78-2079/80</strong></p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Fiscal year</th>
+                        <th>Number of cases of dog bites</th>
+                        <th>Number of cases of other animal bites</th>
+                        <th>No. of cases of animal bites (dog + Other animal)</th>
+                        <th>Number of ARV vials consumed</th>
+                        <th>Reported deaths</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>2077/78</strong></td>
+                        <td>54,996</td>
+                        <td>4,418</td>
+                        <td>59,414</td>
+                        <td>—</td>
+                        <td>18</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2078/79</strong></td>
+                        <td>75,562</td>
+                        <td>9,921</td>
+                        <td>85,483</td>
+                        <td>—</td>
+                        <td>13</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2079/80</strong></td>
+                        <td>1,08,555</td>
+                        <td>10,837</td>
+                        <td>1,19,392</td>
+                        <td>4,56,978</td>
+                        <td>10</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Epidemiological Determinants</h3>
+
+            <h4>Agent Factors</h4>
+            <p><strong>i. Causative agent:</strong></p>
+            <ul>
+                <li>Lyssa virus type 1 (Rhabdoviridae family)</li>
+                <li>A bullet shaped neurotropic RNA virus</li>
+                <li>Two major antigens: a glycoprotein (G protein) and an internal nucleoprotein antigen.</li>
+                <li>Glycoprotein induce formation of virus neutralizing antibodies which is index of protection against infection.</li>
+                <li>Excreted in the saliva of the affected animals.</li>
+            </ul>
+
+            <p><strong>ii. Types of virus</strong></p>
+            <ul>
+                <li><strong>a. Street virus:</strong>
+                    <ul>
+                        <li>Virus recovered from naturally occurring cases of rabies</li>
+                        <li>Pathogenic with incubation period (20-60) days</li>
+                        <li>Negri bodies are formed</li>
+                        <li>Cause rabies</li>
+                    </ul>
+                </li>
+                <li><strong>b. Fixed virus:</strong>
+                    <ul>
+                        <li>Serial brain to brain passage of street virus modifies the virus</li>
+                        <li>Short, fixed and reproducible incubation period: 4-6 days when injected intracerebrally in suitable animals.</li>
+                        <li>Negri bodies not formed</li>
+                        <li>Used in the preparation of anti-rabies vaccine</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <p><strong>iii. Reservoir of infection:</strong></p>
+            <ul>
+                <li>Urban rabies: Wild life &rarr; Domestic dogs (99% of case)</li>
+                <li>Wild life rabies: Wild life (e.g. jackal, fox, hyena)</li>
+                <li>Bat rabies: Vampire bat</li>
+            </ul>
+
+            <p><strong>iv. Source of infection:</strong> Saliva of rabid animals</p>
+
+            <h4>Host Factors</h4>
+            <ul>
+                <li>All warm blooded animals susceptible to rabies</li>
+                <li>Rabies in man is a dead end infection i.e. has no survival value for the virus.</li>
+                <li>Most common in children less than 15 years old.</li>
+                <li>High risk in laboratory staff working with rabies virus, veterinarians, dog handlers, hunters and field naturalists.</li>
+            </ul>
+
+            <p><strong>i. Mode of transmission:</strong></p>
+            <ul>
+                <li>Animal bites (dogs, bats and others)</li>
+                <li>Licks on abraded skins and mucosa</li>
+                <li>Aerosol</li>
+                <li>Person to person</li>
+            </ul>
+
+            <p><strong>ii. Incubation period:</strong> Highly variable, commonly 3-8 weeks (1-3 months but may vary from 7 days to many years).</p>
+
+            <p><strong>iii. Pathogenesis:</strong></p>
+            <div class="flow-step">(1) Deposition of rabies virus, infected saliva deep in the striated muscles.</div>
+            <div class="flow-arrow">&darr;</div>
+            <div class="flow-step">(2) Viruses replicate in the muscle cells</div>
+            <div class="flow-arrow">&darr;</div>
+            <div class="flow-step">(3) Viruses enter peripheral nerves</div>
+            <div class="flow-arrow">&darr;</div>
+            <div class="flow-step">(4) Replication in dorsal ganglion</div>
+            <div class="flow-arrow">&darr;</div>
+            <div class="flow-step">(5) Rapid ascent in spinal cord</div>
+            <div class="flow-arrow">&darr;</div>
+            <div class="flow-step">(6) Infection of spinal cord, brainstem, cerebellum, and other brain structures</div>
+            <div class="flow-arrow">&darr;</div>
+            <div class="flow-step">(7) Descending Infection via nervous system to eye, salivary glands and other organs</div>
+
+            <div class="note">
+                <strong>Note:</strong> Salivary glands invasion is crucial for transmission of virus.
+            </div>
+
+            <h3>Clinical features</h3>
+
+            <h4>a. Prodromal Symptoms:</h4>
+            <ul>
+                <li>Fever</li>
+                <li>Nausea/Vomiting</li>
+                <li>Malaise</li>
+                <li>Anorexia</li>
+                <li>Unusual and unexplained tingling at wound site</li>
+                <li>Pricking or burning sensation (paresthesia) at wound</li>
+            </ul>
+
+            <h4>b. Acute neurological disease: 2 types:</h4>
+            <ul>
+                <li><strong>i. Encephalitic/ Furious rabies (80%):</strong>
+                    <ul>
+                        <li>Signs of hyperactivity, excited behavior</li>
+                        <li>Hydrophobia, aerophobia, anxiety, agitation</li>
+                        <li>Death usually due to cardio respiratory arrest</li>
+                    </ul>
+                </li>
+                <li><strong>ii. Paralytic rabies (20%):</strong>
+                    <ul>
+                        <li>Less dramatic but usually longer course</li>
+                        <li>Muscle gradually becomes paralyzed (flaccid paralysis) starting at the site of bite or scratch, also facial paralysis</li>
+                        <li>Then, coma slowly develops and eventually death</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>Diagnosis</h3>
+
+            <h4>Clinical Diagnosis</h4>
+            <ul>
+                <li>History of bite</li>
+                <li>Signs &amp; symptoms</li>
+            </ul>
+
+            <h4>Lab Diagnosis</h4>
+            <p><strong>Specimen:</strong> Fresh Saliva, Skin biopsy, Brain (post-mortem)</p>
+            <p><strong>Tests:</strong></p>
+            <ul>
+                <li>Rabies specific antibody detection test</li>
+                <li>RT-PCR</li>
+                <li>Fluorescent Antibody test</li>
+                <li>Post mortem detection of Negri bodies</li>
+                <li><strong>In animals:</strong> Demonstration of Rabies virus antigen by immunofluorescence or Negri bodies</li>
+            </ul>
+
+            <h3>Treatment</h3>
+            <p>No specific treatment, case management includes:</p>
+
+            <ul>
+                <li><strong>i.</strong> Patient isolated in much silent room</li>
+                <li><strong>ii.</strong> Relieve anxiety &amp; pain by use of sedatives</li>
+                <li><strong>iii.</strong> Curare like drugs to relieve muscle spasms</li>
+                <li><strong>iv.</strong> Ensure hydration &amp; diuresis</li>
+                <li><strong>v.</strong> Intensive therapy for respiratory and cardiac support</li>
+                <li><strong>vi.</strong> Immediate post exposure prophylaxis</li>
+            </ul>
+
+            <h3>WHO Categories of Rabies Exposure &amp; PEP Recommendation</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Types of contact</th>
+                        <th>Type of exposure</th>
+                        <th>Treatment/ Post exposure prophylaxis</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>I</strong></td>
+                        <td>Touching or feeding of animal<br>Licks on intact skin</td>
+                        <td>None</td>
+                        <td>None, if reliable case history is available</td>
+                    </tr>
+                    <tr>
+                        <td><strong>II</strong></td>
+                        <td>Nibbling of uncovered skin<br>Minor scratches or abrasions without bleeding</td>
+                        <td>Minor</td>
+                        <td>Administer vaccine immediately + local treatment of wound<br>Stop treatment if animal remains healthy throughout an observation period of 10 days or if animal is proven negative for rabies by lab diagnosis</td>
+                    </tr>
+                    <tr>
+                        <td><strong>III</strong></td>
+                        <td>Single or multiple trans-dermal bites or scratches, licks on broken skin<br>Contamination of mucous membrane with saliva (i.e. licks) exposure to bats</td>
+                        <td>Severe</td>
+                        <td>Administer rabies immunoglobulin and vaccine immediately + local treatment of wound<br>Stop treatment if animal remains healthy throughout an observation period of 10 days or if animal is proven negative for rabies by lab diagnosis</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Rabies Vaccine</h3>
+
+            <h4>Types</h4>
+            <ol>
+                <li><strong>Nervous tissue vaccines (NTV)</strong>
+                    <ul>
+                        <li>a. Derived from adult animal nervous tissue</li>
+                        <li>b. Derived from suckling mouse brain</li>
+                    </ul>
+                </li>
+                <li><strong>Duck embryo vaccine (DEV)</strong>
+                    <ul>
+                        <li>Inactivated duck embryo vaccine</li>
+                    </ul>
+                </li>
+                <li><strong>Cell culture vaccine</strong>
+                    <ul>
+                        <li>a. Human diploid cell (HDC vaccine)
+                            <ul>
+                                <li>Prepared by propagating the rabies "fixed" virus in human diploid fibroblast cells.</li>
+                                <li>Safe and highly potent</li>
+                            </ul>
+                        </li>
+                        <li>b. "Second generation" tissue culture
+                            <ul>
+                                <li>High potency and low cost</li>
+                                <li>Derived from non-human sources based either on primary cell substrates or on non-tumorigenic continuous cell lines</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h4>Difference between Nervous Tissue Vaccine and Cell Culture Vaccine</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nervous tissue vaccine</th>
+                        <th>Cell culture vaccine</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Prepared from fixed virus grown in the brains of adult sheep or other animals</td>
+                        <td>Derived from cell culture on human or animal cells</td>
+                    </tr>
+                    <tr>
+                        <td>Has more side effects</td>
+                        <td>Has less side effects</td>
+                    </tr>
+                    <tr>
+                        <td>Cheaper</td>
+                        <td>Expensive</td>
+                    </tr>
+                    <tr>
+                        <td>Less effective</td>
+                        <td>More effective</td>
+                    </tr>
+                    <tr>
+                        <td>Less potent</td>
+                        <td>More potent</td>
+                    </tr>
+                    <tr>
+                        <td>Require a large number of doses to produce immunity</td>
+                        <td>Require fewer injections with smaller volume</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Prevention of Human Rabies</h3>
+            <p><strong>a. Post exposure prophylaxis (PEP) [2064]</strong><br>
+            <strong>b. Pre - exposure prophylaxis (PrEP)</strong><br>
+            <strong>c. Postexposure treatment of persons who have been vaccinated previously</strong></p>
+
+            <h4>a. Post exposure prophylaxis</h4>
+
+            <p><strong>1. General consideration:</strong></p>
+            <ul>
+                <li>Should be treated as medical emergency</li>
+                <li><strong>Aim:</strong> To neutralize the inoculated virus before it can enter the nervous system</li>
+                <li>Combined administration of anti-rabies Ig with a course of vaccine and local treatment of wound</li>
+            </ul>
+
+            <p><strong>2. Local treatment of wound</strong></p>
+            <ul>
+                <li><strong>Purpose:</strong> To remove as much virus as possible from the site of inoculation</li>
+                <li>Reduces the chances of developing rabies by up to 80%</li>
+                <li><strong>a. Cleansing:</strong> Immediate flushing &amp; washing wound scratches and adjoining areas, preferably under running tap for 15 minutes with soap and water.</li>
+                <li><strong>b. Chemical treatment:</strong> Inactivated by irrigation with virucidal agent: Either alcohol or tincture or povidone iodine</li>
+                <li><strong>c. Suturing:</strong> Avoided, (as it may spread virus to deeper tissues) if necessary should be done 24-48 hours later applying minimal possible stitches under cover of rabies Ig locally.</li>
+                <li><strong>d.</strong> Antibiotics &amp; anti tetanus measure</li>
+            </ul>
+
+            <p><strong>3. Immunization</strong></p>
+            <ul>
+                <li>Developed by Pasteur</li>
+                <li><strong>Aim:</strong> To produce an immune status as quickly as possible so that the virus will not become established in the peripheral nerve</li>
+                <li>Serum antibodies appear approximately 7 days after vaccination</li>
+            </ul>
+
+            <div class="note">
+                <strong>Indicators for increased risk:</strong><br>
+                - Animals shows signs of rabies or dies within 10 days of observation.<br>
+                - The biting animal cannot be traced<br>
+                - Unprovoked bites, looks sick, abnormal behaviour<br>
+                - Lab test positive for rabies<br>
+                - All bites by wild animals.
+            </div>
+
+            <p><strong>Anti-rabies serum</strong></p>
+            <ul>
+                <li>It prevents replication of the virus at the site of bite preferably as soon as possible.</li>
+                <li>Not indicated after seventh day.</li>
+                <li>Complete protection can be ensured only if sero-therapy is followed by a complete course of vaccine including specified booster dose of vaccine.</li>
+            </ul>
+
+            <p><strong>Types:</strong></p>
+            <ul>
+                <li><strong>i. Horse anti rabies serum:</strong> 40 IU/Kg BW</li>
+                <li><strong>ii. Human Rabies immunoglobulin:</strong> 20 IU/Kg BW (Half inject around the wound &amp; rest to gluteal region IM)</li>
+                <li><strong>iii. Rabies monoclonal antibody:</strong> (3.33 IU/kg)</li>
+            </ul>
+
+            <p><strong>Vaccine administration:</strong></p>
+
+            <p><strong>1. Intramuscular administration</strong></p>
+            <ul>
+                <li><strong>Dose:</strong> 1ml or 0.5ml</li>
+                <li><strong>Site:</strong> Deltoid muscle; in children less than 2 years anterolateral thigh</li>
+                <li><strong>Recommended Regimen:</strong>
+                    <ul>
+                        <li><strong>i. Essen Regimen:</strong> 5 dose regimen (1 dose on each of days 0, 3, 7, 14 and 28; 5 vials, 5 visits)</li>
+                        <li><strong>ii. Zagreb regimen:</strong> 4 dose abbreviated multisite regimen (2 doses on day 0 [1 in each of the deltoid or thigh sites], 1 dose on each of day 7 and 21; 4 vials in 3 visits)</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <p><strong>2. Intradermal schedule:</strong></p>
+            <ul>
+                <li>Purified vero cell vaccine PVCV, purified primary chick embryo cell vaccine PCECV, purified duck embryo vaccine PDEV</li>
+                <li><strong>i. 2 site intradermal schedule:</strong>
+                    <ul>
+                        <li><strong>Dose:</strong> 1/5<sup>th</sup> of I.M. dose (0.2 ml or 0.1 ml)</li>
+                        <li><strong>Site:</strong> Deltoid or thigh</li>
+                        <li><strong>Regimen:</strong> 1 dose each on 0, 3, 7 and 28 days. (Not 14th day)</li>
+                    </ul>
+                </li>
+                <li><strong>ii. 8 site intradermal method:</strong>
+                    <ul>
+                        <li>Human diploid cell vaccine HDCV, primary chick embryo cell vaccine PCECV</li>
+                        <li><strong>Sites:</strong> Bilateral over deltoid, lateral thigh, suprascapular region and lower quadrant of the abdomen.</li>
+                        <li><strong>Dose:</strong> 0.1 ml</li>
+                        <li><strong>Regimen:</strong> 8-0-4-0-1-1 (i.e. on day 0, 7, 28, 90 days only)</li>
+                    </ul>
+                </li>
+                <li>The multisite intra-dermal regimens lower the cost of vaccination by around 70%</li>
+            </ul>
+
+            <div class="note">
+                <strong>Note:</strong> Patient taking Chloroquine may not respond to intradermal rabies vaccine.
+            </div>
+
+            <h4>PEP for re-exposure cases based on category of exposure</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Previously Immunized Individuals of all age groups</th>
+                        <th>Category I Exposure</th>
+                        <th>Category II Exposure</th>
+                        <th>Category III Exposure</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Action Required</strong></td>
+                        <td>No PEP required</td>
+                        <td>Wound washing and Immediate vaccination. RIG is not indicated</td>
+                        <td>Wound washing and Immediate vaccination. RIG is not indicated</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="note">
+                <strong>Note:</strong> If an individual has a repeat exposure less than 3 months after a previous exposure, and has already received a complete PEP, only wound treatment is required; neither vaccine nor RIG is needed. Persons who cannot document previous pre- or post-exposure prophylaxis, should be treated as a fresh case and given complete PEP.
+            </div>
+
+            <h4>b. Pre-exposure prophylaxis (PrEP)</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Dose</th>
+                        <th>Route</th>
+                        <th>No of Injection Sites Per Clinic Visit</th>
+                        <th>Sites</th>
+                        <th>Duration Days</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>0.1ml</td>
+                        <td>Intradermal</td>
+                        <td>1-1-0-0-0</td>
+                        <td>Deltoid OR Lateral thigh</td>
+                        <td>Day 0, Day 3</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>c. Post exposure treatment of persons who have been vaccinated previously:</h4>
+            <ul>
+                <li>Human diploid cell vaccine</li>
+                <li>1 dose delivered i.m. is sufficient</li>
+                <li>1 site 2 day intradermal regimen: on days 0 and 3.</li>
+            </ul>
+
+            <h3>Rabies in Dogs</h3>
+            <p><strong>Incubation period:</strong> 3-8 weeks</p>
+
+            <h4>Clinical Picture</h4>
+            <p>Dies within one week of onset of symptoms</p>
+            <ul>
+                <li><strong>a. Furious rabies: "Mad dog syndrome"</strong>
+                    <ul>
+                        <li>i. Change in behavior</li>
+                        <li>ii. Running amuck</li>
+                        <li>iii. Change in voice</li>
+                        <li>iv. Excessive salivation &amp; foaming at angle of mouth</li>
+                        <li>v. Paralytic stages</li>
+                    </ul>
+                </li>
+                <li><strong>b. Dumb rabies:</strong> Lack of excitative or irritative stage.</li>
+            </ul>
+
+            <h4>Lab Diagnosis</h4>
+            <ul>
+                <li>a. Fluorescent antibody test - Rapid diagnosis</li>
+                <li>b. Microscopic examination</li>
+                <li>c. Mouse inoculation test</li>
+                <li>d. Corneal test</li>
+            </ul>
+
+            <h4>Immunization of Dogs</h4>
+            <ul>
+                <li><strong>1. BPL inactivated nervous tissue vaccine:</strong>
+                    <ul>
+                        <li>20% suspension of infected sheep brain</li>
+                        <li>Single dose, 5 ml for dogs &amp; 3 ml for cats</li>
+                        <li>Revaccination after 6 months and subsequently every year</li>
+                    </ul>
+                </li>
+                <li><strong>2. Modified live virus vaccine:</strong>
+                    <ul>
+                        <li>33% chick embryo suspension infected with modified virus</li>
+                        <li>3ml by single injection &amp; booster every 3 years</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>Control of Urban Rabies [2071]</h3>
+            <ul>
+                <li>i. Elimination of stray and ownerless dogs.</li>
+                <li>ii. Swift mass immunization of dogs in short time of at least 80% of dogs.</li>
+                <li>iii. Education about immediate care measures after bite.</li>
+                <li>iv. Registration &amp; licensing of all domestic dogs.</li>
+                <li>v. Restraint of dogs in public places</li>
+                <li>vi. Immediate destruction of dogs and cats bitten by rabid animals</li>
+                <li>vii. Quarantine for about 6 months</li>
+                <li>viii. Health education of people.</li>
+            </ul>
+
+            <h3>Major activities for Rabies Control in FY 2079/80:</h3>
+            <ul>
+                <li>Awareness programs about Rabies for school students and general public.</li>
+                <li>Celebration of World Rabies day on 28th September</li>
+                <li>Orientation program for health workers on Rabies prophylaxis through Intradermal (ID) administration of Anti Rabies Vaccine (ARV) and immunoglobulin administration</li>
+                <li>Scaling up of immunoglobulin services in federal and provincial level hospitals</li>
+                <li>Procurement and supply of cell culture ARV vaccine and immunoglobulin</li>
+                <li>Rabies Outbreak Investigation at Mandandeupur municipality</li>
+                <li>Kavre animal health authorities to eliminate rabies as a public health problem</li>
+            </ul>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 MONOLITH. Built to persist.</p>
+    </footer>
+
+</body>
+</html>
