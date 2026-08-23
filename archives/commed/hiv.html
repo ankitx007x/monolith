@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monolith — Sexually Transmitted Infections &amp; HIV/AIDS</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #e5e5e5;
+            --accent-color: #888888;
+            --border-color: #222222;
+            --hover-color: #ffffff;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-family: var(--font-mono);
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--hover-color);
+        }
+
+        /* Main Container */
+        main {
+            max-width: 800px;
+            margin: 80px auto;
+        }
+
+        /* Header Section */
+        .subject-header {
+            margin-bottom: 60px;
+        }
+
+        .breadcrumb {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--hover-color);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-family: var(--font-mono);
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        /* Typography & Layout Content Elements */
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0px;
+            margin: 50px 0 20px 0;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        h3 {
+            font-size: 1.15rem;
+            font-weight: 500;
+            margin: 25px 0 10px 0;
+            color: var(--hover-color);
+        }
+
+        h4 {
+            font-size: 1.0rem;
+            font-weight: 600;
+            margin: 15px 0 5px 0;
+            color: #d0d0d0;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: var(--text-color);
+            text-align: justify;
+        }
+
+        strong {
+            color: var(--hover-color);
+            font-weight: 600;
+        }
+
+        em {
+            color: #b0b0b0;
+            font-style: italic;
+        }
+
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: square;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        li strong {
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
+        }
+
+        /* Tables matching Minimal Dark theme */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.95rem;
+        }
+
+        th {
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            color: var(--accent-color);
+            text-align: left;
+            padding: 10px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.85rem;
+        }
+
+        td {
+            padding: 12px 10px;
+            border-bottom: 1px dashed var(--border-color);
+            vertical-align: top;
+        }
+
+        tr:hover td {
+            color: var(--hover-color);
+            background-color: #0f0f0f;
+        }
+
+        .note {
+            background-color: #111111;
+            border-left: 2px solid var(--accent-color);
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 0.95rem;
+        }
+
+        /* Flowchart / Box Styling */
+        .flow-step {
+            background-color: #111111;
+            border: 1px solid var(--border-color);
+            padding: 12px 15px;
+            margin: 8px 0;
+            border-radius: 4px;
+        }
+
+        .flow-arrow {
+            text-align: center;
+            color: var(--accent-color);
+            font-weight: bold;
+            margin: 4px 0;
+        }
+
+        /* Image Styling */
+        .img-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .img-container img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            filter: grayscale(20%) contrast(110%);
+        }
+
+        .img-caption {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            margin-top: 8px;
+        }
+
+        /* Footer */
+        footer {
+            max-width: 800px;
+            margin: 100px auto 40px auto;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Monolith</div>
+        <ul class="nav-links">
+            <li><a href="https://fidelioa.github.io/monolith">Home</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/archives">Archives</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/about">About</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Document Header -->
+        <section class="subject-header">
+            <div class="breadcrumb">
+                <a href="https://fidelioa.github.io/monolith/archives">Archives</a> / 
+                <a href="https://fidelioa.github.io/monolith/archives/commed">Communicable Diseases</a> / Sexually Transmitted Infections
+            </div>
+            <h1>Applied Epidemiology: Surface Infection &amp; Sexually Transmitted Diseases (STDs)</h1>
+            <div class="subtitle">FAST TRACK CLINICAL SCIENCE MBBS - 3rd YEAR</div>
+        </section>
+
+        <!-- Main Chapter Content -->
+        <section class="content">
+
+            <h2>Sexually Transmitted Diseases (STDs)</h2>
+
+            <h3>Past Questions</h3>
+            <ul>
+                <li><strong>1.</strong> Discuss briefly about the major sexually transmitted diseases in Nepal. <strong>8 (2071)</strong></li>
+                <li><strong>2.</strong> Define Sexually transmitted disease. Describe their types, mode of transmission and preventive measures. <strong>12 (2065)</strong></li>
+                <li><strong>3.</strong> Sexually transmitted diseases represent a major and growing public health problem and in most part of Nepal. Give brief account on possible intervention strategies and epidemiological determinants. <strong>8 (2060)</strong></li>
+                <li><strong>4. Write briefly:</strong><br>
+                a. Epidemiology of sexually transmitted diseases (STD) <strong>(2058)</strong></li>
+                <li><strong>5.</strong> Discuss the socio-economical determinants and consequences of sexually diseases (STDs) in Nepal. <strong>12 (2057)</strong></li>
+            </ul>
+
+            <p>Sexually transmitted diseases (STD) are group of communicable diseases that are transmitted predominantly by sexual contact and caused by a wide range of bacterial, viral, protozoal and fungal agents and ectoparasites.</p>
+
+            <h3>Problem Statement</h3>
+            <ul>
+                <li>&gt;1 million STIs are acquired everyday worldwide.</li>
+                <li>Each year around 357 million new STIs (1 of 4 major curable STIs- Chlamydia, Gonorrhea, Syphilis, Trichomoniasis).</li>
+                <li>&gt;500 million are estimated to have genital infection with HSV.</li>
+                <li>&gt;200 million women have HPV infection.</li>
+                <li>&gt;900,000 pregnant women have contracted syphilis leading to 350,000 stillbirths...</li>
+                <li>Majority of STIs have no symptoms or only mild symptoms, thus may not be recognized as STIs.</li>
+                <li>STIs like HSV-2 and syphilis can increase risk to HIV.</li>
+                <li>In some cases, STIs can have serious reproductive health impact beyond the immediate impact of infection itself. (e.g. infertility, MTCT)</li>
+                <li>Drug resistance, especially for gonorrhea, is a major threat to reducing the impact of STIs worldwide.</li>
+            </ul>
+
+            <h3>Epidemiological Determinants</h3>
+
+            <h4>1. Agents:</h4>
+            <ul>
+                <li><strong>Neisseria gonorrhoeae:</strong> Gonorrhoea, urethritis, cervicitis, epididymitis, salpingitis, PID, neonatal conjunctivitis</li>
+                <li><strong>Treponema pallidum:</strong> Syphilis</li>
+                <li><strong>Haemophilus ducreyi:</strong> Chancroid</li>
+                <li><strong>Chlamydia trachomatis:</strong> LGV, urethritis, cervicitis, proctitis, epididymitis, infant pneumonia, Reiter's syndrome, PID, neonatal conjunctivitis</li>
+                <li><strong>Calymmatobacterium granulomatis:</strong> Donovanosis (granuloma inguinale)</li>
+                <li><strong>Herpes simplex virus:</strong> Genital herpes</li>
+                <li><strong>Hepatitis B virus:</strong> Acute and chronic hepatitis</li>
+                <li><strong>Human papilloma virus:</strong> Genital and anal warts</li>
+                <li><strong>HIV:</strong> AIDS</li>
+                <li><strong>Molluscum contagiosum:</strong> Genital molluscum contagiosum</li>
+                <li><strong>Candida albicans:</strong> Vaginitis</li>
+                <li><strong>Trichomonas vaginalis:</strong> Vaginitis</li>
+            </ul>
+
+            <h4>2. Host factors:</h4>
+            <ul>
+                <li><strong>a. Age:</strong> Highest rate of incidence are observed in 20-24 years old followed by 25-29 and 15-19 years age group. Most serious morbidity is observed during foetal development and in neonate.</li>
+                <li><strong>b. Sex:</strong> Overall morbidity rate is higher in men. Morbidity by infection is more severe in female.</li>
+                <li><strong>c. Marital Status:</strong> Frequency of STD higher among single, divorced and separated persons than among married couples.</li>
+                <li><strong>d. Socio-economic status:</strong> Individuals from lowest socio-economic groups have highest morbidity rate.</li>
+            </ul>
+
+            <h4>3. Social Factors [2057]</h4>
+            <ul>
+                <li><strong>a. Prostitution:</strong> Prostitutes act as reservoirs of infection.</li>
+                <li><strong>b. Broken homes:</strong> Atmosphere in such home is unhappy and children reared in such atmosphere are likely to go other way in search of happiness.</li>
+                <li><strong>c. Sexual disharmony:</strong> Married people with strained relation, divorced and separated persons are more often victim of STD.</li>
+                <li><strong>d. Easy money:</strong> Prostitution is a source of easy money in poverty affected area.</li>
+                <li><strong>e. Emotional Immaturity:</strong> Can involve in high risk sex.</li>
+                <li><strong>f. Urbanization and industrialization:</strong> Long working hours, relative isolation from family and geographical and social mobility foster casual sexual relationship.</li>
+                <li><strong>g. Social Disruption:</strong> Disasters, wars and social disrupt also linked to increase in infection.</li>
+                <li><strong>h. International travel:</strong> Travellers can import as well as export infection.</li>
+                <li><strong>i. Changing behavior pattern:</strong> Break away from traditional way of life and acceptance of modern ideas of independence, freedom from supervision, equal rights to both sex are also linked to spread of infection.</li>
+                <li><strong>j. Social Stigma:</strong> Social stigma attached to STD accounts for the non-detection of cases, not disclosing the sources of contact.</li>
+                <li><strong>k. Alcoholism:</strong> Effect is indirect as alcohol may encourage casual sex, prostitution.</li>
+                <li><strong>l. IV drug user:</strong> Sharing of needle cause parenteral transmission of STDs.</li>
+            </ul>
+
+            <h3>Diagnosis</h3>
+            <ul>
+                <li>Accurate diagnostic tests are used only in high income countries. It helps in diagnosis of even asymptomatic infection. It is unavailable in developing countries due to the relative expense and geographical inaccessibility.</li>
+                <li>The only cheap, rapid tests currently available for STIs are for HIV and Syphilis. Several rapid tests for other STIs are under development and have potential to improve STI diagnosis and treatment, especially in resource limited setting.</li>
+            </ul>
+
+            <h3>Syndromic Approach (Simplified STD Treatment)</h3>
+            <p><strong>Concept:</strong> The traditional method of diagnosing STDs is by laboratory tests, which are very often unavailable or too expensive. Syndromic Management of STDs has been recommended by WHO since 1990 which is 'based on symptoms and clinical signs'.</p>
+
+            <p><strong>Importance of Syndromic Approach:</strong> Through this approach, a health worker at the peripheral level can diagnose reproductive infections without using laboratory support, and accordingly prescribe treatment or advise referral of the patient.</p>
+
+            <p><strong>Main features of Syndromic Approach:</strong></p>
+            <ul>
+                <li>Classification of the main causative pathogens by the clinical syndromes they produce</li>
+                <li>Use of flow charts to manage a particular syndrome</li>
+                <li>Treatment for all important causes of the syndrome</li>
+                <li>Notification and treatment of sex partners</li>
+                <li>No expensive laboratory procedures required</li>
+            </ul>
+
+            <p><strong>Advantages of Syndromic Approach:</strong></p>
+            <ul>
+                <li>Permits STD treatment without costly laboratory tests</li>
+                <li>Offers accessibility, immediate, effective and efficient treatment</li>
+            </ul>
+
+            <p><strong>Disadvantage of Syndromic Approach:</strong> Over-treatment in some patients (esp. in vaginal discharge).</p>
+
+            <p><strong>Syndromes in Syndromic Approach:</strong></p>
+            <ul>
+                <li><strong>Urethral discharge:</strong> Is usually due to gonococcal or non-gonococcal (chlamydial) urethritis</li>
+                <li><strong>Vaginal discharge:</strong> Is usually due to gonococcal or non-gonococcal cervicitis or vaginitis (trichomoniasis, candidiasis or bacterial vaginosis). Speculum examination for establishing diagnosis</li>
+                <li><strong>Genital ulcer:</strong> Due to syphilis, chancroid, LGV, granuloma inguinale or herpes infection</li>
+                <li><strong>Inguinal swelling (Bubo):</strong> Usually due to LGV</li>
+                <li><strong>Lower abdominal pain/PID</strong></li>
+            </ul>
+
+            <h3>Control of STD [2009]</h3>
+            <p>It may be considered under following headings:</p>
+
+            <h4>1. Initial Planning</h4>
+            <ul>
+                <li><strong>a.</strong> Defining Problem</li>
+                <li><strong>b.</strong> Establishing Priorities</li>
+                <li><strong>c.</strong> Setting objectives</li>
+                <li><strong>d.</strong> Considering strategies</li>
+            </ul>
+
+            <h4>2. Intervention Strategies</h4>
+            <ul>
+                <li><strong>a. Case Detection:</strong>
+                    <ul>
+                        <li><strong>Screening</strong></li>
+                        <li><strong>Contact tracing:</strong> Sexual partners of diagnosed patients are identified, located, investigated and treated. Is one of the best methods of controlling the spread of infection. Is relatively expensive (in low prevalence).</li>
+                        <li><strong>Cluster testing:</strong> Screening of all persons of either sex, who move in the same socio-sexual environment of the patient. It almost doubles the number of cases found.</li>
+                    </ul>
+                </li>
+                <li><strong>b. Case holding and treatment:</strong> Adequate treatment of patient and their contact is mainstay of treatment. Effort should be made to ensure complete and adequate treatment since there is tendency of patient to drop out treatment early.</li>
+                <li><strong>c. Epidemiological Treatment:</strong> Also known as contact treatment. It consists of administration of full therapeutic dose of treatment to persons recently exposed to STD while awaiting the lab results.</li>
+                <li><strong>d. Personal Prophylaxis:</strong>
+                    <ul>
+                        <li>Mechanical barrier (e.g. condoms and diaphragms) can be recommended</li>
+                        <li>Exposed part should be washed with soap and water as soon after contact as possible</li>
+                        <li>Immunization against Hepatitis B</li>
+                    </ul>
+                </li>
+                <li><strong>e. Health Education</strong></li>
+            </ul>
+
+            <h4>3. Support Components</h4>
+            <ul>
+                <li>STD clinic</li>
+                <li>Laboratory services</li>
+                <li>Primary health care</li>
+                <li>Information system</li>
+                <li>Legislation</li>
+                <li>Social welfare measures</li>
+            </ul>
+
+            <h4>4. Monitoring and Evaluation</h4>
+
+            <h3>Vaccines and other biomedical interventions:</h3>
+            <ul>
+                <li>Safe and highly effective vaccines are available for 2 STIs (Hepatitis B and HPV).</li>
+                <li>HPV vaccine, available as part of routine immunization program in most of the developed countries. (With only 70% coverage, it can prevent 4 million women death in the next decade in low and medium income countries.)</li>
+                <li>Other biomedical interventions to prevent some STIs include adult male circumcision which reduces risk of heterosexually acquired HIV by 60% and also against Herpes and HPV.</li>
+            </ul>
+
+            <div class="note">
+                <strong>Q. Why current efforts to contain spread of STIs are not sufficient?</strong><br>
+                - Behavior change is complex.<br>
+                - Health services for screening and treating STIs remain weak: Limited resources, Stigmatization, Poor services, Little or no follow up of sexual partners.<br>
+                - Marginalized population with highest rate of STIs - such as sex workers, MSM, IV drug users, prison inmates, etc. often do not have adequate access to health services.
+            </div>
+
+            <h3>National Program for Detection and Management of STI:</h3>
+            <ul>
+                <li>The standardization of quality STI diagnosis and treatment to health post level as part of primary health series is a key strategy of the national response.</li>
+                <li>The strategy also foresees the standardization of the syndromic approach with referral for etiological treatment when needed.</li>
+                <li>The strengthening of documented linkages (follow-up mechanisms) between BCC services and HIV testing and counseling, including strengthening links between HIV testing and STI services, is a key strategy for Nepal's concentrated epidemic.</li>
+            </ul>
+
+            <h3>WHO Response:</h3>
+            <p><strong>Global Health Sector Strategy on STIs, 2016-2021</strong></p>
+            <ul>
+                <li><strong>Vision:</strong> Zero new infection, Zero STI-related complications and death. Zero discrimination in the world where everybody has free and easy access to STI preventions and treatment services, resulting in people able to live long and healthy lives.</li>
+                <li><strong>Goal:</strong> Ending STI epidemic as major public health concern.</li>
+            </ul>
+
+            <p><strong>2030 Targets:</strong></p>
+            <ul>
+                <li>90% reduction in <em>Treponema pallidum</em> incidence globally with respect to 2018 baseline.</li>
+                <li>90% reduction in <em>Neisseria gonorrhoeae</em> incidence globally with respect to 2018 baseline.</li>
+                <li>Less than 50 cases of congenital syphilis per 100,000 live births in 80% of countries.</li>
+                <li>Sustain 90% national coverage and at least 80% in every district (or equivalent administrative unit) in countries with HPV vaccine in national immunization program.</li>
+            </ul>
+
+            <p><strong>Frameworks for action:</strong> Universal health coverage, Continuation of services, A public health approach.</p>
+            
+            <p><strong>5 Strategic Directions:</strong></p>
+            <ol style="margin-left: 20px; margin-bottom: 20px;">
+                <li>Information for focused action</li>
+                <li>Intervention for the impact</li>
+                <li>Delivering for enquiry</li>
+                <li>Financing for sustainability</li>
+                <li>Innovation for acceleration</li>
+            </ol>
+
+            <h2>HIV / AIDS</h2>
+
+            <h3>Past Questions</h3>
+            <ul>
+                <li><strong>1.</strong> Discuss the concentrated epidemic of HIV/AIDS and its burden in context to Nepal. <strong>(2069)</strong></li>
+                <li><strong>2. Write short notes on: (2067)</strong><br>
+                a. Concentrated epidemics of HIV/AIDS in Nepal <strong>5</strong></li>
+                <li><strong>3. Write short notes on: (2064)</strong><br>
+                a. Most-at-risk population for HIV transmission in Nepal <strong>5</strong></li>
+                <li><strong>4. Write short notes on: (2063)</strong><br>
+                a. Concentrated epidemic of HIV <strong>5</strong></li>
+                <li><strong>5. Write short notes on:</strong> Epidemiology of HIV/AIDS. <strong>(2061)</strong></li>
+                <li><strong>6.</strong> Outline a comprehensive approach for the prevention and control of HIV/AIDS in a hill district of Nepal whose young population migrate to India in search of livelihood. <strong>10 (2059)</strong></li>
+                <li><strong>7. Write briefly: (2056)</strong><br>
+                a. Transmission of human immune virus (HIV) infection and its prevention <strong>4</strong></li>
+                <li><strong>8.</strong> Explain why women are more at risk to get HIV infection than men in Nepal. <strong>10 (2055)</strong></li>
+                <li><strong>9. Write short notes on: (2054)</strong><br>
+                a. HIV/AIDS situation in Nepal and its mode of transmission. <strong>4</strong><br>
+                b. What steps should be taken to prevent AIDS in Nepal? <strong>8</strong></li>
+                <li><strong>10.</strong> Describe briefly the salient features of comparative epidemiology of AIDS and Hepatitis B. <strong>11 (2053)</strong></li>
+                <li><strong>11.</strong> Write epidemiological importance of HIV infection in a community. Provide the preventive strategy. <strong>8</strong></li>
+            </ul>
+
+            <p>HIV/AIDS is a fatal illness caused by a Retrovirus known as HIV which breaks down body's immune system, leaving victim vulnerable to a host of life threatening opportunistic infections, neurological disorders and unusual malignancies.</p>
+            <p>It is also known as <strong>"Slim disease"</strong> and is considered as a modern Pandemic.</p>
+
+            <h3>Problem Statement</h3>
+
+            <h4>HIV/AIDS status in Nepal (2022)</h4>
+            <p>Each year the annual estimates of key indicators among people living with HIV in Nepal are finalized by using AIDS Epidemic Model and Spectrum/AIM.</p>
+            <ul>
+                <li>The epidemic in Nepal is predominantly driven by sexual transmission and is characterized as a concentrated HIV epidemic among key populations, including men who have sex with men, male sex workers, transgender individuals, people who inject drugs, female sex workers and their clients, migrants, and prisoners.</li>
+                <li>First HIV case was detected in 1988 in Nepal.</li>
+                <li>Heterosexual transmission is dominant (72%).</li>
+                <li>The estimated PLHIV in Nepal was 30,000 in 2078/79 (2022) <em>(source: DoHS 2079/80)</em></li>
+            </ul>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>HIV and AIDS estimates in Nepal</th>
+                        <th>Number (min-max)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Adults and children living with HIV</strong></td>
+                        <td>30,000 (26,000-32,000)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Adults aged 15 and over living with HIV</strong></td>
+                        <td>29,000 (26,000-32,000)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Women aged 15 and over living with HIV</strong></td>
+                        <td>13,000 (12,000-14,000)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Men aged 15 and over living with HIV</strong></td>
+                        <td>16,000 (14,000-17,000)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Children aged 0 to 14 living with HIV</strong></td>
+                        <td>1,200 (1,100-1,400)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mothers needing elimination of vertical transmission services</strong></td>
+                        <td>200 (160-240)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Key indicators</th>
+                        <th>Achievement 2021</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>HIV incidence per 1,000</strong></td>
+                        <td>0.02%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Percentage of women 15-49 living with HIV (of estimated adult PLHIV)</strong></td>
+                        <td>53%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>New infant HIV infections</strong></td>
+                        <td>33</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total new infections among 0-14 years</strong></td>
+                        <td>0-45</td>
+                    </tr>
+                    <tr>
+                        <td><strong>AIDS mortality per 100 thousand</strong></td>
+                        <td>2.13</td>
+                    </tr>
+                    <tr>
+                        <td><strong>People have become infected with HIV since the start of epidemic in 1988</strong></td>
+                        <td>61,800</td>
+                    </tr>
+                    <tr>
+                        <td><strong>People have died from AIDS-related illnesses since the start of epidemic</strong></td>
+                        <td>26,970</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p><em>Source: Global AIDS Monitoring (GAM) Reporting, 2022.</em></p>
+
+            <h4>Reported HIV infection by 2020 (Source: HIV update of Nepal, 2020)</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Risk Groups</th>
+                        <th>%</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Client of sex worker</strong></td>
+                        <td>31.6%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Migrant worker</strong></td>
+                        <td>11.2%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>People who inject drugs (PWID)</strong></td>
+                        <td>9%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Female sex worker</strong></td>
+                        <td>6%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Male sex with male (MSM)</strong></td>
+                        <td>3%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Blood and blood products</strong></td>
+                        <td>0.4%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Spouse or partner of migrants</strong></td>
+                        <td>8.4%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Others (housewife, male partner, prison inmate)</strong></td>
+                        <td>30.6%</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Types of Epidemics of HIV [2069, 2074]</h3>
+
+            <h4>1. Low level epidemic:</h4>
+            <p>Infection is largely confined to individuals with high risk behavior (e.g. sex worker, drug addicts, homosexual men). It has never spread to substantial level in any sub-population i.e. prevalence has not consistently exceeded 5% in any defined sub-population.</p>
+
+            <h4>2. Concentrated HIV epidemic:</h4>
+            <p>HIV has spread rapidly in a defined sub-population but is not well established in general population. Prevalence is consistently over 5% in at least one defined sub-population (high risk group) but below 1% in pregnant women.</p>
+
+            <h4>3. Generalized HIV epidemic:</h4>
+            <p>HIV is firmly established in general population. Sexual networking in general population is sufficient to sustain epidemic independent of high risk groups. Prevalence is consistently over 1% in pregnant women.</p>
+
+            <h3>Problem Statement: World</h3>
+            <ul>
+                <li>Recognized as emerging disease only in early 1980s, AIDS has rapidly established itself throughout the world.</li>
+                <li>HIV continues to be a major global health issue, claiming &gt;35 million lives so far. In 2015, ~1 million deaths were due to HIV related causes. Total number of people living with HIV is 36.7 million while 2.1 million were newly affected.</li>
+                <li>Women represent about half of the population living with PLHA (People Living with HIV/AIDS) worldwide whereas young people aged 15–24 years represent 40% of new infections.</li>
+                <li>Combination ART (Anti-Retroviral Therapy) first introduced in 1996 has led to dramatic reductions in mortality and morbidity. 54% adults and 43% children living with HIV are currently receiving Anti-Retroviral Therapy (ART). Global ART coverage for pregnant and breastfeeding women living with HIV is ~76%.</li>
+                <li>WHO African Region is the most affected region, with the burden of ~2/3<sup>rd</sup> of global total of new HIV cases.</li>
+                <li>Currently only 70% people know their HIV status while the target is 90%.</li>
+            </ul>
+
+            <h3>Current Status in Nepal [2074]</h3>
+            <ul>
+                <li>HIV epidemic in Nepal has evolved starting from a 'low level epidemic' to 'concentrated epidemic'.</li>
+                <li>A latest epidemiological data, however, states that the epidemic transmission of HIV has halted in Nepal.</li>
+                <li>Trend of new infection is taking a descending trajectory, reaching peak in 2001-2002. Thus prevention of HIV among general population is the key programmatic strategy, while providing quality treatment, care and support for infected and affected is equally important strategic direction to achieve the end results of national response.</li>
+                <li>First HIV case in Nepal was detected in 1988.</li>
+                <li>People who inject drugs, men who have sex with other men and female sex workers are the key population at higher risk of HIV in Nepal.</li>
+            </ul>
+
+            <h3>Epidemiological Features</h3>
+
+            <h4>1. Agent Factors</h4>
+            <p><strong>a. Agent:</strong> Caused by Human immunodeficiency virus (HIV).</p>
+            
+            <!-- HIV Virus Diagram SVG -->
+            <div class="img-container">
+                <svg viewBox="0 0 500 500" width="100%" height="auto" style="max-width: 400px; background: #0d0d0d; border-radius: 50%;">
+                    <circle cx="250" cy="250" r="240" fill="none" stroke="#333" stroke-width="2"/>
+                    <!-- Outer Membrane -->
+                    <circle cx="250" cy="250" r="200" fill="none" stroke="#666" stroke-width="8"/>
+                    <circle cx="250" cy="250" r="185" fill="none" stroke="#444" stroke-width="4"/>
+                    
+                    <!-- Glycoproteins gp120/gp41 -->
+                    <g stroke="#aaa" stroke-width="3">
+                        <line x1="250" y1="50" x2="250" y2="10" /><circle cx="250" cy="10" r="8" fill="#888"/>
+                        <line x1="250" y1="450" x2="250" y2="490" /><circle cx="250" cy="490" r="8" fill="#888"/>
+                        <line x1="50" y1="250" x2="10" y2="250" /><circle cx="10" cy="250" r="8" fill="#888"/>
+                        <line x1="450" y1="250" x2="490" y2="250" /><circle cx="490" cy="250" r="8" fill="#888"/>
+                        <line x1="108" y1="108" x2="80" y2="80" /><circle cx="80" cy="80" r="8" fill="#888"/>
+                        <line x1="392" y1="108" x2="420" y2="80" /><circle cx="420" cy="80" r="8" fill="#888"/>
+                        <line x1="108" y1="392" x2="80" y2="420" /><circle cx="80" cy="420" r="8" fill="#888"/>
+                        <line x1="392" y1="392" x2="420" y2="420" /><circle cx="420" cy="420" r="8" fill="#888"/>
+                    </g>
+                    
+                    <!-- Cone Capsid (p24) -->
+                    <polygon points="170,120 330,120 290,380 210,380" fill="#151515" stroke="#888" stroke-width="4"/>
+                    
+                    <!-- RNA Strands -->
+                    <path d="M 220,160 Q 250,180 220,220 T 220,280 T 220,340" fill="none" stroke="#fff" stroke-width="3"/>
+                    <path d="M 280,160 Q 250,180 280,220 T 280,280 T 280,340" fill="none" stroke="#fff" stroke-width="3"/>
+                    
+                    <!-- Enzymes -->
+                    <circle cx="230" cy="150" r="6" fill="#aaa"/>
+                    <circle cx="270" cy="150" r="6" fill="#aaa"/>
+                    <circle cx="240" cy="350" r="6" fill="#aaa"/>
+                    <circle cx="260" cy="350" r="6" fill="#aaa"/>
+                    
+                    <!-- Labels -->
+                    <text x="250" y="30" fill="#aaa" font-family="monospace" font-size="12" text-anchor="middle">gp120 / gp41</text>
+                    <text x="250" y="80" fill="#888" font-family="monospace" font-size="11" text-anchor="middle">Lipid Membrane</text>
+                    <text x="250" y="110" fill="#888" font-family="monospace" font-size="11" text-anchor="middle">Matrix Protein (p17)</text>
+                    <text x="250" y="250" fill="#fff" font-family="monospace" font-size="12" text-anchor="middle">Viral ssRNA</text>
+                    <text x="250" y="370" fill="#aaa" font-family="monospace" font-size="11" text-anchor="middle">Capsid (p24)</text>
+                    <text x="250" y="420" fill="#888" font-family="monospace" font-size="11" text-anchor="middle">Reverse Transcriptase</text>
+                </svg>
+                <div class="img-caption">Structure of HIV Virus</div>
+            </div>
+
+            <ul>
+                <li>HIV is a member of the genus <em>Lentivirus</em>, part of the family <em>Retroviridae</em>.</li>
+                <li>Has 2 variants: HIV-1 (more virulent) and HIV-2 (less virulent).</li>
+                <li>Icosahedral in shape, 90-120 nm in diameter.</li>
+                <li>Outer Envelope is composed of lipids (obtained from the host plasma membrane during budding process) as well as glycoproteins (Gp-120 and Gp-41).</li>
+                <li>Inner to envelope, truncated cone-like capsid is present made up of protein p24.</li>
+                <li>Inner to capsid is viral genome i.e. viral ss-RNA and Reverse Transcriptase (RNA dependent DNA polymerase), Integrase, Protease.</li>
+            </ul>
+
+            <p><strong>b. Reservoir of infection:</strong> Cases and carriers.</p>
+            <p><strong>c. Source of infection:</strong> Mainly via Blood, semen, CSF as they contain high concentration of virus. Tear, Saliva, breast milk, urine, cervical and vaginal secretion also contain virus in low concentration.</p>
+
+            <h4>2. Host Factors</h4>
+            <ul>
+                <li><strong>a. Age:</strong> Most commonly in age group of 15-49 years. In Nepal in 2013:
+                    <ul>
+                        <li>Children aged up to 14 years: 3.6%</li>
+                        <li>Adults aged 50 years and above: 21%</li>
+                        <li>Adults aged 15 years till 49 years: 75.4%</li>
+                    </ul>
+                </li>
+                <li><strong>b. Sex:</strong> In Nepal, males account for about two-thirds (62%) of the infections. Remaining more than one-third (38%) of infections is in females. The male to female sex ratio of total infection was 1.9 for the year 2015.</li>
+                <li><strong>c. High risk Group (According to annual report 2073/74):</strong>
+                    <ul>
+                        <li>People Who Inject Drugs (PWID): 4%</li>
+                        <li>Male having Sex with Women (MSW): 6%</li>
+                        <li>Male having Sex with Men (MSM) and Transgender (TG) people: 7%</li>
+                        <li>Female Sex Workers (FSW): 1%</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>Immunology</h3>
+
+            <!-- HIV Life Cycle Diagram SVG -->
+            <div class="img-container">
+                <svg viewBox="0 0 600 420" width="100%" height="auto" style="background: #0d0d0d; border: 1px solid #222; border-radius: 4px;">
+                    <!-- Host Cell Outline -->
+                    <rect x="20" y="20" width="560" height="380" rx="20" fill="none" stroke="#444" stroke-width="2" stroke-dasharray="5 5"/>
+                    <text x="40" y="45" fill="#888" font-family="monospace" font-size="12">CD4 T-Helper Cell</text>
+
+                    <!-- Nucleus -->
+                    <ellipse cx="300" cy="220" rx="120" ry="80" fill="#151515" stroke="#555" stroke-width="2"/>
+                    <text x="300" y="170" fill="#777" font-family="monospace" font-size="11" text-anchor="middle">Nucleus</text>
+
+                    <!-- Step 1: Binding & Fusion -->
+                    <circle cx="50" cy="100" r="15" fill="#222" stroke="#aaa" stroke-width="2"/>
+                    <text x="50" y="104" fill="#fff" font-family="sans-serif" font-size="10" text-anchor="middle">HIV</text>
+                    <path d="M 65 100 L 110 100" stroke="#888" stroke-width="2" marker-end="url(#arrow)"/>
+                    <text x="85" y="90" fill="#888" font-family="monospace" font-size="10" text-anchor="middle">1. Binding</text>
+
+                    <!-- Step 2: Reverse Transcription -->
+                    <path d="M 120 120 L 160 160" stroke="#888" stroke-width="2"/>
+                    <text x="120" y="180" fill="#aaa" font-family="monospace" font-size="10">2. Reverse Transcription</text>
+                    <text x="120" y="195" fill="#666" font-family="monospace" font-size="9">ssRNA &rarr; dsDNA</text>
+
+                    <!-- Step 3: Integration -->
+                    <path d="M 180 200 L 230 220" stroke="#888" stroke-width="2"/>
+                    <text x="210" y="240" fill="#aaa" font-family="monospace" font-size="10">3. Integration</text>
+                    <!-- DNA inside nucleus -->
+                    <path d="M 260 220 Q 300 200 340 220" fill="none" stroke="#fff" stroke-width="3"/>
+
+                    <!-- Step 4: Transcription -->
+                    <path d="M 340 220 L 390 200" stroke="#888" stroke-width="2"/>
+                    <text x="370" y="180" fill="#aaa" font-family="monospace" font-size="10">4. Transcription</text>
+
+                    <!-- Step 5: Assembly -->
+                    <circle cx="480" cy="180" r="20" fill="#1a1a1a" stroke="#777" stroke-dasharray="2 2"/>
+                    <text x="480" y="220" fill="#aaa" font-family="monospace" font-size="10" text-anchor="middle">5. Assembly</text>
+
+                    <!-- Step 6: Budding -->
+                    <path d="M 500 180 L 540 180" stroke="#888" stroke-width="2"/>
+                    <circle cx="560" cy="180" r="15" fill="#222" stroke="#fff" stroke-width="2"/>
+                    <text x="560" y="210" fill="#aaa" font-family="monospace" font-size="10" text-anchor="middle">6. Budding</text>
+                </svg>
+                <div class="img-caption">Overview of the HIV Replication Life Cycle</div>
+            </div>
+
+            <ul>
+                <li>HIV penetrates CD4+ T-Helper cells by attachment of Gp-120 to CD4 protein and fusion is mediated by Gp-41.</li>
+                <li>Inside T helper cells, viral ss-RNA is reverse transcribed into DNA (using reverse transcriptase) and integrated into host genome (using integrase) where the virus reproduces itself.</li>
+                <li>Progeny virion then buds out from plasma membrane (utilizing protease) killing the T helper cell and infects fresh cells.</li>
+                <li>This gradual depletion of T-helper cells accounts for immune system disorder associated with HIV/AIDS.</li>
+            </ul>
+
+            <h3>Mode of Transmission</h3>
+
+            <h4>A. Sexual Transmission:</h4>
+            <ul>
+                <li>In any form: Vaginal, anal or Oral.</li>
+                <li>Transmission from Male to Female is twice likely than vice versa (as women have larger surface of exposure and semen has higher concentration of virus than cervical or mucous fluid).</li>
+                <li>Higher risk is seen in Anal intercourse, Menstruating women, Adolescent girls and women above 45 years.</li>
+                <li>Presence of STD in any one of the partner increases the risk by 8 to 10 times.</li>
+                <li>More infectious in window period and advanced stages.</li>
+            </ul>
+
+            <h4>B. Blood contact:</h4>
+            <ul>
+                <li>By transfusion of Whole blood, Platelets and factor VIII &amp; IX derived from plasma.</li>
+                <li>But, not with transfusion of albumin, Igs, Hepatitis vaccine that meet WHO requirements.</li>
+                <li>Risk of transmission by a unit of infected blood is 95%.</li>
+            </ul>
+
+            <h4>C. Maternal-fetal transmission:</h4>
+            <ul>
+                <li>Transmission can take place through the placenta, during delivery or by breastfeeding.</li>
+                <li>This can be prevented almost entirely by preventive efforts such as:
+                    <ul>
+                        <li>a. Antiretroviral therapy.</li>
+                        <li>b. Elective CS before onset of labor and rupture of membrane.</li>
+                        <li>c. Refrain from breastfeeding.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <p><strong>Incubation Period:</strong> From a few months to 10 years or more from the period of infection to the development of AIDS.</p>
+
+            <h3>Clinical Manifestation</h3>
+
+            <h4>a. Initial infection:</h4>
+            <ul>
+                <li>Influenza-like symptoms in beginning like fever, sore throat, rash.</li>
+                <li>HIV antibodies don't appear in blood, but person is infective because of high concentration of virus in blood.</li>
+                <li><strong>Window Period (2-12 weeks):</strong> It is the time interval during which a person with HIV is infectious but will test negative on standard antibody test.</li>
+            </ul>
+
+            <h4>b. Asymptomatic Carrier State:</h4>
+            <ul>
+                <li>Infected person develops antibody so can be detected but has no overt sign of disease.</li>
+                <li>Persistent Generalized Lymphadenopathy (PGL) may be only sign.</li>
+            </ul>
+
+            <h4>c. AIDS-related complex (ARC):</h4>
+            <p>Illness is due to damage to immune system but in this state opportunistic infection and cancer associated to AIDS are absent. Features are:</p>
+            <ul>
+                <li>Unexplained diarrhea lasting longer than a month</li>
+                <li>Fatigue, malaise</li>
+                <li>Loss of more than 10% of the body weight</li>
+                <li>Fever, night sweats</li>
+                <li>Oral thrush</li>
+                <li>Generalized lymphadenopathy</li>
+                <li>Enlarged spleen</li>
+            </ul>
+            <p>Some patients with ARC develop AIDS.</p>
+
+            <h4>d. AIDS:</h4>
+            <p>It is the end stage of HIV infection. Opportunistic infection and cancers develop in this stage due to defective immune system of the body.</p>
+
+            <p><strong>Malignancies associated with cancer are:</strong></p>
+            <ul>
+                <li>i. Kaposi's sarcoma</li>
+                <li>ii. Hodgkin and Non-Hodgkin Lymphoma</li>
+            </ul>
+
+            <p><strong>Opportunistic infections are:</strong></p>
+            <ul>
+                <li><strong>i. Parasitic:</strong> <em>Pneumocystis carinii</em> pneumonia, Cryptosporidiosis, Isosporiasis, Toxoplasmosis, Extra-intestinal strongyloidiasis</li>
+                <li><strong>ii. Mycotic:</strong> Candidiasis, Cryptococcosis, Histoplasmosis</li>
+                <li><strong>iii. Bacterial:</strong> Tuberculosis (Pulmonary and extrapulmonary), Recurrent salmonellosis, Invasive nocardiosis</li>
+                <li><strong>iv. Viral:</strong> CMV, Herpes Simplex, Multidermatomal herpes zoster</li>
+            </ul>
+
+            <p>Many people are also affected by a wasting syndrome with chronic diarrhea and severe weight loss known as <strong>"slim disease"</strong>.</p>
+            <p>A significant number of people also develop AIDS dementia due to HIV crossing Blood Brain Barrier.</p>
+
+            <h3>Diagnosis of AIDS</h3>
+
+            <h4>Clinical</h4>
+
+            <p><strong>A. WHO Case definition for AIDS surveillance</strong></p>
+
+            <p><strong>1. For Adults (&gt;12 years of age):</strong><br>
+            Considered to have AIDS if at least 2 major signs are present in combination with at least 1 minor sign and if these signs are not known to be due to conditions unrelated to HIV infection.</p>
+            <ul>
+                <li><strong>Major Signs:</strong>
+                    <ul>
+                        <li>Weight loss &ge;10% of the body weight</li>
+                        <li>Chronic diarrhea for more than 1 month</li>
+                        <li>Prolonged fever for more than 1 month (Intermittent or constant)</li>
+                    </ul>
+                </li>
+                <li><strong>Minor Signs:</strong>
+                    <ul>
+                        <li>Persistent cough for more than one month</li>
+                        <li>Generalized pruritic dermatitis</li>
+                        <li>History of Herpes zoster</li>
+                        <li>Oropharyngeal candidiasis</li>
+                        <li>Chronic progressive or disseminated Herpes Simplex infection</li>
+                        <li>Generalized Lymphadenopathy</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="note">
+                <strong>Note:</strong><br>
+                - Presence of either generalized Kaposi Sarcoma or Cryptococcal meningitis is sufficient for diagnosis of AIDS for surveillance purpose.<br>
+                - For patients with tuberculosis, persistent cough for more than 1 month should not be considered as a minor sign.
+            </div>
+
+            <p><strong>2. For Children (&le;12 years of age):</strong><br>
+            Case definition for AIDS is fulfilled if at least 2 major signs and 2 minor signs are present:</p>
+            <ul>
+                <li><strong>Major Signs:</strong>
+                    <ul>
+                        <li>Weight loss or abnormally slow growth</li>
+                        <li>Chronic diarrhea for more than 1 month</li>
+                        <li>Prolonged fever for more than one month</li>
+                    </ul>
+                </li>
+                <li><strong>Minor Signs:</strong>
+                    <ul>
+                        <li>Generalized lymph nodes enlargement</li>
+                        <li>Oropharyngeal Candidiasis</li>
+                        <li>Recurrent common infections (e.g. Ear infection, pharyngitis)</li>
+                        <li>Persistent cough</li>
+                        <li>Generalized rash</li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="note">
+                <strong>Note:</strong> Confirmed HIV infection in mother counts as minor Criterion.
+            </div>
+
+            <p><strong>B. Expanded WHO case definition for AIDS surveillance</strong></p>
+            <p>Adult or adolescent (&gt;12 years of age) is considered to have AIDS if serology is positive and one or more of the following conditions is present:</p>
+            <ul>
+                <li>&gt;10% body weight loss or cachexia, with diarrhea or fever or both, intermittent or constant, for at least 1 month, not known due to a condition unrelated to HIV infection.</li>
+                <li>Cryptococcal meningitis</li>
+                <li>Pulmonary or Extra-Pulmonary TB</li>
+                <li>Kaposi Sarcoma</li>
+                <li>Neurological impairment</li>
+                <li>Candidiasis of the esophagus</li>
+                <li>Clinically diagnosed life-threatening or recurrent episodes of pneumonia</li>
+                <li>Invasive Cervical Cancer</li>
+            </ul>
+
+            <h4>Laboratory Diagnosis</h4>
+            <p>Diagnosis of HIV infection can be carried out by detecting any of the following:</p>
+
+            <p><strong>1. Antibodies for HIV detection:</strong><br>
+            Most widely used technique based on antibodies to p24, gp41. At present to ensure accuracy, two different sets of tests are used:</p>
+            <ul>
+                <li><strong>a. Enzyme Linked-Immunosorbent Assay (ELISA):</strong> Sensitive method so first done. This method uses enzyme conjugates that bind to specific HIV antibody and substrates/chromogens that produce colour in a reaction catalyzed by the bound enzyme conjugate.</li>
+                <li><strong>b. Western Blot (WB):</strong> Specific and confirmatory done after ELISA. It is based on capturing different antibodies present in the serum in a single test. This method uses longer strip on which different HIV antigens are separated. When patient serum containing different antibodies is mixed with strip containing different antigens, antigen-antibody reaction occurs and test result is read based on presence of major antibodies in the serum.</li>
+            </ul>
+
+            <p><strong>2. HIV Nucleic acid detection:</strong><br>
+            HIV nucleic acid detection is based on polymerase chain reaction (PCR). Considered as gold standard technique for early infant diagnosis.</p>
+
+            <p><strong>3. HIV Antigen detection - p24 Antigen test:</strong><br>
+            Presence of the p24 (capsid protein) of HIV in blood is detected by antigen test. Monoclonal antibodies specific to the protein are mixed with the blood to be analyzed.</p>
+
+            <p><strong>4. Virus isolation:</strong> By culture of lymphocytes.</p>
+
+            <p><strong>5. Other laboratory investigations:</strong></p>
+            <ul>
+                <li>CBC (anemia, Leucopenia, Thrombocytopenia)</li>
+                <li>Absolute CD4 count (&lt;200 cells/mm<sup>3</sup> and &lt;20% means high risk)</li>
+                <li>HIV viral load test</li>
+                <li>&beta;2 Microglobulin</li>
+                <li>p24 antigen (indicates active HIV replication)</li>
+            </ul>
+
+            <div class="note">
+                <strong>Note:</strong> Normal CD4 count is &gt;950 cells/mm<sup>3</sup> and Normal CD4% is 40%.
+            </div>
+
+            <p><strong>HIV testing services:</strong></p>
+            <ul>
+                <li>Should be voluntary and right to decline testing should be recognized. Mandatory testing (forceful) by a health care provider, authority or a partner or family member is not acceptable, as it undermines human rights.</li>
+                <li>Many countries are implementing self-test, whereby a person who wants to know his/her HIV status collects a specimen, performs test and also interprets the test results in private or with someone they trust. Self-testing does not provide definitive diagnosis, but is an initial test.</li>
+                <li>WHO also recommends: "Assisted HIV partner notification service" which is a simple and effective way to reach these partners, many of whom are unaware of their HIV exposure.</li>
+            </ul>
+
+            <p><strong>All HIV testing services must follow 5 C's principles recommended by WHO:</strong></p>
+            <ul>
+                <li>i. Informed Consent</li>
+                <li>ii. Confidentiality</li>
+                <li>iii. Counseling</li>
+                <li>iv. Correct test results</li>
+                <li>v. Connection (linkage to care, treatment and other services)</li>
+            </ul>
+
+            <h4>Antibody testing in Nepal</h4>
+            <p>Nepal has adopted serial testing algorithm based on antibody testing using Rapid diagnostic kits for whole blood, serum or plasma.</p>
+
+            <p><strong>Commonly used Rapid HIV Test Kits:</strong></p>
+            <ul>
+                <li><strong>Determine HIV-1/2:</strong> Screening Rapid test</li>
+                <li><strong>Uni-Gold HIV:</strong> Confirmatory Rapid test</li>
+                <li><strong>Stat-Pak HIV-1/2:</strong> Tiebreaker Rapid test</li>
+            </ul>
+
+            <p>If the first test shows a non-reactive result, the tested sample will be reported as "HIV Negative."</p>
+            <p>If the first test shows a reactive result, the sample will be tested further by a second test; if the second test shows a reactive result, the tested sample will be reported as "HIV Positive."</p>
+            <p>But if first is reactive and second is non-reactive, the finding is called "discordant." In this case, a third test must be performed; the result of the third test will be the final test result.</p>
+
+            <!-- Diagnostic Algorithm Flow -->
+            <div class="flow-step" style="text-align: center;">Determine HIV-1/2 (Screening)</div>
+            <div style="display: flex; justify-content: space-around; margin: 10px 0;">
+                <div style="width: 45%; text-align: center;">
+                    <span style="color: var(--accent-color); font-weight: bold;">&swarr; Non-reactive</span>
+                    <div class="flow-step"><strong>HIV Negative</strong></div>
+                </div>
+                <div style="width: 45%; text-align: center;">
+                    <span style="color: var(--accent-color); font-weight: bold;">&searr; Reactive</span>
+                    <div class="flow-step">Uni-Gold HIV (Confirmatory)</div>
+                </div>
+            </div>
+
+            <div style="display: flex; justify-content: flex-end; margin: 10px 0;">
+                <div style="width: 50%;">
+                    <div style="display: flex; justify-content: space-around;">
+                        <div style="text-align: center;">
+                            <span style="color: var(--accent-color); font-weight: bold;">&swarr; Reactive</span>
+                            <div class="flow-step"><strong>HIV Positive</strong></div>
+                        </div>
+                        <div style="text-align: center;">
+                            <span style="color: var(--accent-color); font-weight: bold;">&searr; Non-reactive</span>
+                            <div class="flow-step">Discordant</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="display: flex; justify-content: flex-end; margin: 10px 0;">
+                <div style="width: 30%; text-align: center;">
+                    <div class="flow-arrow">&darr;</div>
+                    <div class="flow-step">Stat-Pak HIV-1/2 (Tiebreaker)</div>
+                    <div style="display: flex; justify-content: space-between; margin-top: 8px;">
+                        <span style="font-size: 0.8rem;">Reactive &rarr; <strong>Positive</strong></span>
+                        <span style="font-size: 0.8rem;">Non-reactive &rarr; <strong>Negative</strong></span>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Control of AIDS</h3>
+
+            <h4>1. Prevention</h4>
+            <p>Until a vaccine or cure for AIDS is found, the only means available at present is health education to people for making life-saving choices.</p>
+
+            <p><strong>a. Sexual:</strong></p>
+            <ul>
+                <li>Comprehensive sex education in schools</li>
+                <li>Public awareness campaigns for HIV</li>
+                <li>Easily accessible testing centres</li>
+                <li>Safe sex practices like avoiding penetrative sexual intercourse, delaying sexual debut, condom use, fewer sexual partners</li>
+                <li>Control of STDs</li>
+                <li>Effective treatment of HIV infected individuals</li>
+                <li>Post-exposure prophylaxis</li>
+            </ul>
+
+            <p><strong>b. Parenteral:</strong></p>
+            <ul>
+                <li>Blood products transmission: donor questionnaire, routine screening of donated blood, blood substitute use</li>
+                <li>IV drug users should be informed that sharing needles and syringes involves special risk</li>
+            </ul>
+
+            <p><strong>c. Perinatal:</strong></p>
+            <ul>
+                <li>Routine opt-out antenatal HIV antibody testing</li>
+                <li>Preconception family planning if HIV seropositive</li>
+                <li>Medical measures to reduce vertical transmission</li>
+            </ul>
+
+            <p><strong>d. Occupational:</strong></p>
+            <ul>
+                <li>Education/training on universal precautions, needle stick avoidance</li>
+                <li>Post-exposure prophylaxis</li>
+            </ul>
+
+            <div class="note">
+                <strong>Note:</strong> VMMC stands for Voluntary Medical Male Circumcision, which is recommended by WHO for high-burden populations.
+            </div>
+
+            <h4>2. Antiretroviral Treatment</h4>
+
+            <p><strong>Antiretroviral drugs:</strong></p>
+            <ul>
+                <li><strong>1. Nucleoside reverse transcriptase inhibitor (NRTI):</strong> Abacavir (ABC), Didanosine (ddI), Emtricitabine (FTC), Lamivudine (3TC), Stavudine (d4T), Zidovudine (AZT)
+                    <br><em>Note: WHO recommends gradual phasing out of Stavudine due to obvious metabolic toxicities.</em>
+                </li>
+                <li><strong>2. Nucleotide reverse transcriptase inhibitors (NtRTI):</strong> Tenofovir (TDF)</li>
+                <li><strong>3. Non-nucleoside reverse transcriptase inhibitor (NNRTI):</strong> Efavirenz (EFV), Etravirine (ETV), Nevirapine (NVP)</li>
+                <li><strong>4. Protease Inhibitor (PIs):</strong> Atazanavir + ritonavir (ATV/r), Darunavir + ritonavir (DRV/r), Fosamprenavir + ritonavir (FPV/r), Indinavir + ritonavir (IDV/r), Lopinavir + ritonavir (LPV/r), Saquinavir + ritonavir (SQV/r)</li>
+                <li><strong>5. Integrase strand transfer inhibitors (INSTIs):</strong> Raltegravir (RAL)</li>
+            </ul>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Topic and population</th>
+                        <th>Recommendations</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>First-line ART regimens for adults</strong></td>
+                        <td>
+                            Two nucleoside reverse-transcriptase inhibitors (NRTIs) plus a non-nucleoside reverse-transcriptase inhibitor (NNRTI)<br><br>
+                            <strong>TDF + 3TC + EFV</strong> as a fixed-dose combination is recommended.<br><br>
+                            If contraindicated or not available, one of the following options is recommended:<br>
+                            - AZT + 3TC + EFV<br>
+                            - AZT + 3TC + NVP<br>
+                            - TDF + 3TC + NVP
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>First-line ART for pregnant and breastfeeding women and their infants</strong></td>
+                        <td>
+                            A once-daily fixed-dose combination of <strong>TDF + 3TC + EFV</strong> is recommended.<br>
+                            Infants of such mothers should receive six weeks of infant prophylaxis with daily NVP.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>HIV/TB co-infection</strong></td>
+                        <td>AZT or TDF + 3TC or FTC + EFV</td>
+                    </tr>
+                    <tr>
+                        <td><strong>HIV/HBV co-infection</strong></td>
+                        <td>TDF + 3TC or FTC + EFV or NVP</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>3. Specific Prophylaxis</h4>
+            <ul>
+                <li><strong>a. P. carinii:</strong> Regimens available are trimethoprim-sulfamethoxazole, aerosolized pentamidine and dapsone. Patient who develops <em>P. carinii</em> infection on a particular prophylactic regimen should be switched to other drug or should receive a combination regimen.</li>
+                <li><strong>b. M. avium complex:</strong> Rifabutin. Clinician should make sure that patient does not have active <em>M. tuberculosis</em>.</li>
+                <li><strong>c. M. tuberculosis:</strong> 300 mg isoniazid daily for 9 months to 1 year. It should be given to all HIV-infected patients with positive PPD (i.e. more than 5 mm in induration for HIV infected patient).</li>
+                <li><strong>d. Kaposi's sarcoma:</strong> Interferon, chemotherapy or radiotherapy.</li>
+                <li><strong>e. Cytomegalovirus retinitis:</strong> Ganciclovir.</li>
+                <li><strong>f. Cryptococcal meningitis:</strong> Fluconazole.</li>
+                <li><strong>g. Esophageal candidiasis or recurrent vaginal candidiasis:</strong> Fluconazole or ketoconazole.</li>
+                <li><strong>h. Herpes infection:</strong> Acyclovir.</li>
+            </ul>
+
+            <h4>4. Primary Health Care</h4>
+
+            <h3>HIV AND STI CONTROL PROGRAM NEPAL</h3>
+            <p>With the goal of achieving universal access to prevention, treatment and support, HIV Testing Service (HTS) has been a strategic focus in national response to HIV since Nepal started its response to HIV.</p>
+            <p>HTS first began in 1995 with the approach of Voluntary Client-Initiated Testing and Counseling (CITC). It was later widened to include Provider-Initiated Testing and Counseling (PITC).</p>
+            <p>With HTC site expanded all over country, National Guidelines were formulated in 2003 and updated in 2007, 2009 and 2011. Then in 2014, it was merged as comprehensive guidelines for treatment and prevention of HIV.</p>
+            <p>Starting from a 'low-level epidemic' over the period of time HIV infection in Nepal evolved itself to become a 'concentrated epidemic' among key populations (KPs), notably with People who Inject Drugs (PWID), Female Sex Workers (FSW), Men who have Sex with Men (MSM) and Transgender (TG) People in Nepal. The trend of new infections is taking a descending trajectory, reaching its peak during 2002-2003. The epidemic that peaked in 2000 with almost 4,370 new cases in a calendar year has declined to 754 in 2020 (83% decrease). This decline is further accompanied by the decreasing trend of prevalence of HIV in Nepal.</p>
+
+            <h4>HIV Counseling and Testing (HCT)</h4>
+            <p>HCT service is the process of providing people with professional counseling before and after an HIV test. It mainly aims at:</p>
+
+            <p><strong>1. Prevention of HIV transmission:</strong></p>
+            <ul>
+                <li>a. From +ve tested people to -ve or untested partner/s</li>
+                <li>b. From +ve tested mother to child</li>
+                <li>c. To -ve tested people from +ve or untested partner/s</li>
+            </ul>
+
+            <p><strong>2. Promote early uptake of services:</strong></p>
+            <ul>
+                <li>a. Medical care</li>
+                <li>b. Family planning</li>
+                <li>c. Emotional care</li>
+                <li>d. Counseling for positive living</li>
+                <li>e. Social support</li>
+                <li>f. Legal advice and future planning</li>
+                <li>g. Normalization of HIV</li>
+                <li>h. Challenging stigma</li>
+                <li>i. Promoting awareness</li>
+                <li>j. Supporting human rights</li>
+            </ul>
+
+            <h3>National HIV Strategic Plan (NHSP) 2021-2026</h3>
+            <p>The strategy outlines a global vision, a global goal and a set of global targets, all of which are fully aligned with the vision, goal and targets of the multi-sectoral UNAIDS strategy and the Sustainable Development Goals.</p>
+
+            <p><strong>VISION:</strong> Ending AIDS epidemic in Nepal by 2030.</p>
+            <p><strong>MISSION:</strong> To provide inclusive, equitable and accessible services throughout the HIV care continuum.</p>
+            <p><strong>GOALS:</strong></p>
+            <ul>
+                <li>To prevent new HIV infections</li>
+                <li>To improve HIV related health outcomes of PLHIV</li>
+                <li>To reduce HIV related inequalities among PLHIV and KPs</li>
+            </ul>
+
+            <p><strong>TARGETS BY 2026:</strong></p>
+            <ul>
+                <li><strong>1.</strong> Identify 95% of the estimated PLHIV</li>
+                <li><strong>2.</strong> Treat 95% of people diagnosed with HIV</li>
+                <li><strong>3.</strong> Attain viral load suppression for 95% of PLHIV on ART</li>
+                <li><strong>4.</strong> Reduce 90% of new HIV infections (baseline as of 2010)</li>
+                <li><strong>5.</strong> Eliminate vertical transmission of HIV</li>
+                <li><strong>6.</strong> Achieve case rate of congenital syphilis of &le;50 per 100,000 live births</li>
+            </ul>
+
+            <p><strong>PRIORITIES:</strong></p>
+            <ul>
+                <li><strong>1.</strong> Accelerating HIV prevention services among key populations.</li>
+                <li><strong>2.</strong> Expanding innovative and effective testing approaches with universal access to comprehensive treatment, care, support, VL testing and suppression services.</li>
+                <li><strong>3.</strong> Elimination of vertical transmission and syphilis.</li>
+                <li><strong>4.</strong> Scaling up of HIV sensitive social protection services to key and vulnerable populations.</li>
+                <li><strong>5.</strong> Addressing human rights and gender in HIV response.</li>
+                <li><strong>6.</strong> Strengthening effective, inclusive and accountable HIV governance.</li>
+            </ul>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 MONOLITH. Built to persist.</p>
+    </footer>
+
+</body>
+</html>
